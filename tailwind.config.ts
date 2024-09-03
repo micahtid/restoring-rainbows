@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,13 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        primary: "#73a0e1",
+        secondary: "#e3f0ff"
+      },
+      fontFamily: {
+        title: ['Nunito', 'sans-serif'],
+      },
+      maxWidth: {
+        'max': '1300px',
       },
     },
-  },
-  plugins: [],
+  }
 };
+
 export default config;
