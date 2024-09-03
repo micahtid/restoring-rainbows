@@ -1,0 +1,137 @@
+"use client";
+
+import { extendedNavItems } from "@/data";
+
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoIosClose } from "react-icons/io";
+import { IoChevronBackOutline, IoChevronDown } from "react-icons/io5";
+
+import useNavModal from "@/hooks/useNavModal";
+import { useState } from "react";
+
+const NavModal = () => {
+  const { isOpen, onClose } = useNavModal();
+
+  const [visibleSubItems, setVisibleSubItems] = useState<{
+    [key: number]: boolean;
+  }>({});
+
+  const toggleSubItems = (index: number) => {
+    setVisibleSubItems((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
+  return (
+    <div
+      className={`
+        w-[250px] h-[100vh]
+        fixed top-0 right-0
+        bg-gray-300/50 backdrop-blur-[2px]
+        flex flex-col justify-start items-end gap-y-4
+        p-8
+        ${!isOpen && "hidden"}
+        `}
+    >
+      <button className="mb-8" onClick={onClose}>
+        <IoIosClose size={35} />
+      </button>
+      {extendedNavItems.map((item, index) => (
+        <div key={index} className="flex flex-col justify-center items-end">
+          <div className="flex flex-row justify-center items-center gap-x-2">
+            <a
+              href={item.link}
+              className="text-lg font-semibold text-black/70 text-nowrap"
+            >
+              {item.label}
+            </a>
+            {item.subItems.length !== 0 && (
+              <button onClick={() => toggleSubItems(index)}>
+                {visibleSubItems[index] === true ? (
+                  <IoChevronDown />
+                ) : (
+                  <IoChevronBackOutline />
+                )}
+              </button>
+            )}
+          </div>
+          {visibleSubItems[index] && (
+            <div className="flex flex-col justify-center items-end">
+              {item.subItems.map((subItem, subIndex) => (
+                <a key={subIndex} href={subItem.link} className="text-black/70">
+                  {subItem.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const NavBar = () => {
+  const { onOpen, isOpen } = useNavModal();
+
+  return (
+    <nav
+      className="
+    w-[100vw] bg-secondary
+    px-12 py-4
+    flex justify-between items-center"
+    >
+      <a href="/">
+        <img src="/logo.png" className="w-[50px]" />
+      </a>
+      <div
+        className="
+        flex justify-center items-center gap-x-8
+        max-md:hidden"
+      >
+        {extendedNavItems.map((item, index) => (
+          <div
+            className="
+                group relative"
+            key={index}
+          >
+            <a href={item.link} className="font-semibold text-black/70">
+              {item.label}
+            </a>
+            <div
+              className="
+                    group-hover:flex hidden
+                    flex-col justify-center items-end 
+                    bg-gray-100
+                    py-2 pr-2 pl-10
+                    absolute top-[25px] -right-2"
+            >
+              {item.subItems.map((subItem, index) => (
+                <a
+                  key={index}
+                  href={subItem.link}
+                  className="text-right text-nowrap
+                        text-black/70"
+                >
+                  {subItem.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <button
+        className="
+        hidden max-md:inline-block
+        rounded-lg bg-gray-400/40 shadow-sm
+        p-3"
+        onClick={onOpen}
+      >
+        <RxHamburgerMenu size={25} />
+      </button>
+      <NavModal />
+    </nav>
+  );
+};
+
+export default NavBar;
