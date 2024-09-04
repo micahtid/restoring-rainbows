@@ -10,16 +10,18 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#73a0e1",
-        secondary: "#e3f0ff"
+        secondary: "#e3f0ff",
+        text: "#21262B"
       },
       fontFamily: {
         title: ['Nunito', 'sans-serif'],
+        accent: ['Playfair Display', 'serif'],
       },
       maxWidth: {
         'max': '1300px',
       },
     },
-  }
+  },
 };
 
 export default config;

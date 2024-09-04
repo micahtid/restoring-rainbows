@@ -5,6 +5,9 @@ import "./globals.css";
 import { DataContextProvider } from "@/providers/useData";
 import ModalProvider from "@/providers/ModalProvider";
 
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <DataContextProvider>
+          <NavBar />
           {children}
+          <Footer />
           <ModalProvider />
         </DataContextProvider>
       </body>

@@ -1,13 +1,13 @@
-import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
+import Statistics from "@/components/Statistics";
+import WhatWeDo from "@/components/WhatWeDo";
 
 const Home = () => {
   return (
-    <div>
-      <NavBar />
+    <div className="overflow-x-hidden">
       <Hero />
-      <Footer />
+      <Statistics />
+      <WhatWeDo />
     </div>
   )
 }
