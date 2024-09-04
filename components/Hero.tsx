@@ -59,7 +59,7 @@ const Hero = () => {
         max-w-[900px] max-md:min-w-[100%] px-4 z-[1000]
         absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[60%]"
       >
-        <h3 className="dynamic-heading font-bold uppercase text-center text-text drop-shadow">
+        <h3 className="dynamic-heading font-bold uppercase text-center text-text/80 drop-shadow">
             Spreading Art and Saving the Planet
         </h3>
         <div className="
