@@ -79,56 +79,61 @@ const NavBar = () => {
       className="
     w-[100vw] bg-secondary
     px-12 py-4
-    flex justify-between items-center"
+    flex justify-center items-center"
     >
-      <a href="/">
-        <img src="/logo.png" className="w-[50px]" />
-      </a>
-      <div
-        className="
-        flex justify-center items-center gap-x-8
-        max-md:hidden"
-      >
-        {extendedNavItems.map((item, index) => (
-          <div
-            className="
-                group relative"
-            key={index}
-          >
-            <a href={item.link} className="font-semibold text-black/70">
-              {item.label}
-            </a>
+      <div className="flex justify-between items-center
+      max-w-max w-full">
+        <a href="/">
+          <img src="/logo.png" className="w-[50px]" />
+        </a>
+        <div
+          className="
+          flex justify-center items-center gap-x-8
+          max-md:hidden"
+        >
+          {extendedNavItems.map((item, index) => (
             <div
               className="
-                    group-hover:flex hidden
-                    flex-col justify-center items-end 
-                    bg-gray-100
-                    py-2 pr-2 pl-10
-                    absolute top-[25px] -right-2"
+                  group relative"
+              key={index}
             >
-              {item.subItems.map((subItem, index) => (
-                <a
-                  key={index}
-                  href={subItem.link}
-                  className="text-right text-nowrap
-                        text-black/70"
-                >
-                  {subItem.label}
-                </a>
-              ))}
+              <a href={item.link} className="font-semibold text-black/70 text-lg group">
+                {item.label}
+              </a>
+              <div
+                className="
+                      group-hover:flex hidden
+                      flex-col justify-center items-end 
+                      bg-secondary
+                      py-2 pr-2 pl-10
+                      z-[1000]
+                      absolute top-[25px] -right-2"
+              >
+                {item.subItems.map((subItem, index) => (
+                  <a
+                    key={index}
+                    href={subItem.link}
+                    className="text-right text-nowrap text-lg
+                          text-black/70 
+                          opacity-0 group-hover:opacity-100 transition-all duration-100"
+                  >
+                    {subItem.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <button
+          className="
+          hidden max-md:inline-block
+          rounded-lg bg-gray-400/40 shadow-sm
+          p-3"
+          onClick={onOpen}
+        >
+          <RxHamburgerMenu size={25} />
+        </button>
       </div>
-      <button
-        className="
-        hidden max-md:inline-block
-        rounded-lg bg-gray-400/40 shadow-sm
-        p-3"
-        onClick={onOpen}
-      >
-        <RxHamburgerMenu size={25} />
-      </button>
       <NavModal />
     </nav>
   );
