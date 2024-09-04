@@ -4,9 +4,11 @@ import { getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, query,
  } from "firebase/firestore";
  import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-//  import toast from "react-hot-toast";
-
 // Note: EVERYONE Can Read and Write Documents
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 export const initializeFirebase = () => {
     const firebaseConfig = {
@@ -28,6 +30,10 @@ export const getFireStore = () => {
     const firestore = getFirestore();
     return firestore;
 }
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
 export const getBranches = (setBranches: (branches: DocumentData[]) => void) => {
     const app = initializeFirebase();
@@ -167,3 +173,100 @@ export const deleteBranch = async (uneditedBranch: DocumentData) => {
         console.error("Error deleting branch:", error);
     }
 };
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getExecutiveBoard = (setExecutiveBoard: (executiveBoard: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const executiveBoardCollection = collection(firestore, 'executiveboard');
+
+    const unsubscribe = onSnapshot(executiveBoardCollection, (querySnapshot) => {
+        const executiveBoard: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            executiveBoard.push(doc.data());
+        });
+        setExecutiveBoard(executiveBoard);
+    });
+
+    return unsubscribe;
+};
+
+export const addExecutiveBoardMember = async () => {};
+export const editExecutiveBoardMember = async () => {};
+export const deleteExecutiveBoardMember = async () => {};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getStatistics = (setStatistics: (statistics: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const statisticsCollection = collection(firestore, 'statistics');
+
+    const unsubscribe = onSnapshot(statisticsCollection, (querySnapshot) => {
+        const statistics: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            statistics.push(doc.data());
+        });
+        setStatistics(statistics);
+    });
+
+    return unsubscribe;
+};
+
+export const editStatistic = async () => {};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getVolunteers = (setVolunteers: (volunteers: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const volunteersCollection = collection(firestore, 'volunteers');
+
+    const unsubscribe = onSnapshot(volunteersCollection, (querySnapshot) => {
+        const volunteers: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            volunteers.push(doc.data());
+        });
+        setVolunteers(volunteers);
+    });
+
+    return unsubscribe;
+};
+
+export const addVolunteer = async () => {};
+export const deleteVolunteer = async () => {};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getPartners = (setPartners: (partners: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const partnersCollection = collection(firestore, 'partners');
+
+    const unsubscribe = onSnapshot(partnersCollection, (querySnapshot) => {
+        const partners: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            partners.push(doc.data());
+        });
+        setPartners(partners);
+    });
+
+    return unsubscribe;
+};
+
+export const addPartner = async () => {};
+export const editPartner = async () => {};
+export const deletePartner = async () => {};
