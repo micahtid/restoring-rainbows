@@ -1,112 +1,22 @@
-"use client";
-
-import { useData } from "@/providers/useData";
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from 'next/navigation';
-import { DocumentData } from "firebase/firestore";
-import { CountryData, organizeBranchesByCountry } from "@/utils/utils";
+import BranchList from "./components/BranchList"
+import BranchMap from "./components/BranchMap"
 
 const Branches = () => {
-    const { branches } = useData();
-    const [organizedBranches, setOrganizedBranches] = useState<null | CountryData[]>(null);
-
-    //////////////////////////////////////////////
-    //////////////////////////////////////////////
-    const router = useRouter();
-    const searchParams = useSearchParams();
-
-    useEffect(() => {
-        if (branches) {
-            setOrganizedBranches(organizeBranchesByCountry(branches));
-        }
-    }, [branches]);
-
-    const selectedCountry = searchParams.get("country");
-    const selectedState = searchParams.get("state");
-
-    //////////////////////////////////////////////
-    //////////////////////////////////////////////
-    const handleCountryClick = (country: string) => {
-        router.push(`?country=${country}`);
-    };
-
-    const handleStateClick = (state: string) => {
-        if (selectedCountry) {
-            router.push(`?country=${selectedCountry}&state=${state}`);
-        }
-    };
-    //////////////////////////////////////////////
-    //////////////////////////////////////////////
-
-    const renderBranches = (branches: DocumentData[]) => (
-        <div>
-            {branches.map((branch, index) => (
-                <div key={index}>
-                    <p>{branch.firstName} {branch.lastName}</p>
-                    <p>{branch.city}</p>
-                </div>
-            ))}
+  return (
+    <section className="max-w-max mx-auto px-4 py-8
+    flex flex-col justify-start items-start gap-y-4">
+        <div className="">
+            <h3 className="dynamic-subheading uppercase font-bold">
+                What are Branches
+            </h3>
+            <p className="mt-4 text-lg">
+            Branches are smaller versions of the main Restoring Rainbows based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country.
+            </p>
         </div>
-    );
+        <BranchList />
+        <BranchMap />
+    </section>
+  )
+}
 
-    const renderCountryList = () => (
-        <ul>
-            {organizedBranches?.map((countryData, index) => (
-                <li key={index} onClick={() => handleCountryClick(countryData.country)}>
-                    {countryData.country}
-                </li>
-            ))}
-        </ul>
-    );
-
-    const renderStateList = () => {
-        const usaData = organizedBranches?.find((country) => country.country === "USA");
-
-        return (
-            <ul>
-                {usaData?.states?.map((stateData, index) => (
-                    <li key={index} onClick={() => handleStateClick(stateData.state)}>
-                        {stateData.state}
-                    </li>
-                ))}
-            </ul>
-        );
-    };
-
-    const renderBranchListForState = () => {
-        const usaData = organizedBranches?.find((country) => country.country === "USA");
-        const stateData = usaData?.states?.find((state) => state.state === selectedState);
-
-        return (
-            <div>
-                <h3>Branches in {selectedState}, USA</h3>
-                {renderBranches(stateData?.branches || [])}
-            </div>
-        );
-    };
-
-    const renderBranchListForCountry = () => {
-        const countryData = organizedBranches?.find((country) => country.country === selectedCountry);
-
-        return (
-            <div>
-                <h3>Branches in {selectedCountry}</h3>
-                {renderBranches(countryData?.branches || [])}
-            </div>
-        );
-    };
-
-    //////////////////////////////////////////////
-    //////////////////////////////////////////////
-
-    return (
-        <div>
-            {!selectedCountry && renderCountryList()}
-            {selectedCountry === "USA" && !selectedState && renderStateList()}
-            {selectedCountry === "USA" && selectedState && renderBranchListForState()}
-            {selectedCountry && selectedCountry !== "USA" && renderBranchListForCountry()}
-        </div>
-    );
-};
-
-export default Branches;
+export default Branches
