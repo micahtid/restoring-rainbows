@@ -1,34 +1,34 @@
 import { create } from 'zustand';
 import { DocumentData } from 'firebase/firestore';
 
-interface BranchModal {
+interface PartnerModal {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
   //////////////////
-  currentBranch: DocumentData | null;
-  setCurrentBranch: (branch: DocumentData | null) => void;
+  currentPartner: DocumentData | null;
+  setCurrentPartner: (partner: DocumentData | null) => void;
   //////////////////
-  newBranch: boolean;
-  setNewBranch: (status: boolean) => void;
+  newPartner: boolean;
+  setNewPartner: (status: boolean) => void;
   //////////////////
   updated: boolean;
   setUpdated: (status: boolean) => void;
 }
 
-const useBranchModal = create<BranchModal>((set) => ({
+const usePartnerModal = create<PartnerModal>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
   //////////////////
-  currentBranch: null,
-  setCurrentBranch: (branch: DocumentData | null) => set({currentBranch: branch}),
+  currentPartner: null,
+  setCurrentPartner: (partner: DocumentData | null) => set({currentPartner: partner}),
   //////////////////
-  newBranch: false,
-  setNewBranch: (status: boolean) => set({ newBranch: status }),
+  newPartner: false,
+  setNewPartner: (status: boolean) => set({ newPartner: status }),
   //////////////////
   updated: false,
   setUpdated: (status: boolean) => set({updated: status})
 }));
 
-export default useBranchModal;
+export default usePartnerModal;
