@@ -22,8 +22,8 @@ const ExecutiveDashboard = () => {
       className="flex flex-col justify-start items-center gap-y-6
     py-12 w-full max-w-max"
     >
-      <h3 className="text-5xl font-title font-bold">Executive Board Members</h3>
-      <div className="flex flex-col justify-start items-center gap-y-2">
+      <h3 className="text-5xl font-bold">Executive Board Members</h3>
+      <div className="flex flex-col justify-start items-center gap-y-2 w-full">
           {executiveBoard?.map((member) => (
               <DataLine
               onClick={() => {
