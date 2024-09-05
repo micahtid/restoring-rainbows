@@ -94,7 +94,7 @@ export const addBranch = async (
 };
 
 export const editBranch = async (
-    uneditedBranch: DocumentData,
+    previousBranch: DocumentData,
     country: string,
     city: string,
     lat: number,
@@ -112,9 +112,9 @@ export const editBranch = async (
 
         const branchQuery = query(
             branchesCollection,
-            where("country", "==", uneditedBranch.country),
-            where("city", "==", uneditedBranch.city),
-            where("state", "==", uneditedBranch.state || "")
+            where("country", "==", previousBranch.country),
+            where("city", "==", previousBranch.city),
+            where("state", "==", previousBranch.state || "")
         );
 
         const querySnapshot = await getDocs(branchQuery);
@@ -144,7 +144,7 @@ export const editBranch = async (
     }
 };
 
-export const deleteBranch = async (uneditedBranch: DocumentData) => {
+export const deleteBranch = async (previousBranch: DocumentData) => {
     try {
         const app = initializeFirebase();
         const firestore = getFirestore(app);
@@ -153,9 +153,9 @@ export const deleteBranch = async (uneditedBranch: DocumentData) => {
 
         const branchQuery = query(
             branchesCollection,
-            where("country", "==", uneditedBranch.country),
-            where("city", "==", uneditedBranch.city),
-            where("state", "==", uneditedBranch.state || "")
+            where("country", "==", previousBranch.country),
+            where("city", "==", previousBranch.city),
+            where("state", "==", previousBranch.state || "")
         );
 
         const querySnapshot = await getDocs(branchQuery);
@@ -195,9 +195,107 @@ export const getExecutiveBoard = (setExecutiveBoard: (executiveBoard: DocumentDa
     return unsubscribe;
 };
 
-export const addExecutiveBoardMember = async () => {};
-export const editExecutiveBoardMember = async () => {};
-export const deleteExecutiveBoardMember = async () => {};
+export const addExecutiveBoardMember = async (
+    picture: File,
+    description: string,
+    firstName: string,
+    lastName: string,
+    bio: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storage = getStorage(app);
+
+        const pictureRef = ref(storage, `executiveboard/${picture.name}`);
+        await uploadBytes(pictureRef, picture);
+        const pictureURL = await getDownloadURL(pictureRef);
+
+        const executiveBoardCollection = collection(firestore, 'executiveboard');
+
+        await addDoc(executiveBoardCollection, {
+            picture: pictureURL,
+            description,
+            firstName,
+            lastName,
+            bio
+        });
+
+        console.log('Executive board member added successfully');
+    } catch (error) {
+        console.error('Error adding executive board member:', error);
+    }
+};
+
+export const editExecutiveBoardMember = async (
+    previousData: DocumentData,
+    description: string,
+    firstName: string,
+    lastName: string,
+    bio: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const executiveBoardCollection = collection(firestore, 'executiveboard');
+
+        const executiveBoardQuery = query(
+            executiveBoardCollection,
+            where("firstName", "==", previousData.firstName),
+            where("lastName", "==", previousData.lastName)
+        );
+
+        const querySnapshot = await getDocs(executiveBoardQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching executive board member found");
+            return;
+        }
+
+        // Update the first matching document
+        const executiveBoardDocRef = querySnapshot.docs[0].ref;
+
+        await updateDoc(executiveBoardDocRef, {
+            description,
+            firstName,
+            lastName,
+            bio
+        });
+
+        console.log('Executive board member updated successfully');
+    } catch (error) {
+        console.error("Error updating executive board member:", error);
+    }
+};
+
+export const deleteExecutiveBoardMember = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const executiveBoardCollection = collection(firestore, 'executiveboard');
+
+        const executiveBoardQuery = query(
+            executiveBoardCollection,
+            where("firstName", "==", previousData.firstName),
+            where("lastName", "==", previousData.lastName)
+        );
+
+        const querySnapshot = await getDocs(executiveBoardQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching executive board member found");
+            return;
+        }
+
+        const executiveBoardDocRef = querySnapshot.docs[0].ref;
+
+        await deleteDoc(executiveBoardDocRef);
+
+        console.log("Executive board member deleted successfully");
+    } catch (error) {
+        console.error("Error deleting executive board member:", error);
+    }
+};
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -220,7 +318,40 @@ export const getStatistics = (setStatistics: (statistics: DocumentData[]) => voi
     return unsubscribe;
 };
 
-export const editStatistic = async () => {};
+export const editStatistic = async (
+    index: number,
+    label: string,
+    number: number
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const statisticsCollection = collection(firestore, 'statistics');
+
+        const statisticQuery = query(
+            statisticsCollection,
+            where("index", "==", index)
+        );
+
+        const querySnapshot = await getDocs(statisticQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching statistic found");
+            return;
+        }
+
+        const statisticDocRef = querySnapshot.docs[0].ref;
+
+        await updateDoc(statisticDocRef, {
+            label,
+            number
+        });
+
+        console.log("Statistic updated successfully");
+    } catch (error) {
+        console.error("Error updating statistic:", error);
+    }
+};
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -243,9 +374,54 @@ export const getVolunteers = (setVolunteers: (volunteers: DocumentData[]) => voi
     return unsubscribe;
 };
 
-export const addVolunteer = async () => {};
-export const deleteVolunteer = async () => {};
+export const addVolunteer = async (
+    firstName: string,
+    lastName: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const volunteersCollection = collection(firestore, 'volunteers');
 
+        await addDoc(volunteersCollection, {
+            firstName,
+            lastName,
+        });
+
+        console.log("Volunteer added successfully");
+    } catch (error) {
+        console.error("Error adding volunteer:", error);
+    }
+};
+
+export const deleteVolunteer = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const volunteersCollection = collection(firestore, 'volunteers');
+
+        const volunteerQuery = query(
+            volunteersCollection,
+            where("firstName", "==", previousData.firstName),
+            where("lastName", "==", previousData.lastName)
+        );
+
+        const querySnapshot = await getDocs(volunteerQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching volunteer found");
+            return;
+        }
+
+        const volunteerDocRef = querySnapshot.docs[0].ref;
+
+        await deleteDoc(volunteerDocRef);
+
+        console.log("Volunteer deleted successfully");
+    } catch (error) {
+        console.error("Error deleting volunteer:", error);
+    }
+};
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -267,6 +443,104 @@ export const getPartners = (setPartners: (partners: DocumentData[]) => void) => 
     return unsubscribe;
 };
 
-export const addPartner = async () => {};
-export const editPartner = async () => {};
-export const deletePartner = async () => {};
+export const addPartner = async (
+    logo: File,
+    name: string,
+    description: string,
+    website: string,
+    instagram: string,
+    highlyValued: boolean
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storage = getStorage(app);
+
+        const logoRef = ref(storage, `partners/${logo.name}`);
+        await uploadBytes(logoRef, logo);
+        const logoURL = await getDownloadURL(logoRef);
+
+        const partnersCollection = collection(firestore, 'partners');
+        await addDoc(partnersCollection, {
+            logo: logoURL,
+            name,
+            description,
+            website,
+            instagram,
+            highlyValued,
+        });
+
+        console.log("Partner added successfully");
+    } catch (error) {
+        console.error("Error adding partner:", error);
+    }
+};
+
+export const editPartner = async (
+    previousData: DocumentData,
+    name: string,
+    description: string,
+    website: string,
+    instagram: string,
+    highlyValued: boolean
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const partnersCollection = collection(firestore, 'partners');
+
+        const partnerQuery = query(
+            partnersCollection,
+            where("name", "==", previousData.name)
+        );
+
+        const querySnapshot = await getDocs(partnerQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching partner found");
+            return;
+        }
+
+        const partnerDocRef = querySnapshot.docs[0].ref;
+
+        await updateDoc(partnerDocRef, {
+            name,
+            description,
+            website,
+            instagram,
+            highlyValued,
+        });
+
+        console.log("Partner updated successfully");
+    } catch (error) {
+        console.error("Error updating partner:", error);
+    }
+};
+
+export const deletePartner = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const partnersCollection = collection(firestore, 'partners');
+
+        const partnerQuery = query(
+            partnersCollection,
+            where("name", "==", previousData.name)
+        );
+
+        const querySnapshot = await getDocs(partnerQuery);
+
+        if (querySnapshot.empty) {
+            console.error("No matching partner found");
+            return;
+        }
+
+        const partnerDocRef = querySnapshot.docs[0].ref;
+
+        await deleteDoc(partnerDocRef);
+
+        console.log("Partner deleted successfully");
+    } catch (error) {
+        console.error("Error deleting partner:", error);
+    }
+};
