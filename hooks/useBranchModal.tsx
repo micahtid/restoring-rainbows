@@ -10,7 +10,7 @@ interface BranchModal {
   setCurrentBranch: (branch: DocumentData | null) => void;
   //////////////////
   newBranch: boolean;
-  setNewBranch: (newBranchStatus: boolean) => void;
+  setNewBranch: (status: boolean) => void;
   //////////////////
   updated: boolean;
   setUpdated: (status: boolean) => void;
@@ -25,7 +25,7 @@ const useBranchModal = create<BranchModal>((set) => ({
   setCurrentBranch: (branch: DocumentData | null) => set({currentBranch: branch}),
   //////////////////
   newBranch: false,
-  setNewBranch: (newBranchStatus: boolean) => set({ newBranch: newBranchStatus }),
+  setNewBranch: (status: boolean) => set({ newBranch: status }),
   //////////////////
   updated: false,
   setUpdated: (status: boolean) => set({updated: status})

@@ -4,7 +4,7 @@ import useBranchModal from "@/hooks/useBranchModal";
 import { useData } from "@/providers/useData";
 import { deleteBranch } from "@/utils/database";
 
-import { MdDelete } from "react-icons/md";
+import DataLine from "./DataLine";
 
 const BranchDashboard = () => {
   const {
@@ -25,24 +25,17 @@ const BranchDashboard = () => {
       <h3 className="text-5xl font-title font-bold">Branches</h3>
       <div className="flex flex-col justify-start items-center gap-y-2">
         {branches?.map((branch) => (
-          <div className="flex justify-between items-center gap-x-56
-          border-b-[1px] border-black py-4">
-            <button
-            onClick={() => {
-              setNewBranch(false);
-              setCurrentBranch(branch);
-              setUpdated(!updated);
-              onOpen();
-            }}>
-              {branch.country} {branch.state} {branch.city}
-            </button>
-            <button
-            onClick={() => {
-              deleteBranch(branch);
-            }}>
-              <MdDelete />
-            </button>
-          </div>
+          <DataLine
+          onClick={() => {
+            setNewBranch(false);
+            setCurrentBranch(branch);
+            setUpdated(!updated);
+            onOpen(); 
+          }} 
+          onClickDelete={() => {
+            deleteBranch(branch);
+          }}
+          display={`${branch.country} ${branch.state} ${branch.city}`}/>
         ))}
       </div>
       <button 

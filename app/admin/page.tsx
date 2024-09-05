@@ -21,12 +21,13 @@ const Admin = () => {
 
   return (
     <div className="w-[100vw]">
-        <div className="w-[100vw] h-[85vh]
+        <div className="h-[85vh] max-w-[1000px] mx-auto
+        py-16
         max-[1000px]:hidden">
             {adminStatus ? (
                 <div className="w-full h-full
                 flex flex-col justify-center items-center">
-                    <div className="flex justify-center items-center gap-x-6">
+                    <div className="flex justify-center items-center gap-x-6 w-full">
                         {
                             states.map((state, index) => (
                                 <button 
@@ -38,9 +39,11 @@ const Admin = () => {
                             ))
                         }
                     </div>
-                    {
-                        states[activeState].component
-                    }
+                    <div className="w-full h-full">
+                        {
+                            states[activeState].component
+                        }
+                    </div>
                 </div>
             ) : (
                 <div className="w-full h-full

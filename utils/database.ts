@@ -321,7 +321,7 @@ export const getStatistics = (setStatistics: (statistics: DocumentData[]) => voi
 export const editStatistic = async (
     index: number,
     label: string,
-    number: number
+    number: string
 ) => {
     try {
         const app = initializeFirebase();
