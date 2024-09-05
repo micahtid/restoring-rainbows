@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import BranchModal from "@/components/BranchModal";
 import ExecutiveBoardModal from "@/components/ExecutiveBoardModal";
 import StatisticsModal from "@/components/StatisticsModal";
+import VolunteerModal from "@/components/VolunteerModal";
 import PartnerModal from "@/components/PartnerModal";
 
 const ModalProvider = () => {
@@ -23,6 +24,7 @@ const ModalProvider = () => {
         <BranchModal />
         <ExecutiveBoardModal />
         <StatisticsModal />
+        <VolunteerModal />
         <PartnerModal />
     </>
   );

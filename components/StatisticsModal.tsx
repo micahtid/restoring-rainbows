@@ -35,7 +35,7 @@ const StatisticsModal = () => {
     };
 
     return (
-        <Modal title="Manage Branch" isOpen={isOpen} onChange={onChange}>
+        <Modal title="Manage Statistic" isOpen={isOpen} onChange={onChange}>
             <form
                 className="flex flex-col justify-center items-center gap-y-4"
                 onSubmit={handleSubmit}
