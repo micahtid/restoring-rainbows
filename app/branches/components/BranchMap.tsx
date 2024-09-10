@@ -21,7 +21,8 @@ const BranchMap = () => {
     } = useData();
 
   return (
-    <div className='w-full h-[500px]'>
+    <div className='max-w-max w-full mx-auto mt-10 mb-16
+    h-[500px]'>
         {isLoaded && (
             <GoogleMap
                 mapContainerStyle={containerStyle}

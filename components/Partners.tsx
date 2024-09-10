@@ -2,7 +2,13 @@ import React from 'react'
 
 const Partners = () => {
   return (
-    <div>Partners</div>
+    <section className='max-w-max w-full mx-auto
+    px-4 py-8
+    flex flex-col gap-y-4'>
+        <h3 className='dynamic-subheading uppercase font-bold'>
+            Partners
+        </h3>
+    </section>
   )
 }
 

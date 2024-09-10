@@ -1,7 +1,6 @@
 import MissionStatement from "./components/MissionStatement";
 import WhatWeDo from "@/components/WhatWeDo";
 import Partners from "@/components/Partners";
-import WhyWeMatter from "./components/WhyWeMatter";
 
 const About = () => {
   return (
@@ -10,7 +9,6 @@ const About = () => {
       <MissionStatement />
       <WhatWeDo />
       <Partners />
-      <WhyWeMatter />
     </section>
   )
 }

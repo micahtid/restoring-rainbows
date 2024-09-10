@@ -5,10 +5,18 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { DocumentData } from "firebase/firestore";
 import { CountryData, organizeBranchesByCountry } from "@/utils/utils";
+import useBranchFounderModal from "@/hooks/useBranchFounderModal";
+
+import OutlineButton from "@/components/OutlineButton";
 
 const BranchList = () => {
     const { branches } = useData();
     const [organizedBranches, setOrganizedBranches] = useState<null | CountryData[]>(null);
+
+    const {
+        onOpen,
+        setCurrentBranch
+    } = useBranchFounderModal();
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -33,12 +41,17 @@ const BranchList = () => {
     };
 
     const renderBranches = (branches: DocumentData[]) => (
-        <div>
+        <div className="mt-4
+        flex justify-start items-center gap-x-4">
             {branches.map((branch, index) => (
-                <div key={index}>
-                    <p>{branch.firstName} {branch.lastName}</p>
+                <OutlineButton
+                key={index}
+                onClick={() => {
+                    setCurrentBranch(branch);
+                    onOpen();
+                }}>
                     <p>{branch.city}</p>
-                </div>
+                </OutlineButton>
             ))}
         </div>
     );
@@ -46,9 +59,11 @@ const BranchList = () => {
     const renderCountryList = () => (
         <div className="flex justify-start items-center gap-x-4">
             {organizedBranches?.map((countryData, index) => (
-                <div key={index} onClick={() => handleCountryClick(countryData.country)}>
+                <OutlineButton
+                key={index}
+                onClick={() => handleCountryClick(countryData.country)}>
                     {countryData.country}
-                </div>
+                </OutlineButton>
             ))}
         </div>
     );
@@ -59,9 +74,12 @@ const BranchList = () => {
         return (
             <div>
                 {usaData?.states?.map((stateData, index) => (
-                    <div key={index} onClick={() => handleStateClick(stateData.state)}>
+                    <OutlineButton
+                    key={index}
+                    onClick={() => handleStateClick(stateData.state)}
+                    >
                         {stateData.state}
-                    </div>
+                    </OutlineButton>
                 ))}
             </div>
         );
@@ -73,7 +91,7 @@ const BranchList = () => {
 
         return (
             <div>
-                <h3>Branches in {selectedState}, USA</h3>
+                <h3 className="text-2xl uppercase font-bold">Branches in {selectedState}, USA</h3>
                 {renderBranches(stateData?.branches || [])}
             </div>
         );
@@ -84,14 +102,17 @@ const BranchList = () => {
 
         return (
             <div>
-                <h3>Branches in {selectedCountry}</h3>
+                <h3 className="text-2xl uppercase font-bold">Branches in {selectedCountry}</h3>
                 {renderBranches(countryData?.branches || [])}
             </div>
         );
     };
 
     return (
-        <div className="w-full">
+        <div className="max-w-max w-full mx-auto
+        px-4 py-8 mt-28
+        flex flex-col justify-start items-start gap-y-4">
+            <h3 className="dynamic-subheading uppercase font-bold">Our Branches</h3>
             {!selectedCountry && renderCountryList()}
             {selectedCountry === "USA" && !selectedState && renderStateList()}
             {selectedCountry === "USA" && selectedState && renderBranchListForState()}
