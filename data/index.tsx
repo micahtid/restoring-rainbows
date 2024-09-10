@@ -1,18 +1,17 @@
 export const extendedNavItems = [
     {label: "About", link: "/about", subItems: [
-        {label: "Our Org", link: ""},
-        {label: "Partners", link: ""},
-        {label: "Why We Matter", link: ""}
+        {label: "Our Org", link: ""}
     ]},
-    {label: "Team", link: "/team", subItems: [
-        {label: "Executive Board", link: ""},
-        {label: "Advisory Board", link: ""},
+    {label: "Team", link: "/team", subItems: []},
+    {label: "Partners", link: "/partners", subItems: []},
+    {label: "Stories", link: "/stories", subItems: [
+        {label: "Blogs", link: ""},
+        {label: "Events", link: ""}
     ]},
-    {label: "Blogs", link: "/blog", subItems: []},
     {label: "Branches", link: "/branches", subItems: []},
-    {label: "Take Action", link: "/take-action", subItems: [
-        {label: "Start a Branch", link: ""},
-        {label: "Volunteer", link: ""},
+    {label: "Take Action", link: "/#take-action", subItems: [
+        {label: "Start a Branch", link: "/start-a-branch"},
+        {label: "Volunteer", link: "volunteer"},
     ]}
 ]
 
@@ -29,12 +28,15 @@ export const socials = [
     {icon: <FaFacebook />, link: ""},
 ]
 
-import { BsCollectionFill } from "react-icons/bs";
-import { FaRecycle, FaDonate, FaPaintBrush } from "react-icons/fa";
+import { PiRecycleDuotone, PiChalkboardTeacherDuotone, PiHandHeartDuotone } from "react-icons/pi";
 
-export const services = [
-    {icon: <FaDonate />, title: "Collect School Supplies", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum, repellat et deserunt quasi neque."},
-    {icon: <FaDonate />, title: "Refurbish school Supplies", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum, repellat et deserunt quasi neque."},
-    {icon: <FaDonate />, title: "Donate School Supplies", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum, repellat et deserunt quasi neque."},
-    {icon: <FaDonate />, title: "Educate About Climate Change/Art Education", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum, repellat et deserunt quasi neque."},
+export const whatWeDo = [
+    {icon: <PiRecycleDuotone />, title: "Collect and Refurbish School Supplies", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+    {icon: <PiHandHeartDuotone />, title: "Donate School Supplies", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+    {icon: <PiChalkboardTeacherDuotone />, title: "Educate About Climate Change/Art Education", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+]
+
+export const takeAction = [
+    {image: "/splash_one.jpg", title: "Start a Branch", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+    {image: "/splash_three.jpg", title: "Volunteer", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
 ]

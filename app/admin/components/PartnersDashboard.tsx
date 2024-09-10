@@ -24,8 +24,9 @@ const PartnersDashboard = () => {
     >
       <h3 className="text-5xl font-bold">Partners</h3>
       <div className="flex flex-col justify-start items-center gap-y-2 w-full">
-          {partners?.map((partner) => (
+          {partners?.map((partner, index) => (
               <DataLine
+              key={index}
               onClick={() => {
                 setNewPartner(false);
                 setCurrentPartner(partner);

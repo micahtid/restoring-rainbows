@@ -8,6 +8,8 @@ import StatisticsModal from "@/components/StatisticsModal";
 import VolunteerModal from "@/components/VolunteerModal";
 import PartnerModal from "@/components/PartnerModal";
 
+import BranchFounderModal from "@/components/BranchFounderModal";
+
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -26,6 +28,7 @@ const ModalProvider = () => {
         <StatisticsModal />
         <VolunteerModal />
         <PartnerModal />
+        <BranchFounderModal />
     </>
   );
 };

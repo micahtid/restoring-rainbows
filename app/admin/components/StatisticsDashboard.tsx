@@ -23,8 +23,9 @@ const StatisticsDashboard = () => {
       <h3 className="text-5xl font-bold">Statistics</h3>
       <div className="flex flex-col justify-start items-center gap-y-2
       w-full">
-          {statistics?.map((statistic) => (
+          {statistics?.map((statistic, index) => (
               <DataLine
+              key={index}
               disableDelete
               onClick={() => {
                 setCurrentStatistic(statistic);

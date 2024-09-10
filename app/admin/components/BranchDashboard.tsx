@@ -24,8 +24,9 @@ const BranchDashboard = () => {
     py-12 w-full max-w-max">
       <h3 className="text-5xl font-bold">Branches</h3>
       <div className="flex flex-col justify-start items-center gap-y-2 w-full">
-        {branches?.map((branch) => (
+        {branches?.map((branch, index) => (
           <DataLine
+          key={index}
           onClick={() => {
             setNewBranch(false);
             setCurrentBranch(branch);

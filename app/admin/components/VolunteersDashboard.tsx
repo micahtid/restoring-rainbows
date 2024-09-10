@@ -20,8 +20,9 @@ const VolunteersDashboard = () => {
     >
       <h3 className="text-5xl font-bold">Volunteers</h3>
       <div className="flex flex-col justify-start items-center gap-y-2 w-full">
-          {volunteers?.map((volunteer) => (
+          {volunteers?.map((volunteer, index) => (
               <DataLine
+              key={index}
               disableEdit
               onClick={() => {
                 
