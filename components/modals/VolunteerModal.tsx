@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "./Modal";
-import InputField from "./InputField";
+import Modal from "../Modal";
+import InputField from "../InputField";
 
 import useVolunteerModal from "@/hooks/useVolunteerModal";
 import { addVolunteer } from "@/utils/database";

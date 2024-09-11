@@ -15,7 +15,7 @@ const TakeAction = () => {
               <img src={item.image} className="max-w-[500px] w-full object-cover drop-shadow" />
               <div className={`flex flex-col justify-start gap-y-4
                 ${index % 2 === 0 ? 'items-start' : 'items-end'}`}>
-                <h3 className="dynamic-subheading font-bold uppercase">{item.title}</h3>
+                <h3 className="dynamic-subheading">{item.title}</h3>
                 <p className={`${index % 2 !== 0 && 'text-right'}
                   text-xl`}>{item.description}</p>
                 <ArrowButton link={item.link}>More</ArrowButton>

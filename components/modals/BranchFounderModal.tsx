@@ -1,6 +1,6 @@
 "use client";
 
-import Modal from "./Modal";
+import Modal from "../Modal";
 import useBranchFounderModal from "@/hooks/useBranchFounderModal";
 
 const BranchFounderModal = () => {

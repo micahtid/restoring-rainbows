@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "./Modal";
-import InputField from "./InputField";
+import Modal from "../Modal";
+import InputField from "../InputField";
 
 import usePartnerModal from "@/hooks/userPartnerModal";
 import { addPartner, editPartner } from "@/utils/database";
@@ -41,9 +41,9 @@ const PartnerModal = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (newPartner && name && description && website && instagram && highlyValued && imageFile) {
+        if (newPartner && name && description && website && instagram && imageFile) {
             addPartner(imageFile, name, description, website, instagram, highlyValued);
-        } else if (!newPartner && name && description && website && instagram && highlyValued) {
+        } else if (!newPartner && name && description && website && instagram) {
             if (currentPartner) {
                 editPartner(currentPartner, name, description, website, instagram, highlyValued);
             }

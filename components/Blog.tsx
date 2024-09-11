@@ -13,7 +13,7 @@ const Blog = () => {
   return (
     <section className='w-full bg-secondary flex justify-center items-center'>
       <div className="max-w-max w-full px-4 py-14 flex flex-col justify-start items-start gap-y-12">
-        <h3 className='dynamic-subheading uppercase font-bold'>
+        <h3 className='dynamic-subheading'>
           Blogs
         </h3>
         <Swiper

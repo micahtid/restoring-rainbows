@@ -58,3 +58,27 @@ export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
+
+export interface GroupedData {
+    categorization: string;
+    people: DocumentData[];
+  }
+  
+export const organizeByPosition = (data: DocumentData[]): GroupedData[] => {
+    return data.reduce((result: GroupedData[], current: DocumentData) => {
+      const existingPosition = result.find(
+        (group) => group.categorization === current.categorization
+      );
+  
+      if (existingPosition) {
+        existingPosition.people.push(current);
+      } else {
+        result.push({
+          categorization: current.categorization,
+          people: [current],
+        });
+      }
+  
+      return result;
+    }, []);
+  };
