@@ -197,7 +197,8 @@ export const getExecutiveBoard = (setExecutiveBoard: (executiveBoard: DocumentDa
 
 export const addExecutiveBoardMember = async (
     picture: File,
-    description: string,
+    categorization: string,
+    role: string,
     firstName: string,
     lastName: string,
     bio: string
@@ -215,7 +216,8 @@ export const addExecutiveBoardMember = async (
 
         await addDoc(executiveBoardCollection, {
             picture: pictureURL,
-            description,
+            categorization,
+            role,
             firstName,
             lastName,
             bio
@@ -229,7 +231,8 @@ export const addExecutiveBoardMember = async (
 
 export const editExecutiveBoardMember = async (
     previousData: DocumentData,
-    description: string,
+    categorization: string,
+    role: string,
     firstName: string,
     lastName: string,
     bio: string
@@ -256,7 +259,8 @@ export const editExecutiveBoardMember = async (
         const executiveBoardDocRef = querySnapshot.docs[0].ref;
 
         await updateDoc(executiveBoardDocRef, {
-            description,
+            categorization,
+            role,
             firstName,
             lastName,
             bio

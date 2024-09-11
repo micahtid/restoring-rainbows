@@ -112,7 +112,7 @@ const BranchList = () => {
         <div className="max-w-max w-full mx-auto
         px-4 py-8 mt-28
         flex flex-col justify-start items-start gap-y-4">
-            <h3 className="dynamic-subheading uppercase font-bold">Our Branches</h3>
+            <h3 className="dynamic-subheading">Our Branches</h3>
             {!selectedCountry && renderCountryList()}
             {selectedCountry === "USA" && !selectedState && renderStateList()}
             {selectedCountry === "USA" && selectedState && renderBranchListForState()}

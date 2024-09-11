@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "./Modal";
-import InputField from "./InputField";
+import Modal from "../Modal";
+import InputField from "../InputField";
 
 import useExecutiveBoardModal from "@/hooks/useExecutiveBoardModal";
 import { addExecutiveBoardMember, editExecutiveBoardMember } from "@/utils/database";
@@ -13,14 +13,16 @@ const ExecutiveBoardModal = () => {
     // Unique useState hooks for each input field
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [description, setDescription] = useState("");
+    const [categorization, setCategorization] = useState("");
+    const [role, setRole] = useState("");
     const [bio, setBio] = useState("");
     const [imageFile, setImageFile] = useState<File | null>(null);
 
     useEffect(() => {
         setFirstName(currentExecutiveBoardMember?.firstName || "");
         setLastName(currentExecutiveBoardMember?.lastName || "");
-        setDescription(currentExecutiveBoardMember?.description || "")
+        setCategorization(currentExecutiveBoardMember?.categorization || "");
+        setRole(currentExecutiveBoardMember?.role || "");
         setBio(currentExecutiveBoardMember?.bio || "");
     }, [updated]);
 
@@ -40,15 +42,15 @@ const ExecutiveBoardModal = () => {
         e.preventDefault();
 
         if (newExecutiveBoardMember
-            && firstName && lastName && description && bio && imageFile
+            && firstName && lastName && categorization && role && bio && imageFile
         ) {
-            addExecutiveBoardMember(imageFile, description, firstName, lastName, bio)
+            addExecutiveBoardMember(imageFile, categorization, role, firstName, lastName, bio)
             onClose();
         } else if (!newExecutiveBoardMember
-            && firstName && lastName && description && bio
+            && firstName && lastName && categorization && role && bio
         ) {
             if (currentExecutiveBoardMember) {
-                editExecutiveBoardMember(currentExecutiveBoardMember, description, firstName ,lastName, bio);
+                editExecutiveBoardMember(currentExecutiveBoardMember, categorization, role, firstName ,lastName, bio);
             }
             onClose();
         }
@@ -75,10 +77,16 @@ const ExecutiveBoardModal = () => {
                     />
                 </div>
                 <InputField
-                    label="Member's Role/Position"
-                    placeholder="Role/Position..."
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    label="Member's Categorization"
+                    placeholder="Categorization..."
+                    value={categorization}
+                    onChange={(e) => setCategorization(e.target.value)}
+                />
+                <InputField
+                    label="Member's Specific Role"
+                    placeholder="Specific Role..."
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
                 />
                 <InputField
                     label="Member's Bio"

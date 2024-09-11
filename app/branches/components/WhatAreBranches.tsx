@@ -9,7 +9,7 @@ const WhatAreBranches = () => {
             <div className="bg-primary p-2">
                 <p className='uppercase text-white text-sm'>What are</p>
             </div>
-            <h3 className='dynamic-subheading uppercase font-bold'>Branches</h3>
+            <h3 className='dynamic-subheading'>Branches</h3>
             <div className="w-full h-[50px] relative">
                 <p className='text-xl
                 bg-gray-100 p-4

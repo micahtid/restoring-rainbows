@@ -11,7 +11,7 @@ const Volunteers = () => {
 
   return (
     <div className='w-full'>
-        <h3 className='dynamic-subheading font-bold'>Volunteers</h3>
+        <h3 className='dynamic-subheading'>Volunteers</h3>
         <Marquee speed={25} gradient={false} className="w-full h-full py-8">
             {volunteers?.map((volunteer, index) => (
               <div key={index} className="p-4 mx-5 font-title text-xl bg-white rounded-lg shadow-lg">

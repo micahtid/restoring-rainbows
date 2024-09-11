@@ -1,8 +1,8 @@
 "use client";
 
-import Modal from "./Modal";
+import Modal from "../Modal";
 import useBranchModal from "@/hooks/useBranchModal";
-import InputField from "./InputField";
+import InputField from "../InputField";
 
 import { addBranch, editBranch } from "@/utils/database";
 import { useState, useEffect } from "react";
