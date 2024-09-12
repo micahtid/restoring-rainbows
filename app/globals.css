@@ -18,7 +18,7 @@
     }
   
     .input-field {
-      @apply border-[1px] border-gray-300 rounded-md p-1 outline-none font-title w-full
+      @apply border-[1px] border-gray-300 p-1 outline-none font-title w-full
     }
 
     .no-scrollbar::-webkit-scrollbar {

@@ -12,7 +12,7 @@ const TakeAction = () => {
             key={index}
             className={`flex flex-row justify-between gap-x-20 w-full
             ${index % 2 === 0 && 'flex-row-reverse'}`}>
-              <img src={item.image} className="max-w-[500px] w-full object-cover drop-shadow" />
+              <img src={item.image} className="max-w-[500px] max-h-[300px] w-full object-cover drop-shadow" />
               <div className={`flex flex-col justify-start gap-y-4
                 ${index % 2 === 0 ? 'items-start' : 'items-end'}`}>
                 <h3 className="dynamic-subheading">{item.title}</h3>

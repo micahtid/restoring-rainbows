@@ -10,7 +10,7 @@ const Volunteers = () => {
   } = useData();
 
   return (
-    <div className='w-full'>
+    <div className='w-full px-4'>
         <h3 className='dynamic-subheading'>Volunteers</h3>
         <Marquee speed={25} gradient={false} className="w-full h-full py-8">
             {volunteers?.map((volunteer, index) => (

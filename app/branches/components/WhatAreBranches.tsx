@@ -1,4 +1,4 @@
-import React from 'react'
+import Highlight from "@/components/Highlight";
 
 const WhatAreBranches = () => {
   return (
@@ -6,9 +6,7 @@ const WhatAreBranches = () => {
     flex justify-center items-center">
         <div className="max-w-max w-full px-4 py-8
         flex flex-col justify-start items-start gap-y-4">
-            <div className="bg-primary p-2">
-                <p className='uppercase text-white text-sm'>What are</p>
-            </div>
+            <Highlight text="What Are" />
             <h3 className='dynamic-subheading'>Branches</h3>
             <div className="w-full h-[50px] relative">
                 <p className='text-xl
