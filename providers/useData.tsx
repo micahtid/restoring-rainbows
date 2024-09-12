@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
-import { getBranches, getExecutiveBoard, getStatistics, getVolunteers, getPartners } from "@/utils/database";
+import { getBranches, getExecutiveBoard, getStatistics, getVolunteers, getPartners, getEvents, getStories } from "@/utils/database";
 
 
 type DataContextType = {
@@ -11,6 +11,8 @@ type DataContextType = {
     statistics: DocumentData[] | null;
     volunteers: DocumentData[] | null;
     partners: DocumentData[] | null;
+    events: DocumentData[] | null;
+    stories: DocumentData[] | null;
 };
 
 export const BranchContext = createContext<DataContextType | undefined>(
@@ -27,6 +29,8 @@ export const DataContextProvider = (props: Props) => {
     const [statistics, setStatistics] = useState<DocumentData[] | null>(null);
     const [volunteers, setVolunteers] = useState<DocumentData[] | null>(null);
     const [partners, setPartners] = useState<DocumentData[] | null>(null);
+    const [events, setEvents] = useState<DocumentData[] | null>(null);
+    const [stories, setStories] = useState<DocumentData[] | null>(null);
 
     useEffect(() => {
         const unsubscribe = getBranches(setBranches);
@@ -57,12 +61,24 @@ export const DataContextProvider = (props: Props) => {
         return () => unsubscribe();
     }, []);
 
+    useEffect(() => {
+        const unsubscribe = getEvents(setEvents);
+        return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
+        const unsubscribe = getStories(setStories);
+        return () => unsubscribe();
+    }, []);
+
     const value = {
         branches,
         executiveBoard,
         statistics,
         volunteers,
-        partners
+        partners,
+        events,
+        stories
     };
 
     return <BranchContext.Provider value={value} {...props} />;

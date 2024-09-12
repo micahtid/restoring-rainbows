@@ -2,13 +2,13 @@
 
 import Marquee from "react-fast-marquee"
 
-import { useData } from "@/providers/useData"
+import { DocumentData } from "firebase/firestore";
 
-const Volunteers = () => {
-  const {
-    volunteers
-  } = useData();
+interface VolunteersProps {
+  volunteers: DocumentData[] | null;
+}
 
+const Volunteers: React.FC<VolunteersProps> = ({ volunteers }) => {
   return (
     <div className='w-full px-4'>
         <h3 className='dynamic-subheading'>Volunteers</h3>

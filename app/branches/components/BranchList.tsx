@@ -1,6 +1,5 @@
 "use client";
 
-import { useData } from "@/providers/useData";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { DocumentData } from "firebase/firestore";
@@ -9,8 +8,11 @@ import useBranchFounderModal from "@/hooks/useBranchFounderModal";
 
 import OutlineButton from "@/components/OutlineButton";
 
-const BranchList = () => {
-    const { branches } = useData();
+interface BranchListProps {
+    branches: DocumentData[] | null;
+}
+
+const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     const [organizedBranches, setOrganizedBranches] = useState<null | CountryData[]>(null);
 
     const {

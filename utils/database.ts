@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, query, where, DocumentData,
+import {
+    getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, query, where, DocumentData,
     onSnapshot
- } from "firebase/firestore";
- import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+} from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 // Note: EVERYONE Can Read and Write Documents
 
@@ -19,8 +20,8 @@ export const initializeFirebase = () => {
         messagingSenderId: "443221587019",
         appId: "1:443221587019:web:4b589cd0bb45fcbdf749ce",
         measurementId: "G-6783KFBCTJ"
-      };
-      
+    };
+
     const app = initializeApp(firebaseConfig);
     return app;
 }
@@ -62,7 +63,7 @@ export const addBranch = async (
     bio: string,
     instagram: string,
     photo: File,
-    state?: string 
+    state?: string
 ) => {
     try {
         const app = initializeFirebase();
@@ -74,16 +75,16 @@ export const addBranch = async (
         const photoURL = await getDownloadURL(photoRef);
 
         const branchesCollection = collection(firestore, 'branches');
-        
+
         const branchDocRef = await addDoc(branchesCollection, {
             country,
-            state: state || "", 
+            state: state || "",
             city,
             lat,
             lng,
             firstName,
             lastName,
-            bio, 
+            bio,
             instagram,
             photo: photoURL,
         });
@@ -546,5 +547,251 @@ export const deletePartner = async (previousData: DocumentData) => {
         console.log("Partner deleted successfully");
     } catch (error) {
         console.error("Error deleting partner:", error);
+    }
+};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getEvents = (setEvents: (events: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const eventsCollection = collection(firestore, 'events');
+
+    const unsubscribe = onSnapshot(eventsCollection, (querySnapshot) => {
+        const events: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            events.push(doc.data());
+        });
+        setEvents(events);
+    });
+
+    return unsubscribe;
+};
+
+export const addEvent = async (
+    image: File,
+    title: string,
+    content: string,
+    date: string,
+    location: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storage = getStorage(app);
+
+        const imageRef = ref(storage, `events/${image.name}`);
+        await uploadBytes(imageRef, image);
+        const imageURL = await getDownloadURL(imageRef);
+
+        const eventsCollection = collection(firestore, 'events');
+        await addDoc(eventsCollection, {
+            image: imageURL,
+            title,
+            content,
+            date,
+            location,
+        });
+
+        console.log('Event added successfully');
+    } catch (error) {
+        console.error('Error adding event:', error);
+    }
+};
+
+export const editEvent = async (
+    previousData: DocumentData,
+    title: string,
+    content: string,
+    date: string,
+    location: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const eventsCollection = collection(firestore, 'events');
+
+        const eventQuery = query(
+            eventsCollection,
+            where('title', '==', previousData.title),
+            where('content', '==', previousData.content)
+        );
+
+        const querySnapshot = await getDocs(eventQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching event found');
+            return;
+        }
+
+        const eventDocRef = querySnapshot.docs[0].ref;
+        await updateDoc(eventDocRef, {
+            title,
+            content,
+            date,
+            location,
+        });
+
+        console.log('Event updated successfully');
+    } catch (error) {
+        console.error('Error updating event:', error);
+    }
+};
+
+export const deleteEvent = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const eventsCollection = collection(firestore, 'events');
+
+        const eventQuery = query(
+            eventsCollection,
+            where('title', '==', previousData.title),
+            where('content', '==', previousData.content)
+        );
+
+        const querySnapshot = await getDocs(eventQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching event found');
+            return;
+        }
+
+        const eventDocRef = querySnapshot.docs[0].ref;
+        await deleteDoc(eventDocRef);
+
+        console.log('Event deleted successfully');
+    } catch (error) {
+        console.error('Error deleting event:', error);
+    }
+};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getStories = (setStories: (stories: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const storiesCollection = collection(firestore, 'stories');
+
+    const unsubscribe = onSnapshot(storiesCollection, (querySnapshot) => {
+        const stories: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            stories.push(doc.data());
+        });
+        setStories(stories);
+    });
+
+    return unsubscribe;
+};
+
+export const addStory = async (
+    image: File,
+    title: string,
+    date: string,
+    location: string,
+    firstName: string,
+    lastName: string,
+    content: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storage = getStorage(app);
+
+        const imageRef = ref(storage, `stories/${image.name}`);
+        await uploadBytes(imageRef, image);
+        const imageURL = await getDownloadURL(imageRef);
+
+        const storiesCollection = collection(firestore, 'stories');
+        await addDoc(storiesCollection, {
+            image: imageURL,
+            title,
+            date,
+            location,
+            firstName,
+            lastName,
+            content,
+        });
+
+        console.log('Story added successfully');
+    } catch (error) {
+        console.error('Error adding story:', error);
+    }
+};
+
+export const editStory = async (
+    previousData: DocumentData,
+    title: string,
+    date: string,
+    location: string,
+    firstName: string,
+    lastName: string,
+    content: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storiesCollection = collection(firestore, 'stories');
+
+        const storyQuery = query(
+            storiesCollection,
+            where('title', '==', previousData.title),
+            where('content', '==', previousData.content)
+        );
+
+        const querySnapshot = await getDocs(storyQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching story found');
+            return;
+        }
+
+        const storyDocRef = querySnapshot.docs[0].ref;
+        await updateDoc(storyDocRef, {
+            title,
+            date,
+            location,
+            firstName,
+            lastName,
+            content,
+        });
+
+        console.log('Story updated successfully');
+    } catch (error) {
+        console.error('Error updating story:', error);
+    }
+};
+
+export const deleteStory = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const storiesCollection = collection(firestore, 'stories');
+
+        const storyQuery = query(
+            storiesCollection,
+            where('title', '==', previousData.title),
+            where('content', '==', previousData.content)
+        );
+
+        const querySnapshot = await getDocs(storyQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching story found');
+            return;
+        }
+
+        const storyDocRef = querySnapshot.docs[0].ref;
+        await deleteDoc(storyDocRef);
+
+        console.log('Story deleted successfully');
+    } catch (error) {
+        console.error('Error deleting story:', error);
     }
 };
