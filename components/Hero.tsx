@@ -23,14 +23,14 @@ const Hero = () => {
       <div className="relative w-[45%] z-[100]
       max-lg:w-[60%]">
         <img
-          src="/splash_one.jpg"
+          src="/presentation.png"
           className="w-full h-[700px] object-cover"
         />
       </div>
       <div className="relative w-[32.5%] z-[300]
       max-lg:w-[40%]">
         <img
-          src="/splash_two.png"
+          src="/splash_one.png"
           className="w-full h-[500px] object-cover mt-[225px]
           max-lg:mb-[450px]"
         />
@@ -42,7 +42,7 @@ const Hero = () => {
       <div className="relative w-[22.5%] z-[500]
       max-lg:hidden">
         <img
-          src="/splash_three.jpg"
+          src="/zoom_meeting.png"
           className="object-cover h-[600px] mb-[50px]"
         />
         <Gradient

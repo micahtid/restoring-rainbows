@@ -24,8 +24,8 @@ export const whatWeDo = [
 ]
 
 export const takeAction = [
-    {image: "/splash_one.jpg", title: "Start a Branch", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
-    {image: "/splash_three.jpg", title: "Volunteer", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
+    {image: "/splash_two.png", title: "Start a Branch", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+    {image: "/splash_three.png", title: "Volunteer", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
 ]
 
 export const whyWeMatter = [
@@ -46,3 +46,10 @@ export const socials = [
     {icon: <FaInstagram />, link: ""},
     {icon: <FaFacebook />, link: ""},
 ]
+
+export const gradientDivs = [
+    "absolute top-0 left-10 w-[800px] h-[800px] bg-primary blur-[300px] opacity-30",
+    "absolute top-20 right-20 w-[850px] h-[850px] bg-secondary blur-[250px] opacity-30",
+    "absolute bottom-10 left-40 w-[900px] h-[900px] bg-secondary blur-[400px] opacity-30",
+    "absolute bottom-20 right-10 w-[800px] h-[800px] bg-primary blur-[350px] opacity-30"
+  ];

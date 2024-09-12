@@ -5,7 +5,7 @@ const MissionStatement = () => {
     <div className='w-[100vw]'>
       <div className="w-full relative overflow-hidden
       flex justify-start items-center px-8 py-24">
-        <img src="/splash_one.jpg"
+        <img src="/splash_four.png"
         className='w-full h-full object-cover
         absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2
         brightness-75 blur-[2px] z-20'  />
