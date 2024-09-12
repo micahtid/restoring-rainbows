@@ -3,11 +3,14 @@
 import { useState } from "react";
 
 import EntryField from "./components/EntryField";
+
 import BranchDashboard from "./components/BranchDashboard";
 import StatisticsDashboard from "./components/StatisticsDashboard";
 import ExecutiveDashboard from "./components/ExecutiveDashboard";
 import VolunteersDashboard from "./components/VolunteersDashboard";
 import PartnersDashboard from "./components/PartnersDashboard";
+import EventsDashboard from "./components/EventsDashboard";
+import StoriesDashboard from "./components/StoriesDashboard";
 
 const Admin = () => {
     const [adminStatus, setAdminStatus] = useState(false);
@@ -16,7 +19,8 @@ const Admin = () => {
     
     const states = [{title: "Branches", component: <BranchDashboard />}, {title: "Statistics", component: <StatisticsDashboard />},
         {title: "Executive Board", component: <ExecutiveDashboard />}, {title: "Volunteers", component: <VolunteersDashboard />},
-        {title: "Partners", component: <PartnersDashboard />}]
+        {title: "Partners", component: <PartnersDashboard />}, {title: "Events", component: <EventsDashboard />},
+        {title: "Stories", component: <StoriesDashboard />}]
     const [activeState, setActiveState] = useState(0);
 
   return (

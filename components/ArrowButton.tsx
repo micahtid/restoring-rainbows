@@ -1,55 +1,35 @@
 "use client";
 
-import { useState } from "react";
-
 interface ArrowButtonProps {
-    children: React.ReactNode;
-    link: string;
+  children: React.ReactNode;
+  link: string;
 }
 
 const ArrowButton: React.FC<ArrowButtonProps> = ({ children, link }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="relative w-[74px] h-[17px] cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* First SVG (Arrow) */}
-      <svg
-        viewBox="0 0 74 17"
-        width="74px"
-        height="17px"
-        className={`absolute transition-opacity duration-500 ${
-          isHovered ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <path
-          d="M20.7.3l-1.3 1.3 6.7 6H0v1.8h26.1l-6.7 6 1.3 1.3 9.4-8.2z"
-          fill="rgba(13, 156, 144, 1)"
-        ></path>
+return (
+  <div className="">
+      <svg viewBox="0 0 74 17" width="74px" height="17px">
+          <path d="
+                  M20.7.3l-1.3 1.3 6.7 
+                  6H0v1.8h26.1l-6.7 
+                  6 1.3 1.3 
+                  9.4-8.2z" 
+              fill="rgba(13, 156, 144, 1)">
+          </path>
       </svg>
-
-      {/* Second SVG (Wave) */}
-
-      <svg viewBox="0 0 70 13" height="13" width="70"
-        className={`absolute transition-opacity duration-500 ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}>
-        <path fill="none" stroke="#0d38d3" stroke-width="2" d="
-          M0,6.5 
-          C4.75,13 14.25,13 19,6.5 
-          C23.75,0 33.25,0 38,6.5 
-          C42.75,13 52.25,13 57,6.5 
-          C61.75,0 66,0 70,6.5" />
-        <path fill="#0d38d3" stroke="#0d38d3" stroke-width="2" d="
-          M65,1 
-          L70,6.5 
-          L65,12" />
+      <svg viewBox="0 0 74 17" width="74px" height="17px">
+          <path 
+              d="M64.4,0.3l-1.2,1.6L69,6c-2.7,0.2-4.3,1.5-5.6,2.7C62,10,60.8,11,58.2,11c-2.5,0-3.8-1-5.2-2.3
+                  C51.6,7.5,49.9,6,46.6,6c-3.3,0-5,1.5-6.5,2.7C38.7,10,37.5,11,34.9,11c-2.5,0-3.8-1-5.2-2.3C28.3,7.5,26.6,6,23.3,6
+                  c-3.3,0-5,1.5-6.5,2.7C15.4,10,14.2,11,11.6,11c-2.5,0-3.8-1-5.2-2.3C5,7.5,3.3,6,0,6v2c2.5,0,3.8,1,5.2,2.3
+                  c1.5,1.3,3.2,2.7,6.5,2.7c3.3,0,5-1.5,6.5-2.7C19.5,9,20.8,8,23.3,8c2.5,0,3.8,1,5.2,2.3c1.5,1.3,3.2,2.7,6.5,2.7
+                  c3.3,0,5-1.5,6.5-2.7C42.8,9,44,8,46.6,8s3.8,1,5.2,2.3c1.5,1.3,3.2,2.7,6.5,2.7c3.3,0,5-1.5,6.5-2.7C66.1,9,67.3,8,69.9,8
+                  c0.2,0,0.4,0,0.6,0l-6.6,7.2l1.5,1.4L74,7.2L64.4,0.3z" 
+              fill="rgba(13, 156, 144, 1)">
+          </path>
       </svg>
-    </div>
-  );
+  </div>
+)
 };
 
-export default ArrowButton
+export default ArrowButton; 

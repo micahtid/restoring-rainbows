@@ -1,16 +1,17 @@
 "use client";
 
-import { useData } from "@/providers/useData";
-import useExecutiveMemberModal from "@/hooks/useExecutiveMemberModal";
 import { organizeByPosition } from "@/utils/utils";
+import { DocumentData } from "firebase/firestore";
+
+import useExecutiveMemberModal from "@/hooks/useExecutiveMemberModal";
 
 import OutlineButton from "@/components/OutlineButton";
 
-const ExecutiveBoard = () => {
-  const {
-    executiveBoard
-  } = useData();
+interface ExecutiveBoardProps {
+  executiveBoard: DocumentData[] | null;
+}
 
+const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
   const {
     onOpen,
     setCurrentMember

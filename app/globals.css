@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap');
 
 
 @tailwind base;
@@ -9,12 +8,12 @@
 @layer components {
     .dynamic-heading {
       @apply text-8xl max-xl:text-7xl max-lg:text-6xl max-md:text-5xl
-      font-bold uppercase
+      font-bold font-header uppercase
     }
   
     .dynamic-subheading {
       @apply text-4xl max-lg:text-3xl
-      font-bold uppercase
+      font-bold font-header uppercase
     }
   
     .input-field {
@@ -32,15 +31,3 @@
       /* Firefox */
     }
   }
-
-/* SVG Animations   */
-
-.line-drawing path {
-  animation: draw 5s forwards;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}

@@ -1,25 +1,23 @@
 "use client";
 
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
-import { useData } from '@/providers/useData';
+import { DocumentData } from 'firebase/firestore';
 
 const containerStyle = {
     width: '100%',
     height: '100%'
   };
   
+interface BranchMapProps {
+  branches: DocumentData[] | null;
+}
 
-const BranchMap = () => {
+const BranchMap: React.FC<BranchMapProps> = ({ branches }) => {
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
         googleMapsApiKey: "AIzaSyDmKrYRHIl-efX8ZoEMgSIJM6jjaQD_-2c"
       });
     
-
-    const {
-        branches
-    } = useData();
-
   return (
     <div className='max-w-max w-full mx-auto mt-10 mb-16
     h-[500px]'>

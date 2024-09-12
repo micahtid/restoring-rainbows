@@ -7,6 +7,8 @@ import ExecutiveBoardModal from "@/components/modals/ExecutiveBoardModal";
 import StatisticsModal from "@/components/modals/StatisticsModal";
 import VolunteerModal from "@/components/modals/VolunteerModal";
 import PartnerModal from "@/components/modals/PartnerModal";
+import EventsModal from "@/components/modals/EventsModal";
+import StoriesModal from "@/components/modals/StoriesModal";
 
 import BranchFounderModal from "@/components/modals/BranchFounderModal";
 import PartnerDisplayModal from "@/components/modals/PartnerDisplayModal";
@@ -30,6 +32,8 @@ const ModalProvider = () => {
         <StatisticsModal />
         <VolunteerModal />
         <PartnerModal />
+        <EventsModal />
+        <StoriesModal />
 
         <BranchFounderModal />
         <PartnerDisplayModal />

@@ -1,13 +1,14 @@
 "use client";
 
-import { useData } from "@/providers/useData";
+import { DocumentData } from "firebase/firestore";
+
 import usePartnerDisplayModal from "@/hooks/usePartnerDisplayModal";
 
-const PartnersList = () => {
-  const {
-    partners
-  } = useData();
+interface PartnersListProps {
+  partners: DocumentData[] | null;
+}
 
+const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
   const {
     onOpen,
     setCurrentPartner
