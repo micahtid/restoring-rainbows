@@ -65,7 +65,7 @@ const Hero = () => {
         <div className="
         bg-white drop-shadow-md
         text-text text-lg text-center
-        mt-14 px-6 py-4 rounded-lg">
+        mt-14 px-6 py-4">
             So glad you could stop by! We're a youth run 501(c)3 nonprofit that collects, recycles, and donates school supplies!
         </div>
       </div>
