@@ -2,6 +2,8 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useRouter } from 'next/navigation';
+import { useData } from '@/providers/useData';
 
 // Swiper
 import 'swiper/css';
@@ -9,6 +11,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const Blog = () => {
+  const {
+    stories
+  } = useData();
+  const router = useRouter();
 
   return (
     <section className='w-full bg-secondary flex justify-center items-center'>
@@ -19,18 +25,24 @@ const Blog = () => {
         <Swiper
           navigation={true} 
           modules={[Navigation]}
-          slidesPerView={'auto'}
+          slidesPerView="auto"
           grabCursor={true}
-          spaceBetween={30}
-          className="w-full h-[500px]"
+          spaceBetween={30}  
+          className="w-full"
         >
-          {Array(5).fill(null).map((_, index) => (
-            <SwiperSlide key={index}>
-              <div className='bg-red-500'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur quae distinctio delectus eligendi aliquid accusantium. Ratione fugiat necessitatibus, minima numquam quasi mollitia quae, quod voluptatum unde ipsa neque? Libero, fuga!
-              </div>
-            </SwiperSlide>
-          ))}
+          {
+            stories?.map((story, index) => (
+              <SwiperSlide key={index} style={{ width: '300px' }}
+              onClick={() => router.push(`/stories/item?title=${story.title}`)}>  
+                <img src={story.image} className='w-full h-[300px] drop-shadow' />
+                <div className="w-full
+                flex flex-col justify-start items-center py-2">
+                  <h3 className='text-lg font-title uppercase font-bold'>{story.title}</h3>
+                  <p className='text-sm text-gray-600'>{story.date}</p>
+                </div>
+              </SwiperSlide>
+            ))
+          }
         </Swiper>
       </div>
     </section>

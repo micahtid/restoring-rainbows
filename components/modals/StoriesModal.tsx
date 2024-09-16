@@ -49,7 +49,7 @@ const StoriesModal = () => {
             addStory(imageFile, title, date, location, firstName, lastName, content);
             onClose();
         } else if (!newStory
-            && title && content && date && location && imageFile
+            && title && content && date && location
         ) {
             if (currentStory) {
                 editStory(currentStory, title, date, location, firstName, lastName, content);

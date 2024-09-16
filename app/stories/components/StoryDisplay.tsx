@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useData } from '@/providers/useData';
 import { DocumentData } from 'firebase/firestore';
 
-const StoryDisplay = () => {
+interface StoryDispalyProps {
+  stories: DocumentData[] | null;
+}
+
+const StoryDisplay: React.FC<StoryDispalyProps> = ({ stories }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const { stories } = useData();
   const [filteredStories, setFilteredStories] = useState<DocumentData[] | null>(stories);
 
   useEffect(() => {

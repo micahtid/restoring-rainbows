@@ -12,7 +12,7 @@ const Partners = () => {
 
   return (
     <section className='max-w-max w-full mx-auto
-    px-4 py-8
+    px-4 py-8 mb-10
     flex flex-col gap-y-10'>
         <div className="flex flex-col justify-center items-start gap-y-2">
           <h3 className='dynamic-subheading'>
