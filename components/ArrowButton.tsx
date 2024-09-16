@@ -1,13 +1,16 @@
 "use client";
 
 interface ArrowButtonProps {
-  children: React.ReactNode;
+  text: string;
   link: string;
 }
 
-const ArrowButton: React.FC<ArrowButtonProps> = ({ children, link }) => {
+const ArrowButton: React.FC<ArrowButtonProps> = ({ text, link }) => {
 return (
-  <div className="">
+  <div className="flex flex-row justify-center items-center gap-x-4">
+      <p className="text-xl">
+        {text}
+      </p>
       <svg viewBox="0 0 74 17" width="74px" height="17px">
           <path d="
                   M20.7.3l-1.3 1.3 6.7 
@@ -17,7 +20,7 @@ return (
               fill="rgba(13, 156, 144, 1)">
           </path>
       </svg>
-      <svg viewBox="0 0 74 17" width="74px" height="17px">
+      {/* <svg viewBox="0 0 74 17" width="74px" height="17px">
           <path 
               d="M64.4,0.3l-1.2,1.6L69,6c-2.7,0.2-4.3,1.5-5.6,2.7C62,10,60.8,11,58.2,11c-2.5,0-3.8-1-5.2-2.3
                   C51.6,7.5,49.9,6,46.6,6c-3.3,0-5,1.5-6.5,2.7C38.7,10,37.5,11,34.9,11c-2.5,0-3.8-1-5.2-2.3C28.3,7.5,26.6,6,23.3,6
@@ -27,7 +30,7 @@ return (
                   c0.2,0,0.4,0,0.6,0l-6.6,7.2l1.5,1.4L74,7.2L64.4,0.3z" 
               fill="rgba(13, 156, 144, 1)">
           </path>
-      </svg>
+      </svg> */}
   </div>
 )
 };
