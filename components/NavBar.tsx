@@ -80,23 +80,26 @@ const NavBar = () => {
     fixed top-0
     w-[100vw]
     px-12 py-4 z-50
-    flex justify-center items-center bg-red-500"
+    flex justify-center items-center
+    bg-secondary
+    hover:bg-primary transition-all duration-500
+    group-hover:h-[300px]"
     >
-      <div className="flex justify-between items-center
-      max-w-max w-full group">
+      <div className="flex justify-between items-start
+      max-w-max w-full">
         <a href="/">
           <img src="/logo_black.png" className="w-[50px]" />
         </a>
         <div
           className="
-          flex justify-center items-start gap-x-8
+          flex justify-center items-start gap-x-10
           max-md:hidden"
         >
           {extendedNavItems.map((item, index) => (
             <div 
             key={index}
-            className="flex flex-col justify-start items-center gap-y-2 py-12">
-              <a href={item.link} className="font-semibold text-black/70 text-lg group">
+            className="flex flex-col justify-start items-end gap-y-2 mt-3 group">
+              <a href={item.link} className="font-semibold text-black/70 text-lg">
                 {item.label}
               </a>
               {
@@ -104,7 +107,8 @@ const NavBar = () => {
                   <a 
                   key={index}
                   href={subItem.link}
-                  className="hidden group-hover:inline-block">
+                  className="hidden
+                  transition-all duration-300 group-hover:inline-block">
                     {subItem.label}
                   </a>
                 ))

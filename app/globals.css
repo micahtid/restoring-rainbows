@@ -11,7 +11,7 @@
   }
 
   .dynamic-heading {
-    @apply text-6xl max-xl:text-5xl max-lg:text-4xl max-md:text-3xl font-bold font-header uppercase
+    @apply text-5xl max-xl:text-4xl font-bold font-header uppercase
   }
 
   .dynamic-subheading {
