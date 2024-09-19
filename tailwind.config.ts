@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         primary: "#73a0e1",
         secondary: "#e3f0ff",
-        accent: "#e2b474",
+        accent: "#d5e3f1",
         text: "#21262B"
       },
       fontFamily: {

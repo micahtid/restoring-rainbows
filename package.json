@@ -11,10 +11,12 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.1",
     "@react-google-maps/api": "^2.19.3",
+    "@react-spring/web": "^9.7.4",
+    "animejs": "^3.2.2",
     "firebase": "^10.13.1",
     "flubber": "^0.4.2",
     "framer-motion": "^11.5.4",
-    "next": "14.2.5",
+    "next": "^14.2.12",
     "react": "^18",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
@@ -23,7 +25,9 @@
     "react-spinners": "^0.14.1",
     "swiper": "^11.1.12",
     "tailwind-merge": "^2.5.2",
+    "three": "^0.168.0",
     "toaster": "^0.1.2",
+    "velocity-animate": "^1.5.2",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
@@ -32,6 +36,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/velocity-animate": "^1.2.33",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

@@ -25,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <DataContextProvider>
           <NavBar />
+          <div className="mb-16" />
           {children}
           <Footer />
           <ModalProvider />

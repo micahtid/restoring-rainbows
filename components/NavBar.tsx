@@ -77,50 +77,38 @@ const NavBar = () => {
   return (
     <nav
       className="
-    w-[100vw] bg-secondary
-    px-12 py-4
-    flex justify-center items-center"
+    fixed top-0
+    w-[100vw]
+    px-12 py-4 z-50
+    flex justify-center items-center bg-red-500"
     >
       <div className="flex justify-between items-center
-      max-w-max w-full">
+      max-w-max w-full group">
         <a href="/">
           <img src="/logo_black.png" className="w-[50px]" />
         </a>
         <div
           className="
-          flex justify-center items-center gap-x-8
+          flex justify-center items-start gap-x-8
           max-md:hidden"
         >
           {extendedNavItems.map((item, index) => (
-            <div
-              className="
-                  group relative"
-              key={index}
-            >
+            <div 
+            key={index}
+            className="flex flex-col justify-start items-center gap-y-2 py-12">
               <a href={item.link} className="font-semibold text-black/70 text-lg group">
                 {item.label}
               </a>
-              <div
-                className="
-                      group-hover:flex hidden
-                      flex-col justify-center items-end 
-                      bg-secondary
-                      py-2 pr-2 pl-10
-                      z-[1000]
-                      absolute top-[25px] -right-2"
-              >
-                {item.subItems.map((subItem, index) => (
-                  <a
-                    key={index}
-                    href={subItem.link}
-                    className="text-right text-nowrap text-lg
-                          text-black/70 
-                          opacity-0 group-hover:opacity-100 transition-all duration-100"
-                  >
+              {
+                item.subItems.map((subItem, index) => (
+                  <a 
+                  key={index}
+                  href={subItem.link}
+                  className="hidden group-hover:inline-block">
                     {subItem.label}
                   </a>
-                ))}
-              </div>
+                ))
+              }
             </div>
           ))}
         </div>

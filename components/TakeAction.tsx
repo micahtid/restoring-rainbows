@@ -4,7 +4,10 @@ import ArrowButton from "./ArrowButton"
 const TakeAction = () => {
   return (
     <section className='w-[100vw] my-16
-    flex justify-center items-center bg-secondary'>
+    flex justify-center items-center bg-secondary 
+    relative overflow-hidden'>
+        <div className="absolute -left-[250px] top-1/2 transform -translate-y-1/2 h-[1000px] w-[1000px]
+        bg-primary/60 rounded-full blur-[200px]" />
         <div className="max-w-max w-full px-4 py-16
         flex flex-col gap-y-24">
           {takeAction.map((item, index) => (

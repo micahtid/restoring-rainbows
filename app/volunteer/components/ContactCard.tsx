@@ -13,8 +13,6 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [country, setCountry] = useState("");
-    const [city, setCity] = useState("");
 
     return (
         <form className={twMerge(`
@@ -22,7 +20,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
         p-8 bg-white drop-shadow
         w-full max-sm:px-3
         `, className)}>
-            <h3 className="dynamic-subheading text-center">Register a Branch</h3>
+            <h3 className="dynamic-subheading text-center">Sign Up</h3>
             <div className="flex justify-between items-center gap-x-6 w-full
             max-lg:flex-col max-lg:gap-y-4">
                 <InputField
@@ -41,20 +39,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
             <InputField
                 label="Email"
                 placeholder="Last Name..."
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <InputField
-                label="Intended Branch Country"
-                placeholder="Intended Branch Coutry..."
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-            />
-            <InputField
-                label="Intended Branch City"
-                placeholder="Intended Branch City..."
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                value={firstName}
+                onChange={(e) => setLastName(e.target.value)}
             />
             <button className="w-full bg-primary/80 p-2
             uppercase font-semibold
