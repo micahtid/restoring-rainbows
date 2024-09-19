@@ -19,7 +19,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
     return (
         <form className={twMerge(`
         flex flex-col justify-center items-center gap-y-4
-        p-8 bg-white
+        p-8 bg-white drop-shadow
         w-full max-sm:px-3
         `, className)}>
             <h3 className="dynamic-subheading text-center">Register a Branch</h3>
@@ -41,20 +41,20 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
             <InputField
                 label="Email"
                 placeholder="Last Name..."
-                value={firstName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
             />
             <InputField
                 label="Intended Branch Country"
                 placeholder="Intended Branch Coutry..."
-                value={firstName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
             />
             <InputField
                 label="Intended Branch City"
                 placeholder="Intended Branch City..."
-                value={firstName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
             />
             <button className="w-full bg-primary/80 p-2
             uppercase font-semibold

@@ -1,22 +1,34 @@
-import { gradientDivs } from "@/data";
+import ContactCard from "./components/ContactCard";
+import Highlight from "@/components/Highlight";
 
-const Volunteer = () => {
+const StartABranch = () => {
   return (
     <div className='relative w-full h-full'>
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        {gradientDivs.map((className, index) => (
-          <div key={index} className={className}></div>
-        ))}
-      </div>
-      <div className='max-w-max w-full mx-auto px-4 py-20 relative flex flex-col justify-start items-start gap-y-4'>
-        <h3 className='dynamic-subheading'>Write For Us</h3>
-        <p className='text-xl max-w-[800px] self-end uppercase font-bold'>
+      {/* Gradient overlay */}
+      <div 
+        className='fixed inset-0 z-[-1]' 
+        style={{
+          backgroundColor: '#d5e3f1',
+          backgroundImage: 'linear-gradient(to bottom right, white, #e3f0ff)',
+          opacity: 0.7, 
+        }}
+      />
+      <div className='max-w-max w-full mx-auto px-4 py-20 relative flex flex-col justify-start items-start gap-y-12'>
+        <h3 className='dynamic-heading'>Volunteer</h3>
+        <p className='text-lg max-w-[800px] self-end'>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, illum quae. Quo, odit inventore sit neque veniam culpa ex assumenda?
         </p>
-        <div className="w-full h-[70vh]"></div>
+        <div className="w-full h-[70vh] flex justify-center items-center">
+          <div className="w-full flex flex-col gap-y-6">
+            <div className="">
+              <Highlight text="Interested?" />
+            </div>
+            <ContactCard />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Volunteer;
+export default StartABranch;

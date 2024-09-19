@@ -1,4 +1,4 @@
-import React from 'react'
+import CurveUnderline from "@/components/CurveUnderline"
 
 const MissionStatement = () => {
   return (
@@ -16,7 +16,10 @@ const MissionStatement = () => {
       </div>
       <div className="max-w-max w-full mx-auto px-4 py-8 mt-12
       flex flex-col justify-start items-start gap-y-12">
-        <h3 className='dynamic-subheading'>Our Mission</h3>
+        <div className="">
+          <h3 className='dynamic-subheading'>Our Mission</h3>
+          <CurveUnderline />
+        </div>
         <p className='text-xl max-w-[800px]'>Our mission is to give children educational supplies, clean up the environment, and nurture creativity in our community! We do this by collecting new and old school supplies alike and restoring them into powerful instruments of creativity! </p>
       </div>
     </div>
