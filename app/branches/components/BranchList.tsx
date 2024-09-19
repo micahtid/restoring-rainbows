@@ -7,6 +7,7 @@ import { CountryData, organizeBranchesByCountry } from "@/utils/utils";
 import useBranchFounderModal from "@/hooks/useBranchFounderModal";
 
 import OutlineButton from "@/components/OutlineButton";
+import CurveUnderline from "@/components/CurveUnderline";
 
 interface BranchListProps {
     branches: DocumentData[] | null;
@@ -43,8 +44,7 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     };
 
     const renderBranches = (branches: DocumentData[]) => (
-        <div className="mt-4
-        flex justify-start items-center gap-x-4">
+        <div className="flex flex-col w-full gap-y-2">
             {branches.map((branch, index) => (
                 <OutlineButton
                 key={index}
@@ -59,7 +59,7 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     );
 
     const renderCountryList = () => (
-        <div className="flex justify-start items-center gap-x-4">
+        <div className="flex flex-col w-full gap-y-2">
             {organizedBranches?.map((countryData, index) => (
                 <OutlineButton
                 key={index}
@@ -74,7 +74,7 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
         const usaData = organizedBranches?.find((country) => country.country === "USA");
 
         return (
-            <div>
+            <div className="flex flex-col w-full gap-y-2">
                 {usaData?.states?.map((stateData, index) => (
                     <OutlineButton
                     key={index}
@@ -92,8 +92,8 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
         const stateData = usaData?.states?.find((state) => state.state === selectedState);
 
         return (
-            <div>
-                <h3 className="text-2xl uppercase font-bold">Branches in {selectedState}, USA</h3>
+            <div className="w-full">
+                <h3 className="text-2xl uppercase font-bold mb-2">Branches in {selectedState}, USA</h3>
                 {renderBranches(stateData?.branches || [])}
             </div>
         );
@@ -103,8 +103,8 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
         const countryData = organizedBranches?.find((country) => country.country === selectedCountry);
 
         return (
-            <div>
-                <h3 className="text-2xl uppercase font-bold">Branches in {selectedCountry}</h3>
+            <div className="w-full">
+                <h3 className="text-2xl uppercase font-bold mb-2">Branches in {selectedCountry}</h3>
                 {renderBranches(countryData?.branches || [])}
             </div>
         );
@@ -114,7 +114,10 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
         <div className="max-w-max w-full mx-auto
         px-4 py-8 mt-28
         flex flex-col justify-start items-start gap-y-4">
-            <h3 className="dynamic-subheading">Our Branches</h3>
+            <div className="">
+                <h3 className="dynamic-subheading">Our Branches</h3>
+                <CurveUnderline />
+            </div>
             {!selectedCountry && renderCountryList()}
             {selectedCountry === "USA" && !selectedState && renderStateList()}
             {selectedCountry === "USA" && selectedState && renderBranchListForState()}

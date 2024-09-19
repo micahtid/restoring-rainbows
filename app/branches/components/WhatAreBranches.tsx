@@ -7,7 +7,7 @@ const WhatAreBranches = () => {
         <div className="max-w-max w-full px-4 py-8
         flex flex-col justify-start items-start gap-y-4">
             <Highlight text="What Are" />
-            <h3 className='dynamic-subheading'>Branches</h3>
+            <h3 className='dynamic-heading'>Branches</h3>
             <div className="w-full h-[50px] relative">
                 <p className='text-xl
                 bg-gray-100 p-4

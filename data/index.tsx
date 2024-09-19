@@ -10,7 +10,7 @@ export const extendedNavItems = [
     ]},
     {label: "Branches", link: "/branches", subItems: []},
     {label: "Take Action", link: "/#take-action", subItems: [
-        {label: "Start a Branch", link: "/start-a-branch"},
+        {label: "Start Branch", link: "/start-a-branch"},
         {label: "Volunteer", link: "volunteer"},
     ]}
 ]
