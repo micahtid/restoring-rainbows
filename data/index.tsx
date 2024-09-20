@@ -1,7 +1,5 @@
 export const extendedNavItems = [
-    {label: "About", link: "/about", subItems: [
-        {label: "Our Org", link: ""}
-    ]},
+    {label: "About", link: "/about", subItems: []},
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "/stories", subItems: [
