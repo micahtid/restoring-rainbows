@@ -4,7 +4,6 @@ import Highlight from "@/components/Highlight";
 const StartABranch = () => {
   return (
     <div className='relative w-full h-full'>
-      {/* Gradient overlay */}
       <div 
         className='fixed inset-0 z-[-1]' 
         style={{

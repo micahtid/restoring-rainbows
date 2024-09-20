@@ -71,61 +71,103 @@ const NavModal = () => {
   );
 };
 
+import { useEffect } from "react";
+
 const NavBar = () => {
   const { onOpen, isOpen } = useNavModal();
 
+  // Handling Scroll Position
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <nav
-      className="
-    fixed top-0
-    w-[100vw]
-    px-12 py-4 z-50
-    flex justify-center items-center
-    bg-secondary
-    hover:bg-primary transition-all duration-500
-    group-hover:h-[300px]"
+      className={`
+      fixed top-0 
+      w-[100vw] px-12 py-4 
+      h-[75px]
+      z-[10000] 
+      flex justify-center items-center 
+      transition-all duration-300
+      ${scrollPosition === 0 ? "bg-secondary" : "bg-transparent"}`}
     >
-      <div className="flex justify-between items-start
-      max-w-max w-full">
-        <a href="/">
-          <img src="/logo_black.png" className="w-[50px]" />
+      <div className="
+      flex justify-between items-start 
+      max-w-max w-full 
+      relative">
+        <a href="/" className="z-[11000]">
+          <img src="/logo_black.png" className="w-[50px] z-[1100]" />
         </a>
         <div
           className="
-          flex justify-center items-start gap-x-10
-          max-md:hidden"
+            flex justify-center items-start gap-x-10
+            max-md:hidden group"
         >
+          <div
+            style={{
+                    backgroundColor: '#d5e3f1',
+                    backgroundImage: 'linear-gradient(to bottom right, #f3e2ca, #c9daf3)'
+                  }}
+            className={`
+              bg-[#f5e7d4] w-[100vw] h-[165px] overflow-hidden
+              absolute left-1/2 transform -translate-x-1/2
+              ${scrollPosition===0 ? 'opacity-0' : 'opacity-100'}
+              -translate-y-[75px] -top-[15px] group-hover:translate-y-0 group-hover:opacity-100
+              transition-all duration-300
+            `}>
+          </div>
           {extendedNavItems.map((item, index) => (
-            <div 
-            key={index}
-            className="flex flex-col justify-start items-end gap-y-2 mt-3 group">
+            <div
+              key={index}
+              className="
+              flex flex-col justify-start items-end gap-y-2 
+              mt-3 relative"
+            >
               <a href={item.link} className="font-semibold text-black/70 text-lg">
                 {item.label}
               </a>
-              {
-                item.subItems.map((subItem, index) => (
-                  <a 
-                  key={index}
-                  href={subItem.link}
-                  className="hidden
-                  transition-all duration-300 group-hover:inline-block">
+              <div className="absolute right-0 top-[30px] flex flex-col items-end">
+                {item.subItems.map((subItem, subIndex) => (
+                  <a
+                    key={subIndex}
+                    href={subItem.link}
+                    className="
+                      opacity-0 text-right
+                      group-hover:opacity-100 
+                      transition-opacity 
+                      duration-500
+                      text-text"
+                  >
                     {subItem.label}
                   </a>
-                ))
-              }
+                ))}
+              </div>
             </div>
           ))}
         </div>
         <button
           className="
-          hidden max-md:inline-block
-          rounded-lg bg-gray-400/40 shadow-sm
-          p-3"
+            hidden max-md:inline-block
+            rounded-lg bg-gray-400/40 shadow-sm
+            p-3"
           onClick={onOpen}
         >
           <RxHamburgerMenu size={25} />
         </button>
       </div>
+
       <NavModal />
     </nav>
   );
