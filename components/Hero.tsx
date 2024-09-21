@@ -15,7 +15,7 @@ const Gradient: React.FC<GradientProps> = ({ className }) => {
 const Hero = () => {
   return (
     <section
-      className="w-[100vw] h-[90vh] mt-16
+      className="w-[100vw] h-[90vh]
       flex justify-center items-center overflow-hidden
       bg-secondary
       relative z-[8000]"
@@ -52,13 +52,13 @@ const Hero = () => {
           max-w-[900px] max-md:min-w-[100%] px-4 z-[5000] // Lower than the NavBar
           absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[60%]"
       >
-        <h3 className="dynamic-title text-center text-text/80 drop-shadow">
+        <h3 className="dynamic-title text-center text-body drop-shadow">
           Spreading Art and Saving the Planet
         </h3>
         <div
           className="
           bg-white drop-shadow-md
-          text-text text-lg text-center
+          text-body text-lg text-center
           mt-14 px-6 py-4"
         >
           So glad you could stop by! We're a youth run 501(c)3 nonprofit that collects, recycles, and donates school supplies!

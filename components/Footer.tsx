@@ -17,7 +17,7 @@ export const Footer = () => {
         "
         >
           <div className="flex flex-col justify-center items-start gap-y-7">
-            <img src="/logo.png" className="w-[100px]" />
+            <img src="/logo_white.png" className="w-[50px]" />
             <p className="text-white text-sm">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi
               doloribus perspiciatis soluta nemo blanditiis nulla atque porro ut

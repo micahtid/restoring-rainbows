@@ -8,7 +8,7 @@ const WhatWeDo = () => {
     py-24 px-8
     flex flex-col gap-y-12'>
         <div className="">
-            <h3 className="dynamic-subheading">
+            <h3 className="dynamic-subheading text-header">
                 What We Do
             </h3>
             <CurveUnderline />
@@ -23,10 +23,10 @@ const WhatWeDo = () => {
                         <div className="text-8xl text-primary/80 ">
                             {item.icon}
                         </div>
-                        <h3 className="text-xl uppercase font-bold">
+                        <h3 className="text-xl uppercase font-bold text-header">
                             {item.title}
                         </h3>
-                        <p className="text-xl">
+                        <p className="text-xl text-body">
                             {item.description}
                         </p>
                     </div>
