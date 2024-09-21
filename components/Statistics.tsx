@@ -18,8 +18,8 @@ const Statistics = () => {
             {statistics.map((statistic, index) => (
                 <div key={index}
                 className='flex flex-col justify-center items-center gap-y-1'>
-                    <h3 className='dynamic-subheading font-semibold text-text'>{statistic.number}</h3>
-                    <p className='text-text text-lg'>{statistic.label}</p>
+                    <h3 className='dynamic-subheading font-semibold text-body'>{statistic.number}</h3>
+                    <p className='text-body text-lg'>{statistic.label}</p>
                 </div>
             ))}
         </div>

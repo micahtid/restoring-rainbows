@@ -13,23 +13,22 @@ const Partners = () => {
   return (
     <section className='max-w-max w-full mx-auto
     px-4 py-8 mb-10
-    flex flex-col gap-y-10'>
-        <div className="flex flex-col justify-center items-start gap-y-2">
-          <h3 className='dynamic-subheading'>
-              Partners
-          </h3>
-          <ArrowButton text="See More" link="" />
-        </div>
-        <div className="flex flex-row justify-start items-start gap-5 flex-wrap">
-          {partners?.map((partner, index) => (
-            <div 
-            key={index}
-            className={`${!partner.highlyValued && 'hidden'}`}>
-              <img src={partner.logo}
-              className="w-[250px] h-[250px] object-cover" />
-            </div>
-          ))}
-        </div>
+    flex gap-x-16'>
+      <div className="flex flex-col gap-y-2
+      max-w-[450px]">
+        <h3 className="dynamic-heading text-header">Partners</h3>
+        <p className="text-lg text-body mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolorum consectetur ducimus possimus corporis quia magnam molestias, dignissimos dolores vero?</p>
+        <ArrowButton text="See More" link="/partners" />
+      </div>
+      <div className="flex flex-wrap gap-5">
+        {partners?.map((partner, index) => (
+          <div 
+          key={index}
+          className={`${!partner.highlyValued && 'hidden'}`}>
+            <img src={partner.logo} className="w-[150px] h-[150px] object-cover" />
+          </div>
+        ))}
+      </div>
     </section>
   )
 }

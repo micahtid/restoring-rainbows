@@ -118,13 +118,13 @@ const NavBar = () => {
           <div
             style={{
                     backgroundColor: '#d5e3f1',
-                    backgroundImage: 'linear-gradient(to bottom right, #f3e2ca, #c9daf3)'
+                    backgroundImage: 'linear-gradient(to bottom right, #deaf6d, #f8efe2)'
                   }}
             className={`
-              bg-[#f5e7d4] w-[100vw] h-[165px] overflow-hidden
+              bg-[#f5e7d4] w-[100vw] h-[172.5px] overflow-hidden
               absolute left-1/2 transform -translate-x-1/2
               ${scrollPosition===0 ? 'opacity-0' : 'opacity-100'}
-              -translate-y-[75px] -top-[15px] group-hover:translate-y-0 group-hover:opacity-100
+              -translate-y-[95px] -top-[15px] group-hover:translate-y-0 group-hover:opacity-100
               transition-all duration-300
             `}>
           </div>
@@ -148,7 +148,7 @@ const NavBar = () => {
                       group-hover:opacity-100 
                       transition-opacity 
                       duration-500
-                      text-text"
+                      text-lg font-semibold text-black/70"
                   >
                     {subItem.label}
                   </a>

@@ -22,7 +22,7 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
     px-4 py-8
     flex flex-col justify-start items-start gap-y-12">
         <h3
-        className="dynamic-subheading">
+        className="dynamic-subheading text-header">
           Our Executive Board
         </h3>
         <div className="flex flex-col justify-start items-start gap-y-6">
@@ -31,7 +31,7 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
               <div
               key={index}
               className="flex flex-col gap-y-12">
-                <h3 className="text-2xl font-bold uppercase">
+                <h3 className="text-2xl font-bold uppercase text-header">
                   {position.categorization}
                 </h3>
                 <div 
