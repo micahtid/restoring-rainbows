@@ -2,9 +2,9 @@ export const extendedNavItems = [
     {label: "About", link: "/about", subItems: []},
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
-    {label: "Stories", link: "/stories", subItems: [
-        {label: "Blogs", link: ""},
-        {label: "Events", link: ""}
+    {label: "Stories", link: "", subItems: [
+        {label: "Blogs", link: "/stories"},
+        {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
     {label: "Take Action", link: "/#take-action", subItems: [

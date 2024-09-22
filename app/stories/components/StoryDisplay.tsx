@@ -51,7 +51,10 @@ const StoryDisplay: React.FC<StoryDispalyProps> = ({ stories }) => {
               alt={story.title}
               className="w-[300px] h-[300px] object-cover"
             />
-            <h4 className="mt-2 text-lg uppercase font-title font-bold">{story.title}</h4>
+            <div className="">
+              <h4 className="mt-2 text-xl text-header uppercase font-title font-bold">{story.title}</h4>
+              <p className='text-lg text-body'>{story.date}</p>
+            </div>
           </div>
         ))}
       </div>
