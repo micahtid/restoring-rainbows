@@ -23,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <DataContextProvider>
-          <NavBar />
-          <div className="mt-[75px]">
-            {children}
-          </div>
-          <Footer />
-          <ModalProvider />
-        </DataContextProvider>
+        <div className="overflow-x-hidden">
+          <DataContextProvider>
+            <NavBar />
+            <div className="mt-[75px]">
+              {children}
+            </div>
+            <Footer />
+            <ModalProvider />
+          </DataContextProvider>
+        </div>
       </body>
     </html>
   );

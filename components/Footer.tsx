@@ -62,7 +62,7 @@ export const Footer = () => {
         max-lg:flex-col max-lg:items-start"
         >
           <p className="text-sm text-white">
-            @Copyright 2024 ILuvCats Inc. All rights reserved.
+            @Copyright 2024 Restoring Rainbows. All rights reserved.
           </p>
           <p className="text-sm text-white">
             This website was built by{" "}

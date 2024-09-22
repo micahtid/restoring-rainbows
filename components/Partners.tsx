@@ -12,9 +12,9 @@ const Partners = () => {
 
   return (
     <section className='max-w-max w-full mx-auto
-    px-4 py-8 mb-10
-    flex gap-x-16'>
-      <div className="flex flex-col gap-y-2
+    px-4 py-8 my-28
+    flex gap-x-24'>
+      <div className="flex flex-col gap-y-6
       max-w-[450px]">
         <h3 className="dynamic-heading text-header">Partners</h3>
         <p className="text-lg text-body mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolorum consectetur ducimus possimus corporis quia magnam molestias, dignissimos dolores vero?</p>

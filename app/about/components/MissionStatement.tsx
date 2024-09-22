@@ -16,7 +16,7 @@ const MissionStatement = () => {
       </div>
       <div className="max-w-max w-full mx-auto px-4 py-8 mt-12
       flex flex-col justify-start items-start gap-y-12">
-        <div className="">
+        <div className="flex flex-col gap-y-2">
           <p className="uppercase font-bold text-primary">Lorem ipsum dolor sit amet.</p>
           <h3 className='dynamic-heading text-header'>Our Mission</h3>
         </div>

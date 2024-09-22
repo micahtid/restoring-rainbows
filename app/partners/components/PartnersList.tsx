@@ -1,8 +1,8 @@
 "use client";
 
 import { DocumentData } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
-import usePartnerDisplayModal from "@/hooks/usePartnerDisplayModal";
 import Highlight from "@/components/Highlight";
 
 interface PartnersListProps {
@@ -10,10 +10,7 @@ interface PartnersListProps {
 }
 
 const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
-  const {
-    onOpen,
-    setCurrentPartner
-  } = usePartnerDisplayModal();
+  const router = useRouter();
 
   return (
     <div className="w-[100vw] flex justify-center items-center
@@ -52,8 +49,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
             key={index}
             className="w-[250px] h-[250px]"
             onClick={() => {
-              setCurrentPartner(partner);
-              onOpen();
+              router.push(`/partners/partner?name=${partner.name}`)
             }}>
               <img src={partner.logo}
               className="w-full h-full object-cover" />

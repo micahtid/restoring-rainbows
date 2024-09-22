@@ -9,7 +9,7 @@ import Partners from "@/components/Partners";
 
 const Home = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="">
       <Hero />
       <Statistics />
       <WhatWeDo />

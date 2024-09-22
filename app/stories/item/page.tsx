@@ -43,7 +43,7 @@ const Story = () => {
                 />
             </div>
             <div className="max-w-max mx-auto">
-                <p className="text-lg text-gray-700 mb-4">{story?.content}</p>
+                <p className="text-lg text-body mb-4">{story?.content}</p>
                 <p className="text-sm text-gray-500">
                     By {story?.firstName} {story?.lastName} on {story?.date}
                 </p>
