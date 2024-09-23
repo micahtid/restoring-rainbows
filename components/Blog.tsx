@@ -19,7 +19,7 @@ const Blog = () => {
   return (
     <section className='w-full bg-complement flex justify-center items-center'>
       <div className="max-w-max w-full px-4 py-14 flex flex-col justify-start items-start gap-y-12">
-        <h3 className='dynamic-subheading'>
+        <h3 className='dynamic-subheading text-header'>
           Blogs
         </h3>
         <Swiper
@@ -37,8 +37,8 @@ const Blog = () => {
                 <img src={story.image} className='w-full h-[300px] drop-shadow' />
                 <div className="w-full
                 flex flex-col justify-start items-center py-2">
-                  <h3 className='text-lg font-title uppercase font-bold'>{story.title}</h3>
-                  <p className='text-sm text-gray-600'>{story.date}</p>
+                  <h3 className='text-lg font-title uppercase font-bold text-black'>{story.title}</h3>
+                  <p className='text-sm text-body'>{story.date}</p>
                 </div>
               </SwiperSlide>
             ))

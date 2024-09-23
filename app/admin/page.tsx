@@ -26,7 +26,7 @@ const Admin = () => {
   return (
     <div className="w-[100vw]">
         <div className="h-[85vh] max-w-[1000px] mx-auto
-        py-16
+        py-16 mb-12 overflow-y-scroll no-scrollbar
         max-[1000px]:hidden">
             {adminStatus ? (
                 <div className="w-full h-full

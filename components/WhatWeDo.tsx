@@ -1,18 +1,13 @@
 import { whatWeDo } from "@/data"
 
-import CurveUnderline from "./CurveUnderline"
-
 const WhatWeDo = () => {
   return (
     <section className='max-w-max mx-auto 
     py-24 px-8
     flex flex-col gap-y-12'>
-        <div className="">
-            <h3 className="dynamic-subheading text-header">
-                What We Do
-            </h3>
-            <CurveUnderline />
-        </div>
+        <h3 className="dynamic-subheading text-header">
+            What We Do
+        </h3>
         <div className="flex flex-row justify-between items-start gap-x-20">
             {whatWeDo.map((item, index) => (
                 <div 

@@ -1,18 +1,14 @@
 import { whyWeMatter } from "@/data"
 
-import CurveUnderline from "@/components/CurveUnderline"
 
 const WhyWeMatter = () => {
   return (
     <div className='max-w-max w-full mx-auto
     px-4 pt-32 pb-52
     flex flex-col justify-start item-start gap-y-12'>
-      <div className="">
-        <h3 className='dynamic-subheading text-header'>
-          Why We Matter
-          <CurveUnderline />
-        </h3>
-      </div>
+      <h3 className='dynamic-subheading text-header'>
+        Why We Matter
+      </h3>
       <div className="flex justify-between items-start gap-x-12">
         {whyWeMatter.map((item, index) => (
           <div

@@ -38,11 +38,13 @@ export const contacts = [
     "Address: Pineapple Street NYC"
 ]
 
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export const socials = [
     {icon: <FaInstagram />, link: ""},
     {icon: <FaFacebook />, link: ""},
+    {icon: <FaLinkedin />, link: ""},
+    {icon: <FaTwitter />, link: ""}
 ]
 
 export const gradientDivs = [
