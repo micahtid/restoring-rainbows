@@ -1,5 +1,3 @@
-import CurveUnderline from "@/components/CurveUnderline"
-
 const MissionStatement = () => {
   return (
     <div className='w-[100vw]'>

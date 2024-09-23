@@ -8,7 +8,7 @@ const Statistics = () => {
     ]
 
     return (
-        <section className="relative"> 
+        <section className="relative mb-12"> 
             <div
             className='w-[100vw] px-12 py-8
             flex justify-center items-center relative z-10'> 

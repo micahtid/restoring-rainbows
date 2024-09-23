@@ -16,9 +16,11 @@ const Partners = () => {
     flex gap-x-24'>
       <div className="flex flex-col gap-y-6
       max-w-[450px]">
-        <h3 className="dynamic-heading text-header">Partners</h3>
+        <h3 className="dynamic-subheading text-header">Partners</h3>
         <p className="text-lg text-body mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolorum consectetur ducimus possimus corporis quia magnam molestias, dignissimos dolores vero?</p>
-        <ArrowButton text="See More" link="/partners" />
+        <div className="flex justify-start">
+          <ArrowButton text="See More" link="/partners" />
+        </div>
       </div>
       <div className="flex flex-wrap gap-5">
         {partners?.map((partner, index) => (

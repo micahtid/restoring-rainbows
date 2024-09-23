@@ -28,7 +28,7 @@ const RecentEvents = () => {
 
   return (
     <section className='max-w-max w-full mx-auto px-4 py-8 flex flex-col gap-y-8'>
-        <h3 className='dynamic-subheading'>Recent Events</h3>
+        <h3 className='dynamic-subheading text-header'>Recent Events</h3>
         <Swiper
           navigation={true} 
           modules={[Navigation]}
@@ -42,8 +42,8 @@ const RecentEvents = () => {
               <SwiperSlide key={index} style={{ width: '300px' }}>  
                 <img src={event.image} className='w-full h-[300px] drop-shadow' />
                 <div className="w-full flex flex-col justify-start items-center py-2">
-                  <h3 className='text-lg font-title uppercase font-bold'>{event.title}</h3>
-                  <p className='text-sm text-gray-600'>{event.date}</p>
+                  <h3 className='text-lg font-title uppercase font-bold text-black'>{event.title}</h3>
+                  <p className='text-sm text-body'>{event.date}</p>
                 </div>
               </SwiperSlide>
             ))
