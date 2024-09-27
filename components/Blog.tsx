@@ -17,8 +17,8 @@ const Blog = () => {
   const router = useRouter();
 
   return (
-    <section className='w-full bg-complement flex justify-center items-center'>
-      <div className="max-w-max w-full px-x py-14 flex flex-col justify-start items-start gap-y-12">
+    <section className='w-full bg-white flex justify-center items-center'>
+      <div className="max-w-max w-full mx-auto px-x pb-14 pt-24 flex flex-col justify-start items-start gap-y-12">
         <h3 className='dynamic-subheading text-header'>
           Blogs
         </h3>
