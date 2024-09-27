@@ -26,9 +26,7 @@ export default function RootLayout({
         <div className="overflow-x-hidden">
           <DataContextProvider>
             <NavBar />
-            <div className="mt-[75px]">
-              {children}
-            </div>
+            {children}
             <Footer />
             <ModalProvider />
           </DataContextProvider>

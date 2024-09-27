@@ -101,7 +101,7 @@ const NavBar = () => {
       z-[10000] 
       flex justify-center items-center 
       transition-all duration-300
-      ${scrollPosition === 0 ? "bg-secondary" : "bg-transparent"}`}
+      bg-transparent`}
     >
       <div className="
       flex justify-between items-start 
