@@ -1,74 +1,68 @@
 import { twMerge } from "tailwind-merge";
 
-interface GradientProps {
+interface HorizontalGradientProps {
+  yPos: string;
   className?: string;
 }
 
-const Gradient: React.FC<GradientProps> = ({ className }) => {
+const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, className }) => {
+  const baseGradientClass = 'bg-secondary w-full absolute bottom-0';
+
   return (
-    <div
-      className={twMerge(className, `bg-secondary rounded-full blur-3xl absolute`)}
-    />
+    <div className={twMerge("absolute w-full h-full top-0 right-0 z-[100]", className)}>
+      <div className={twMerge(baseGradientClass, 'h-[100px] opacity-90', yPos)} />
+      <div className={twMerge(baseGradientClass, 'h-[130px] blur-sm opacity-70', yPos)} />
+      <div className={twMerge(baseGradientClass, 'h-[160px] blur-md opacity-80', yPos)} />
+      <div className={twMerge(baseGradientClass, 'h-[190px] blur-lg opacity-70', yPos)} />
+      <div className={twMerge(baseGradientClass, 'h-[210px] blur-xl opacity-60', yPos)} />
+      <div className={twMerge(baseGradientClass, 'h-[240px] blur-2xl opacity-50', yPos)} />
+    </div>
+  );
+};
+
+interface VerticalGradientProps {
+  xPos: string;
+  className?: string;
+}
+
+const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) => {
+  const baseGradientClass = 'bg-secondary h-full absolute bottom-0';
+
+  return (
+    <div className={twMerge("absolute w-full h-full top-0 right-0 z-[100]", className)}>
+      <div className={twMerge(baseGradientClass, 'w-[100px] opacity-90', xPos)} />
+      <div className={twMerge(baseGradientClass, 'w-[130px] blur-sm opacity-70', xPos)} />
+      <div className={twMerge(baseGradientClass, 'w-[160px] blur-md opacity-80', xPos)} />
+      <div className={twMerge(baseGradientClass, 'w-[190px] blur-lg opacity-70', xPos)} />
+      <div className={twMerge(baseGradientClass, 'w-[210px] blur-xl opacity-60', xPos)} />
+      <div className={twMerge(baseGradientClass, 'w-[240px] blur-2xl opacity-50', xPos)} />
+    </div>
   );
 };
 
 const Hero = () => {
   return (
-    <section
-      className="w-[100vw] h-[90vh]
-      flex justify-center items-center overflow-hidden
-      bg-secondary
-      relative z-[8000]"
-    >
-      <div className="relative w-[45%] z-[100] max-lg:w-[60%]">
-        <img
-          src="/presentation.png"
-          className="w-full h-[700px] object-cover"
-        />
-      </div>
-      <div className="relative w-[32.5%] z-[300] max-lg:w-[40%]">
-        <img
-          src="/splash_one.png"
-          className="w-full h-[500px] object-cover mt-[225px] max-lg:mb-[450px]"
-        />
-        <Gradient
-          className="w-full h-[300px] z-[200] top-0 left-0 transform translate-x-1/2"
-        />
-      </div>
-      <div className="relative w-[22.5%] z-[500] max-lg:hidden">
-        <img
-          src="/zoom_meeting.png"
-          className="object-cover h-[600px] mb-[50px]"
-        />
-        <Gradient
-          className="w-[300px] h-[400px] z-[200] top-0 left-0 transform -translate-x-1/2 -translate-y-1/2"
-        />
-      </div>
-      <div
+    <section className="w-[100vw] h-[110vh] relative bg-secondary">
+        <h3
         className="
-          max-w-[900px] max-md:min-w-[100%] px-4 z-[5000] // Lower than the NavBar
-          absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[60%]"
-      >
-        <h3 className="dynamic-title text-center text-body drop-shadow mb-52">
+          dynamic-title text-center text-header drop-shadow mb-52 
+          max-w-[900px] max-md:min-w-[100%] px-4 z-[500]
+          absolute left-1/2 top-[175px] transform -translate-x-1/2"
+        >
           Spreading Art and Saving the Planet
         </h3>
-        {/* <div
-          className="
-          bg-white drop-shadow-md
-          text-body text-lg text-center
-          mt-14 px-6 py-4"
-        >
-          So glad you could stop by! We're a youth run 501(c)3 nonprofit that collects, recycles, and donates school supplies!
-        </div> */}
-      </div>
-
-
-      <Gradient
-        className="w-[800px] h-[500px] z-[800] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[100%]"
-      />
-      <Gradient
-        className="w-[500px] h-[700px] z-[200] bottom-0 left-1/2 transform -translate-x-[80%] translate-y-1/2"
-      />
+        <div className="absolute w-[45%] left-0 top-[10%]">
+          <VerticalGradient xPos="right-0" />
+          <img src="/presentation.png" className="w-full h-auto object-cover" />
+        </div>
+        <div className="absolute w-[32.5%] left-[45%] bottom-[15%] z-[200]">
+          <HorizontalGradient yPos="top-0" className="-top-[100px]" />
+          <img src="/presentation.png" className="w-full h-auto object-cover" />
+        </div>
+        <div className="absolute w-[22.5%] left-[77.5%] top-[10%]">
+          <VerticalGradient xPos="left-0" className="-left-[100px]" />
+          <img src="/zoom_meeting.png" className="w-full h-auto object-cover" />
+        </div>
     </section>
   );
 };
