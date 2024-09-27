@@ -3,7 +3,7 @@ import Highlight from "@/components/Highlight";
 
 const StartABranch = () => {
   return (
-    <div className='relative w-full h-full'>
+    <div className='relative w-full h-full pt-20'>
       <div 
         className='fixed inset-0 z-[-1]' 
         style={{

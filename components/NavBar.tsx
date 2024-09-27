@@ -97,6 +97,7 @@ const NavBar = () => {
       className={`
       fixed top-0 
       w-[100vw] px-12 py-4 
+      max-md:px-4
       h-[75px]
       z-[10000] 
       flex justify-center items-center 
