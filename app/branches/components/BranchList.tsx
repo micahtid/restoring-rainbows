@@ -27,7 +27,8 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
                 <h3 className="text-3xl font-bold font-title text-header uppercase">{countryData.country}</h3>
                 <div className="w-full h-[2px] rounded-full bg-primary" />
             </div>
-            <div className="grid grid-cols-2 gap-8 w-[600px]">
+            <div className="grid grid-cols-2 gap-8 w-[600px]
+            max-[590px]:flex max-[590px]:flex-col max-[590px]:gap-y-4">
                 {countryData.branches?.map((branch, index) => (
                     <button
                         key={index}
@@ -74,7 +75,8 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
                         <h3 className="text-3xl font-bold font-title text-header uppercase">USA</h3>
                         <div className="w-full h-[2px] rounded-full bg-primary" />
                     </div>
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-row gap-x-4
+                    max-[590px]:flex-col max-[590px]:gap-y-8">
                         {renderStateColumn(firstHalf)}
                         {renderStateColumn(secondHalf)}
                     </div>

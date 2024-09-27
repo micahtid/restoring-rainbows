@@ -2,10 +2,15 @@ import Highlight from "@/components/Highlight";
 
 const WhatAreBranches = () => {
   return (
-    <div className="bg-secondary w-[100vw] pt-12 mb-60
-    flex justify-center items-center relative">
+    <div className="w-[100vw] pt-32 mb-60
+    max-md:mb-72 max-sm:mb-80
+    flex justify-center items-center relative"
+    style={{
+      background: `
+          linear-gradient(to top, #e3f0ff, #f9fbff)`
+      }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1000px" viewBox="0 0 1070 588" version="1.1"
-        className="absolute opacity-[15%] top-0 left-1/2 transform -translate-x-1/2">
+        className="absolute opacity-[15%] top-0 left-1/2 transform -translate-x-1/2 mt-16">
           <g id="Desktop" stroke="#e5f8ff" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
             <g id="Partner" transform="translate(-128.000000, -144.000000)" stroke="#73a0e1" stroke-width="60">
               <g id="Group-13" transform="translate(132.000000, 174.000000)">
@@ -15,12 +20,12 @@ const WhatAreBranches = () => {
             </g>
           </g>
         </svg>
-        <div className="max-w-max w-full px-4 py-8
+        <div className="max-w-max w-full px-x py-8 z-[100]
         flex flex-col justify-start items-start gap-y-4">
             <Highlight text="What Are" />
             <h3 className='dynamic-heading text-header'>Branches</h3>
-            <div className="w-full h-[50px] relative shadow-md">
-                <p className='text-xl
+            <div className="w-full h-[50px] relative">
+                <p className='dynamic-text
                 bg-gray-100 p-4
                 absolute transform translate-y-[10px]'>Branches are smaller versions of the main Restoring Rainbows based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country.</p>
             </div>

@@ -43,24 +43,24 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) 
 const Hero = () => {
   return (
     <section className="w-[100vw] h-[110vh] relative
-    max-lg:h-[600px]">
+    max-lg:h-[800px] max-md:h-[700px] max-sm:h-[600px] max-[430px]:h-[550px] max-[360px]:h-[500px]">
         <h3
         className="
           dynamic-title text-center text-header drop-shadow mb-52 
           max-w-[900px] max-md:min-w-[100%] px-x z-[500]
-          absolute left-1/2 top-[175px] transform -translate-x-1/2
-          max-lg:left-0 max-lg:-translate-x-0 max-lg:text-left max-lg:top-[50px]"
+          absolute left-1/2 top-[260px] transform -translate-x-1/2
+          max-lg:left-0 max-lg:-translate-x-0 max-lg:text-left max-lg:top-[125px]"
         >
           Spreading Art and Saving the Planet
         </h3>
         <div className="absolute w-[45%] left-0 top-[10%]
-        max-lg:top-[225px] max-lg:w-[60%]">
+        max-lg:top-[310px] max-lg:w-[60%]">
           <VerticalGradient xPos="right-0" className="max-lg:hidden" />
           <img src="/presentation.png" className="w-full h-auto object-cover" />
         </div>
         <div className="absolute w-[32.5%] left-[45%] bottom-[15%] z-[200]
         max-2xl:bottom-[30%]
-        max-lg:left-[50%] max-lg:w-[45%] max-lg:top-[175px]">
+        max-lg:left-[50%] max-lg:w-[45%] max-lg:top-[260px]">
           <HorizontalGradient yPos="top-0" className="-top-[100px] max-lg:-top-[125px]" />
           <img src="/zoom_meeting.png" className="w-full h-auto object-cover" />
         </div>

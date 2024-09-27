@@ -4,3 +4,5 @@
 - Curvy underline does not take up entire space underneath text...
 
 - Aribitrary breakpoint point in TakeAction.tsx
+
+- Blogs and Social Media components use bg-white to hiden the conic gradient
