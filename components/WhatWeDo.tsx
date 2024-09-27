@@ -5,11 +5,9 @@ const WhatWeDo = () => {
     <section className='max-w-max mx-auto 
     py-24 px-8
     flex flex-col gap-y-12'>
-        <div className="">
-            <h3 className="dynamic-subheading text-header">
-                What We Do
-            </h3>
-        </div>
+        <h3 className="dynamic-subheading text-header">
+            What We Do
+        </h3>
         <div className="flex flex-row justify-between items-start
         max-lg:flex-col
         max-lg:gap-y-16 max-lg:max-w-[600px]">
