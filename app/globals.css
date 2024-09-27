@@ -6,7 +6,7 @@
 
 @layer components {
   .dynamic-title {
-    @apply text-8xl max-xl:text-7xl max-lg:text-6xl font-bold font-header uppercase
+    @apply text-8xl max-xl:text-7xl max-md:text-6xl font-bold font-header uppercase
   }
 
   .dynamic-heading {
