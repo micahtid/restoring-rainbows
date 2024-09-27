@@ -9,7 +9,14 @@ import Partners from "@/components/Partners";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="relative">
+      <div 
+      style={{
+          background: `
+              conic-gradient(from 0deg, #e3f0ff, #f3e2ca, #e3f0ff)`
+      }}
+      className="absolute top-0
+      w-full h-[2500px] -z-[100]" />
       <Hero />
       <Statistics />
       <WhatWeDo />

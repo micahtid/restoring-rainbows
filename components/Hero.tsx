@@ -42,7 +42,7 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) 
 
 const Hero = () => {
   return (
-    <section className="w-[100vw] h-[110vh] relative bg-secondary
+    <section className="w-[100vw] h-[110vh] relative
     max-lg:h-[600px]">
         <h3
         className="
