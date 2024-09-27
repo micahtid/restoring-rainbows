@@ -1,9 +1,32 @@
-import React from 'react'
+"use client";
+
+import SearchBar from "./components/SearchBar";
+import EventDisplay from "./components/StoryDisplay";
+import Highlight from "@/components/Highlight";
+import Loader from "@/components/Loader";
+
+import { useData } from "@/providers/useData";
 
 const Events = () => {
+  const { 
+    events
+  } = useData();
+
+  if (!events) {
+    return (
+      <Loader />
+    )
+  }
+
   return (
-    <div>Events</div>
+    <section className="max-w-max mx-auto px-x py-8 mt-28
+    flex flex-col justify-start items-start gap-y-4
+    min-h-[75vh]">
+      <Highlight text="Filter Our Events" />
+      <SearchBar />
+      <EventDisplay events={events} />
+    </section>
   )
 }
 
-export default Events
+export default Events;

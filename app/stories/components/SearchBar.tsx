@@ -22,17 +22,17 @@ const SearchBar = () => {
 
     return (
         <div className='w-full
-        bg-primary/20
-        flex flex-row gap-x-4
-        px-5 py-2'>
+        border-2
+        flex flex-row gap-x-4'>
             <input 
             type="text" 
             placeholder='Search...'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="outline-none w-full
-            bg-transparent" />
-            <button className="text-2xl"
+            className="outline-none w-full px-5 py-2
+            bg-white" />
+            <button className="text-2xl bg-primary w-[50px]
+            flex justify-center items-center text-white"
             onClick={() => setQuery('')}>
                 <PiEraserDuotone />
             </button>
