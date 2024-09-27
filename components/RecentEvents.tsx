@@ -27,24 +27,29 @@ const RecentEvents = () => {
   }, [events])
 
   return (
-    <section className='max-w-max w-full mx-auto px-4 py-8 flex flex-col gap-y-8'>
+    <section className='max-w-max w-full mx-auto px-x py-8 flex flex-col gap-y-8'>
         <h3 className='dynamic-subheading text-header'>Recent Events</h3>
         <Swiper
-          navigation={true} 
-          modules={[Navigation]}
+          // navigation={true} 
+          // modules={[Navigation]}
           slidesPerView="auto"
           grabCursor={true}
-          spaceBetween={30}  
+          spaceBetween={15}  
           className="w-full"
         >
           {
             recentEvents?.map((event, index) => (
               <SwiperSlide key={index} style={{ width: '300px' }}>  
-                <img src={event.image} className='w-full h-[300px] drop-shadow' />
-                <div className="w-full flex flex-col justify-start items-center py-2">
-                  <h3 className='text-lg font-title uppercase font-bold text-black'>{event.title}</h3>
+              <div className="w-full flex flex-col justify-center items-start">
+                <img src={event.image} className='w-full h-[300px] drop-shadow 
+                  max-lg:w-[250px] max-lg:h-[250px]' />
+                <div className="w-full max-w-[300px]
+                  max-lg:max-w-[250px] overflow-hidden
+                  flex flex-col justify-start items-start py-2">
+                  <h3 className='text-lg font-title uppercase font-bold text-black text-nowrap'>{event.title}</h3>
                   <p className='text-sm text-body'>{event.date}</p>
                 </div>
+              </div>
               </SwiperSlide>
             ))
           }

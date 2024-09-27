@@ -3,7 +3,7 @@ import { whatWeDo } from "@/data"
 const WhatWeDo = () => {
   return (
     <section className='max-w-max mx-auto 
-    py-24 px-8
+    py-24 px-x
     flex flex-col gap-y-12'>
         <h3 className="dynamic-subheading text-header">
             What We Do
