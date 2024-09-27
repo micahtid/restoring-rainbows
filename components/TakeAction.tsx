@@ -1,36 +1,23 @@
 import { takeAction } from "@/data"
 import ArrowButton from "./ArrowButton"
 
+// Arbitrary breaking point!
+
 const TakeAction = () => {
   return (
-    <section className='w-[100vw] my-16
-    flex justify-center items-center bg-complement 
-    relative overflow-hidden'>
-        <div className="absolute -left-[250px] top-1/2 transform -translate-y-1/2 h-[1000px] w-[1000px]
-        bg-[#e8c79a] rounded-full blur-[200px]" />
-        <div className="max-w-max w-full px-4 py-16
-        flex flex-col gap-y-24">
-          {takeAction.map((item, index) => (
-            <div 
-            key={index}
-            className="w-full relative h-[300px]">
-              <img src={item.image}
-              className={`max-w-[500px] w-full h-full object-cover drop-shadow
-              absolute top-1/2 transform -translate-y-1/2
-              ${index % 2 === 0 ? 'right-0' : 'left-0'}`} />
-              <div className={`flex flex-col justify-start gap-y-6
-              absolute ${index % 2 === 0 ? 'left-0 items-start' : 'right-0 items-end'}`}>
-                <h3 className="dynamic-subheading">{item.title}</h3>
-                <p className={`max-w-[1000px] w-full text-xl
-                ${index % 2 === 0 ? 'text-left' : 'text-right'}
-                bg-white p-4 drop-shadow`}>
-                  {item.description}
-                </p>
-                <ArrowButton link={item.link} text="More" />
-              </div>
-            </div>
-          ))}
+    <section className="flex flex-col gap-y-20 my-32 
+    max-lg:gap-y-12">
+      {takeAction.map((action, index) => (
+        <div key={index} className="grid grid-cols-2 gap-8 
+        max-[750px]:flex max-[750px]:flex-col max-[750px]:gap-y-12">
+          <img src={action.image} className="w-full object-cover h-auto" alt={action.title} />
+          <div className="px-x flex flex-col gap-y-5 justify-center items-start max-w-[800px]">
+            <h3 className="dynamic-heading text-header">{action.title}</h3>
+            <p className="lg:text-2xl dynamic-text">{action.description}</p>
+            <ArrowButton link={action.link} text="More" /> 
+          </div>
         </div>
+      ))}
     </section>
   )
 }
