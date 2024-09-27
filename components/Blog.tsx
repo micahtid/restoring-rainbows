@@ -35,9 +35,9 @@ const Blog = () => {
               <SwiperSlide key={index} style={{ width: '300px' }}
               onClick={() => router.push(`/stories/item?title=${story.title}`)}>  
                 <img src={story.image} className='w-full h-[300px] drop-shadow' />
-                <div className="w-full
+                <div className="w-full max-w-[300px]
                 flex flex-col justify-start items-center py-2">
-                  <h3 className='text-lg font-title uppercase font-bold text-black'>{story.title}</h3>
+                  <h3 className='text-lg font-title uppercase font-bold text-black text-nowrap overflow-x-hidden'>{story.title}</h3>
                   <p className='text-sm text-body'>{story.date}</p>
                 </div>
               </SwiperSlide>

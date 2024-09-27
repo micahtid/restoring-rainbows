@@ -20,10 +20,10 @@ const TakeAction = () => {
               ${index % 2 === 0 ? 'right-0' : 'left-0'}`} />
               <div className={`flex flex-col justify-start gap-y-6
               absolute ${index % 2 === 0 ? 'left-0 items-start' : 'right-0 items-end'}`}>
-                <h3 className="dynamic-subheading text-header">{item.title}</h3>
+                <h3 className="dynamic-subheading">{item.title}</h3>
                 <p className={`max-w-[1000px] w-full text-xl
                 ${index % 2 === 0 ? 'text-left' : 'text-right'}
-                bg-white p-4 drop-shadow text-body`}>
+                bg-white p-4 drop-shadow`}>
                   {item.description}
                 </p>
                 <ArrowButton link={item.link} text="More" />

@@ -17,6 +17,10 @@
     @apply text-4xl max-lg:text-3xl font-bold font-header uppercase
   }
 
+  .dynamic-text {
+    @apply text-xl max-lg:text-lg
+  }
+
   .input-field {
     @apply border-[1px] border-gray-300 p-1 outline-none font-title w-full
   }
