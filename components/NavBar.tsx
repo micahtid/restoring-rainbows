@@ -108,7 +108,7 @@ const NavBar = () => {
       max-w-max w-full 
       relative">
         <a href="/" className="z-[11000]">
-          <img src="/logo_black.png" className="w-[50px] z-[1100]" />
+          <img src="/logo_black.png" className="w-[50px] z-[1100] max-md:hidden" />
         </a>
         <div
           className="

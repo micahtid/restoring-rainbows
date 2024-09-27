@@ -22,7 +22,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
         p-8 bg-white drop-shadow
         w-full max-sm:px-3
         `, className)}>
-            <h3 className="dynamic-subheading text-center">Register a Branch</h3>
+            <h3 className="dynamic-subheading text-center text-header">Register a Branch</h3>
             <div className="flex justify-between items-center gap-x-6 w-full
             max-lg:flex-col max-lg:gap-y-4">
                 <InputField

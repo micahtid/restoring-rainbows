@@ -43,26 +43,23 @@ const Hero = () => {
         <Gradient
           className="w-[300px] h-[400px] z-[200] top-0 left-0 transform -translate-x-1/2 -translate-y-1/2"
         />
-        <Gradient
-          className="w-[300px] h-[400px] z-[200] bottom-0 left-0 transform -translate-x-1/2 translate-y-1/2"
-        />
       </div>
       <div
         className="
           max-w-[900px] max-md:min-w-[100%] px-4 z-[5000] // Lower than the NavBar
           absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[60%]"
       >
-        <h3 className="dynamic-title text-center text-body drop-shadow">
+        <h3 className="dynamic-title text-center text-body drop-shadow mb-52">
           Spreading Art and Saving the Planet
         </h3>
-        <div
+        {/* <div
           className="
           bg-white drop-shadow-md
           text-body text-lg text-center
           mt-14 px-6 py-4"
         >
           So glad you could stop by! We're a youth run 501(c)3 nonprofit that collects, recycles, and donates school supplies!
-        </div>
+        </div> */}
       </div>
 
 

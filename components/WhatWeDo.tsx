@@ -5,23 +5,30 @@ const WhatWeDo = () => {
     <section className='max-w-max mx-auto 
     py-24 px-8
     flex flex-col gap-y-12'>
-        <h3 className="dynamic-subheading text-header">
-            What We Do
-        </h3>
-        <div className="flex flex-row justify-between items-start gap-x-20">
+        <div className="">
+            <h3 className="dynamic-subheading text-header">
+                What We Do
+            </h3>
+        </div>
+        <div className="flex flex-row justify-between items-start
+        max-lg:flex-col
+        max-lg:gap-y-16 max-lg:max-w-[600px]">
             {whatWeDo.map((item, index) => (
                 <div 
                 key={index}
-                className="
-                flex flex-col justify-between items-start h-[400px]">
+                className={`
+                flex flex-col justify-between items-start h-[400px] 
+                max-lg:h-full
+                ${index !== whatWeDo.length - 1 && 'lg:border-r-2'} 
+                lg:border-primary lg:pr-12 lg:mr-12`}>
                     <div className="flex flex-col justify-start items-start gap-y-4">
                         <div className="text-8xl text-primary/80 ">
                             {item.icon}
                         </div>
-                        <h3 className="text-xl uppercase font-bold text-header">
+                        <h3 className="dynamic-text uppercase font-bold text-header">
                             {item.title}
                         </h3>
-                        <p className="text-xl text-body">
+                        <p className="dynamic-text text-body max-lg:text-lg">
                             {item.description}
                         </p>
                     </div>
