@@ -25,6 +25,9 @@ const config: Config = {
       maxWidth: {
         'max': '1300px',
       },
+      spacing: {
+        'x': '20px', 
+      }
     },
   },
 };
