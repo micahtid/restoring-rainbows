@@ -19,7 +19,7 @@ const Stories = () => {
   }
 
   return (
-    <section className="max-w-max mx-auto px-4 py-8
+    <section className="max-w-max mx-auto px-x py-8 mt-28
     flex flex-col justify-start items-start gap-y-4
     min-h-[75vh]">
       <Highlight text="Filter Our Stories" />

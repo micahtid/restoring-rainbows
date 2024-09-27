@@ -4,34 +4,34 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { DocumentData } from 'firebase/firestore';
 
-interface StoryDispalyProps {
-  stories: DocumentData[] | null;
+interface EventDisplayProps {
+  events: DocumentData[] | null;
 }
 
-const StoryDisplay: React.FC<StoryDispalyProps> = ({ stories }) => {
+const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [filteredStories, setFilteredStories] = useState<DocumentData[] | null>(stories);
+  const [filteredEvents, setFilteredEvents] = useState<DocumentData[] | null>(events);
 
   useEffect(() => {
     const queryValue = searchParams.get('query') || '';
 
-    const filteredList = stories?.filter((story) => {
+    const filteredList = events?.filter((event) => {
       const lowerQuery = queryValue.toLowerCase();
 
       return (
-        story.content?.toLowerCase().includes(lowerQuery) ||
-        story.date?.toLowerCase().includes(lowerQuery) ||
-        story.firstName?.toLowerCase().includes(lowerQuery) ||
-        story.lastName?.toLowerCase().includes(lowerQuery) ||
-        story.location?.toLowerCase().includes(lowerQuery) ||
-        story.title?.toLowerCase().includes(lowerQuery)
+        event.content?.toLowerCase().includes(lowerQuery) ||
+        event.date?.toLowerCase().includes(lowerQuery) ||
+        event.firstName?.toLowerCase().includes(lowerQuery) ||
+        event.lastName?.toLowerCase().includes(lowerQuery) ||
+        event.location?.toLowerCase().includes(lowerQuery) ||
+        event.title?.toLowerCase().includes(lowerQuery)
       );
     });
 
-    setFilteredStories(filteredList || []);
-  }, [searchParams, stories]);
+    setFilteredEvents(filteredList || []);
+  }, [searchParams, events]);
 
   const handleStoryClick = (title: string) => {
     router.push(`/stories/item?title=${title}`);
@@ -54,24 +54,24 @@ const StoryDisplay: React.FC<StoryDispalyProps> = ({ stories }) => {
           </g>
         </g>
       </svg>
-      <h3>{filteredStories?.length} Stories Displayed</h3>
+      <h3>{filteredEvents?.length} Events Displayed</h3>
       <div className="flex flex-row justify-start items-start gap-4 flex-wrap w-full
       max-[655px]:flex-col max-[655px]:gap-y-16
       h-[800px] overflow-y-scroll no-scrollbar">
-        {filteredStories?.map((story, index) => (
+        {filteredEvents?.map((event, index) => (
           <div
             key={index}
             className="cursor-pointer max-[655px]:w-full"
-            onClick={() => handleStoryClick(story.title)}>
+            onClick={() => handleStoryClick(event.title)}>
             <img
-              src={story.image}
-              alt={story.title}
+              src={event.image}
+              alt={event.title}
               className="w-[300px] h-[300px] object-cover
               max-[655px]:w-full"
             />
             <div className="max-w-[300px] ">
-              <h4 className="mt-2 text-xl text-header uppercase font-title font-bold text-nowrap overflow-x-hidden">{story.title}</h4>
-              <p className='text-lg text-body'>{story.date}</p>
+              <h4 className="mt-2 text-xl text-header uppercase font-title font-bold text-nowrap overflow-x-hidden">{event.title}</h4>
+              <p className='text-lg text-body'>{event.date}</p>
             </div>
           </div>
         ))}
@@ -80,4 +80,4 @@ const StoryDisplay: React.FC<StoryDispalyProps> = ({ stories }) => {
   );
 };
 
-export default StoryDisplay;
+export default EventDisplay;

@@ -6,3 +6,5 @@
 - Aribitrary breakpoint point in TakeAction.tsx
 
 - Blogs and Social Media components use bg-white to hiden the conic gradient
+
+- StartABranch and Volunteer + Events and Blogs are very identical components!
