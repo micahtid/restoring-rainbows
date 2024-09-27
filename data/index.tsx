@@ -22,8 +22,8 @@ export const whatWeDo = [
 ]
 
 export const takeAction = [
-    {image: "/splash_two.png", title: "Start a Branch", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
-    {image: "/splash_three.png", title: "Volunteer", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
+    {image: "/graphic_one.jpg", title: "Start a Branch", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."},
+    {image: "/graphic_one.jpg", title: "Volunteer", link: "", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
 ]
 
 export const whyWeMatter = [
