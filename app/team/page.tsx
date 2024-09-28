@@ -19,8 +19,7 @@ const Team = () => {
   }
 
   return (
-    <section className="max-w-max mx-auto px-4 py-8
-    flex flex-col justify-start items-start gap-y-4">
+    <section className="">
       <ExecutiveBoard executiveBoard={executiveBoard} />
       <Volunteers volunteers={volunteers} />
     </section>
