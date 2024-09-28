@@ -45,7 +45,7 @@ const EventsModal = () => {
             addEvent(imageFile, title, content, date, location);
             onClose();
         } else if (!newEvent
-            && title && content && date && location && imageFile
+            && title && content && date && location
         ) {
             if (currentEvent) {
                 editEvent(currentEvent, title, content, date, location);
