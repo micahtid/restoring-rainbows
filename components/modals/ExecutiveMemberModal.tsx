@@ -14,7 +14,7 @@ const ExecutiveMemberModal = () => {
 
 
     return (
-        <Modal title={`${currentMember?.firstName} ${currentMember?.lastName}`} isOpen={isOpen} onChange={onChange}>
+        <Modal title="Bio" isOpen={isOpen} onChange={onChange}>
             <div className="flex flex-col justify-start items-start gap-y-6">
                 <img src={currentMember?.picture} className="w-full max-h-[300px] object-cover drop-shadow" />
                 <h3 className="text-xl font-semibold">{currentMember?.firstName} {currentMember?.lastName}</h3>
