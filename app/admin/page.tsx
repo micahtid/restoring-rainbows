@@ -24,7 +24,7 @@ const Admin = () => {
     const [activeState, setActiveState] = useState(0);
 
   return (
-    <div className="w-[100vw]">
+    <div className="w-[100vw] mt-24">
         <div className="h-[85vh] max-w-[1000px] mx-auto
         py-16 mb-12 overflow-y-scroll no-scrollbar
         max-[1000px]:hidden">

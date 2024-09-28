@@ -31,19 +31,22 @@ const Branch = () => {
   }
 
   return (
-    <div className='px-4 py-20
+    <div className='px-4 py-20 mt-20
     max-w-max w-full mx-auto
-    flex flex-col gap-y-12'>
-        <h3 className='text-header font-bold uppercase font-title dynamic-subheading'>
-            About {branchData?.city}, {branchData?.state} {branchData?.country}
-        </h3>
-        <div className="flex gap-x-32">
-            <img src={branchData?.photo} className='w-[500px] h-[500px] object-cover drop-shadow' />
-            <div className="flex flex-col gap-y-6">
-                <h3 className='text-3xl font-bold font-title uppercase text-header'>{branchData?.firstName} {branchData?.lastName}</h3>
-                <div className="text-lg text-body">{branchData?.bio}</div>
-            </div>
+    flex gap-x-20
+    max-lg:flex-col max-lg:items-center'>
+      <img src={branchData?.photo} className='w-[500px] h-[500px] object-cover drop-shadow
+      max-[500px]:w-full max-[500px]:h-auto' />
+      <div className="flex flex-col gap-y-6 
+      max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
+        <div className="">
+          <h3 className='text-header/80 font-bold uppercase font-title dynamic-text'>
+              About {branchData?.city}, {branchData?.state} {branchData?.country}
+          </h3>
+          <h3 className='text-3xl font-bold font-title uppercase text-header'>{branchData?.firstName} {branchData?.lastName}</h3>
         </div>
+        <div className="dynamic-text text-body">{branchData?.bio}</div>
+      </div>
     </div>
   );
 }

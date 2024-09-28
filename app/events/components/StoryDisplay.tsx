@@ -33,8 +33,8 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
     setFilteredEvents(filteredList || []);
   }, [searchParams, events]);
 
-  const handleStoryClick = (title: string) => {
-    router.push(`/stories/item?title=${title}`);
+  const handleEventClick = (title: string) => {
+    router.push(`/events/item?title=${title}`);
   };
 
   return (
@@ -62,7 +62,7 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
           <div
             key={index}
             className="cursor-pointer max-[655px]:w-full"
-            onClick={() => handleStoryClick(event.title)}>
+            onClick={() => handleEventClick(event.title)}>
             <img
               src={event.image}
               alt={event.title}

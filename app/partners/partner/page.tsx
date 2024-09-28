@@ -33,32 +33,31 @@ const Partner = () => {
   }
 
   return (
-    <div className='px-4 py-20
+    <div className='px-4 py-20 mt-20
     max-w-max w-full mx-auto
-    flex flex-col gap-y-12'>
-        <h3 className='text-header font-bold uppercase font-title dynamic-subheading'>
-            About {partnerData?.name}
-        </h3>
-        <div className="flex gap-x-32">
-            <img src={partnerData?.logo} className='w-[500px] h-[500px] object-cover drop-shadow' />
-            <div className="flex flex-col gap-y-6">
-                <div className="text-lg text-body">{partnerData?.description}</div>
-                <div className="flex gap-x-8">
-                  <a 
-                  href={partnerData?.instagram}
-                  className={linkStyles}>
-                    <PiInstagramLogoDuotone />
-                    Instagram
-                  </a>
-                  <a 
-                  href={partnerData?.website}
-                  className={linkStyles}>
-                    <PiLinkSimpleBreakDuotone />
-                    Website
-                  </a>
-                </div>
-            </div>
+    flex gap-x-20
+    max-lg:flex-col max-lg:items-center'>
+      <img src={partnerData?.logo} className='w-[500px] h-[500px] object-cover drop-shadow
+      max-[500px]:w-full max-[500px]:h-auto' />
+      <div className="flex flex-col gap-y-6 
+      max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
+        <h3 className='text-3xl font-bold font-title uppercase text-header'>{partnerData?.name}</h3>
+        <div className="dynamic-text text-body">{partnerData?.description}</div>
+        <div className="flex gap-x-8">
+          <a 
+          href={partnerData?.instagram}
+          className={linkStyles}>
+            <PiInstagramLogoDuotone />
+            Instagram
+          </a>
+          <a 
+          href={partnerData?.website}
+          className={linkStyles}>
+            <PiLinkSimpleBreakDuotone />
+            Website
+          </a>
         </div>
+      </div>
     </div>
   );
 }

@@ -1,10 +1,7 @@
-- Hero and NavBar have weird z-indexes!
-- NavBar is filled with arbitrary pixel sizes...
+Repeatition
+- Blogs and SocialMedia + Events and Blogs are very identical components!
 
-- Curvy underline does not take up entire space underneath text...
+Aribtirary
+- Blogs and SocialMedia use bg-white to hide the conic-gradient
+- Hero has many arbitrary z-indexes!
 
-- Aribitrary breakpoint point in TakeAction.tsx
-
-- Blogs and Social Media components use bg-white to hiden the conic gradient
-
-- StartABranch and Volunteer + Events and Blogs are very identical components!
