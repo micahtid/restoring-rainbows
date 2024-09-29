@@ -7,12 +7,14 @@ import { DocumentData } from 'firebase/firestore';
 import Loader from '@/components/Loader';
 
 interface BranchContentProps {
-  country: string | null;
-  city: string | null;
   branches: DocumentData[] | null;
 }
 
-const BranchContent: React.FC<BranchContentProps> = ({ country, city, branches }) => {
+const BranchContent: React.FC<BranchContentProps> = ({ branches }) => {
+  const searchParams = useSearchParams();
+  const country = searchParams.get('country');
+  const city = searchParams.get('city');
+
   const [branchData, setBranchData] = useState<DocumentData | null>(null);
 
   useEffect(() => {
@@ -43,20 +45,15 @@ const BranchContent: React.FC<BranchContentProps> = ({ country, city, branches }
 };
 
 const Branch = () => {
-  const searchParams = useSearchParams();
-  const country = searchParams.get('country');
-  const city = searchParams.get('city');
-
   const { branches } = useData();
 
-  // Check if branches is loaded
   if (!branches) {
     return <Loader />;
   }
 
   return (
     <Suspense fallback={<Loader />}>
-      <BranchContent country={country} city={city} branches={branches} />
+      <BranchContent branches={branches} />
     </Suspense>
   );
 };
