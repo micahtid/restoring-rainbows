@@ -24,8 +24,9 @@ const ExecutiveDashboard = () => {
     >
       <h3 className="text-5xl font-bold">Executive Board Members</h3>
       <div className="flex flex-col justify-start items-center gap-y-2 w-full">
-          {executiveBoard?.map((member) => (
+          {executiveBoard?.map((member, index) => (
               <DataLine
+              key={index}
               onClick={() => {
                 setNewExecutiveBoardMember(false);
                 setExecutiveBoardMember(member);
