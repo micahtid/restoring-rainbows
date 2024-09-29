@@ -4,6 +4,7 @@ import {
     onSnapshot
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import toast from "react-hot-toast";
 
 // Note: EVERYONE Can Read and Write Documents
 
@@ -88,9 +89,9 @@ export const addBranch = async (
             instagram,
             photo: photoURL,
         });
-
+        toast.success('Added Branch');
     } catch (error) {
-        console.error("Error adding branch:", error);
+        toast.error('Failed to Add Branch');
     }
 };
 
@@ -140,8 +141,9 @@ export const editBranch = async (
             instagram
         });
 
+        toast.success('Edited Branch');
     } catch (error) {
-        console.error("Error updating branch:", error);
+        toast.error('Failed to Edit Branch');
     }
 };
 
@@ -169,9 +171,9 @@ export const deleteBranch = async (previousBranch: DocumentData) => {
         const branchDocRef = querySnapshot.docs[0].ref;
         await deleteDoc(branchDocRef);
 
-
+        toast.success('Deleted Branch');
     } catch (error) {
-        console.error("Error deleting branch:", error);
+        toast.error('Failed to Delete Branch');
     }
 };
 
@@ -224,9 +226,9 @@ export const addExecutiveBoardMember = async (
             bio
         });
 
-        console.log('Executive board member added successfully');
+        toast.success('Added Member');
     } catch (error) {
-        console.error('Error adding executive board member:', error);
+        toast.error('Failed to Add Member');
     }
 };
 
@@ -267,9 +269,9 @@ export const editExecutiveBoardMember = async (
             bio
         });
 
-        console.log('Executive board member updated successfully');
+        toast.success('Edited Member');
     } catch (error) {
-        console.error("Error updating executive board member:", error);
+        toast.error('Failed to Edit Member');
     }
 };
 
@@ -296,9 +298,9 @@ export const deleteExecutiveBoardMember = async (previousData: DocumentData) => 
 
         await deleteDoc(executiveBoardDocRef);
 
-        console.log("Executive board member deleted successfully");
+        toast.success('Deleted Member');
     } catch (error) {
-        console.error("Error deleting executive board member:", error);
+        toast.error('Failed to Delete Member');
     }
 };
 
@@ -352,9 +354,9 @@ export const editStatistic = async (
             number
         });
 
-        console.log("Statistic updated successfully");
+        toast.success('Edited Statistic');
     } catch (error) {
-        console.error("Error updating statistic:", error);
+        toast.error('Failed to Edit Statistic');
     }
 };
 
@@ -393,9 +395,9 @@ export const addVolunteer = async (
             lastName,
         });
 
-        console.log("Volunteer added successfully");
+        toast.success('Added Volunteer');
     } catch (error) {
-        console.error("Error adding volunteer:", error);
+        toast.error('Failed to Add Volunteer');
     }
 };
 
@@ -422,9 +424,9 @@ export const deleteVolunteer = async (previousData: DocumentData) => {
 
         await deleteDoc(volunteerDocRef);
 
-        console.log("Volunteer deleted successfully");
+        toast.success('Deleted Volunteer');
     } catch (error) {
-        console.error("Error deleting volunteer:", error);
+        toast.error('Failed to Delete Volunteer');
     }
 };
 /////////////////////////////////////////////////////////////
@@ -475,9 +477,9 @@ export const addPartner = async (
             highlyValued,
         });
 
-        console.log("Partner added successfully");
+        toast.success('Added Partner');
     } catch (error) {
-        console.error("Error adding partner:", error);
+        toast.error('Failed to Add Partner');
     }
 };
 
@@ -516,9 +518,9 @@ export const editPartner = async (
             highlyValued,
         });
 
-        console.log("Partner updated successfully");
+        toast.success('Edited Partner');
     } catch (error) {
-        console.error("Error updating partner:", error);
+        toast.error('Failed to Edit Partner');
     }
 };
 
@@ -544,9 +546,9 @@ export const deletePartner = async (previousData: DocumentData) => {
 
         await deleteDoc(partnerDocRef);
 
-        console.log("Partner deleted successfully");
+        toast.success('Deleted Partner');
     } catch (error) {
-        console.error("Error deleting partner:", error);
+        toast.error('Failed to Delete Partner');
     }
 };
 
@@ -596,9 +598,9 @@ export const addEvent = async (
             location,
         });
 
-        console.log('Event added successfully');
+        toast.success('Added Event');
     } catch (error) {
-        console.error('Error adding event:', error);
+        toast.error('Failed to Add Event');
     }
 };
 
@@ -637,7 +639,7 @@ export const editEvent = async (
 
         console.log('Event updated successfully');
     } catch (error) {
-        console.error('Error updating event:', error);
+        toast.error('Failed to Edit Event');
     }
 };
 
@@ -663,9 +665,9 @@ export const deleteEvent = async (previousData: DocumentData) => {
         const eventDocRef = querySnapshot.docs[0].ref;
         await deleteDoc(eventDocRef);
 
-        console.log('Event deleted successfully');
+        toast.success('Deleted Event');
     } catch (error) {
-        console.error('Error deleting event:', error);
+        toast.error('Failed to Delete Event');
     }
 };
 
@@ -719,9 +721,9 @@ export const addStory = async (
             content,
         });
 
-        console.log('Story added successfully');
+        toast.success('Added Story');
     } catch (error) {
-        console.error('Error adding story:', error);
+        toast.error('Failed to Add Story');
     }
 };
 
@@ -762,9 +764,9 @@ export const editStory = async (
             content,
         });
 
-        console.log('Story updated successfully');
+        toast.success('Edited Story');
     } catch (error) {
-        console.error('Error updating story:', error);
+        toast.error('Failed to Edit Story');
     }
 };
 
@@ -790,8 +792,8 @@ export const deleteStory = async (previousData: DocumentData) => {
         const storyDocRef = querySnapshot.docs[0].ref;
         await deleteDoc(storyDocRef);
 
-        console.log('Story deleted successfully');
+        toast.success('Deleted Story');
     } catch (error) {
-        console.error('Error deleting story:', error);
+        toast.error('Failed to Delete Story');
     }
 };

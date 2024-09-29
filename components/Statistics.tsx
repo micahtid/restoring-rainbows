@@ -1,10 +1,11 @@
+"use client";
+
+import { useData } from "@/providers/useData";
+
 const Statistics = () => {
-    const statistics = [
-        {number: "15", label: "Countries"},
-        {number: "30+", label: "Branches"},
-        {number: "1000", label: "Supplies Collected"},
-        {number: "6000+", label: "Supporters"}
-    ];
+    const {
+        statistics
+    } = useData();
 
     return (
         <section
@@ -13,7 +14,7 @@ const Statistics = () => {
             <div className="max-w-max w-full
             flex justify-between items-center gap-x-20
             overflow-x-scroll no-scrollbar">
-                {statistics.map((statistic, index) => (
+                {statistics?.map((statistic, index) => (
                     <div key={index}
                     className='flex flex-col justify-center items-center gap-y-1'>
                         <h3 className='dynamic-subheading font-semibold text-body'>{statistic.number}</h3>

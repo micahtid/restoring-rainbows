@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { DataContextProvider } from "@/providers/useData";
 import ModalProvider from "@/providers/ModalProvider";
+import ToastProvider from "@/providers/ToastProvider";
 
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="overflow-x-hidden">
           <DataContextProvider>
+            <ToastProvider />
             <NavBar />
             {children}
             <Footer />
