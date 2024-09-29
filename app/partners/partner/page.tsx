@@ -26,11 +26,11 @@ const Partner = () => {
     }
   }, [partners, partnerName]);
 
-  if (!partners) {
-    return (
-      <Loader />
-    )
-  }
+  // if (!partners) {
+  //   return (
+  //     <Loader />
+  //   )
+  // }
 
   return (
     <Suspense fallback={<Loader />}>
