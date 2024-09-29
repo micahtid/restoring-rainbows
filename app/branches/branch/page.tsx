@@ -24,11 +24,11 @@ const Branch = () => {
     }
   }, [country, city, branches]);
 
-  if (!branchData) {
-    return (
-      <Loader />
-    )
-  }
+  // if (!branchData) {
+  //   return (
+  //     <Loader />
+  //   )
+  // }
 
   return (
     <Suspense fallback={<Loader />}>

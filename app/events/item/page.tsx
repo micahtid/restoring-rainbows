@@ -25,11 +25,9 @@ const Event = () => {
         }
     }, [searchParams, events]);
 
-    if (!events) {
-        return <Loader />; 
-    }
-
-    console.log(event);
+    // if (!events) {
+    //     return <Loader />; 
+    // }
 
     return (
         <Suspense fallback={<Loader />}>

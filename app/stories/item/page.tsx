@@ -25,9 +25,9 @@ const Story = () => {
         }
     }, [searchParams, stories]);
 
-    if (!stories) {
-        return <Loader />; 
-    }
+    // if (!stories) {
+    //     return <Loader />; 
+    // }
 
     return (
         <Suspense fallback={<Loader />}>
