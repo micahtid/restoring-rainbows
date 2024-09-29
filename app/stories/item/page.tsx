@@ -7,11 +7,12 @@ import Loader from "@/components/Loader";
 import { DocumentData } from "firebase/firestore";
 
 interface StoryContentProps {
-  title: string | null;
   stories: DocumentData[] | null;
 }
 
-const StoryContent: React.FC<StoryContentProps> = ({ title, stories }) => {
+const StoryContent: React.FC<StoryContentProps> = ({ stories }) => {
+  const searchParams = useSearchParams();
+  const title = searchParams.get('title');
   const [story, setStory] = useState<DocumentData | null>(null);
 
   useEffect(() => {
@@ -49,8 +50,6 @@ const StoryContent: React.FC<StoryContentProps> = ({ title, stories }) => {
 };
 
 const Story = () => {
-  const searchParams = useSearchParams();
-  const title = searchParams.get('title');
   const { stories } = useData();
 
   if (!stories) {
@@ -59,7 +58,7 @@ const Story = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <StoryContent title={title} stories={stories} />
+      <StoryContent stories={stories} />
     </Suspense>
   );
 };

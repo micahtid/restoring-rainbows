@@ -1,7 +1,7 @@
 "use client";
 
-import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useData } from '@/providers/useData';
 import { PiLinkSimpleBreakDuotone, PiInstagramLogoDuotone } from "react-icons/pi";
 import Loader from '@/components/Loader';
@@ -10,11 +10,12 @@ import { DocumentData } from 'firebase/firestore';
 const linkStyles = `flex justify-center items-center gap-x-2 hover:underline`;
 
 interface PartnerContentProps {
-  partnerName: string | null;
   partners: DocumentData[] | null;
 }
 
-const PartnerContent: React.FC<PartnerContentProps> = ({ partnerName, partners }) => {
+const PartnerContent: React.FC<PartnerContentProps> = ({ partners }) => {
+  const searchParams = useSearchParams();
+  const partnerName = searchParams.get('name');
   const [partnerData, setPartnerData] = useState<null | any>(null);
 
   useEffect(() => {
@@ -50,8 +51,6 @@ const PartnerContent: React.FC<PartnerContentProps> = ({ partnerName, partners }
 };
 
 const Partner = () => {
-  const searchParams = useSearchParams();
-  const partnerName = searchParams.get('name');
   const { partners } = useData();
 
   if (!partners) {
@@ -60,7 +59,7 @@ const Partner = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <PartnerContent partnerName={partnerName} partners={partners} />
+      <PartnerContent partners={partners} />
     </Suspense>
   );
 };

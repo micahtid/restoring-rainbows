@@ -7,11 +7,12 @@ import Loader from "@/components/Loader";
 import { DocumentData } from "firebase/firestore";
 
 interface EventContentProps {
-  title: string | null;
   events: DocumentData[] | null;
 }
 
-const EventContent: React.FC<EventContentProps> = ({ title, events }) => {
+const EventContent: React.FC<EventContentProps> = ({ events }) => {
+  const searchParams = useSearchParams();
+  const title = searchParams.get('title');
   const [event, setEvent] = useState<DocumentData | null>(null);
 
   useEffect(() => {
@@ -46,8 +47,6 @@ const EventContent: React.FC<EventContentProps> = ({ title, events }) => {
 };
 
 const Event = () => {
-  const searchParams = useSearchParams();
-  const title = searchParams.get('title');
   const { events } = useData();
 
   if (!events) {
@@ -56,7 +55,7 @@ const Event = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <EventContent title={title} events={events} />
+      <EventContent events={events} />
     </Suspense>
   );
 };
