@@ -1,7 +1,7 @@
 "use client";
 
 import SearchBar from "./components/SearchBar";
-import EventDisplay from "./components/StoryDisplay";
+import EventDisplay from "./components/EventDisplay";
 import Highlight from "@/components/Highlight";
 import Loader from "@/components/Loader";
 

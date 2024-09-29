@@ -48,9 +48,10 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                   className="flex justify-start items-start flex-wrap gap-5
                   max-[561px]:flex-col max-[561px]:gap-y-12 max-[561px]:items-center max-[561px]:w-full">
                     {position.people.map((item, index) => (
-                      <div className="flex flex-col justify-start items-center gap-y-6">
+                      <div 
+                      key={index}
+                      className="flex flex-col justify-start items-center gap-y-6">
                         <button
-                        key={index}
                         className="w-[250px] h-[250px]">
                           <img src={item.picture} className="w-full h-full object-cover rounded-full drop-shadow-md"/>
                         </button>
