@@ -14,7 +14,7 @@ const Volunteers: React.FC<VolunteersProps> = ({ volunteers }) => {
         <h3 className='dynamic-subheading text-header'>Volunteers</h3>
         <Marquee speed={25} gradient={false} className="w-full h-full py-8">
             {volunteers?.map((volunteer, index) => (
-              <div key={index} className="p-4 mx-5 font-title text-xl bg-white shadow-md">
+              <div key={index} className="p-4 mx-5 font-title dynamic-text rounded-md bg-white shadow-md">
                 {volunteer.firstName} {volunteer.lastName}
               </div>
             ))}

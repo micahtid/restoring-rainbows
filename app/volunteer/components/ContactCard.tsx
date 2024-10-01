@@ -38,7 +38,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ className }) => {
             </div>
             <InputField
                 label="Email"
-                placeholder="Last Name..."
+                placeholder="Email..."
                 value={firstName}
                 onChange={(e) => setLastName(e.target.value)}
             />
