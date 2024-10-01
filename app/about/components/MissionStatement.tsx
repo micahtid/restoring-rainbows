@@ -8,7 +8,7 @@ const MissionStatement = () => {
         absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2
         brightness-75 blur-[2px] z-20'  />
         <h3 className='z-30 dynamic-subheading
-        text-white max-w-[1000px]'>
+        text-white max-w-[1000px] py-24'>
           Championing sustainability and creativity. We turn discarded school supplies into art.
         </h3>
       </div>

@@ -27,23 +27,18 @@ const StoryContent: React.FC<StoryContentProps> = ({ stories }) => {
   }
 
   return (
-    <div className="w-full mt-24 flex flex-col gap-y-20 mb-10">
-      <div className="relative w-full h-[300px]">
-        <h1 className="dynamic-subheading text-white z-40 absolute left-[50px] top-1/2 transform -translate-y-1/2 max-lg:left-[20px]">
-          {story.title}
-        </h1>
-        <img
-          src={story.image}
-          className="w-full h-full object-cover brightness-50"
-          alt={story.title}
-        />
-      </div>
-      <div className="max-w-max mx-auto min-h-[400px] px-x">
-        <p className="text-lg text-body mb-4">{story.content}</p>
-        <p className="text-sm text-gray-500">
+    <div className="max-w-max mx-auto max-auto min-h-[400px] 
+    px-x mt-24 mb-10
+    flex flex-col gap-y-8">
+      <img src={story.image} className='w-full max-h-[500px] h-auto object-cover
+      max-max:w-full max-max:max-h-none' />
+      <h3 className='dynamic-subheading text-header'>{story.title}</h3>
+      <p className="dynamic-text text-body">{story.content}</p>
+      <div className="">
+        <p className="text-lg text-gray-500">
           By {story.firstName} {story.lastName} on {story.date}
         </p>
-        <p className="text-sm text-gray-500">Location: {story.location}</p>
+        <p className="text-lg text-gray-500">Location: {story.location}</p>
       </div>
     </div>
   );
