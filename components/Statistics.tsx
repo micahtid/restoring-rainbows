@@ -8,20 +8,18 @@ const Statistics = () => {
     } = useData();
 
     return (
-        <section
-        className='w-[100vw] px-x py-8 mb-12
-        flex justify-center items-center relative z-10'> 
-            <div className="max-w-max w-full
-            flex justify-between items-center gap-x-20
-            overflow-x-scroll no-scrollbar">
-                {statistics?.map((statistic, index) => (
-                    <div key={index}
-                    className='flex flex-col justify-center items-center gap-y-1'>
-                        <h3 className='dynamic-subheading font-semibold text-body'>{statistic.number}</h3>
-                        <p className='text-body text-lg'>{statistic.label}</p>
-                    </div>
-                ))}
-            </div>
+        <section className="max-w-max w-full mx-auto
+        px-x py-8 mb-12 z-10
+        flex justify-between items-center gap-x-20
+        max-md:grid max-md:grid-cols-2 max-md:gap-y-8 max-md:gap-x-24 max-sm:gap-x-8">
+            {statistics?.map((statistic, index) => (
+                <div key={index}
+                className='flex flex-col justify-start items-center gap-y-1
+                h-full'>
+                    <h3 className='dynamic-subheading font-semibold text-body text-center'>{statistic.number}</h3>
+                    <p className='text-body text-lg text-center'>{statistic.label}</p>
+                </div>
+            ))}
         </section>
     );
 };

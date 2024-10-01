@@ -34,7 +34,7 @@ const Blog = () => {
             stories?.map((story, index) => (
               <SwiperSlide key={index} style={{ width: '300px' }}
               onClick={() => router.push(`/stories/item?title=${story.title}`)}>  
-                <div className="w-full flex flex-col justify-center items-start">
+                <div className="w-full flex flex-col justify-center items-start cursor-pointer">
                   <img src={story.image} className='w-full h-[300px] drop-shadow 
                   max-lg:w-[250px] max-lg:h-[250px]' />
                   <div className="w-full max-w-[300px]
