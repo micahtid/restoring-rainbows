@@ -46,7 +46,7 @@ const Hero = () => {
     max-lg:h-[800px] max-md:h-[700px] max-sm:h-[600px] max-[430px]:h-[550px] max-[360px]:h-[500px]">
         <h3
         className="
-          dynamic-title text-center text-header drop-shadow mb-52 
+          dynamic-title text-left text-header drop-shadow mb-52 
           max-w-[900px] max-md:min-w-[100%] px-x z-[500]
           absolute left-1/2 top-[260px] transform -translate-x-1/2
           max-lg:left-0 max-lg:-translate-x-0 max-lg:text-left max-lg:top-[125px]"

@@ -139,14 +139,14 @@ const NavBar = () => {
               <a href={item.link} className="font-semibold text-black/70 text-lg">
                 {item.label}
               </a>
-              <div className="absolute right-0 top-[30px] flex flex-col items-end">
+              <div className="absolute left-0 top-[30px] flex flex-col items-start">
                 {item.subItems.map((subItem, subIndex) => (
                   <a
                     key={subIndex}
                     href={subItem.link}
                     className="
-                      opacity-0 text-right
-                      group-hover:opacity-100 
+                      opacity-0 text-left text-nowrap
+                      group-hover:opacity-100
                       transition-opacity 
                       duration-500
                       text-lg font-semibold text-black/70"

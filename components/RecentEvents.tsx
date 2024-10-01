@@ -17,6 +17,7 @@ const RecentEvents = () => {
   const { 
     events
    } = useData();
+   const router = useRouter();
 
   const [recentEvents, setRecentEvents] = useState<null | DocumentData[]>([]);
 
@@ -39,8 +40,9 @@ const RecentEvents = () => {
         >
           {
             recentEvents?.map((event, index) => (
-              <SwiperSlide key={index} style={{ width: '300px' }}>  
-              <div className="w-full flex flex-col justify-center items-start">
+              <SwiperSlide key={index} style={{ width: '300px' }}
+              onClick={() => router.push(`/events/item?title=${event.title}`)}>  
+              <div className="w-full flex flex-col justify-center items-start cursor-pointer">
                 <img src={event.image} className='w-full h-[300px] drop-shadow 
                   max-lg:w-[250px] max-lg:h-[250px]' />
                 <div className="w-full max-w-[300px]
