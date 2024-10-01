@@ -3,7 +3,6 @@
 import { useData } from "@/providers/useData";
 
 import PartnersList from "./components/PartnersList";
-import WhyWeMatter from "./components/WhyWeMatter";
 import Loader from "@/components/Loader";
 
 const Partners = () => {
@@ -20,7 +19,6 @@ const Partners = () => {
   return (
     <section>
         <PartnersList partners={partners} />
-        <WhyWeMatter />
     </section>
   )
 }
