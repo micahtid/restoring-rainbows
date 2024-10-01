@@ -28,7 +28,7 @@ const NavModal = () => {
       className={`
         w-[250px] h-[100vh]
         fixed top-0 right-0
-        bg-gray-300/50 backdrop-blur-[2px]
+        bg-gray-200/80 backdrop-blur-[2px]
         flex flex-col justify-start items-end gap-y-4
         p-8
         ${!isOpen && "hidden"}
@@ -37,6 +37,9 @@ const NavModal = () => {
       <button className="mb-8" onClick={onClose}>
         <IoIosClose size={35} />
       </button>
+      <a href="/" className="z-[11000]">
+          <img src="/logo_black.png" className="w-[50px] z-[1100] mb-8" />
+      </a>
       {extendedNavItems.map((item, index) => (
         <div key={index} className="flex flex-col justify-center items-end">
           <div className="flex flex-row justify-center items-center gap-x-2">
@@ -57,7 +60,7 @@ const NavModal = () => {
             )}
           </div>
           {visibleSubItems[index] && (
-            <div className="flex flex-col justify-center items-end">
+            <div className="flex flex-col gap-y-2 justify-center items-end mt-2 mb-4">
               {item.subItems.map((subItem, subIndex) => (
                 <a key={subIndex} href={subItem.link} className="text-black/70">
                   {subItem.label}
@@ -161,7 +164,7 @@ const NavBar = () => {
         <button
           className="
             hidden max-md:inline-block
-            rounded-lg bg-gray-400/40 shadow-sm
+            rounded-lg bg-gray-200/90 shadow-sm
             p-3"
           onClick={onOpen}
         >

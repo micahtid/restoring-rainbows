@@ -45,30 +45,36 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                     <div className="max-w-[800px] w-full h-[2px] bg-header" />
                   </div>
                   <div 
-                  className="flex justify-start items-start flex-wrap gap-5
-                  max-[561px]:flex-col max-[561px]:gap-y-12 max-[561px]:items-center max-[561px]:w-full">
+                  className="flex justify-start items-start flex-wrap gap-5">
                     {position.people.map((item, index) => (
                       <div 
                       key={index}
-                      className="flex flex-col justify-start items-center gap-y-6">
+                      className="flex flex-col justify-start items-center gap-y-6
+                      w-[250px] max-[561px]:w-[125px]
+                      max-[561px]:items-start max-[561px]:overflow-x-hidden">
                         <button
-                        className="w-[250px] h-[250px]">
+                        className="w-full h-[250px] max-[561px]:h-[125px]">
                           <img src={item.picture} className="w-full h-full object-cover rounded-full drop-shadow-md"/>
                         </button>
                         <div className="flex flex-col justify-center items-center
-                        hover:cursor-pointer">
+                        max-[561px]:justify-start 
+                        hover:cursor-pointer
+                        max-[561px]:items-start">
                           <button className="flex gap-x-4 justify-center items-center
-                          hover:underline"
+                          hover:underline
+                          max-[561px]:justify-start"
                           onClick={
                             () => {
                               setCurrentMember(item);
                               onOpen();
                             }
                           }>
-                            <h3 className="dynamic-text font-semibold">{item.firstName} {item.lastName}</h3>
-                            <IoOpenOutline size={18}/>
+                            <h3 className="dynamic-text font-semibold
+                            text-nowrap">{item.firstName} {item.lastName}</h3>
+                            <IoOpenOutline size={18} className="max-[561px]:hidden"/>
                           </button>
-                          <p className="dynamic-text text-gray-600">{item.role}</p>
+                          <p className="dynamic-text text-gray-600
+                          text-nowrap">{item.role}</p>
                         </div>
                       </div>
                     ))}
