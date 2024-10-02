@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
 
+import OutlineButton from "./OutlineButton";
+
 // Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -43,8 +45,10 @@ const RecentEvents = () => {
               <SwiperSlide key={index} style={{ width: '300px' }}
               onClick={() => router.push(`/events/item?title=${event.title}`)}>  
               <div className="w-full flex flex-col justify-center items-start cursor-pointer">
-                <img src={event.image} className='w-full h-[300px] drop-shadow 
+                <OutlineButton>
+                  <img src={event.image} className='w-full h-[300px] drop-shadow 
                   max-lg:w-[250px] max-lg:h-[250px]' />
+                </OutlineButton>
                 <div className="w-full max-w-[300px]
                   max-lg:max-w-[250px] overflow-hidden
                   flex flex-col justify-start items-start py-2">

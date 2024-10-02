@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section className="w-[100vw] h-[110vh] relative
     max-lg:h-[800px] max-md:h-[700px] max-sm:h-[600px] max-[430px]:h-[550px] max-[360px]:h-[500px]
-    mb-28">
+    mb-28 max-[1920px]:-mb-4 max-[1568px]:-mb-12 max-[1360px]:-mb-32 max-[1278px]:-mb-64 max-lg:mb-24">
         <h3
         className="
           dynamic-title text-center text-header drop-shadow mb-52
@@ -63,7 +63,8 @@ const Hero = () => {
         </div>
         <div className="absolute w-[37.5%] left-[35%] bottom-[15px] z-[200]
         max-[1920px]:top-[300px] max-[1711px]:top-[350px]
-        max-lg:left-[50%] max-lg:w-[45%] max-[1278px]:top-[280px] max-[1116px]:top-[320px] max-lg:top-[290px] max-[346px]:top-[350px]">
+        max-lg:left-[50%] max-lg:w-[45%] 
+        max-[1278px]:top-[280px] max-[1116px]:top-[320px] max-lg:top-[290px] max-[346px]:top-[350px]">
           <HorizontalGradient yPos="top-0" className="-top-[100px] max-lg:-top-[125px]" />
           <img src="/zoom_meeting.png" className="w-full h-auto object-cover" />
         </div>

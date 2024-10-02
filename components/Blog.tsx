@@ -5,6 +5,8 @@ import { Navigation } from 'swiper/modules';
 import { useRouter } from 'next/navigation';
 import { useData } from '@/providers/useData';
 
+import OutlineButton from './OutlineButton';
+
 // Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -35,8 +37,10 @@ const Blog = () => {
               <SwiperSlide key={index} style={{ width: '300px' }}
               onClick={() => router.push(`/stories/item?title=${story.title}`)}>  
                 <div className="w-full flex flex-col justify-center items-start cursor-pointer">
-                  <img src={story.image} className='w-full h-[300px] drop-shadow 
-                  max-lg:w-[250px] max-lg:h-[250px]' />
+                  <OutlineButton>
+                    <img src={story.image} className='w-full h-[300px] drop-shadow 
+                    max-lg:w-[250px] max-lg:h-[250px]' />
+                  </OutlineButton>
                   <div className="w-full max-w-[300px]
                   max-lg:max-w-[250px] overflow-hidden
                   flex flex-col justify-start items-start py-2">
