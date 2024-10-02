@@ -5,5 +5,8 @@ Aribtirary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient
 - Hero has many arbitrary z-indexes!
 
+- page.tsx use of div for y-padding
+
 Suspense Tags
 - branches/branch + events/item + partners/partner + stories/item all have excessive Loader component usage..
+

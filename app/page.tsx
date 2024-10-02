@@ -17,6 +17,7 @@ const Home = () => {
       }}
       className="absolute top-0
       w-full h-[2500px] -z-[100]" />
+      <div className="pb-24" />
       <Hero />
       <Statistics />
       <WhatWeDo />
