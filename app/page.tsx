@@ -13,7 +13,7 @@ const Home = () => {
       <div 
       style={{
           background: `
-              conic-gradient(from 0deg, #e3f0ff, #f3e2ca, #e3f0ff)`
+              conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
       }}
       className="absolute top-0
       w-full h-[2500px] -z-[100]" />
