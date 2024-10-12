@@ -2,7 +2,7 @@ import { socials } from "@/data"
 
 const SocialMedia = () => {
   return ( 
-    <section className="w-full bg-white flex justify-center items-center">
+    <section className="w-full bg-secondary flex justify-center items-center">
       <section className='max-w-max w-full
       px-x pt-44 pb-32
       flex gap-x-12

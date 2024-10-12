@@ -17,10 +17,9 @@ const config: Config = {
         body: "#4A4A4A"
       },
       fontFamily: {
-        title: ['Nunito', 'sans-serif'],
+        title: ['Plus Jakarta Sans', 'sans-serif'], 
         accent: ['Roboto Mono', 'monospace'],
-        header: ['Montserrat', 'sans-serif'],
-        code: ['Source Code Pro', 'monospace'],
+        code: ['Source Code Pro', 'monospace']
       },
       maxWidth: {
         'max': '1300px',

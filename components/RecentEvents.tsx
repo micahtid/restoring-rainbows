@@ -30,7 +30,7 @@ const RecentEvents = () => {
   }, [events])
 
   return (
-    <section className='max-w-max w-full mx-auto px-x py-8 flex flex-col gap-y-8'>
+    <section className='max-w-max w-full mx-auto px-x py-8 mt-20 flex flex-col gap-y-8'>
         <h3 className='dynamic-subheading text-header'>Recent Events</h3>
         <Swiper
           // navigation={true} 
