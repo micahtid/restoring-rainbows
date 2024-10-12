@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Source+Code+Pro:wght@400;700&family=Roboto+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,15 +6,15 @@
 
 @layer components {
   .dynamic-title {
-    @apply text-8xl max-[1920px]:text-7xl max-xl:text-6xl max-lg:text-5xl font-bold font-header uppercase
+    @apply text-8xl max-[1920px]:text-7xl max-xl:text-6xl max-lg:text-5xl font-black font-title uppercase
   }
 
   .dynamic-heading {
-    @apply text-5xl max-xl:text-4xl font-bold font-header uppercase
+    @apply text-5xl max-xl:text-4xl font-black font-title uppercase
   }
 
   .dynamic-subheading {
-    @apply text-4xl max-lg:text-3xl font-bold font-header uppercase
+    @apply text-4xl max-lg:text-3xl font-black font-title uppercase
   }
 
   .dynamic-text {
@@ -70,7 +70,6 @@
 }
 
 .fade-in-animation {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 1.75s;
+  opacity: 0; 
+  animation: fadeIn 0.7s ease-in-out forwards;
 }

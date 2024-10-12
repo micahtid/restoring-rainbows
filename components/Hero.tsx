@@ -1,10 +1,10 @@
 "use client";
 
 import { twMerge } from "tailwind-merge";
-
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Image from 'next/image'; // Import the Image component
 
 interface HorizontalGradientProps {
   yPos: string;
@@ -70,33 +70,45 @@ const Hero = () => {
         <div className="absolute w-[35%] left-0 top-[100px]
         max-lg:top-[340px] max-lg:w-[60%] max-[346px]:top-[400px]">
           <VerticalGradient xPos="right-0" className="max-lg:hidden" />
-          <img
-          data-aos="fade-right"
-          data-aos-once="true"
-          src="/presentation.png" 
-          className="w-full h-auto object-cover" />
+          <Image
+            data-aos="fade-right"
+            data-aos-once="true"
+            src="/presentation.png" 
+            alt="An Image" 
+            layout="responsive"
+            width={700} 
+            height={400}
+            className="w-full h-auto object-cover" />
         </div>
         <div className="absolute w-[37.5%] left-[35%] bottom-[15px] z-[200]
         max-[1920px]:top-[300px] max-[1711px]:top-[350px]
         max-lg:left-[50%] max-lg:w-[45%] 
         max-[1278px]:top-[280px] max-[1116px]:top-[320px] max-lg:top-[290px] max-[346px]:top-[350px]">
           <HorizontalGradient yPos="top-0" className="-top-[100px] max-lg:-top-[125px]" />
-          <img 
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-delay="200"
-          src="/zoom_meeting.png" 
-          className="w-full h-auto object-cover" />
+          <Image 
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-delay="200"
+            src="/zoom_meeting.png" 
+            alt="An Image" 
+            layout="responsive"
+            width={700} 
+            height={400} 
+            className="w-full h-auto object-cover" />
         </div>
         <div className="absolute w-[27.5%] left-[72.5%] top-[100px]
         max-lg:hidden">
           <VerticalGradient xPos="left-0" className="-left-[100px] max-lg:hidden max-[1600px]:-left-[50px]" />
-          <img 
-          data-aos="fade-left"
-          data-aos-once="true"
-          data-aos-delay="400"
-          src="/splash_five.jpg" 
-          className="w-full h-auto object-cover" />
+          <Image 
+            data-aos="fade-left"
+            data-aos-once="true"
+            data-aos-delay="400"
+            src="/splash_five.jpg" 
+            alt="An Image"
+            layout="responsive" 
+            width={700} 
+            height={400} 
+            className="w-full h-auto object-cover" />
         </div>
     </section>
   );
