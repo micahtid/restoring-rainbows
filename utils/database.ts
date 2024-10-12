@@ -619,7 +619,7 @@ export const editEvent = async (
         const eventQuery = query(
             eventsCollection,
             where('title', '==', previousData.title),
-            where('content', '==', previousData.content)
+            where('date', '==', previousData.date)
         );
 
         const querySnapshot = await getDocs(eventQuery);
@@ -652,7 +652,7 @@ export const deleteEvent = async (previousData: DocumentData) => {
         const eventQuery = query(
             eventsCollection,
             where('title', '==', previousData.title),
-            where('content', '==', previousData.content)
+            where('date', '==', previousData.date)
         );
 
         const querySnapshot = await getDocs(eventQuery);
@@ -744,7 +744,7 @@ export const editStory = async (
         const storyQuery = query(
             storiesCollection,
             where('title', '==', previousData.title),
-            where('content', '==', previousData.content)
+            where('lastName', '==', previousData.lastName)
         );
 
         const querySnapshot = await getDocs(storyQuery);
@@ -767,6 +767,7 @@ export const editStory = async (
         toast.success('Edited Story');
     } catch (error) {
         toast.error('Failed to Edit Story');
+        console.log(error)
     }
 };
 
@@ -779,7 +780,7 @@ export const deleteStory = async (previousData: DocumentData) => {
         const storyQuery = query(
             storiesCollection,
             where('title', '==', previousData.title),
-            where('content', '==', previousData.content)
+            where('lastName', '==', previousData.lastName)
         );
 
         const querySnapshot = await getDocs(storyQuery);

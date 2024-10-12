@@ -33,7 +33,11 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
       <img src={event.image} className='w-full max-h-[500px] h-auto object-cover
       max-max:w-full max-max:max-h-none' />
       <h3 className='dynamic-subheading text-header'>{event.title}</h3>
-      <p className="dynamic-text text-body">{event.content}</p>
+      <p className="dynamic-text text-body">
+        {event.content.split('\n').map((line: string, index: number) => (
+          <div key={index} className='mb-4'>{line}</div>
+        ))}
+      </p>
       <p className="text-lg text-gray-500">Location: {event.location}</p>
     </div>
   );

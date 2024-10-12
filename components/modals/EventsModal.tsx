@@ -71,6 +71,7 @@ const EventsModal = () => {
                     placeholder="Content..."
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
+                    multiline
                 />
                 <InputField
                     label="Date"
