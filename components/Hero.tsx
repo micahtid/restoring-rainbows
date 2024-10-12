@@ -1,4 +1,10 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
+
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface HorizontalGradientProps {
   yPos: string;
@@ -41,37 +47,56 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) 
 };
 
 const Hero = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="w-[100vw] h-[110vh] relative
     max-lg:h-[800px] max-md:h-[700px] max-sm:h-[600px] max-[430px]:h-[550px] max-[360px]:h-[500px]
     mb-28 max-[1920px]:-mb-4 max-[1568px]:-mb-12 max-[1360px]:-mb-32 max-[1278px]:-mb-64 max-lg:mb-24">
         <h3
-        className="
-          dynamic-title text-center text-header drop-shadow mb-52
-          max-w-[900px] max-md:min-w-[100%] px-x z-[500]
-          absolute left-1/2 top-[150px] transform -translate-x-1/2
-          max-lg:left-0 max-lg:-translate-x-0 max-lg:text-left 
-          max-lg:top-[125px]
-          max-[1325px]:top-[110px]"
+          className="
+            dynamic-title text-center text-header drop-shadow mb-52
+            max-w-[900px] max-md:min-w-[100%] px-x z-[500]
+            absolute left-1/2 top-[150px] transform -translate-x-1/2
+            max-lg:left-0 max-lg:-translate-x-0 max-lg:text-left 
+            max-lg:top-[125px]
+            max-[1325px]:top-[110px]
+            fade-in-animation"
         >
           Spreading Art and Saving the Planet
         </h3>
         <div className="absolute w-[35%] left-0 top-[100px]
         max-lg:top-[340px] max-lg:w-[60%] max-[346px]:top-[400px]">
           <VerticalGradient xPos="right-0" className="max-lg:hidden" />
-          <img src="/presentation.png" className="w-full h-auto object-cover" />
+          <img
+          data-aos="fade-right"
+          data-aos-once="true"
+          src="/presentation.png" 
+          className="w-full h-auto object-cover" />
         </div>
         <div className="absolute w-[37.5%] left-[35%] bottom-[15px] z-[200]
         max-[1920px]:top-[300px] max-[1711px]:top-[350px]
         max-lg:left-[50%] max-lg:w-[45%] 
         max-[1278px]:top-[280px] max-[1116px]:top-[320px] max-lg:top-[290px] max-[346px]:top-[350px]">
           <HorizontalGradient yPos="top-0" className="-top-[100px] max-lg:-top-[125px]" />
-          <img src="/zoom_meeting.png" className="w-full h-auto object-cover" />
+          <img 
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-delay="200"
+          src="/zoom_meeting.png" 
+          className="w-full h-auto object-cover" />
         </div>
         <div className="absolute w-[27.5%] left-[72.5%] top-[100px]
         max-lg:hidden">
           <VerticalGradient xPos="left-0" className="-left-[100px] max-lg:hidden max-[1600px]:-left-[50px]" />
-          <img src="/splash_five.jpg" className="w-full h-auto object-cover" />
+          <img 
+          data-aos="fade-left"
+          data-aos-once="true"
+          data-aos-delay="400"
+          src="/splash_five.jpg" 
+          className="w-full h-auto object-cover" />
         </div>
     </section>
   );
