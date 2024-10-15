@@ -69,10 +69,11 @@ const Hero = () => {
         </h3>
         <div className="absolute w-[35%] left-0 top-[100px]
         max-lg:top-[340px] max-lg:w-[60%] max-[346px]:top-[400px]">
-          <VerticalGradient xPos="right-0" className="max-lg:hidden" />
+          <VerticalGradient xPos="-right-0" className="max-lg:hidden" />
           <Image
             data-aos="fade-right"
             data-aos-once="true"
+            data-aos-delay="300"
             src="/presentation.png" 
             alt="An Image" 
             layout="responsive"

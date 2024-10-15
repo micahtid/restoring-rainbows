@@ -28,18 +28,17 @@ const NavModal = () => {
       className={`
         w-[250px] h-[100vh]
         fixed top-0 right-0
-        bg-gray-200/80 backdrop-blur-[2px]
+        bg-gray-100/50 backdrop-blur-[5px] shadow-lg
         flex flex-col justify-start items-end gap-y-4
+        z-[12000]
         p-8
-        ${!isOpen && "hidden"}
+        transform transition-all duration-300 
+        ${isOpen ? "translate-x-0" : "translate-x-[300px]"}
         `}
     >
       <button className="mb-8" onClick={onClose}>
         <IoIosClose size={35} />
       </button>
-      <a href="/" className="z-[11000]">
-          <img src="/logo_black.png" className="w-[50px] z-[1100] mb-8" />
-      </a>
       {extendedNavItems.map((item, index) => (
         <div key={index} className="flex flex-col justify-center items-end">
           <div className="flex flex-row justify-center items-center gap-x-2">
@@ -117,7 +116,7 @@ const NavBar = () => {
         <div
           className="
             flex justify-center items-start gap-x-10
-            max-md:hidden group"
+            group"
         >
           <div
             style={{
@@ -137,7 +136,7 @@ const NavBar = () => {
               key={index}
               className="
               flex flex-col justify-start items-end gap-y-2 
-              mt-3 relative"
+              mt-3 relative max-md:hidden"
             >
               <a href={item.link} className="font-semibold text-black/70 text-lg">
                 {item.label}
@@ -161,17 +160,21 @@ const NavBar = () => {
             </div>
           ))}
         </div>
-        <button
-          className="
-            hidden max-md:inline-block
-            rounded-lg bg-gray-200/90 shadow-sm
-            p-3"
-          onClick={onOpen}
-        >
-          <RxHamburgerMenu size={25} />
-        </button>
+        <div className="hidden max-md:flex max-md:justify-between max-md:items-center w-full">
+          <a href="/" className="z-[11000] flex items-center">
+            <img
+              src="/logo_black.png"
+              className="w-[50px] h-[50px] object-cover z-[1100]"
+            />
+          </a>
+          <button
+            className="z-[11000] p-3"
+            onClick={onOpen}
+          >
+            <RxHamburgerMenu size={25} />
+          </button>
+        </div>
       </div>
-
       <NavModal />
     </nav>
   );
