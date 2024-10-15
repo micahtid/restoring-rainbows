@@ -34,15 +34,14 @@ const Blog = () => {
         >
           {
             stories?.map((story, index) => (
-              <SwiperSlide key={index} style={{ width: '300px' }}
+              <SwiperSlide key={index}
               onClick={() => router.push(`/stories/item?title=${story.title}`)}>  
-                <div className="w-full flex flex-col justify-center items-start cursor-pointer">
+                <div className="w-[300px] max-lg:w-[250px] flex flex-col justify-center items-start cursor-pointer">
                   <OutlineButton>
-                    <img src={story.image} className='w-full h-[300px] drop-shadow 
-                    max-lg:w-[250px] max-lg:h-[250px]' />
+                    <img src={story.image} className='w-full h-[300px] drop-shadow object-cover
+                    max-lg:h-[250px]' />
                   </OutlineButton>
-                  <div className="w-full max-w-[300px]
-                  max-lg:max-w-[250px] overflow-hidden
+                  <div className="w-full overflow-hidden
                   flex flex-col justify-start items-start py-2">
                     <h3 className='text-lg font-title uppercase font-bold text-black text-nowrap'>{story.title}</h3>
                     <p className='text-sm text-body'>{story.date}</p>

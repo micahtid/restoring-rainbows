@@ -79,13 +79,13 @@ const Hero = () => {
             layout="responsive"
             width={700} 
             height={400}
-            className="w-full h-auto object-cover" />
+            className="object-cover" />
         </div>
-        <div className="absolute w-[37.5%] left-[35%] bottom-[15px] z-[200]
-        max-[1920px]:top-[300px] max-[1711px]:top-[350px]
+        <div className="absolute w-[37.5%] left-[35%] bottom-[150px] z-[200]
+        max-[1920px]:top-[200px] max-[1711px]:top-[250px]
         max-lg:left-[50%] max-lg:w-[45%] 
-        max-[1278px]:top-[280px] max-[1116px]:top-[320px] max-lg:top-[290px] max-[346px]:top-[350px]">
-          <HorizontalGradient yPos="top-0" className="-top-[100px] max-lg:-top-[125px]" />
+        max-[1278px]:top-[175px] max-[1116px]:top-[225px] max-lg:top-[290px] max-[346px]:top-[350px]">
+          <HorizontalGradient yPos="top-[100px]" className="-top-[100px] max-lg:-top-[225px]" />
           <Image 
             data-aos="fade-up"
             data-aos-once="true"
@@ -95,7 +95,7 @@ const Hero = () => {
             layout="responsive"
             width={700} 
             height={400} 
-            className="w-full h-auto object-cover" />
+            className="object-cover" />
         </div>
         <div className="absolute w-[27.5%] left-[72.5%] top-[100px]
         max-lg:hidden">
@@ -109,7 +109,7 @@ const Hero = () => {
             layout="responsive" 
             width={700} 
             height={400} 
-            className="w-full h-auto object-cover" />
+            className="object-cover" />
         </div>
     </section>
   );
