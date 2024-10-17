@@ -47,36 +47,38 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                   <div 
                   className="flex justify-start items-start flex-wrap gap-5">
                     {position.people.map((item, index) => (
-                      <div 
+                      <button
+                      onClick={
+                        () => {
+                          setCurrentMember(item);
+                          onOpen();
+                        }
+                      } 
                       key={index}
-                      className="flex flex-col justify-start items-center gap-y-6
-                      w-[250px] max-[561px]:w-[125px]
-                      max-[561px]:items-start max-[561px]:overflow-x-hidden">
-                        <button
-                        className="w-full h-[250px] max-[561px]:h-[125px]">
+                      className="mb-6 flex flex-col justify-start items-center gap-y-6
+                      w-[250px] max-[561px]:w-[45%]
+                      max-[561px]:items-start">
+                        <div
+                        className="w-full aspect-square">
                           <img src={item.picture} className="w-full h-full object-cover rounded-full drop-shadow-md"/>
-                        </button>
-                        <div className="flex flex-col justify-center items-center
+                        </div>
+                        <div className="
+                        w-full
+                        flex flex-col justify-center items-center
                         max-[561px]:justify-start 
                         hover:cursor-pointer
                         max-[561px]:items-start">
-                          <button className="flex gap-x-4 justify-center items-center
-                          hover:underline
-                          max-[561px]:justify-start"
-                          onClick={
-                            () => {
-                              setCurrentMember(item);
-                              onOpen();
-                            }
-                          }>
-                            <h3 className="dynamic-text font-semibold
-                            text-nowrap">{item.firstName} {item.lastName}</h3>
-                            <IoOpenOutline size={18} className="max-[561px]:hidden"/>
-                          </button>
+                          <h3 className="
+                          w-full 
+                          dynamic-text font-semibold
+                          flex gap-x-2 items-center justify-center max-[561px]:justify-start max-[561px]:inline-block
+                          text-nowrap overflow-ellipsis overflow-x-hidden text-center max-[561px]:text-left
+                          max-[561px]:text-base">{item.firstName} {item.lastName} <IoOpenOutline size={18} className="max-[561px]:hidden"/></h3>
                           <p className="dynamic-text text-gray-600
-                          text-nowrap">{item.role}</p>
+                          text-nowrap 
+                          max-[561px]:text-base">{item.role}</p>
                         </div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>

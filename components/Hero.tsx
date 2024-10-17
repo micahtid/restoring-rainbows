@@ -106,13 +106,15 @@ const Hero = () => {
       max-lg:mb-24"
     >
       <h3 className="
-        dynamic-title text-center text-header drop-shadow mb-52 
+        dynamic-title text-left text-black drop-shadow mb-52 
         absolute left-1/2 top-[125px] transform -translate-x-1/2 
         z-[500] 
-        max-w-[825px] 
-        max-[1920px]:max-w-[775px] 
+        max-w-[1200px] 
         max-md:min-w-[100%] 
         px-x 
+
+        max-[2300px]:ml-[150px]
+
         max-lg:left-0 
         max-lg:-translate-x-0 
         max-lg:text-left 
@@ -120,7 +122,7 @@ const Hero = () => {
         max-[1278px]:top-[120px] 
         fade-in-animation"
       >
-        Spreading Art and Saving the Planet
+        Championing sustainability and creativity. We turn discarded school supplies into art.
       </h3>
       <div className="
         absolute 
