@@ -86,7 +86,8 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     };
 
     return (
-        <div className="max-w-max w-full mx-auto px-4 py-8">
+        <div className="max-w-max w-full mx-auto px-4 py-8
+        fade-in-animation">
             <h3 className="dynamic-subheading font-title text-header font-bold
             mb-16">Our Branches</h3>
             <div className="max-w-[1000px] w-full flex flex-col gap-y-14">

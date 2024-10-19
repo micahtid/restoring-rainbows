@@ -20,12 +20,13 @@ const Modal: React.FC<ModalProps> = ({
       <Dialog.Portal>
         <Dialog.Overlay className="bg-neutral-900/10 backdrop-blur-[2px] fixed inset-0 z-[11000]" />
         <Dialog.Content className="fixed drop-shadow-md top-[50%] left-[50%] z-[12000]
-        max-h-full h-full md:h-auto md:max-h-[85vh] w-full md:w-[90vw] md:max-w-[450px]
-        translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] focus:outline-none">
+        max-h-full h-full md:h-auto w-full md:w-[90vw] md:max-w-[450px]
+        translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] max-md:p-4 focus:outline-none">
             <Dialog.Title className="text-xl text-left font-bold mb-4">
                 {title}
             </Dialog.Title>
-            <div className="">
+            <div className="no-scrollbar
+            h-full overflow-y-scroll md:max-h-[75vh] max-md:pb-12 ">
                 {children}
             </div>
             <Dialog.Close asChild>

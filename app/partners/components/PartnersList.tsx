@@ -30,7 +30,8 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
         </g>
       </svg>
       <div className="max-w-max w-full z-20
-      flex flex-col justify-start items-start gap-y-12">
+      flex flex-col justify-start items-start gap-y-12
+      fade-in-animation">
         <div className="flex flex-col gap-y-2">
           <div className="">
             <Highlight text="Our Support" />

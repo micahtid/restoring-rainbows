@@ -31,7 +31,8 @@ const BranchContent: React.FC<BranchContentProps> = ({ branches }) => {
   }
 
   return (
-    <div className='px-4 py-20 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-center'>
+    <div className='px-4 py-20 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-center
+    fade-in-animation'>
       <img src={branchData?.photo} className='w-[500px] h-[500px] object-cover drop-shadow max-[500px]:w-full max-[500px]:h-auto' />
       <div className="flex flex-col gap-y-6 max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
         <h3 className='text-header/80 font-bold uppercase font-title dynamic-text'>

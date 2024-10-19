@@ -21,7 +21,8 @@ const WhatAreBranches = () => {
           </g>
         </svg>
         <div className="max-w-max w-full px-x py-8 z-[100]
-        flex flex-col justify-start items-start gap-y-4">
+        flex flex-col justify-start items-start gap-y-4
+        fade-in-animation">
             <Highlight text="What Are" />
             <h3 className='dynamic-heading text-header'>Branches</h3>
             <div className="w-full h-[50px] relative">

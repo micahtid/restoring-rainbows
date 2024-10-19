@@ -1,5 +1,6 @@
 Repeatition
 - Blogs and SocialMedia + Events and Blogs are very identical components!
+- global.css, two animations (very similar) for heroFadeInSlideUp and fadeInSlideUp
 
 Aribtirary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient
@@ -9,4 +10,5 @@ Aribtirary
 
 Suspense Tags
 - branches/branch + events/item + partners/partner + stories/item all have excessive Loader component usage..
+
 
