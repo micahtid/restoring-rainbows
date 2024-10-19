@@ -693,32 +693,17 @@ export const getStories = (setStories: (stories: DocumentData[]) => void) => {
 };
 
 export const addStory = async (
-    image: File,
     title: string,
-    date: string,
-    location: string,
-    firstName: string,
-    lastName: string,
-    content: string
+    link: string
 ) => {
     try {
         const app = initializeFirebase();
         const firestore = getFirestore(app);
-        const storage = getStorage(app);
-
-        const imageRef = ref(storage, `stories/${image.name}`);
-        await uploadBytes(imageRef, image);
-        const imageURL = await getDownloadURL(imageRef);
 
         const storiesCollection = collection(firestore, 'stories');
         await addDoc(storiesCollection, {
-            image: imageURL,
             title,
-            date,
-            location,
-            firstName,
-            lastName,
-            content,
+            link
         });
 
         toast.success('Added Story');
@@ -730,11 +715,7 @@ export const addStory = async (
 export const editStory = async (
     previousData: DocumentData,
     title: string,
-    date: string,
-    location: string,
-    firstName: string,
-    lastName: string,
-    content: string
+    link: string
 ) => {
     try {
         const app = initializeFirebase();
@@ -744,7 +725,7 @@ export const editStory = async (
         const storyQuery = query(
             storiesCollection,
             where('title', '==', previousData.title),
-            where('lastName', '==', previousData.lastName)
+            where('link', '==', previousData.link)
         );
 
         const querySnapshot = await getDocs(storyQuery);
@@ -757,11 +738,7 @@ export const editStory = async (
         const storyDocRef = querySnapshot.docs[0].ref;
         await updateDoc(storyDocRef, {
             title,
-            date,
-            location,
-            firstName,
-            lastName,
-            content,
+            link
         });
 
         toast.success('Edited Story');
@@ -780,7 +757,7 @@ export const deleteStory = async (previousData: DocumentData) => {
         const storyQuery = query(
             storiesCollection,
             where('title', '==', previousData.title),
-            where('lastName', '==', previousData.lastName)
+            where('link', '==', previousData.link)
         );
 
         const querySnapshot = await getDocs(storyQuery);

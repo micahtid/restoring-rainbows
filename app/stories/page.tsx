@@ -1,7 +1,4 @@
 "use client";
-
-import SearchBar from "./components/SearchBar";
-import StoryDisplay from "./components/StoryDisplay";
 import Highlight from "@/components/Highlight";
 import Loader from "@/components/Loader";
 
@@ -23,9 +20,8 @@ const Stories = () => {
     flex flex-col justify-start items-start gap-y-4
     min-h-[75vh] 
     fade-in-animation">
-      <Highlight text="Filter Our Stories" />
-      <SearchBar />
-      <StoryDisplay stories={stories} />
+      <Highlight text="Our Latest Stories" />
+      <h3 className="dynamic-subheading">Stories</h3>
     </section>
   )
 }
