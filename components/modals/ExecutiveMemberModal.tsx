@@ -17,8 +17,8 @@ const ExecutiveMemberModal = () => {
         <Modal title="Bio" isOpen={isOpen} onChange={onChange}>
             <div className="flex flex-col justify-start items-start gap-y-6">
                 <img src={currentMember?.picture} className="w-full max-h-[300px] object-cover drop-shadow" />
-                <h3 className="text-xl font-semibold">{currentMember?.firstName} {currentMember?.lastName}</h3>
-                <p className="text-xl">{currentMember?.bio}</p>
+                <h3 className="dynamic-text font-semibold">{currentMember?.firstName} {currentMember?.lastName}</h3>
+                <p className="dynamic-text">{currentMember?.bio}</p>
             </div>
         </Modal>
     );
