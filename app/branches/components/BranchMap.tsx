@@ -23,7 +23,8 @@ const BranchMap: React.FC<BranchMapProps> = ({ branches }) => {
   };
 
   return (
-    <div className='max-w-max w-full mx-auto mt-10 mb-24 h-[500px] px-4'>
+    <div className='max-w-max w-full mx-auto mt-10 mb-24 h-[500px] px-4
+    fade-in-animation'>
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}

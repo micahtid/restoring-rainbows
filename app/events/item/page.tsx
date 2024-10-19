@@ -29,7 +29,8 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
   return (
     <div className="max-w-max mx-auto max-auto min-h-[400px] 
     px-x mt-24 mb-10
-    flex flex-col gap-y-8">
+    flex flex-col gap-y-8
+    fade-in-animation">
       <img src={event.image} className='w-full max-h-[500px] h-auto object-cover
       max-max:w-full max-max:max-h-none' />
       <h3 className='dynamic-subheading text-header'>{event.title}</h3>

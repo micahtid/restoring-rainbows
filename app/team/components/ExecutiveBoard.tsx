@@ -26,7 +26,8 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
     }}>
       <div className="max-w-max w-full
       px-x pb-8 pt-28
-      flex flex-col justify-start items-start gap-y-12"
+      flex flex-col justify-start items-start gap-y-12
+      fade-in-animation"
       >
           <h3
           className="dynamic-subheading text-header">
@@ -39,7 +40,7 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                 key={index}
                 className="flex flex-col gap-y-14 w-full">
                   <div className="">
-                    <h3 className="text-2xl font-bold uppercase text-header ">
+                    <h3 className="text-2xl font-bold uppercase text-header">
                       {position.categorization}
                     </h3>
                     <div className="max-w-[800px] w-full h-[2px] bg-header" />
@@ -72,11 +73,16 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                           w-full 
                           dynamic-text font-semibold
                           flex gap-x-2 items-center justify-center max-[561px]:justify-start max-[561px]:inline-block
-                          text-nowrap overflow-ellipsis overflow-x-hidden text-center max-[561px]:text-left
-                          max-[561px]:text-base">{item.firstName} {item.lastName} <IoOpenOutline size={18} className="max-[561px]:hidden"/></h3>
-                          <p className="dynamic-text text-gray-600
-                          text-nowrap 
-                          max-[561px]:text-base">{item.role}</p>
+                          text-nowrap overflow-ellipsis overflow-x-hidden text-center
+                          max-[561px]:text-base">
+                            {item.firstName} {item.lastName} <IoOpenOutline size={18} className="max-[561px]:hidden"/>
+                          </h3>
+                          <p className="
+                          w-full
+                          dynamic-text text-gray-600
+                          max-[561px]:text-sm">
+                            {item.role}
+                          </p>
                         </div>
                       </button>
                     ))}

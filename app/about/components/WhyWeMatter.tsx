@@ -5,7 +5,8 @@ const WhyWeMatter = () => {
   return (
     <div className='max-w-max w-full mx-auto
     px-x pt-32 pb-52 -mt-16
-    flex flex-col justify-start item-start gap-y-12'>
+    flex flex-col justify-start item-start gap-y-12
+    fade-in-animation'>
       <h3 className='dynamic-subheading text-header'>
         Why We Matter
       </h3>

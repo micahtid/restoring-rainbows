@@ -6,7 +6,9 @@ const About = () => {
   return (
     <section className=''>
       <MissionStatement />
-      <WhatWeDo />
+      <div className="fade-in-animation">
+        <WhatWeDo />
+      </div>
       <WhyWeMatter />
     </section>
   )

@@ -21,7 +21,8 @@ const Stories = () => {
   return (
     <section className="max-w-max mx-auto px-x py-8 mt-28
     flex flex-col justify-start items-start gap-y-4
-    min-h-[75vh]">
+    min-h-[75vh] 
+    fade-in-animation">
       <Highlight text="Filter Our Stories" />
       <SearchBar />
       <StoryDisplay stories={stories} />
