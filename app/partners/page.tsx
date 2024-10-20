@@ -17,7 +17,7 @@ const Partners = () => {
   }
 
   return (
-    <section>
+    <section className="">
         <PartnersList partners={partners} />
     </section>
   )

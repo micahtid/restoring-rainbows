@@ -26,7 +26,7 @@ const MissionStatement = () => {
           className='w-full h-full object-cover absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 brightness-75 blur-[2px] z-20'
         />
         <h3 className='z-30 dynamic-subheading text-white max-w-[1000px] py-24 fade-in-animation'>
-          Championing sustainability and creativity. We turn discarded school supplies into art.
+          Spreading Art and Saving the Planet
         </h3>
       </div>
 
