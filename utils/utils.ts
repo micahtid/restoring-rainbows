@@ -62,23 +62,38 @@ export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
 export interface GroupedData {
     categorization: string;
     people: DocumentData[];
-  }
-  
+}
+
 export const organizeByPosition = (data: DocumentData[]): GroupedData[] => {
-    return data.reduce((result: GroupedData[], current: DocumentData) => {
+  // Reduce to group by categorization
+  const groupedData = data.reduce((result: GroupedData[], current: DocumentData) => {
       const existingPosition = result.find(
-        (group) => group.categorization === current.categorization
+          (group) => group.categorization === current.categorization
       );
-  
+
       if (existingPosition) {
-        existingPosition.people.push(current);
+          existingPosition.people.push(current);
       } else {
-        result.push({
-          categorization: current.categorization,
-          people: [current],
-        });
+          result.push({
+              categorization: current.categorization,
+              people: [current],
+          });
       }
-  
+
       return result;
-    }, []);
-  };
+  }, []);
+
+  // Sort the grouped data alphabetically by categorization
+  const sortedGroupedData = groupedData.sort((a, b) => {
+      return a.categorization.localeCompare(b.categorization);
+  });
+
+  // Sort roles within each group
+  sortedGroupedData.forEach(group => {
+      group.people.sort((a, b) => {
+          return a.role.localeCompare(b.role);
+      });
+  });
+
+  return sortedGroupedData;
+};

@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { aboutPageMissionStatement, aboutPageOurStory } from "@/data";
+import { aboutPageMissionStatement, aboutPageOurStory } from "@/data"
 
 const MissionStatement = () => {
   const renderParagraphs = (text: string) => {
@@ -17,24 +16,22 @@ const MissionStatement = () => {
       title: "Our Story",
       description: aboutPageOurStory
     }
-  ];
+  ]
 
   return (
     <div className='w-[100vw] mt-24'>
-      <div className="relative w-full h-[400px] overflow-hidden flex justify-start items-center px-x py-24">
-        <Image
+      <div className="w-full relative overflow-hidden flex justify-start items-center px-x py-24">
+        <img
           src="/splash_four.png"
-          alt="An Image" 
-          className='object-cover brightness-75 blur-[2px] z-20'
-          priority
-          fill 
+          className='w-full h-full object-cover absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 brightness-75 blur-[2px] z-20'
         />
         <h3 className='z-30 dynamic-subheading text-white max-w-[1000px] py-24 fade-in-animation'>
           Spreading Art and Saving the Planet
         </h3>
       </div>
 
-      <div className="max-w-max w-full mx-auto px-x py-8 mt-12 flex flex-col justify-start items-start gap-y-12 fade-in-animation">
+      <div className="max-w-max w-full mx-auto px-x py-8 mt-12 flex flex-col justify-start items-start gap-y-12 
+      fade-in-animation">
         {
           displayData.map((data, index) => (
             <>
