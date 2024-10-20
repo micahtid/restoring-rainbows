@@ -1,4 +1,4 @@
-import { whyWeMatter } from "@/data"
+import { aboutPageWhyWeMatter } from "@/data"
 
 
 const WhyWeMatter = () => {
@@ -12,7 +12,7 @@ const WhyWeMatter = () => {
       </h3>
       <div className="flex justify-between items-start gap-x-12
       max-lg:flex-col max-lg:gap-y-14">
-        {whyWeMatter.map((item, index) => (
+        {aboutPageWhyWeMatter.map((item, index) => (
           <div
           key={index}
           className="flex flex-col justify-start items-start gap-y-2 z-20">

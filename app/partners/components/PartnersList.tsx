@@ -49,12 +49,12 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
           {partners?.map((partner, index) => (
             <button
             key={index}
-            className="w-[250px] h-[250px]"
+            className="w-[250px] max-[559px]:w-[45%]"
             onClick={() => {
               router.push(`/partners/partner?name=${partner.name}`)
             }}>
               <img src={partner.logo}
-              className="w-full h-full object-cover" />
+              className="w-full h-full aspect-square object-cover" />
             </button>
           ))}
         </div>

@@ -30,9 +30,10 @@ const PartnerContent: React.FC<PartnerContentProps> = ({ partners }) => {
   }
 
   return (
-    <div className='px-4 py-20 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-center
+    <div className='px-4 py-20 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-start
     fade-in-animation'>
-      <img src={partnerData?.logo} className='w-[500px] h-[500px] object-cover drop-shadow max-[500px]:w-full max-[500px]:h-auto' alt={partnerData?.name} />
+      <img src={partnerData?.logo} className='w-[500px] aspect-square object-cover drop-shadow 
+      max-lg:w-full' alt={partnerData?.name} />
       <div className="flex flex-col gap-y-6 max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
         <h3 className='text-3xl font-bold font-title uppercase text-header'>{partnerData?.name}</h3>
         <div className="dynamic-text text-body">{partnerData?.description}</div>
