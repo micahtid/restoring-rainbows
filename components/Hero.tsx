@@ -136,14 +136,12 @@ const Hero = () => {
         max-[346px]:top-[400px]"
       >
         <VerticalGradient xPos="-right-0" className="max-lg:hidden" />
-        <Image
+        <img
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="300"
           src="/presentation.png" 
           alt="An Image" 
-          priority
-          fill
           className="object-cover" 
         />
       </div>
@@ -164,14 +162,12 @@ const Hero = () => {
         max-[1035px]:top-[300px]"
       >
         <HorizontalGradient yPos="top-[100px]" className="-top-[125px] max-[1265px]:-top-[145px] max-lg:-top-[225px] max-md:-top-[245px]" />
-        <Image 
+        <img 
           data-aos="fade-up"
           data-aos-once="true"
           data-aos-delay="200"
           src="/zoom_meeting.png" 
           alt="An Image" 
-          priority
-          fill
           className="object-cover" 
         />
       </div>
@@ -184,14 +180,12 @@ const Hero = () => {
         max-lg:hidden"
       >
         <VerticalGradient xPos="left-0" className="-left-[50px] max-lg:hidden max-[1600px]:-left-[30px]" />
-        <Image 
+        <img 
           data-aos="fade-left"
           data-aos-once="true"
           data-aos-delay="400"
           src="/splash_five.jpg" 
           alt="An Image"
-          priority
-          fill
           className="object-cover" 
         />
       </div>
