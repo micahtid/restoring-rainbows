@@ -89,5 +89,5 @@
 
 .fade-in-animation {
   opacity: 0;
-  animation: fadeInSlideUp 0.7s ease-in-out forwards;
+  animation: fadeInSlideUp 1s ease-in-out forwards;
 }
