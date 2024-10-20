@@ -127,7 +127,8 @@ const Hero = () => {
       </h1>
       <div className="
         absolute 
-        w-[35%] 
+        w-[35%]
+        h-[800px] 
         left-0 
         top-[100px] 
         max-lg:top-[340px] 
@@ -141,15 +142,14 @@ const Hero = () => {
           data-aos-delay="300"
           src="/presentation.png" 
           alt="An Image" 
-          layout="responsive"
-          width={700} 
-          height={400}
+          fill
           className="object-cover" 
         />
       </div>
       <div className="
         absolute 
         w-[37.5%] 
+        h-[600px] 
         left-[35%] 
         bottom-[100px] 
         z-[200] 
@@ -169,15 +169,14 @@ const Hero = () => {
           data-aos-delay="200"
           src="/zoom_meeting.png" 
           alt="An Image" 
-          layout="responsive"
-          width={700} 
-          height={400} 
+          fill
           className="object-cover" 
         />
       </div>
       <div className="
         absolute 
         w-[27.5%] 
+        h-[600px] 
         left-[72.5%] 
         top-[100px] 
         max-lg:hidden"
@@ -189,9 +188,7 @@ const Hero = () => {
           data-aos-delay="400"
           src="/splash_five.jpg" 
           alt="An Image"
-          layout="responsive" 
-          width={700} 
-          height={400} 
+          fill
           className="object-cover" 
         />
       </div>
