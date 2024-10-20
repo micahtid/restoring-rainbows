@@ -1,5 +1,5 @@
 import { socials } from "@/data"
-import { socialMediaDescription } from "@/data"
+import { landingPageSocialMediaDescription } from "@/data"
 
 const SocialMedia = () => {
   return ( 
@@ -11,7 +11,7 @@ const SocialMedia = () => {
           <div className="flex flex-col gap-y-12
           max-w-[600px]">
             <h3 className='dynamic-subheading text-header'>Check out our latest posts</h3>
-            <p className='dynamic-text text-body'>{socialMediaDescription}</p>
+            <p className='dynamic-text text-body'>{landingPageSocialMediaDescription}</p>
             <div className="flex flex-row justify-start items-center gap-x-4">
               {
                 socials.map((social, index) => (
