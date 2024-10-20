@@ -26,6 +26,7 @@ const MissionStatement = () => {
           src="/splash_four.png"
           alt="An Image" 
           className='object-cover brightness-75 blur-[2px] z-20'
+          priority
           fill 
         />
         <h3 className='z-30 dynamic-subheading text-white max-w-[1000px] py-24 fade-in-animation'>

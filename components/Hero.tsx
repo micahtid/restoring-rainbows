@@ -142,6 +142,7 @@ const Hero = () => {
           data-aos-delay="300"
           src="/presentation.png" 
           alt="An Image" 
+          priority
           fill
           className="object-cover" 
         />
@@ -169,6 +170,7 @@ const Hero = () => {
           data-aos-delay="200"
           src="/zoom_meeting.png" 
           alt="An Image" 
+          priority
           fill
           className="object-cover" 
         />
@@ -188,6 +190,7 @@ const Hero = () => {
           data-aos-delay="400"
           src="/splash_five.jpg" 
           alt="An Image"
+          priority
           fill
           className="object-cover" 
         />
