@@ -2,7 +2,7 @@
 
 import { useData } from "@/providers/useData";
 import ArrowButton from "./ArrowButton";
-import { partnerDescription } from "@/data";
+import { landingPagePartnerDescription } from "@/data";
 
 const Partners = () => {
   const {
@@ -19,7 +19,7 @@ const Partners = () => {
       <div className="flex flex-col gap-y-6
       max-w-[450px]">
         <h3 className="dynamic-subheading text-header">Partners</h3>
-        <p className="dynamic-text text-body mb-8 max-lg:mb-0">{partnerDescription}</p>
+        <p className="dynamic-text text-body mb-8 max-lg:mb-0">{landingPagePartnerDescription}</p>
         <div className="flex justify-start">
           <ArrowButton text="See More" link="/partners" />
         </div>
