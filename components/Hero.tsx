@@ -134,7 +134,7 @@ const Hero = () => {
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="300"
-          src="/hero_left.jpg" 
+          src="/hero_left.JPG" 
           alt="An Image" 
           className="object-cover w-full h-full
           max-[1500px]:h-auto" 
@@ -161,7 +161,7 @@ const Hero = () => {
           data-aos="fade-up"
           data-aos-once="true"
           data-aos-delay="200"
-          src="/hero_middle.JPEG" 
+          src="/hero_middle.jpeg" 
           alt="An Image" 
           className="object-cover w-full h-full
           max-[1500px]:h-auto" 
@@ -182,7 +182,7 @@ const Hero = () => {
           data-aos="fade-left"
           data-aos-once="true"
           data-aos-delay="400"
-          src="/hero_right.JPEG" 
+          src="/hero_right.jpeg" 
           alt="An Image"
           className="object-cover w-full h-full
           max-[1500px]:h-auto" 
