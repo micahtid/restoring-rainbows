@@ -2,9 +2,10 @@ Repeatition
 - Blogs and SocialMedia + Events and Blogs are very identical components!
 - global.css, two animations (very similar) for heroFadeInSlideUp and fadeInSlideUp
 
-Aribtirary
+Aribitrary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient
 - Hero has many arbitrary z-indexes!
+- NavBar donate button uses arbitrary positioning (overall NavBar code is hard to read!)
 
 - page.tsx use of div for y-padding
 
