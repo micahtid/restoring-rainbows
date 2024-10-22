@@ -21,12 +21,12 @@ const BranchModal = () => {
     const [firstNameOne, setFirstNameOne] = useState("");
     const [lastNameOne, setLastNameOne] = useState("");
     const [bioOne, setBioOne] = useState("");
-    const [imageFileOne, setImageFileOne] = useState<File | null>(null);
+    const [imageFileOne, setImageFileOne] = useState<File | undefined>(undefined);
 
     const [firstNameTwo, setFirstNameTwo] = useState("");
     const [lastNameTwo, setLastNameTwo] = useState("");
     const [bioTwo, setBioTwo] = useState("");
-    const [imageFileTwo, setImageFileTwo] = useState<File | null>(null);
+    const [imageFileTwo, setImageFileTwo] = useState<File | undefined>(undefined);
    
     const [instagram, setInstagram] = useState("");
     const [email, setEmail] = useState("");
@@ -75,7 +75,10 @@ const BranchModal = () => {
             && firstNameTwo && lastNameTwo && bioTwo && imageFileTwo
             && instagram && email
         ) {
-            addBranch(country, city, latitude, longitude, firstNameOne, lastNameOne, bioOne, instagram, imageFileOne, state)
+            addBranch(country, city, community, latitude, longitude, firstNameOne, lastNameOne, bioOne, imageFileOne,
+                firstNameTwo, lastNameTwo, bioTwo, imageFileTwo,
+                instagram, email, state
+            )
             onClose();
         } else if (!newBranch
             && country && city && community && latitude && longitude 
@@ -84,7 +87,12 @@ const BranchModal = () => {
             && instagram && email
         ) {
             if (currentBranch) {
-                editBranch(currentBranch, country, city, latitude, longitude, firstNameOne, lastNameOne, bioOne, instagram, state)
+                editBranch(currentBranch, country, city, latitude, longitude,
+                    firstNameOne, lastNameOne, bioOne,
+                    firstNameTwo, lastNameTwo, bioTwo,
+                    instagram, email,
+                    imageFileOne, imageFileTwo, state
+                )
             }
             onClose();
         }
@@ -173,7 +181,7 @@ const BranchModal = () => {
                     <InputField
                         label="Founder's LN (2)"
                         placeholder="Last Name..."
-                        value={firstNameTwo}
+                        value={lastNameTwo}
                         onChange={(e) => setLastNameTwo(e.target.value)}
                     />
                 </div>
