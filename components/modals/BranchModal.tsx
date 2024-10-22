@@ -13,25 +13,42 @@ const BranchModal = () => {
     // Unique useState hooks for each input field
     const [country, setCountry] = useState("");
     const [city, setCity] = useState("");
+    const [community, setCommunity] = useState("");
     const [state, setState] = useState("");
     const [lat, setLat] = useState("");
     const [lng, setLng] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [bio, setBio] = useState("");
+
+    const [firstNameOne, setFirstNameOne] = useState("");
+    const [lastNameOne, setLastNameOne] = useState("");
+    const [bioOne, setBioOne] = useState("");
+    const [imageFileOne, setImageFileOne] = useState<File | null>(null);
+
+    const [firstNameTwo, setFirstNameTwo] = useState("");
+    const [lastNameTwo, setLastNameTwo] = useState("");
+    const [bioTwo, setBioTwo] = useState("");
+    const [imageFileTwo, setImageFileTwo] = useState<File | null>(null);
+   
     const [instagram, setInstagram] = useState("");
-    const [imageFile, setImageFile] = useState<File | null>(null);
+    const [email, setEmail] = useState("");
 
     useEffect(() => {
         setCountry(currentBranch?.country || "");
         setCity(currentBranch?.city || "");
+        setCommunity(currentBranch?.community || "");
         setState(currentBranch?.state || "");
         setLat(currentBranch?.lat || "");
         setLng(currentBranch?.lng || "");
-        setFirstName(currentBranch?.firstName || "");
-        setLastName(currentBranch?.lastName || "");
-        setBio(currentBranch?.bio || "");
+
+        setFirstNameOne(currentBranch?.firstNameOne || "");
+        setLastNameOne(currentBranch?.lastNameOne || "");
+        setBioOne(currentBranch?.bioOne || "");
+
+        setFirstNameTwo(currentBranch?.firstNameTwo || "");
+        setLastNameTwo(currentBranch?.lastNameTwo || "");
+        setBioTwo(currentBranch?.bioTwo || "");
+
         setInstagram(currentBranch?.instagram || "");
+        setEmail(currentBranch?.email || "");
     }, [updated]);
 
     const onChange = (open: boolean) => {
@@ -40,7 +57,7 @@ const BranchModal = () => {
         }
     };
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>, setImageFile: Function) => {
         if (e.target.files && e.target.files[0]) {
             setImageFile(e.target.files[0]);
         }
@@ -53,15 +70,21 @@ const BranchModal = () => {
         const longitude = parseFloat(lng) || 1;
 
         if (newBranch
-            && country && city && latitude && longitude && firstName && lastName && bio && instagram && imageFile
+            && country && city && community && latitude && longitude 
+            && firstNameOne && lastNameOne && bioOne && imageFileOne
+            && firstNameTwo && lastNameTwo && bioTwo && imageFileTwo
+            && instagram && email
         ) {
-            addBranch(country, city, latitude, longitude, firstName, lastName, bio, instagram, imageFile, state)
+            addBranch(country, city, latitude, longitude, firstNameOne, lastNameOne, bioOne, instagram, imageFileOne, state)
             onClose();
         } else if (!newBranch
-            && country && city && latitude && longitude && firstName && lastName && bio && instagram
+            && country && city && community && latitude && longitude 
+            && firstNameOne && lastNameOne && bioOne 
+            && firstNameTwo && lastNameTwo && bioTwo
+            && instagram && email
         ) {
             if (currentBranch) {
-                editBranch(currentBranch, country, city, latitude, longitude, firstName, lastName, bio, instagram, state)
+                editBranch(currentBranch, country, city, latitude, longitude, firstNameOne, lastNameOne, bioOne, instagram, state)
             }
             onClose();
         }
@@ -91,6 +114,12 @@ const BranchModal = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
+                <InputField
+                    label="Community"
+                    placeholder="Community..."
+                    value={community}
+                    onChange={(e) => setCommunity(e.target.value)}
+                />
                 <div className="flex flex-row justify-center items-center gap-x-6 w-full">
                     <InputField
                         label="Latitude"
@@ -107,39 +136,74 @@ const BranchModal = () => {
                 </div>
                 <div className="flex flex-row justify-center items-center gap-x-6 w-full">
                     <InputField
-                        label="Founder's FN"
+                        label="Founder's FN (1)"
                         placeholder="First Name..."
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstNameOne}
+                        onChange={(e) => setFirstNameOne(e.target.value)}
                     />
                     <InputField
-                        label="Founder's LN"
+                        label="Founder's LN (1)"
                         placeholder="Last Name..."
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                        value={lastNameOne}
+                        onChange={(e) => setLastNameOne(e.target.value)}
                     />
                 </div>
                 <InputField
-                    label="Founder's Bio"
+                    label="Founder's Bio (1)"
                     placeholder="Bio..."
-                    value={bio}
-                    onChange={(e) => setBio(e.target.value)}
-                />
-                <InputField
-                    label="Founder's Instagram"
-                    placeholder="Instagram..."
-                    value={instagram}
-                    onChange={(e) => setInstagram(e.target.value)}
+                    value={bioOne}
+                    onChange={(e) => setBioOne(e.target.value)}
                 />
                 <div className="w-full">
-                    <p className={`${!newBranch && "text-black/50"}`}>Founder Image</p>
+                    <p className={`${!newBranch && "text-black/50"}`}>Founder Image (1)</p>
                     <input
                         type="file"
-                        onChange={handleImageChange}
+                        onChange={(e) => {handleImageChange(e, setImageFileOne)}}
                         className="input-field text-gray-400"
                         disabled={!newBranch}
                     />
                 </div>
+                <div className="flex flex-row justify-center items-center gap-x-6 w-full">
+                    <InputField
+                        label="Founder's FN (2)"
+                        placeholder="First Name..."
+                        value={firstNameTwo}
+                        onChange={(e) => setFirstNameTwo(e.target.value)}
+                    />
+                    <InputField
+                        label="Founder's LN (2)"
+                        placeholder="Last Name..."
+                        value={firstNameTwo}
+                        onChange={(e) => setLastNameTwo(e.target.value)}
+                    />
+                </div>
+                <InputField
+                    label="Founder's Bio (2)"
+                    placeholder="Bio..."
+                    value={bioTwo}
+                    onChange={(e) => setBioTwo(e.target.value)}
+                />
+                <div className="w-full">
+                    <p className={`${!newBranch && "text-black/50"}`}>Founder Image (2)</p>
+                    <input
+                        type="file"
+                        onChange={(e) => {handleImageChange(e, setImageFileTwo)}}
+                        className="input-field text-gray-400"
+                        disabled={!newBranch}
+                    />
+                </div>
+                <InputField
+                    label="Branch's Instagram"
+                    placeholder="Instagram..."
+                    value={instagram}
+                    onChange={(e) => setInstagram(e.target.value)}
+                />
+                <InputField
+                    label="Branch's Email"
+                    placeholder="Email..."
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
                 <button
                     type="submit"
                     className="px-4 py-2 bg-primary text-white font-bold w-full rounded-full"
