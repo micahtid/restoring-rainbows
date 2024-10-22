@@ -93,90 +93,86 @@ const Hero = () => {
   return (
     <section className="
       w-[100vw] h-[110vh] relative
-      mb-28 
-      max-lg:h-[800px] 
-      max-md:h-[700px] 
-      max-sm:h-[600px] 
-      max-[430px]:h-[550px] 
-      max-[360px]:h-[500px] 
-      max-[1920px]:-mb-4 
-      max-[1568px]:-mb-12 
-      max-[1360px]:-mb-32 
-      max-[1278px]:-mb-64 
-      max-lg:mb-24"
+      flex flex-row"
     >
       <h1 className="
-        dynamic-title text-left text-black drop-shadow mb-52 
+        dynamic-title text-left text-header 
+        drop-shadow
+
         absolute left-1/2 top-[125px] transform -translate-x-1/2 
-        z-[500] 
-        max-w-[1200px] 
-        max-md:min-w-[100%] 
-        px-x 
+        max-lg:left-0 max-lg:-translate-x-0
+        max-[514px]:top-[75px]
+        max-[360px]:top-[25px]
 
-        max-[2300px]:ml-[150px]
+        px-x
+        z-[500] mb-52 
 
-        hero-fade-in-animation
-
-        max-lg:left-0 
-        max-lg:-translate-x-0 
-        max-lg:text-left 
-        max-lg:top-[125px] 
-        max-[1278px]:top-[120px]"
+        w-[1200px]
+        max-[1920px]:w-[1000px]
+        max-[1500px]:max-w-[800px]
+        max-[1500px]:w-full
+        "
       >
         Championing sustainability and creativity. We turn discarded school supplies into art.
       </h1>
       <div className="
-        absolute 
-        w-[35%]
-        h-[800px] 
-        left-0 
-        top-[100px] 
-        max-lg:top-[340px] 
-        max-lg:w-[60%] 
-        max-[346px]:top-[400px]"
+        relative 
+        w-[32.5%]
+        mt-[100px]
+
+        h-[700px]
+        max-[1500px]:h-min
+        
+        max-lg:absolute
+        max-lg:left-0 max-lg:top-[225px]
+        max-lg:w-[60%]"
       >
         <VerticalGradient xPos="-right-0" className="max-lg:hidden" />
         <img
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="300"
-          src="/presentation.png" 
+          src="/hero_left.jpg" 
           alt="An Image" 
-          className="object-cover" 
+          className="object-cover w-full h-full
+          max-[1500px]:h-auto" 
         />
       </div>
       <div className="
-        absolute 
-        w-[37.5%] 
-        h-[600px] 
-        left-[35%] 
-        bottom-[100px] 
-        z-[200] 
-        max-[1920px]:top-[270px] 
-        max-lg:left-[50%] 
-        max-lg:w-[45%] 
-        max-[1475px]:top-[300px] 
-        max-[1278px]:top-[250px] 
-        max-lg:top-[290px] 
-        max-[346px]:top-[350px] 
-        max-[1035px]:top-[300px]"
+        relative 
+        w-[40%]
+        mt-[250px]
+        max-[1920px]:mt-[235px]
+        max-[1500px]:mt-[325px] 
+        max-xl:mt-[225px]
+
+        h-[650px] 
+        max-[1500px]:h-min
+        z-[200]
+        
+        max-lg:absolute
+        max-lg:w-[45%]
+        max-lg:left-[50%] max-lg:top-[10px]"
       >
-        <HorizontalGradient yPos="top-[100px]" className="-top-[125px] max-[1265px]:-top-[145px] max-lg:-top-[225px] max-md:-top-[245px]" />
+        <HorizontalGradient yPos="top-[100px]" className="-top-[125px] max-xl:-top-[145px] max-lg:-top-[225px] max-md:-top-[245px]" />
         <img 
           data-aos="fade-up"
           data-aos-once="true"
           data-aos-delay="200"
-          src="/zoom_meeting.png" 
+          src="/hero_middle.JPEG" 
           alt="An Image" 
-          className="object-cover" 
+          className="object-cover w-full h-full
+          max-[1500px]:h-auto" 
         />
       </div>
       <div className="
-        absolute 
+        relative 
         w-[27.5%] 
-        h-[600px] 
-        left-[72.5%] 
-        top-[100px] 
+        mt-[100px]
+
+        h-[600px]
+        max-[1500px]:h-min
+        
         max-lg:hidden"
       >
         <VerticalGradient xPos="left-0" className="-left-[50px] max-lg:hidden max-[1600px]:-left-[30px]" />
@@ -184,9 +180,10 @@ const Hero = () => {
           data-aos="fade-left"
           data-aos-once="true"
           data-aos-delay="400"
-          src="/splash_five.jpg" 
+          src="/hero_right.JPEG" 
           alt="An Image"
-          className="object-cover" 
+          className="object-cover w-full h-full
+          max-[1500px]:h-auto" 
         />
       </div>
     </section>
