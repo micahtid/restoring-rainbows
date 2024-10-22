@@ -8,11 +8,14 @@ const Statistics = () => {
     } = useData();
 
     return (
-        <section className="max-w-max w-full mx-auto
+        <section className="
+        max-w-max w-full mx-auto
+
         px-x py-8 mb-12 z-10
         flex justify-between items-start gap-x-20
         max-md:grid max-md:grid-cols-2 max-md:gap-y-16 max-md:gap-x-24 max-sm:gap-x-8
-        max-[1500px]:-mt-[75px] max-xl:-mt-[250px] max-lg:-mt-[175px] max-[650px]:-mt-[300px] max-[450px]:-mt-[350px]
+
+        mt-[100px] max-[1500px]:mt-[150px] max-[850px]:mt-0 max-[500px]:-mt-[150px]
         ">
             {statistics?.map((statistic, index) => (
                 <div key={index}

@@ -24,7 +24,7 @@ const Partners = () => {
           <ArrowButton text="See More" link="/partners" />
         </div>
       </div>
-      <div className="flex flex-wrap gap-5 max-lg:self-end max-sm:self-start
+      <div className="flex flex-wrap gap-5 
       max-sm:gap-3">
         {partners?.map((partner, index) => (
           <div 

@@ -39,24 +39,32 @@ const Home = () => {
   }
 
   return (
-    <div className="relative">
-      <div 
-        style={{
-          background: `
-              conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
-        }}
-        className="absolute top-0 w-full h-[2500px] -z-[100]"
-      />
-      <div className="pb-24" />
-      <Hero />
-      <Statistics />
-      <WhatWeDo />
-      <Blog />
-      <SocialMedia />
-      <RecentEvents />
-      <TakeAction />
-      <Partners />
-    </div>
+    <main>
+      <div className="relative
+      max-[325px]:hidden">
+        <div 
+          style={{
+            background: `
+                conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
+          }}
+          className="absolute top-0 w-full h-[2500px] -z-[100]"
+        />
+        <div className="pb-24" />
+        <Hero />
+        <Statistics />
+        <WhatWeDo />
+        <Blog />
+        <SocialMedia />
+        <RecentEvents />
+        <TakeAction />
+        <Partners />
+      </div>
+      <div className="hidden max-[325px]:inline-block
+      z-[10000]
+      absolute inset-0 bg-white h-[100vh] w-[100vw]">
+        <p className="p-x">Oops! It looks like this website is not supported on smaller devices.</p>
+      </div>
+    </main>
   );
 };
 
