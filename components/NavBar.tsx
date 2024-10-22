@@ -6,6 +6,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosClose } from "react-icons/io";
 import { IoChevronBackOutline, IoChevronDown } from "react-icons/io5";
 
+import OutlineButton from "./OutlineButton";
+
 import useNavModal from "@/hooks/useNavModal";
 import { useState } from "react";
 
@@ -111,7 +113,7 @@ const NavBar = () => {
       max-w-max w-full 
       relative">
         <a href="/" className="z-[11000]">
-          <img src="/logo_black.png" className="w-[50px] z-[1100] max-md:hidden" />
+          <img src="/logo_black.png" className="w-[50px] z-[1100] max-[1025px]:hidden" />
         </a>
         <div
           className="
@@ -134,9 +136,10 @@ const NavBar = () => {
           {extendedNavItems.map((item, index) => (
             <div
               key={index}
-              className="
+              className={`
               flex flex-col justify-start items-end gap-y-2 
-              mt-3 relative max-md:hidden"
+              mt-3 relative max-[1025px]:hidden
+              ${item.label === "Donate" && 'hidden'}`}
             >
               <a href={item.link} className="font-semibold text-black/70 text-lg">
                 {item.label}
@@ -160,7 +163,18 @@ const NavBar = () => {
             </div>
           ))}
         </div>
-        <div className="hidden max-md:flex max-md:justify-between max-md:items-center w-full">
+        <div className="flex justify-center items-center mt-[1px]
+        max-[1025px]:hidden">
+          <OutlineButton className="w-[100px] py-2 
+          flex justify-center items-center">
+            <a 
+            className="text-lg font-semibold text-black/70" 
+            href="/donate">
+              Donate
+            </a>
+          </OutlineButton>
+        </div>
+        <div className="hidden max-[1025px]:flex max-[1025px]:justify-between max-[1025px]:items-center w-full">
           <a href="/" className="z-[11000] flex items-center">
             <img
               src="/logo_black.png"

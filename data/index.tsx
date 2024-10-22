@@ -12,15 +12,16 @@ export const extendedNavItems = [
     {label: "About", link: "/about", subItems: []},
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
-    {label: "Stories", link: "", subItems: [
+    {label: "Stories", link: "javascript:void(0)", subItems: [
         {label: "Blogs", link: "/stories"},
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
-    {label: "Take Action", link: "/#take-action", subItems: [
+    {label: "Take Action", link: "javascript:void(0)", subItems: [
         {label: "Start Branch", link: "/start-a-branch"},
         {label: "Volunteer", link: "/volunteer"},
-    ]}
+    ]},
+    {label: "Donate", link: "/donate", subItems: []}
 ]
 
 export const contacts = [

@@ -1,10 +1,13 @@
+import { twMerge } from "tailwind-merge";
+
 interface OutlineButtonProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const OutlineButton: React.FC<OutlineButtonProps> = ({ children }) => {
+const OutlineButton: React.FC<OutlineButtonProps> = ({ children, className }) => {
   return (
-    <div className="group relative w-full">
+    <div className={twMerge('group relative w-full', className)}>
       <span>{children}</span>
 
       {/* TOP */}
