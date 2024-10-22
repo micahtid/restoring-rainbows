@@ -66,13 +66,13 @@ export const addBranch = async (
     bioOne: string,
     photoOne: File,
 
-    firstNameTwo: string,
-    lastNameTwo: string,
-    bioTwo: string,
-    photoTwo: File,
-
     instagram: string,
     email: string,
+
+    firstNameTwo?: string,
+    lastNameTwo?: string,
+    bioTwo?: string,
+    photoTwo?: File,
 
     state?: string
 ) => {
@@ -85,13 +85,17 @@ export const addBranch = async (
         await uploadBytes(photoRefOne, photoOne);
         const photoURLOne = await getDownloadURL(photoRefOne);
 
-        const photoRefTwo = ref(storage, `branches/${photoTwo.name}`);
-        await uploadBytes(photoRefTwo, photoTwo);
-        const photoURLTwo = await getDownloadURL(photoRefTwo);
+        let photoURLTwo = "";
+
+        if (photoTwo) {
+            const photoRefTwo = ref(storage, `branches/${photoTwo.name}`);
+            await uploadBytes(photoRefTwo, photoTwo);
+            photoURLTwo = await getDownloadURL(photoRefTwo);
+        }
 
         const branchesCollection = collection(firestore, 'branches');
 
-        const branchDocRef = await addDoc(branchesCollection, {
+        const branchData: any = {
             country,
             city,
             community,
@@ -104,38 +108,43 @@ export const addBranch = async (
             bioOne,
             photoOne: photoURLOne,
 
-            firstNameTwo,
-            lastNameTwo,
-            bioTwo,
-            photoTwo: photoURLTwo,
-
             instagram,
-            email
-        });
+            email,
+        };
+
+        if (firstNameTwo && lastNameTwo && bioTwo) {
+            branchData.firstNameTwo = firstNameTwo;
+            branchData.lastNameTwo = lastNameTwo;
+            branchData.bioTwo = bioTwo;
+            branchData.photoTwo = photoURLTwo;
+        }
+
+        await addDoc(branchesCollection, branchData);
         toast.success('Added Branch');
     } catch (error) {
         toast.error('Failed to Add Branch');
     }
 };
 
+
 export const editBranch = async (
     previousBranch: DocumentData,
     country: string,
     city: string,
+    community: string,
     lat: number,
     lng: number,
 
     firstNameOne: string,
     lastNameOne: string,
     bioOne: string,
-    
-    firstNameTwo: string,
-    lastNameTwo: string,
-    bioTwo: string,
-    
+
     instagram: string,
     email: string,
-    
+
+    firstNameTwo?: string,
+    lastNameTwo?: string,
+    bioTwo?: string,
     photoOne?: File,
     photoTwo?: File,
     state?: string
@@ -178,9 +187,10 @@ export const editBranch = async (
             photoURLTwo = await getDownloadURL(photoRefTwo);
         }
 
-        await updateDoc(branchDocRef, {
+        const branchData: any = {
             country,
             city,
+            community,
             state: state || "",
             lat,
             lng,
@@ -188,22 +198,31 @@ export const editBranch = async (
             firstNameOne,
             lastNameOne,
             bioOne,
-            photoOne: photoURLOne, 
-
-            firstNameTwo,
-            lastNameTwo,
-            bioTwo,
-            photoTwo: photoURLTwo, 
+            photoOne: photoURLOne,
 
             instagram,
-            email
-        });
+            email,
+        };
 
+        if (firstNameTwo && lastNameTwo && bioTwo) {
+            branchData.firstNameTwo = firstNameTwo;
+            branchData.lastNameTwo = lastNameTwo;
+            branchData.bioTwo = bioTwo;
+            branchData.photoTwo = photoURLTwo;
+        } else {
+            branchData.firstNameTwo = "";
+            branchData.lastNameTwo = "";
+            branchData.bioTwo = "";
+            branchData.photoTwo = "";
+        }
+
+        await updateDoc(branchDocRef, branchData);
         toast.success('Edited Branch');
     } catch (error) {
         toast.error('Failed to Edit Branch');
     }
 };
+
 
 export const deleteBranch = async (previousBranch: DocumentData) => {
     try {

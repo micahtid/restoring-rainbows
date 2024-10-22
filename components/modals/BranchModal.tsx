@@ -72,26 +72,30 @@ const BranchModal = () => {
         if (newBranch
             && country && city && community && latitude && longitude 
             && firstNameOne && lastNameOne && bioOne && imageFileOne
-            && firstNameTwo && lastNameTwo && bioTwo && imageFileTwo
+            // && firstNameTwo && lastNameTwo && bioTwo && imageFileTwo
             && instagram && email
         ) {
-            addBranch(country, city, community, latitude, longitude, firstNameOne, lastNameOne, bioOne, imageFileOne,
-                firstNameTwo, lastNameTwo, bioTwo, imageFileTwo,
-                instagram, email, state
+            addBranch(country, city, community, latitude, longitude,
+                firstNameOne, lastNameOne, bioOne, imageFileOne,
+                instagram, email,
+                firstNameOne, firstNameTwo, bioTwo, imageFileTwo, 
+                state
             )
             onClose();
         } else if (!newBranch
             && country && city && community && latitude && longitude 
             && firstNameOne && lastNameOne && bioOne 
-            && firstNameTwo && lastNameTwo && bioTwo
+            // && firstNameTwo && lastNameTwo && bioTwo
             && instagram && email
         ) {
             if (currentBranch) {
-                editBranch(currentBranch, country, city, latitude, longitude,
+                editBranch(currentBranch,
+                    country, city, community, latitude, longitude,
                     firstNameOne, lastNameOne, bioOne,
-                    firstNameTwo, lastNameTwo, bioTwo,
                     instagram, email,
-                    imageFileOne, imageFileTwo, state
+                    firstNameTwo, lastNameTwo, bioTwo,
+                    imageFileOne, imageFileTwo,
+                    state
                 )
             }
             onClose();
