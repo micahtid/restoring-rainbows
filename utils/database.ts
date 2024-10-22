@@ -57,13 +57,23 @@ export const getBranches = (setBranches: (branches: DocumentData[]) => void) => 
 export const addBranch = async (
     country: string,
     city: string,
+    community: string,
     lat: number,
     lng: number,
-    firstName: string,
-    lastName: string,
-    bio: string,
+
+    firstNameOne: string,
+    lastNameOne: string,
+    bioOne: string,
+    photoOne: File,
+
+    firstNameTwo: string,
+    lastNameTwo: string,
+    bioTwo: string,
+    photoTwo: File,
+
     instagram: string,
-    photo: File,
+    email: string,
+
     state?: string
 ) => {
     try {
@@ -71,23 +81,36 @@ export const addBranch = async (
         const firestore = getFirestore(app);
         const storage = getStorage(app);
 
-        const photoRef = ref(storage, `branches/${photo.name}`);
-        await uploadBytes(photoRef, photo);
-        const photoURL = await getDownloadURL(photoRef);
+        const photoRefOne = ref(storage, `branches/${photoOne.name}`);
+        await uploadBytes(photoRefOne, photoOne);
+        const photoURLOne = await getDownloadURL(photoRefOne);
+
+        const photoRefTwo = ref(storage, `branches/${photoTwo.name}`);
+        await uploadBytes(photoRefTwo, photoTwo);
+        const photoURLTwo = await getDownloadURL(photoRefTwo);
 
         const branchesCollection = collection(firestore, 'branches');
 
         const branchDocRef = await addDoc(branchesCollection, {
             country,
-            state: state || "",
             city,
+            community,
+            state: state || "",
             lat,
             lng,
-            firstName,
-            lastName,
-            bio,
+
+            firstNameOne,
+            lastNameOne,
+            bioOne,
+            photoOne: photoURLOne,
+
+            firstNameTwo,
+            lastNameTwo,
+            bioTwo,
+            photoTwo: photoURLTwo,
+
             instagram,
-            photo: photoURL,
+            email
         });
         toast.success('Added Branch');
     } catch (error) {
@@ -101,22 +124,34 @@ export const editBranch = async (
     city: string,
     lat: number,
     lng: number,
-    firstName: string,
-    lastName: string,
-    bio: string,
+
+    firstNameOne: string,
+    lastNameOne: string,
+    bioOne: string,
+    
+    firstNameTwo: string,
+    lastNameTwo: string,
+    bioTwo: string,
+    
     instagram: string,
+    email: string,
+    
+    photoOne?: File,
+    photoTwo?: File,
     state?: string
 ) => {
     try {
         const app = initializeFirebase();
         const firestore = getFirestore(app);
+        const storage = getStorage(app);
         const branchesCollection = collection(firestore, 'branches');
 
         const branchQuery = query(
             branchesCollection,
             where("country", "==", previousBranch.country),
             where("city", "==", previousBranch.city),
-            where("state", "==", previousBranch.state || "")
+            where("state", "==", previousBranch.state || ""),
+            where("community", "==", previousBranch.community)
         );
 
         const querySnapshot = await getDocs(branchQuery);
@@ -126,8 +161,22 @@ export const editBranch = async (
             return;
         }
 
-        // Update First Match Only
         const branchDocRef = querySnapshot.docs[0].ref;
+
+        let photoURLOne = previousBranch.photoOne;
+        let photoURLTwo = previousBranch.photoTwo;
+
+        if (photoOne) {
+            const photoRefOne = ref(storage, `branches/${photoOne.name}`);
+            await uploadBytes(photoRefOne, photoOne);
+            photoURLOne = await getDownloadURL(photoRefOne);
+        }
+
+        if (photoTwo) {
+            const photoRefTwo = ref(storage, `branches/${photoTwo.name}`);
+            await uploadBytes(photoRefTwo, photoTwo);
+            photoURLTwo = await getDownloadURL(photoRefTwo);
+        }
 
         await updateDoc(branchDocRef, {
             country,
@@ -135,10 +184,19 @@ export const editBranch = async (
             state: state || "",
             lat,
             lng,
-            firstName,
-            lastName,
-            bio,
-            instagram
+
+            firstNameOne,
+            lastNameOne,
+            bioOne,
+            photoOne: photoURLOne, 
+
+            firstNameTwo,
+            lastNameTwo,
+            bioTwo,
+            photoTwo: photoURLTwo, 
+
+            instagram,
+            email
         });
 
         toast.success('Edited Branch');
@@ -158,7 +216,8 @@ export const deleteBranch = async (previousBranch: DocumentData) => {
             branchesCollection,
             where("country", "==", previousBranch.country),
             where("city", "==", previousBranch.city),
-            where("state", "==", previousBranch.state || "")
+            where("state", "==", previousBranch.state || ""),
+            where("community", "==", previousBranch.community)
         );
 
         const querySnapshot = await getDocs(branchQuery);

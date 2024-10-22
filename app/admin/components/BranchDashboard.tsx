@@ -36,7 +36,7 @@ const BranchDashboard = () => {
           onClickDelete={() => {
             deleteBranch(branch);
           }}
-          display={`${branch.country} ${branch.state} ${branch.city}`}/>
+          display={`${branch.country} ${branch.state} ${branch.city}, ${branch.community}`}/>
         ))}
       </div>
       <button 
