@@ -13,7 +13,7 @@ const config: Config = {
         primary: "#73a0e1",
         secondary: "#e3f0ff",
         complement: "#f3e2ca",
-        header: "#2C3E50",
+        header: "#23313f",
         body: "#4A4A4A"
       },
       fontFamily: {

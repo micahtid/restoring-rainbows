@@ -6,15 +6,18 @@
 
 @layer components {
   .dynamic-title {
-    @apply text-7xl max-[1920px]:text-6xl max-xl:text-5xl max-lg:text-4xl font-black font-title uppercase
+    @apply text-7xl max-[1920px]:text-6xl max-xl:text-5xl max-lg:text-4xl max-md:text-3xl
+    font-black font-title uppercase
   }
 
   .dynamic-heading {
-    @apply text-5xl max-xl:text-4xl font-black font-title uppercase
+    @apply text-5xl max-xl:text-4xl max-lg:text-3xl
+    font-black font-title uppercase
   }
 
   .dynamic-subheading {
-    @apply text-4xl max-lg:text-3xl font-black font-title uppercase
+    @apply text-4xl max-lg:text-3xl max-md:text-2xl
+    font-black font-title uppercase
   }
 
   .dynamic-text {

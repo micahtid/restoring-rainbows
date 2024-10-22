@@ -120,9 +120,9 @@ const NavBar = () => {
         >
           <div
             style={{
-                    backgroundColor: '#d5e3f1',
-                    backgroundImage: 'linear-gradient(to right, #e3f0ff, #d3f8e6)'
-                  }}
+              backgroundColor: '#d5e3f1',
+              backgroundImage: 'linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)'
+            }}
             className={`
               bg-[#f5e7d4] w-[100vw] h-[172.5px] overflow-hidden
               absolute left-1/2 transform -translate-x-1/2
