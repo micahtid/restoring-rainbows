@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
 import { DocumentData } from "firebase/firestore";
@@ -15,7 +14,6 @@ interface BranchListProps {
 const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     const [organizedBranches, setOrganizedBranches] = useState<null | CountryData[]>(null);
     const [selectedCity, setSelectedCity] = useState<string | null>(null);
-    const router = useRouter();
 
     useEffect(() => {
         if (branches) {
@@ -24,6 +22,7 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     }, [branches]);
 
     const handleCityClick = (cityName: string) => {                             // Toggle dropdown on city click
+        console.log("Through here!")
         if (selectedCity === cityName) {
             setSelectedCity(null);                                              // Close dropdown if already open
         } else {

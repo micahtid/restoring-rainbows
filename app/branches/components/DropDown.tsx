@@ -1,46 +1,52 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+
 import { CityData } from "@/utils/utils";
 
 interface DropDownProps {
     isOpen: boolean;
     cityData: CityData;
     toggleDropdown: () => void;
-    // children: React.ReactNode;
 }
 
 const DropDown: React.FC<DropDownProps> = ({ isOpen, toggleDropdown, cityData }) => {
     const dropdownRef = useRef<HTMLUListElement | null>(null);
+    const router = useRouter();
 
-    // Close dropdown when clicking outside of it
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleClickOutside = (event: MouseEvent) => {                                         // Close drop down if clicked outside
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 toggleDropdown(); 
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("click", handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("click", handleClickOutside);
         };
-    }, [toggleDropdown]);
+    }, [toggleDropdown]);                                                                           // Triggered everytime toggleDropdown is ran!
 
     return (
         isOpen && (
             <ul
                 ref={dropdownRef}
-                className="absolute z-10 bg-[#3D3C35] rounded-md w-[275px] max-h-[300px] overflow-y-auto shadow-sm flex flex-col gap-1"
+                className="absolute z-10 w-[275px] 
+                bg-primary
+                max-h-[300px] overflow-y-auto no-scrollbar 
+                shadow-sm px-4 py-2
+                flex flex-col gap-y-3"
             >
-                {cityData.branches.map((branch: any, branchIndex: number) => (
-                    <button
-                        key={branchIndex}
-                        className="cursor-pointer text-white rounded-md px-4 py-2 max-[500px]:py-3"
-                    >
-                        {branch.community}
-                    </button>
-                ))}
+            {cityData.branches.map((branch: any, branchIndex: number) => (
+                <button
+                    key={branchIndex}
+                    onClick={() => router.push(`/branches/branch?country=${branch.country}&city=${branch.city}&community=${branch.community}`)}
+                    className="cursor-pointer text-white max-[500px]:py-3 text-left"
+                >
+                    {branch.community}
+                </button>
+            ))}
             </ul>
         )
     );
