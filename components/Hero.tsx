@@ -92,7 +92,9 @@ const Hero = () => {
 
   return (
     <section className="
-      w-[100vw] h-[110vh] relative
+      w-[100vw] 
+      h-full max-lg:h-[700px]
+      relative
       flex flex-row"
     >
       <h1 className="
@@ -118,9 +120,9 @@ const Hero = () => {
       <div className="
         relative 
         w-[32.5%]
-        mt-[100px]
+        mt-[50px]
 
-        h-[700px]
+        h-[650px]
         max-[1500px]:h-min
         
         max-lg:absolute
@@ -141,12 +143,12 @@ const Hero = () => {
       <div className="
         relative 
         w-[40%]
-        mt-[250px]
-        max-[1920px]:mt-[235px]
-        max-[1500px]:mt-[325px] 
-        max-xl:mt-[225px]
+        mt-[200px]
+        max-[1920px]:mt-[185px]
+        max-[1500px]:mt-[275px] 
+        max-xl:mt-[175px]
 
-        h-[650px] 
+        h-[600px] 
         max-[1500px]:h-min
         z-[200]
         
@@ -168,9 +170,9 @@ const Hero = () => {
       <div className="
         relative 
         w-[27.5%] 
-        mt-[100px]
+        mt-[50px]
 
-        h-[600px]
+        h-[500px]
         max-[1500px]:h-min
         
         max-lg:hidden"
