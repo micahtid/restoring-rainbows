@@ -67,8 +67,7 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
               className="cursor-pointer max-[655px]:w-full"
               onClick={() => handleEventClick(event.title)}>
               <img
-                src={event.image}
-                alt={event.title}
+                src={event.images[0]}
                 className="w-[300px] h-[300px] object-cover
                 max-[655px]:w-full"
               />

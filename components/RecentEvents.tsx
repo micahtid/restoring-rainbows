@@ -46,7 +46,7 @@ const RecentEvents = () => {
               onClick={() => router.push(`/events/item?title=${event.title}`)}>  
               <div className="w-[300px] max-lg:w-[250px] flex flex-col justify-center items-start cursor-pointer">
                 <OutlineButton>
-                  <img src={event.image} className='w-full h-[300px] drop-shadow object-cover
+                  <img src={event.images[0]} className='w-full h-[300px] drop-shadow object-cover
                     max-lg:h-[250px]' />
                 </OutlineButton>
                 <div className="w-full overflow-hidden
