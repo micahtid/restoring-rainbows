@@ -6,6 +6,9 @@ import { useData } from '@/providers/useData';
 import { DocumentData } from 'firebase/firestore';
 import Loader from '@/components/Loader';
 
+import { FaInstagram } from "react-icons/fa6";
+import { MdOutlineMailOutline } from "react-icons/md";
+
 interface FounderInformationProps {
   photoUrl: string,
   firstName: string,
@@ -67,6 +70,14 @@ const BranchContent: React.FC<BranchContentProps> = ({ branches }) => {
         <p className='text-body font-bold uppercase font-title dynamic-text'>
           {branchData?.city}, {branchData?.state} {branchData?.country}
         </p>
+        <div className="flex items-center gap-x-2 mt-4">
+          <FaInstagram />
+          <p className='text-body text-sm'>{branchData?.instagram}</p>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <MdOutlineMailOutline />
+          <p className='text-body text-sm'>{branchData?.email}</p>
+        </div>
         <div className="w-full h-[1px] bg-body mt-[20px]" />
       </div>
 
