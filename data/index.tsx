@@ -18,8 +18,8 @@ export const extendedNavItems = [
     ]},
     {label: "Branches", link: "/branches", subItems: []},
     {label: "Take Action", link: "javascript:void(0)", subItems: [
-        {label: "Start Branch", link: "/start-a-branch"},
-        {label: "Volunteer", link: "/volunteer"},
+        {label: "Start Branch", link: "/take-action#start-a-branch"},
+        {label: "Volunteer", link: "/take-action#volunteer"},
     ]},
     {label: "Donate", link: "/donate", subItems: []}
 ]
@@ -61,5 +61,18 @@ export const aboutPageWhyWeMatter = [
 // Partners Page
 export const partnerPageDescription = 'Through these collaborative efforts, we aim to inspire change and empower individuals to embrace the arts while supporting environmental responsibility.'
 
-// Start a Branch Page
-export const branchPageDescription = `Interested in starting a branch of Restoring Rainbows? You'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. Just fill out the form below!`
+// Take Action Page
+export const takeActionPageSections = [
+    {
+        id: "start-a-branch",
+        title: "Start a Branch",
+        description: "Interested in starting a branch of Restoring Rainbows? You'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. Just fill out the form below!",
+        buttonLabel: "Register",
+    },
+    {
+        id: "volunteer",
+        title: "Volunteer",
+        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, illum quae. Quo, odit inventore sit neque veniam culpa ex assumenda?",
+        buttonLabel: "Volunteer",
+    }
+];

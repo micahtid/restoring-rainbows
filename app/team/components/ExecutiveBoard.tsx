@@ -4,10 +4,7 @@ import { organizeByPosition } from "@/utils/utils";
 import { DocumentData } from "firebase/firestore";
 import { IoOpenOutline } from "react-icons/io5";
 
-
 import useExecutiveMemberModal from "@/hooks/useExecutiveMemberModal";
-
-import OutlineButton from "@/components/OutlineButton";
 
 interface ExecutiveBoardProps {
   executiveBoard: DocumentData[] | null;
