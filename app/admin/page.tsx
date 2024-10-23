@@ -20,7 +20,7 @@ const Admin = () => {
     const states = [{title: "Branches", component: <BranchDashboard />}, {title: "Statistics", component: <StatisticsDashboard />},
         {title: "Executive Board", component: <ExecutiveDashboard />}, {title: "Volunteers", component: <VolunteersDashboard />},
         {title: "Partners", component: <PartnersDashboard />}, {title: "Events", component: <EventsDashboard />},
-        {title: "Stories", component: <StoriesDashboard />}]
+        {title: "Prism", component: <StoriesDashboard />}]
     const [activeState, setActiveState] = useState(0);
 
   return (

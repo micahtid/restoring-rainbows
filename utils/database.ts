@@ -768,8 +768,6 @@ export const editEvent = async (
     }
 };
 
-
-
 export const deleteEvent = async (previousData: DocumentData) => {
     try {
         const app = initializeFirebase();
