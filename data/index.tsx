@@ -13,7 +13,7 @@ export const extendedNavItems = [
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "javascript:void(0)", subItems: [
-        {label: "Blogs", link: "/stories"},
+        {label: "Prism", link: "/prism"},
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
