@@ -15,7 +15,12 @@ const EventsModal = () => {
     const [content, setContent] = useState("");
     const [date, setDate] = useState("");
     const [location, setLocation] = useState("");
-    const [imageFile, setImageFile] = useState<File | null>(null);
+
+    const [imageFileOne, setImageFileOne] = useState<File | null>(null);
+    const [imageFileTwo, setImageFileTwo] = useState<File | null>(null);
+    const [imageFileThree, setImageFileThree] = useState<File | null>(null);
+    const [imageFileFour, setImageFileFour] = useState<File | null>(null);
+    const [imageFileFive, setImageFileFive] = useState<File | null>(null);
 
     useEffect(() => {
         setTitle(currentEvent?.title || "");
@@ -30,7 +35,7 @@ const EventsModal = () => {
         }
     };
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>, setImageFile: Function) => {
         if (e.target.files && e.target.files[0]) {
             setImageFile(e.target.files[0]);
         }
@@ -40,9 +45,9 @@ const EventsModal = () => {
         e.preventDefault();
 
         if (newEvent
-            && title && content && date && location && imageFile
+            && title && content && date && location && imageFileOne
         ) {
-            addEvent(imageFile, title, content, date, location);
+            addEvent(imageFileOne, title, content, date, location);
             onClose();
         } else if (!newEvent
             && title && content && date && location
@@ -86,10 +91,46 @@ const EventsModal = () => {
                     onChange={(e) => setLocation(e.target.value)}
                 />
                 <div className="w-full">
-                    <p className={`${!newEvent && "text-black/50"}`}>Founder Image</p>
+                    <p className={`${!newEvent && "text-black/50"}`}>Image One</p>
                     <input
                         type="file"
-                        onChange={handleImageChange}
+                        onChange={(e) => handleImageChange(e, setImageFileOne)}
+                        className="input-field text-gray-400"
+                        disabled={!newEvent}
+                    />
+                </div>
+                <div className="w-full">
+                    <p className={`${!newEvent && "text-black/50"}`}>Image Two</p>
+                    <input
+                        type="file"
+                        onChange={(e) => handleImageChange(e, setImageFileTwo)}
+                        className="input-field text-gray-400"
+                        disabled={!newEvent}
+                    />
+                </div>
+                <div className="w-full">
+                    <p className={`${!newEvent && "text-black/50"}`}>Image Three</p>
+                    <input
+                        type="file"
+                        onChange={(e) => handleImageChange(e, setImageFileThree)}
+                        className="input-field text-gray-400"
+                        disabled={!newEvent}
+                    />
+                </div>
+                <div className="w-full">
+                    <p className={`${!newEvent && "text-black/50"}`}>Image Four</p>
+                    <input
+                        type="file"
+                        onChange={(e) => handleImageChange(e, setImageFileFour)}
+                        className="input-field text-gray-400"
+                        disabled={!newEvent}
+                    />
+                </div>
+                <div className="w-full">
+                    <p className={`${!newEvent && "text-black/50"}`}>Image Five</p>
+                    <input
+                        type="file"
+                        onChange={(e) => handleImageChange(e, setImageFileFive)}
                         className="input-field text-gray-400"
                         disabled={!newEvent}
                     />
