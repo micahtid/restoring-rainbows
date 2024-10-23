@@ -172,7 +172,6 @@ const BranchModal = () => {
                         type="file"
                         onChange={(e) => {handleImageChange(e, setImageFileOne)}}
                         className="input-field text-gray-400"
-                        disabled={!newBranch}
                     />
                 </div>
                 <div className="flex flex-row justify-center items-center gap-x-6 w-full">
@@ -201,7 +200,6 @@ const BranchModal = () => {
                         type="file"
                         onChange={(e) => {handleImageChange(e, setImageFileTwo)}}
                         className="input-field text-gray-400"
-                        disabled={!newBranch}
                     />
                 </div>
                 <InputField
