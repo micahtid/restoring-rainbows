@@ -16,11 +16,11 @@ const EventsModal = () => {
     const [date, setDate] = useState("");
     const [location, setLocation] = useState("");
 
-    const [imageFileOne, setImageFileOne] = useState<File | null>(null);
-    const [imageFileTwo, setImageFileTwo] = useState<File | null>(null);
-    const [imageFileThree, setImageFileThree] = useState<File | null>(null);
-    const [imageFileFour, setImageFileFour] = useState<File | null>(null);
-    const [imageFileFive, setImageFileFive] = useState<File | null>(null);
+    const [imageFileOne, setImageFileOne] = useState<File | undefined>(undefined);
+    const [imageFileTwo, setImageFileTwo] = useState<File | undefined>(undefined);
+    const [imageFileThree, setImageFileThree] = useState<File | undefined>(undefined);
+    const [imageFileFour, setImageFileFour] = useState<File | undefined>(undefined);
+    const [imageFileFive, setImageFileFive] = useState<File | undefined>(undefined);
 
     useEffect(() => {
         setTitle(currentEvent?.title || "");
@@ -47,13 +47,16 @@ const EventsModal = () => {
         if (newEvent
             && title && content && date && location && imageFileOne
         ) {
-            addEvent(imageFileOne, title, content, date, location);
+            addEvent(title, content, date, location, 
+                imageFileOne, imageFileTwo, imageFileThree, imageFileFour, imageFileFive)
             onClose();
         } else if (!newEvent
             && title && content && date && location
         ) {
             if (currentEvent) {
-                editEvent(currentEvent, title, content, date, location);
+                editEvent(currentEvent, title, content, date, location,
+                    imageFileOne, imageFileTwo, imageFileThree, imageFileFour, imageFileFive
+                )
             }
             onClose();
         }
@@ -96,7 +99,6 @@ const EventsModal = () => {
                         type="file"
                         onChange={(e) => handleImageChange(e, setImageFileOne)}
                         className="input-field text-gray-400"
-                        disabled={!newEvent}
                     />
                 </div>
                 <div className="w-full">
@@ -105,7 +107,6 @@ const EventsModal = () => {
                         type="file"
                         onChange={(e) => handleImageChange(e, setImageFileTwo)}
                         className="input-field text-gray-400"
-                        disabled={!newEvent}
                     />
                 </div>
                 <div className="w-full">
@@ -114,7 +115,6 @@ const EventsModal = () => {
                         type="file"
                         onChange={(e) => handleImageChange(e, setImageFileThree)}
                         className="input-field text-gray-400"
-                        disabled={!newEvent}
                     />
                 </div>
                 <div className="w-full">
@@ -123,7 +123,6 @@ const EventsModal = () => {
                         type="file"
                         onChange={(e) => handleImageChange(e, setImageFileFour)}
                         className="input-field text-gray-400"
-                        disabled={!newEvent}
                     />
                 </div>
                 <div className="w-full">
@@ -132,7 +131,6 @@ const EventsModal = () => {
                         type="file"
                         onChange={(e) => handleImageChange(e, setImageFileFive)}
                         className="input-field text-gray-400"
-                        disabled={!newEvent}
                     />
                 </div>
                 <button

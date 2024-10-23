@@ -652,24 +652,37 @@ export const getEvents = (setEvents: (events: DocumentData[]) => void) => {
 };
 
 export const addEvent = async (
-    image: File,
     title: string,
     content: string,
     date: string,
-    location: string
+    location: string,
+    imageOne: File,
+    imageTwo?: File,
+    imageThree?: File,
+    imageFour?: File,
+    imageFive?: File
 ) => {
     try {
         const app = initializeFirebase();
         const firestore = getFirestore(app);
         const storage = getStorage(app);
 
-        const imageRef = ref(storage, `events/${image.name}`);
-        await uploadBytes(imageRef, image);
-        const imageURL = await getDownloadURL(imageRef);
+        const images = [imageOne, imageTwo, imageThree, imageFour, imageFive].filter(
+            (image): image is File => !!image 
+        );
+
+        const imageUrls: string[] = [];
+
+        for (const image of images) {
+            const imageRef = ref(storage, `events/${image.name}`);
+            await uploadBytes(imageRef, image);
+            const imageURL = await getDownloadURL(imageRef);
+            imageUrls.push(imageURL);
+        }
 
         const eventsCollection = collection(firestore, 'events');
         await addDoc(eventsCollection, {
-            image: imageURL,
+            images: imageUrls, 
             title,
             content,
             date,
@@ -679,6 +692,7 @@ export const addEvent = async (
         toast.success('Added Event');
     } catch (error) {
         toast.error('Failed to Add Event');
+        console.error('Error adding event:', error);
     }
 };
 
@@ -687,11 +701,18 @@ export const editEvent = async (
     title: string,
     content: string,
     date: string,
-    location: string
+    location: string,
+    imageOne?: File,
+    imageTwo?: File,
+    imageThree?: File,
+    imageFour?: File,
+    imageFive?: File
 ) => {
     try {
         const app = initializeFirebase();
         const firestore = getFirestore(app);
+        const storage = getStorage(app);
+
         const eventsCollection = collection(firestore, 'events');
 
         const eventQuery = query(
@@ -708,18 +729,46 @@ export const editEvent = async (
         }
 
         const eventDocRef = querySnapshot.docs[0].ref;
-        await updateDoc(eventDocRef, {
-            title,
-            content,
-            date,
-            location,
-        });
 
-        console.log('Event updated successfully');
+        // !!true = true, !!false = false
+        const images = [imageOne, imageTwo, imageThree, imageFour, imageFive].filter(
+            (image): image is File => !!image
+        );
+
+        if (images.length > 0) {
+            const imageUrls: string[] = [];
+
+            for (const image of images) {
+                const imageRef = ref(storage, `events/${image.name}`);
+                await uploadBytes(imageRef, image);
+                const imageURL = await getDownloadURL(imageRef);
+                imageUrls.push(imageURL);
+            }
+
+            await updateDoc(eventDocRef, {
+                images: imageUrls,
+                title,
+                content,
+                date,
+                location,
+            });
+        } else {
+            await updateDoc(eventDocRef, {
+                title,
+                content,
+                date,
+                location,
+            });
+        }
+
+        toast.success('Event updated successfully');
     } catch (error) {
         toast.error('Failed to Edit Event');
+        console.error('Error editing event:', error);
     }
 };
+
+
 
 export const deleteEvent = async (previousData: DocumentData) => {
     try {
