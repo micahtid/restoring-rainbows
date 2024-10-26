@@ -112,14 +112,14 @@ const NavBar = () => {
       flex justify-between items-start 
       max-w-max w-full 
       relative">
-        <a href="/" className="z-[11000]">
-          <img src="/logo_black.png" className="w-[50px] z-[1100] max-[1025px]:hidden" />
-        </a>
         <div
           className="
-            flex justify-center items-start gap-x-10
+            flex justify-center items-start gap-x-14
             group"
         >
+          <a href="/" className="z-[11000]">
+            <img src="/logo_black.png" className="w-[50px] z-[1100] max-[1025px]:hidden" />
+          </a>
           <div
             style={{
               backgroundColor: '#d5e3f1',
@@ -165,9 +165,12 @@ const NavBar = () => {
         </div>
         <div className="flex justify-center items-center mt-[1px]
         max-[1025px]:hidden">
-          <OutlineButton className="w-[100px] py-2 
-          flex justify-center items-center">
-            <a 
+          <OutlineButton className="
+          w-[100px] py-[8px]
+          flex justify-center items-center
+          border-[2px] border-primary hover:border-transparent
+          transition-all duration-700">
+            <a
             className="text-lg font-semibold text-black/70" 
             href="/donate">
               Donate
