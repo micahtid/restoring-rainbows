@@ -4,22 +4,19 @@ import { twMerge } from "tailwind-merge";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image';
 
 interface HorizontalGradientProps {
   yPos: string;
+  height: string;
   className?: string;
 }
 
-const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, className }) => {
+const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, height, className }) => {
   const baseGradientClass = 'bg-secondary w-full absolute bottom-0';
   
   const blurLevels = [
-    'blur-none',
     'blur-md',
-    'blur-md',
-    'blur-md',
-    'blur-lg',
     'blur-lg',
     'blur-lg',
     'blur-xl',
@@ -30,7 +27,8 @@ const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, className
     'blur-2xl',
     'blur-3xl',
     'blur-3xl',
-    'blur-3xl'
+    'blur-3xl',
+    'blur-4xl'
   ];
 
   return (
@@ -38,7 +36,7 @@ const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, className
       {blurLevels.map((blurClass, index) => (
         <div
           key={index}
-          className={twMerge(baseGradientClass, 'h-[130px] max-lg:h-[50px]', blurClass, yPos)}
+          className={twMerge(baseGradientClass, height, blurClass, yPos)}
         />
       ))}
     </div>
@@ -48,29 +46,21 @@ const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, className
 
 interface VerticalGradientProps {
   xPos: string;
+  width: string;
   className?: string;
 }
 
-const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) => {
+const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, width, className }) => {
   const baseGradientClass = 'bg-secondary h-full absolute bottom-0';
   
   const blurLevels = [
-    'blur-none',
-    'blur-md',
-    'blur-md',
     'blur-md',
     'blur-lg',
-    'blur-lg',
-    'blur-lg',
     'blur-xl',
-    'blur-xl',
-    'blur-xl',
-    'blur-2xl',
-    'blur-2xl',
     'blur-2xl',
     'blur-3xl',
     'blur-3xl',
-    'blur-3xl'
+    'blur-4xl'
   ];
 
   return (
@@ -78,7 +68,7 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, className }) 
       {blurLevels.map((blurClass, index) => (
         <div
           key={index}
-          className={twMerge(baseGradientClass, 'w-[80px] max-[1600px]:w-[70px]', blurClass, xPos)}
+          className={twMerge(baseGradientClass, width, blurClass, xPos)}
         />
       ))}
     </div>
@@ -93,7 +83,7 @@ const Hero = () => {
   return (
     <section className="
       w-[100vw] 
-      h-full max-lg:h-[700px]
+      h-full max-lg:h-[700px] max-[522px]:h-[800px]
       relative
       flex flex-row"
     >
@@ -101,91 +91,100 @@ const Hero = () => {
         dynamic-title text-left text-header 
         drop-shadow
 
-        absolute left-1/2 top-[125px] transform -translate-x-1/2 
+        absolute left-[50%] 
+        transform -translate-x-[35%] max-[1500px]:-translate-x-[40%]
+        top-[150px] 
         max-lg:left-0 max-lg:-translate-x-0
-        max-[514px]:top-[75px]
-        max-[360px]:top-[25px]
 
         px-x
         z-[500] mb-52 
 
-        w-[1200px]
-        max-[1920px]:w-[1000px]
-        max-[1500px]:max-w-[800px]
-        max-[1500px]:w-full
+        w-[1100px]
+        max-[1500px]:w-[900px]
+        max-lg:w-full
         "
       >
         Championing sustainability and creativity. We turn discarded school supplies into art.
       </h1>
+
       <div className="
         relative 
-        w-[32.5%]
+        w-[45%]
         mt-[50px]
 
-        h-[650px]
-        max-[1500px]:h-min
+        aspect-[14.4/9.7]
+        h-full
         
         max-lg:absolute
-        max-lg:left-0 max-lg:top-[225px]
-        max-lg:w-[60%]"
+        max-lg:left-0 max-lg:top-[300px]
+        max-lg:w-[60%]
+        max-[522px]:top-[385px]
+        max-[355px]:top-[450px]"
       >
-        <VerticalGradient xPos="-right-0" className="max-lg:hidden" />
+        <VerticalGradient 
+        xPos="-right-0" 
+        width="w-[170px] max-[1600px]:w-[160px]"
+        className="max-lg:hidden" />
         <img
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="300"
           src="/hero_left.JPG" 
           alt="An Image" 
-          className="object-cover w-full h-full
-          max-[1500px]:h-auto" 
+          className="object-cover w-full h-full max-lg:h-auto" 
         />
       </div>
+
       <div className="
         relative 
-        w-[40%]
-        mt-[200px]
-        max-[1920px]:mt-[185px]
-        max-[1500px]:mt-[275px] 
-        max-xl:mt-[175px]
+        w-[33.5%]
+        mt-[340px]
 
-        h-[600px] 
-        max-[1500px]:h-min
         z-[200]
+
+        aspect-[8.6/5.8]
+        h-full
         
         max-lg:absolute
-        max-lg:w-[45%]
-        max-lg:left-[50%] max-lg:top-[10px]"
+        max-lg:w-[35%]
+        max-lg:left-[50%] max-lg:-top-[85px]
+        max-[522px]:top-[30px] max-[355px]:top-[100px]"
       >
-        <HorizontalGradient yPos="top-[100px]" className="-top-[125px] max-xl:-top-[145px] max-lg:-top-[225px] max-md:-top-[245px]" />
+        <HorizontalGradient 
+        yPos="top-[100px]" 
+        height="h-[130px] max-lg:h-[30px] max-[522px]:h-[0px]"
+        className="-top-[125px] max-[1500px]:-top-[200px] max-lg:-top-[215px]" />
         <img 
           data-aos="fade-up"
           data-aos-once="true"
           data-aos-delay="200"
           src="/hero_middle.jpeg" 
           alt="An Image" 
-          className="object-cover w-full h-full
-          max-[1500px]:h-auto" 
+          className="object-cover w-full h-full max-lg:h-auto" 
         />
       </div>
+
       <div className="
         relative 
-        w-[27.5%] 
+        w-[21.5%] 
         mt-[50px]
 
-        h-[500px]
-        max-[1500px]:h-min
+        aspect-[7/7.6]
+        h-full
         
         max-lg:hidden"
       >
-        <VerticalGradient xPos="left-0" className="-left-[50px] max-lg:hidden max-[1600px]:-left-[30px]" />
+        <VerticalGradient 
+        xPos="left-0" 
+        width="w-[35px] max-[1600px]:w-[30px]"
+        className="max-lg:hidden" />
         <img 
           data-aos="fade-left"
           data-aos-once="true"
           data-aos-delay="400"
           src="/hero_right.jpeg" 
           alt="An Image"
-          className="object-cover w-full h-full
-          max-[1500px]:h-auto" 
+          className="object-cover w-full h-full" 
         />
       </div>
     </section>
