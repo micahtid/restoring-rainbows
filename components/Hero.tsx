@@ -56,8 +56,14 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, width, classN
   const blurLevels = [
     'blur-md',
     'blur-lg',
+    'blur-lg',
+    'blur-xl',
+    'blur-xl',
     'blur-xl',
     'blur-2xl',
+    'blur-2xl',
+    'blur-2xl',
+    'blur-3xl',
     'blur-3xl',
     'blur-3xl',
     'blur-4xl'
@@ -92,7 +98,7 @@ const Hero = () => {
         drop-shadow
 
         absolute left-[50%] 
-        transform -translate-x-[35%] max-[1500px]:-translate-x-[40%]
+        transform -translate-x-[45%]
         top-[150px] 
         max-lg:left-0 max-lg:-translate-x-0
 
@@ -100,6 +106,7 @@ const Hero = () => {
         z-[500] mb-52 
 
         w-[1100px]
+        max-[1920px]:w-[800px]
         max-[1500px]:w-[900px]
         max-lg:w-full
         "
@@ -123,7 +130,7 @@ const Hero = () => {
       >
         <VerticalGradient 
         xPos="-right-0" 
-        width="w-[170px] max-[1600px]:w-[160px]"
+        width="w-[150px] max-[1600px]:w-[140px]"
         className="max-lg:hidden" />
         <img
           data-aos="fade-right"
@@ -152,7 +159,7 @@ const Hero = () => {
       >
         <HorizontalGradient 
         yPos="top-[100px]" 
-        height="h-[130px] max-lg:h-[30px] max-[522px]:h-[20px]"
+        height="h-[60px] max-lg:h-[30px] max-[522px]:h-[20px]"
         className="-top-[125px] max-[1500px]:-top-[200px] max-lg:-top-[215px]" />
         <img 
           data-aos="fade-up"
