@@ -22,7 +22,7 @@ const config: Config = {
         code: ['Source Code Pro', 'monospace']
       },
       maxWidth: {
-        'max': '1300px',
+        'max': '1200px',
       },
       spacing: {
         'x': '20px', 

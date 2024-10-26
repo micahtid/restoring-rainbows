@@ -118,7 +118,7 @@ const Hero = () => {
         max-lg:absolute
         max-lg:left-0 max-lg:top-[300px]
         max-lg:w-[60%]
-        max-[522px]:top-[385px]
+        max-[522px]:top-[395px]
         max-[355px]:top-[450px]"
       >
         <VerticalGradient 
@@ -148,11 +148,11 @@ const Hero = () => {
         max-lg:absolute
         max-lg:w-[35%]
         max-lg:left-[50%] max-lg:-top-[85px]
-        max-[522px]:top-[30px] max-[355px]:top-[100px]"
+        max-[522px]:top-[40px] max-[355px]:top-[100px]"
       >
         <HorizontalGradient 
         yPos="top-[100px]" 
-        height="h-[130px] max-lg:h-[30px] max-[522px]:h-[0px]"
+        height="h-[130px] max-lg:h-[30px] max-[522px]:h-[20px]"
         className="-top-[125px] max-[1500px]:-top-[200px] max-lg:-top-[215px]" />
         <img 
           data-aos="fade-up"

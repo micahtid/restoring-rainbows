@@ -51,7 +51,7 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
         thumbs={{ swiper: thumbsSwiper }}                                         // Link main swiper with thumbnail swiper (!)
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}            // Update active index
         modules={[FreeMode, Thumbs]}
-        className="w-full h-[500px]"
+        className="w-full aspect-square"
       >
         {event.images.map((image: any, index: number) => (
           <SwiperSlide key={index} className="w-full h-full">

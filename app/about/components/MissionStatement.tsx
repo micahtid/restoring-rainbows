@@ -20,12 +20,19 @@ const MissionStatement = () => {
 
   return (
     <div className='w-[100vw] mt-24'>
-      <div className="w-full relative overflow-hidden flex justify-start items-center px-x py-24">
-        <img
-          src="/splash_four.png"
-          className='w-full h-full object-cover absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 brightness-75 blur-[2px] z-20'
-        />
-        <h3 className='z-30 dynamic-subheading text-white max-w-[1000px] py-24 fade-in-animation'>
+      <div
+        style={{
+          backgroundImage: `url(/about_header.JPG)`,
+        }}
+        className="
+        w-full 
+        bg-center bg-cover bg-no-repeat bg-fixed 
+        flex justify-start items-center">
+        <h3 className='
+        z-30 px-x py-36
+        dynamic-subheading text-white text-left 
+        max-w-[1000px]
+        fade-in-animation'>
           Spreading Art and Saving the Planet
         </h3>
       </div>
