@@ -1,0 +1,19 @@
+.dynamic-header {
+    font-size: calc(1vw * 4.2);
+    line-height: calc(1vw * 4.25);
+  }
+  
+  @media (max-width: 1024px) {
+    .dynamic-header {
+      font-size: 45px;
+      line-height: 50px;
+    }
+
+  @media (max-width: 768px) {
+    .dynamic-header {
+      font-size: 32.5px;
+      line-height: 40px;
+    }
+  }
+  }
+  

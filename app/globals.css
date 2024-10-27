@@ -6,9 +6,8 @@
 
 @layer components {
   .dynamic-title {
-    @apply text-[65px] max-[1920px]:text-[47.5px] max-xl:text-5xl max-lg:text-4xl max-md:text-3xl
+    @apply text-8xl max-[1920px]:text-7xl max-lg:text-5xl max-md:text-4xl
     font-black font-title uppercase
-    leading-[70px] max-[1920px]:leading-[55px] max-xl:leading-[50px] max-lg:leading-[47.5px] max-md:leading-[45px]
   }
 
   .dynamic-heading {
@@ -41,27 +40,6 @@
   }
 }
 
-
-/* ANIMATE WAVE ON SCROLL */
-
-.wave path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  transition: stroke-dashoffset 101s linear;
-}
-
-.wave.animate path {
-  animation: draw 100s ease forwards;
-}
-
-@keyframes draw {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 
 /* FADE IN AND SLIDE UP ANIMATION */
 @keyframes heroFadeInSlideUp {
