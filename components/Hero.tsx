@@ -4,7 +4,8 @@ import { twMerge } from "tailwind-merge";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Image from 'next/image';
+
+import "./hero.css"
 
 interface HorizontalGradientProps {
   yPos: string;
@@ -93,26 +94,27 @@ const Hero = () => {
       relative
       flex flex-row"
     >
-      <h1 className="
-        dynamic-title text-left text-header 
-        drop-shadow
+      <h1
+        className="
+          text-left text-header 
+          font-extrabold dynamic-header uppercase
 
-        absolute left-[50%] 
-        transform -translate-x-[45%]
-        top-[150px] 
-        max-lg:left-0 max-lg:-translate-x-0
+          absolute left-[50%] 
+          transform -translate-x-[40%]
+          top-[150px] 
+          max-lg:left-0 max-lg:-translate-x-0
 
-        px-x
-        z-[500] mb-52 
+          px-x
+          z-[500] mb-52
 
-        w-[1100px]
-        max-[1920px]:w-[800px]
-        max-[1500px]:w-[900px]
-        max-lg:w-full
+          w-[42.5vw]
+          max-lg:w-full
+          text-3xl
         "
       >
-        Championing sustainability and creativity. We turn discarded school supplies into art.
+        Youth-Powered Global Climate and Art Action
       </h1>
+
 
       <div className="
         relative 
@@ -125,12 +127,11 @@ const Hero = () => {
         max-lg:absolute
         max-lg:left-0 max-lg:top-[300px]
         max-lg:w-[60%]
-        max-[522px]:top-[395px]
-        max-[355px]:top-[450px]"
+        max-[508px]:top-[335px]"
       >
         <VerticalGradient 
         xPos="-right-0" 
-        width="w-[150px] max-[1600px]:w-[140px]"
+        width="w-[5vw]"
         className="max-lg:hidden" />
         <img
           data-aos="fade-right"
@@ -145,7 +146,7 @@ const Hero = () => {
       <div className="
         relative 
         w-[33.5%]
-        mt-[340px]
+        mt-[350px]
 
         z-[200]
 
@@ -154,13 +155,14 @@ const Hero = () => {
         
         max-lg:absolute
         max-lg:w-[35%]
-        max-lg:left-[50%] max-lg:-top-[85px]
-        max-[522px]:top-[40px] max-[355px]:top-[100px]"
+        max-lg:left-[50%] 
+        max-lg:-top-[85px]
+        max-[508px]:-top-[20px]"
       >
         <HorizontalGradient 
         yPos="top-[100px]" 
         height="h-[60px] max-lg:h-[30px] max-[522px]:h-[20px]"
-        className="-top-[125px] max-[1500px]:-top-[200px] max-lg:-top-[215px]" />
+        className="-top-[125px] max-[1500px]:-top-[150px] max-lg:-top-[215px]" />
         <img 
           data-aos="fade-up"
           data-aos-once="true"
@@ -183,7 +185,7 @@ const Hero = () => {
       >
         <VerticalGradient 
         xPos="left-0" 
-        width="w-[35px] max-[1600px]:w-[30px]"
+        width="w-[3vh]"
         className="max-lg:hidden" />
         <img 
           data-aos="fade-left"
