@@ -9,8 +9,6 @@ const Partners = () => {
     partners
   } = useData();
 
-  console.log(partners)
-
   return (
     <section className='max-w-max w-full mx-auto
     px-x py-8 my-28
