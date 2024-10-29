@@ -137,7 +137,7 @@ const Hero = () => {
           data-aos="fade-right"
           data-aos-once="true"
           data-aos-delay="300"
-          src="/hero_left.JPG" 
+          src="/hero_left.jpeg" 
           alt="An Image" 
           className="object-cover w-full h-full max-lg:h-auto" 
         />
