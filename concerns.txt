@@ -1,6 +1,7 @@
 Repeatition
 - Blogs and SocialMedia + Events and Blogs are very identical components!
 - global.css, two animations (very similar) for heroFadeInSlideUp and fadeInSlideUp
+- SocialMedia.tsx and events/item/page.tsx have identical Swiper code!
 
 Aribitrary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient
