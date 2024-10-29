@@ -109,16 +109,18 @@ const NavBar = () => {
       bg-transparent`}
     >
       <div className="
-      flex justify-between items-start 
+      flex justify-between items-start gap-x-16
       max-w-max w-full 
       relative">
+
         <div
           className="
-            flex justify-center items-start gap-x-14
+            flex justify-between items-start w-full
+            max-[1025px]:hidden
             group"
         >
           <a href="/" className="z-[11000]">
-            <img src="/logo_black.png" className="w-[50px] z-[1100] max-[1025px]:hidden" />
+            <img src="/logo_black.png" className="w-[50px] z-[1100]" />
           </a>
           <div
             style={{
@@ -133,36 +135,39 @@ const NavBar = () => {
               transition-all duration-300
             `}>
           </div>
-          {extendedNavItems.map((item, index) => (
-            <div
-              key={index}
-              className={`
-              flex flex-col justify-start items-end gap-y-2 
-              mt-3 relative max-[1025px]:hidden
-              ${item.label === "Donate" && 'hidden'}`}
-            >
-              <a href={item.link} className="font-semibold text-black/70 text-lg">
-                {item.label}
-              </a>
-              <div className="absolute left-0 top-[30px] flex flex-col items-start">
-                {item.subItems.map((subItem, subIndex) => (
-                  <a
-                    key={subIndex}
-                    href={subItem.link}
-                    className="
-                      opacity-0 text-left text-nowrap
-                      group-hover:opacity-100
-                      transition-opacity 
-                      duration-500
-                      text-lg font-semibold text-black/70"
-                  >
-                    {subItem.label}
-                  </a>
-                ))}
+          <div className="flex justify-center items-center gap-x-8">
+            {extendedNavItems.map((item, index) => (
+              <div
+                key={index}
+                className={`
+                flex flex-col justify-start items-end gap-y-2 
+                mt-3 relative max-[1025px]:hidden
+                ${item.label === "Donate" && 'hidden'}`}
+              >
+                <a href={item.link} className="font-semibold text-black/70 text-lg">
+                  {item.label}
+                </a>
+                <div className="absolute left-0 top-[30px] flex flex-col items-start">
+                  {item.subItems.map((subItem, subIndex) => (
+                    <a
+                      key={subIndex}
+                      href={subItem.link}
+                      className="
+                        opacity-0 text-left text-nowrap
+                        group-hover:opacity-100
+                        transition-opacity 
+                        duration-500
+                        text-lg font-semibold text-black/70"
+                    >
+                      {subItem.label}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
         <div className="flex justify-center items-center mt-[1px]
         max-[1025px]:hidden">
           <OutlineButton className="
@@ -177,6 +182,7 @@ const NavBar = () => {
             </a>
           </OutlineButton>
         </div>
+
         <div className="hidden max-[1025px]:flex max-[1025px]:justify-between max-[1025px]:items-center w-full">
           <a href="/" className="z-[11000] flex items-center">
             <img
@@ -191,6 +197,7 @@ const NavBar = () => {
             <RxHamburgerMenu size={25} />
           </button>
         </div>
+
       </div>
       <NavModal />
     </nav>
