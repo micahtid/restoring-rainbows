@@ -3,8 +3,8 @@ export const landingPageSocialMediaDescription = "Stay connected with Restoring 
 export const landingPagePartnerDescription = "We collaborate with a wide range of organizations from around the world, including many that are youth-led. Our partners help us spread creativity, sustainability, and art education globally."
 
 export const landingPageTakeAction = [
-    {image: "/graphic_one.jpg", title: "Start a Branch", link: "/start-a-branch", description: "No matter your age, location, or experience, anyone can start a Restoring Rainbows branch. We provide all the resources and support needed to ensure your branch thrives. Join a global community of changemakers and help us bring creativity, sustainability, and education to communities around the world!"},
-    {image: "/graphic_one.jpg", title: "Volunteer", link: "/volunteer", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
+    {image: "/graphic_one.jpg", title: "Start a Branch", link: "/take-action#start-a-branch", description: "No matter your age, location, or experience, anyone can start a Restoring Rainbows branch. We provide all the resources and support needed to ensure your branch thrives. Join a global community of changemakers and help us bring creativity, sustainability, and education to communities around the world!"},
+    {image: "/graphic_one.jpg", title: "Volunteer", link: "/take-action#volunteer", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
 ]
 
 // Components 
