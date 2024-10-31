@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
     getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, query, where, DocumentData,
-    onSnapshot
+    onSnapshot, Timestamp, orderBy
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import toast from "react-hot-toast";
@@ -806,7 +806,10 @@ export const getStories = (setStories: (stories: DocumentData[]) => void) => {
 
     const storiesCollection = collection(firestore, 'stories');
 
-    const unsubscribe = onSnapshot(storiesCollection, (querySnapshot) => {
+    // Fetch stories in descending order based on `createdAt` timestamp
+    const storiesQuery = query(storiesCollection, orderBy('createdAt', 'desc'));
+
+    const unsubscribe = onSnapshot(storiesQuery, (querySnapshot) => {
         const stories: DocumentData[] = [];
         querySnapshot.forEach((doc) => {
             stories.push(doc.data());
@@ -828,7 +831,8 @@ export const addStory = async (
         const storiesCollection = collection(firestore, 'stories');
         await addDoc(storiesCollection, {
             title,
-            link
+            link,
+            createdAt: Timestamp.now() 
         });
 
         toast.success('Added Story');
@@ -869,7 +873,7 @@ export const editStory = async (
         toast.success('Edited Story');
     } catch (error) {
         toast.error('Failed to Edit Story');
-        console.log(error)
+        console.log(error);
     }
 };
 

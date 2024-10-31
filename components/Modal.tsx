@@ -25,10 +25,11 @@ const Modal: React.FC<ModalProps> = ({
             <Dialog.Title className="text-xl text-left font-bold mb-4">
                 {title}
             </Dialog.Title>
-            <div className="no-scrollbar
+            {children}
+            {/* <div className="no-scrollbar
             h-full overflow-y-scroll md:max-h-[75vh] max-md:pb-12 ">
                 {children}
-            </div>
+            </div> */}
             <Dialog.Close asChild>
                 <button className="text-neutral-400 hover:text-black absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] 
                 appearance-none items-center justify-center rounded-full focus:outline-none">

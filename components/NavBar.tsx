@@ -113,15 +113,6 @@ const NavBar = () => {
       max-w-max w-full 
       relative">
 
-        <div
-          className="
-            flex justify-between items-start w-full
-            max-[1025px]:hidden
-            group"
-        >
-          <a href="/" className="z-[11000]">
-            <img src="/logo_black.png" className="w-[50px] z-[1100]" />
-          </a>
           <div
             style={{
               backgroundColor: '#d5e3f1',
@@ -135,6 +126,16 @@ const NavBar = () => {
               transition-all duration-300
             `}>
           </div>
+
+        <div
+          className="
+            flex justify-between items-start w-full
+            max-[1025px]:hidden
+            group"
+        >
+          <a href="/" className="z-[11000]">
+            <img src="/logo_black.png" className="w-[50px] z-[1100]" />
+          </a>
           <div className="flex justify-center items-center gap-x-8">
             {extendedNavItems.map((item, index) => (
               <div
