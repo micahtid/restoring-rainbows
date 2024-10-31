@@ -30,7 +30,7 @@ const PartnerContent: React.FC<PartnerContentProps> = ({ partners }) => {
   }
 
   return (
-    <div className='px-4 py-20 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-start
+    <div className='px-4 pt-28 pb-48 mt-20 max-w-max w-full mx-auto flex gap-x-20 max-lg:flex-col max-lg:items-start
     fade-in-animation'>
       <img src={partnerData?.logo} className='w-[500px] aspect-square object-cover drop-shadow 
       max-lg:w-full' alt={partnerData?.name} />

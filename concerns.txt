@@ -13,4 +13,7 @@ Aribitrary
 Suspense Tags
 - branches/branch + events/item + partners/partner + stories/item all have excessive Loader component usage..
 
+Warnings
+- Slow scroll + blurry text during text-overflow/scroll in Modal
+
 
