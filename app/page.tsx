@@ -6,7 +6,7 @@ import Loader from "@/components/Loader";
 import Hero from "@/components/Hero";
 import Statistics from "@/components/Statistics";
 import WhatWeDo from "@/components/WhatWeDo";
-import Blog from "@/components/Blog";
+import Prism from "@/components/Prism";
 import SocialMedia from "@/components/SocialMedia";
 import RecentEvents from "@/components/RecentEvents";
 import TakeAction from "@/components/TakeAction";
@@ -53,7 +53,7 @@ const Home = () => {
         <Hero />
         <Statistics />
         <WhatWeDo />
-        <Blog />
+        <Prism />
         <SocialMedia />
         <RecentEvents />
         <TakeAction />
