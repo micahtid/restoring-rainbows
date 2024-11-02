@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { partnerPageDescription } from "@/data";
 
 import Highlight from "@/components/Highlight";
+import { IoOpenOutline } from "react-icons/io5";
 
 interface PartnersListProps {
   partners: DocumentData[] | null;
@@ -53,15 +54,17 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
         </div>
         <div className="flex flex-row justify-start items-center flex-wrap gap-4">
           {partners?.map((partner, index) => (
-            <button
+            <div 
             key={index}
-            className="w-[250px] max-[559px]:w-[45%]"
-            onClick={() => {
-              router.push(`/partners/partner?name=${partner.name}`)
-            }}>
-              <img src={partner.logo}
-              className="w-full h-full aspect-square object-cover" />
-            </button>
+            className="w-[250px] max-[559px]:w-[45%]
+            flex flex-col gap-y-2">
+              <img src={partner.logo} className="w-full h-full aspect-square object-cover" />
+              <div className="flex items-center gap-x-2 
+              dynamic-text font-semibold max-[559px]:text-base">
+                <h3 className="max-w-[200px] overflow-hidden text-nowrap overflow-ellipsis">{partner.name}</h3>
+                <IoOpenOutline size={18} className="max-[559px]:hidden"/>
+              </div>
+            </div>
           ))}
         </div>
       </div>
