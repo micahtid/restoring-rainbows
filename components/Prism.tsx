@@ -1,10 +1,3 @@
-"use client";
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { useRouter } from 'next/navigation';
-import { useData } from '@/providers/useData';
-
 import OutlineButton from './OutlineButton';
 
 // Swiper
@@ -12,12 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-const Blog = () => {
-  const {
-    stories
-  } = useData();
-  const router = useRouter();
-
+const Prism = () => {
   return (
     <section className='w-full bg-white flex justify-center items-center'>
       <div className="max-w-max w-full mx-auto px-x py-28
@@ -45,7 +33,9 @@ const Blog = () => {
           transition-all duration-700">
             <a
             className="text-lg font-semibold text-black/70" 
-            href="/donate">
+            // href="https://prismofficial.substack.com/"
+            href="/donate"
+            >
               Subscribe
             </a>
           </OutlineButton>
@@ -55,4 +45,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Prism;

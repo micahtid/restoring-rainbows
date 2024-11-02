@@ -9,13 +9,12 @@ import { useData } from "@/providers/useData";
 
 const Prism = () => {
   const { stories } = useData();
-  const [showAll, setShowAll] = useState(false);
 
   if (!stories) {
     return <Loader />;
   }
 
-  const displayedStories = showAll ? stories : stories.slice(0, 5);
+  const displayedStories = stories.slice(0, 5);
 
   return (
     <section className="max-w-max mx-auto px-x py-8 mt-28 mb-12
@@ -23,13 +22,18 @@ const Prism = () => {
     min-h-[75vh] 
     fade-in-animation">
       <Highlight text="Read Our Blogs" />
+
       <h3 className="dynamic-subheading">
         Prism Newsletter
       </h3>
+
       <p className="dynamic-text text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis, veniam eius sit recusandae, nemo iusto, expedita impedit non aspernatur veritatis unde ipsam officia? Vero ad accusantium repellendus consectetur molestias.
       </p>
-      <div className="flex flex-col gap-y-4 my-12 w-full">
+
+      <p className="dynamic-subheading mt-20 mb-2">Recent Publications</p>
+
+      <div className="flex flex-col gap-y-4 w-full mb-12">
         {displayedStories.map((story, index) => (
           <>
             <a 
@@ -42,16 +46,17 @@ const Prism = () => {
           </>
         ))}
       </div>
+
       <OutlineButton 
         className="w-[150px] py-2 
         bg-primary/20 shadow-sm
         flex justify-center items-center"
       >
-        <button 
-        onClick={() => setShowAll(!showAll)} 
+        <a 
+        href="https://prismofficial.substack.com/ " 
         className="dynamic-text font-medium">
-          {showAll ? "Show Less" : "Read More"}
-        </button>
+          Subscribe
+        </a>
       </OutlineButton>
     </section>
   );
