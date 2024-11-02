@@ -3,8 +3,8 @@ export const landingPageSocialMediaDescription = "Stay connected with Restoring 
 export const landingPagePartnerDescription = "We collaborate with a wide range of organizations from around the world, including many that are youth-led. Our partners help us spread creativity, sustainability, and art education globally."
 
 export const landingPageTakeAction = [
-    {image: "/graphic_one.jpg", title: "Start a Branch", link: "/take-action#start-a-branch", description: "No matter your age, location, or experience, anyone can start a Restoring Rainbows branch. We provide all the resources and support needed to ensure your branch thrives. Join a global community of changemakers and help us bring creativity, sustainability, and education to communities around the world!"},
-    {image: "/graphic_one.jpg", title: "Volunteer", link: "/take-action#volunteer", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nihil eum laboriosam eos possimus ipsum.."}
+    {image: "/branch.png", title: "Start a Branch", link: "/take-action#start-a-branch", description: "No matter your age, location, or experience, anyone can start a Restoring Rainbows branch. We provide all the resources and support needed to ensure your branch thrives. Join a global community of changemakers and help us bring creativity, sustainability, and education to communities around the world!"},
+    {image: "/volunteer.png", title: "Volunteer", link: "/take-action#volunteer", description: "Join our virtual volunteer program! Earn volunteer hours and join in the movement to create a global impact. Contribute by writing articles on the intersection of climate change and art, or submit digital worksheets to be donated to those in need."}
 ]
 
 // Components 
@@ -69,11 +69,13 @@ export const takeActionPageSections = [
         title: "Start a Branch",
         description: "Interested in starting a branch of Restoring Rainbows? You'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. Just fill out the form below!",
         buttonLabel: "Register",
+        buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSc_DgtEZTHJwGfz41yaol17Y0xA6wItYk_VTh5RXp-xL8PSoQ/viewform?usp=sf_link "
     },
     {
         id: "volunteer",
         title: "Volunteer",
-        description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, illum quae. Quo, odit inventore sit neque veniam culpa ex assumenda?",
+        description: "Sign up now to become a volunteer with Restoring Rainbows! Contribute to our global impact by donating your time and earning volunteer hours in the process.",
         buttonLabel: "Volunteer",
+        buttonLink: "/donate"
     }
 ];

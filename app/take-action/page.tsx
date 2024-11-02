@@ -10,7 +10,7 @@ const StartABranch = () => {
         style={{
           backgroundColor: '#d5e3f1',
           backgroundImage: 'linear-gradient(to bottom right, #e3f0ff, #e6f4f0)',
-          opacity: 0.7, 
+          opacity: 0.3, 
         }}
       />
       <svg xmlns="http://www.w3.org/2000/svg" width="1036px" height="1020px" viewBox="0 0 1036 1020" version="1.1"
@@ -45,7 +45,7 @@ const StartABranch = () => {
             bg-primary text-white hover:bg-transparent hover:text-body
             transition-all duration-500
             shadow-sm flex justify-center items-center">
-              <a className="dynamic-text font-medium">{section.buttonLabel}</a>
+              <a className="dynamic-text font-medium" href={section.buttonLink}>{section.buttonLabel}</a>
             </OutlineButton>
 
           </div>
