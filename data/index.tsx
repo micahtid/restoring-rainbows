@@ -24,18 +24,20 @@ export const extendedNavItems = [
 ]
 
 export const contacts = [
-    "Phone: 123123123",
-    "Email: iluvcats@gmail.com",
-    "Address: Pineapple Street NYC"
+    "Phone: Coming Soon",
+    "Email: restoringrainbows.offical@gmail.com",
+    "Address: Coming Soon"
 ]
 
-import { FaInstagram, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaYoutube  } from "react-icons/fa";
+import { FaXTwitter, FaThreads  } from "react-icons/fa6";
 
 export const socials = [
-    {icon: <FaInstagram />, link: ""},
-    {icon: <FaFacebook />, link: ""},
-    {icon: <FaLinkedin />, link: ""},
-    {icon: <FaTwitter />, link: ""}
+    {icon: <FaInstagram />, link: "https://www.instagram.com/restoring_rainbows_official/"},
+    {icon: <FaXTwitter />, link: "https://x.com/RestoreRainbows"},
+    {icon: <FaYoutube />, link: "https://www.youtube.com/@RestoringRainbows"},
+    {icon: <FaTiktok />, link: "https://www.tiktok.com/@restoringrainbows"},
+    {icon: <FaThreads />, link: "https://www.threads.net/@restoring_rainbows_official"}
 ]
 
 import { PiRecycleDuotone, PiChalkboardTeacherDuotone, PiHandHeartDuotone } from "react-icons/pi";
