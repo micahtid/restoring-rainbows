@@ -102,7 +102,7 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className={`
-      fixed top-0 w-[100vw] px-12 py-4 max-md:px-4 h-[75px] z-[10000] 
+      fixed top-0 w-[100vw] px-x py-4 h-[75px] z-[10000] 
       flex justify-center items-center transition-all duration-300 bg-transparent
     `}>
       <div className="flex justify-between items-start gap-x-16 max-w-max w-full">

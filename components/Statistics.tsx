@@ -11,11 +11,11 @@ const Statistics = () => {
         <section className="
         max-w-max w-full mx-auto
 
-        px-x py-8 mb-12 z-10
+        px-x py-8 mb-12 mt-4 z-10
         flex justify-between items-start gap-x-20
         max-md:grid max-md:grid-cols-2 max-md:gap-y-16 max-md:gap-x-24 max-sm:gap-x-8
 
-        mt-[100px] max-[1500px]:mt-[150px] max-[850px]:mt-0 max-[500px]:-mt-[150px]
+        max-lg:mt-16
         ">
             {statistics?.map((statistic, index) => (
                 <div key={index}

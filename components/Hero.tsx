@@ -90,26 +90,27 @@ const Hero = () => {
   return (
     <section className="
       w-[100vw] 
-      h-full max-lg:h-[700px] max-[522px]:h-[800px]
+      h-full
       relative
-      flex flex-row"
+      flex flex-row
+      max-lg:flex-col"
     >
       <h1
         className="
           text-left text-header 
           font-extrabold dynamic-header uppercase
 
-          absolute left-[50%] 
-          transform -translate-x-[40%]
-          top-[150px] 
-          max-lg:left-0 max-lg:-translate-x-0
+          lg:absolute lg:left-[50%] 
+          lg:transform lg:-translate-x-[35%]
+          lg:top-[150px] 
 
           px-x
-          z-[500] mb-52
+          z-[500]
 
           w-[42.5vw]
           max-lg:w-full
-          text-3xl
+          max-lg:max-w-[800px]
+          max-lg:mt-[50px]
         "
       >
         Youth-Powered Global Climate and Art Action
@@ -120,18 +121,17 @@ const Hero = () => {
         relative 
         w-[45%]
         mt-[50px]
-
         aspect-[14.4/9.7]
         h-full
-        
-        max-lg:absolute
-        max-lg:left-0 max-lg:top-[300px]
-        max-lg:w-[60%]
-        max-[508px]:top-[335px]"
+
+        max-lg:mt-[150px]
+        max-[570px]:mt-[100px]
+        max-lg:w-[70%]
+        "
       >
         <VerticalGradient 
         xPos="-right-0" 
-        width="w-[5vw]"
+        width="w-[5vw] max-xl:w-[50px]"
         className="max-lg:hidden" />
         <img
           data-aos="fade-right"
@@ -152,12 +152,12 @@ const Hero = () => {
 
         aspect-[8.6/5.8]
         h-full
-        
-        max-lg:absolute
-        max-lg:w-[35%]
-        max-lg:left-[50%] 
-        max-lg:-top-[85px]
-        max-[508px]:-top-[20px]"
+
+        max-lg:mt-[0px]
+        max-lg:w-[40%]
+        max-lg:absolute max-lg:left-[55%] max-lg:top-[30%]
+        max-[570px]:top-[40%] max-[465px]:top-[50%]
+        "
       >
         <HorizontalGradient 
         yPos="top-[100px]" 
@@ -185,7 +185,7 @@ const Hero = () => {
       >
         <VerticalGradient 
         xPos="left-0" 
-        width="w-[3vh]"
+        width="w-[3vh] max-xl:w-[30px]"
         className="max-lg:hidden" />
         <img 
           data-aos="fade-left"
