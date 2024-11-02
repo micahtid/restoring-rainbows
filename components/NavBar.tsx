@@ -23,7 +23,7 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({ scrollPosition,
       backgroundImage: 'linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)',
     }}
     className={`
-      bg-[#f5e7d4] w-[100vw] h-[172.5px] overflow-hidden
+      bg-[#f5e7d4] w-[105vw] h-[172.5px] overflow-hidden
       absolute left-1/2 transform -translate-x-1/2
       ${scrollPosition === 0 ? 'opacity-0' : 'opacity-100'}
       -translate-y-[95px] -top-[15px]
@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
 
   // Update scroll position
   useEffect(() => {
-    const handleScroll = () => setScrollPosition(window.pageYOffset);
+    const handleScroll = () => setScrollPosition(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -108,11 +108,12 @@ const NavBar: React.FC = () => {
       <div className="flex justify-between items-start gap-x-16 max-w-max w-full">
         
         {/* Full Navigation (Desktop) */}
-        <div className="flex justify-between items-start w-full max-[1025px]:hidden relative group">
+        <div className="flex justify-end items-start w-full max-[1025px]:hidden relative group">
           <GradientBackground scrollPosition={scrollPosition} onHover={true} />
 
           <a href="/" className="z-[11000]">
-            <img src="/logo_black.png" className="w-[50px] z-[1100]" />
+            <img src="/main_logo_black.png" className="h-[75px] w-auto z-[1100]
+            absolute left-0 -top-[15px]" />
           </a>
 
           <div className="flex justify-center items-center gap-x-8">
@@ -156,8 +157,9 @@ const NavBar: React.FC = () => {
         <div className="hidden max-[1025px]:flex max-[1025px]:justify-between max-[1025px]:items-center w-full relative">
           <GradientBackground scrollPosition={scrollPosition} onHover={false} />
           
-          <a href="/" className="z-[11000] flex items-center">
-            <img src="/logo_black.png" className="w-[50px] h-[50px] object-cover z-[1100]" />
+          <a href="/" className="z-[11000]">
+            <img src="/main_logo_black.png" className="h-[75px] w-auto z-[1100]
+            absolute left-0 -top-[15px]" />
           </a>
 
           <button className="z-[11000] p-3" onClick={onOpen}>
