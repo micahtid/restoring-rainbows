@@ -54,7 +54,10 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
         </div>
         <div className="flex flex-row justify-start items-center flex-wrap gap-4">
           {partners?.map((partner, index) => (
-            <div 
+            <button 
+            onClick={() => {
+              router.push(`/partners/partner?name=${partner.name}`)
+            }}
             key={index}
             className="w-[250px] max-[559px]:w-[45%]
             flex flex-col gap-y-2">
@@ -64,7 +67,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
                 <h3 className="max-w-[200px] overflow-hidden text-nowrap overflow-ellipsis">{partner.name}</h3>
                 <IoOpenOutline size={18} className="max-[559px]:hidden"/>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
