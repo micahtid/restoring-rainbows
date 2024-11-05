@@ -97,7 +97,7 @@ const Hero = () => {
     >
       <h1
         className="
-          text-left text-header 
+          text-left text-header relative
           font-extrabold dynamic-header uppercase
 
           lg:absolute lg:left-[50%] 
@@ -113,6 +113,19 @@ const Hero = () => {
           max-lg:mt-[50px]
         "
       >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+        w-full h-full -z-10
+        bg-secondary blur-md" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+        w-full h-full -z-10
+        bg-secondary blur-lg" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+        w-full h-full -z-10
+        bg-secondary blur-xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+        w-full h-full -z-10
+        bg-secondary blur-2xl" />
+
         Youth-Powered Global Climate and Art Action
       </h1>
 
