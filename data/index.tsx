@@ -17,10 +17,8 @@ export const extendedNavItems = [
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
-    {label: "Take Action", link: "javascript:void(0)", subItems: [
-        {label: "Start Branch", link: "/take-action#start-a-branch"},
-        {label: "Volunteer", link: "/take-action#volunteer"},
-    ]}
+    {label: "Take Action", link: "/take-action", subItems: []},
+    {label: "Donate", link: "/donate", subItems: []},
 ]
 
 export const contacts = [
