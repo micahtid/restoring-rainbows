@@ -59,20 +59,20 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
         </svg>
         <h3>{filteredEvents?.length} Events Displayed</h3>
         <div className="flex flex-row justify-start items-start gap-4 flex-wrap w-full
-        max-[655px]:flex-col max-[655px]:gap-y-16
-        h-[800px] overflow-y-scroll no-scrollbar">
+        min-h-[800px]">
           {filteredEvents?.map((event, index) => (
             <div
               key={index}
-              className="cursor-pointer max-[655px]:w-full"
+              className="cursor-pointer max-lg:w-[45%] max-md:w-full"
               onClick={() => handleEventClick(event.title)}>
               <img
                 src={event.images[0]}
-                className="w-[300px] h-[300px] object-cover
-                max-[655px]:w-full"
+                className="w-[300px] aspect-square object-cover
+                max-lg:w-full"
               />
-              <div className="max-w-[300px] ">
-                <h4 className="mt-2 text-xl text-header uppercase font-title font-bold overflow-x-hidden">{event.title}</h4>
+              <div className="max-w-[300px]">
+                <h4 className="mt-2 text-xl text-header uppercase font-title font-bold
+                w-full max-lg:text-nowrap max-lg:overflow-x-hidden max-lg:overflow-ellipsis">{event.title}</h4>
                 <p className='text-lg text-body'>{event.date}</p>
               </div>
             </div>
