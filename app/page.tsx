@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Loader from "@/components/Loader";
 import Hero from "@/components/Hero";
+import AboutUs from "@/components/AboutUs";
 import Statistics from "@/components/Statistics";
 import WhatWeDo from "@/components/WhatWeDo";
 import Prism from "@/components/Prism";
@@ -47,10 +48,11 @@ const Home = () => {
             background: `
                 conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
           }}
-          className="absolute top-0 w-full h-[2500px] -z-[100]"
+          className="absolute top-0 w-full h-[3000px] -z-[100]"
         />
         <div className="pb-24" />
         <Hero />
+        <AboutUs />
         <Statistics />
         <WhatWeDo />
         <Prism />
