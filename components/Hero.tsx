@@ -82,6 +82,13 @@ const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, width, classN
   );
 };
 
+const heroBlurLevels = [
+  'blur-sm',
+  'blur-md',
+  'blur-lg',
+  'blur-xl'
+]
+
 const Hero = () => {
   useEffect(() => {
     AOS.init();
@@ -113,18 +120,16 @@ const Hero = () => {
           max-lg:mt-[50px]
         "
       >
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-        w-full h-full -z-10
-        bg-secondary blur-md" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-        w-full h-full -z-10
-        bg-secondary blur-lg" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-        w-full h-full -z-10
-        bg-secondary blur-xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-        w-full h-full -z-10
-        bg-secondary blur-2xl" />
+
+      {heroBlurLevels.map((blur, index) => (
+        <div 
+        key={index}
+        className={twMerge(`
+        absolute top-1/2 left-1/2 transform -translate-x-[47.5%] -translate-y-1/2
+        w-[105.5%] h-[108.5%] -z-10
+      bg-secondary
+        `, blur)}/>
+      ))}
 
         Youth-Powered Global Climate and Art Action
       </h1>
@@ -166,6 +171,7 @@ const Hero = () => {
         aspect-[8.6/5.8]
         h-full
 
+        max-[1500px]:mt-[275px]
         max-lg:mt-[0px]
         max-lg:w-[40%]
         max-lg:absolute max-lg:left-[55%] max-lg:top-[30%]
@@ -174,7 +180,7 @@ const Hero = () => {
       >
         <HorizontalGradient 
         yPos="top-[100px]" 
-        height="h-[60px] max-lg:h-[30px] max-[522px]:h-[20px]"
+        height="lg:hidden max-lg:h-[30px] max-[522px]:h-[20px]"
         className="-top-[125px] max-[1500px]:-top-[150px] max-lg:-top-[215px]" />
         <img 
           data-aos="fade-up"
