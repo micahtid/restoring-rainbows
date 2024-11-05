@@ -13,9 +13,16 @@ import 'swiper/css/thumbs';
 
 import { FreeMode, Thumbs } from 'swiper/modules';
 
+type Post = {
+  id: string;
+  caption: string;
+  media_url: string;
+  media_type: string;
+  like_count: number;
+};
 
 const SocialMedia = () => {
-  const [instagramPosts, setInstagramPosts] = useState([])
+  const [instagramPosts, setInstagramPosts] = useState<Post[]>([])
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);                  // Track active thumbnail clicked
   const [activeIndex, setActiveIndex] = useState<number>(0);                    // Secondary thumbnail tracker (for styles) (!)
 
@@ -23,24 +30,27 @@ const SocialMedia = () => {
     const fetchInstagramData = async () => {
       try {
         const response = await fetch(
-          `https://graph.instagram.com/8868451236552531/media?fields=id,caption,media_url,like_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN}`
+          `https://graph.instagram.com/8868451236552531/media?fields=id,caption,media_url,media_type,like_count&access_token=${process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN}`
         )
         
         if (!response.ok) {
           console.log("Failed to retrieve Instagram posts.")
           return
         }
-
         const data = await response.json()
         
-        const limitedData = data.data.slice(0, 5)
-        setInstagramPosts(limitedData)
-        console.log("Limited Instagram Posts:", limitedData)
+        // Filter to include only images and limit to 5
+        const filteredData = data.data
+          .filter((post: Post) => post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM")
+          .slice(0, 5)
+        
+        setInstagramPosts(filteredData)
+        console.log("Filtered Instagram Posts:", filteredData)
       } catch (error) {
         console.error("Error fetching Instagram data:", error)
       }
     }
-
+    
     fetchInstagramData()
   }, [])
 
@@ -66,8 +76,8 @@ const SocialMedia = () => {
             }
           </div>
         </div>
-        <div className="w-[540px] h-[640px]
-        flex flex-col
+        <div className="w-[540px] h-[655px]
+        flex flex-col gap-y-2
         max-lg:h-auto max-lg:max-w-[600px] max-lg:w-full">
           {/* Main Swiper */}
           <Swiper
@@ -78,7 +88,7 @@ const SocialMedia = () => {
             modules={[FreeMode, Thumbs]}
             className="w-full aspect-square"
           >
-            {instagramPosts.map((post: any, index: number) => (
+            {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
                 <img src={post.media_url} className="w-full h-full object-cover" />
               </SwiperSlide>
@@ -100,7 +110,7 @@ const SocialMedia = () => {
             className="h-[100px] w-[485px] mb-14
               max-lg:h-[55px] max-lg:w-[290px]"
           >
-            {instagramPosts.map((post: any, index: number) => (
+            {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
                 <img
                   src={post.media_url}
