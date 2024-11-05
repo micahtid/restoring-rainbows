@@ -21,11 +21,12 @@ const Prism = () => {
         </div>
         <div className="flex flex-col items-center gap-y-2
         max-w-[300px] w-full">
-          <img src="/prism.png" className='-mt-4 aspect-square object-cover w-[80%]' />
-          <div className="w-full mb-6 -mt-2">
+          <img src="/prism.png" className='-mt-4 aspect-square object-cover 
+          w-[65.5%] max-xl:h-full' />
+          {/* <div className="w-full mb-6 -mt-2">
             <div className='w-full h-[2px] bg-primary'/>
             <p className='text-xs text-body italic'>Prism is built on another external platform.</p>
-          </div>
+          </div> */}
           <OutlineButton className="
           w-full py-[8px]
           flex justify-center items-center
