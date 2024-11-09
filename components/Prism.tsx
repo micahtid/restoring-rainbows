@@ -35,7 +35,7 @@ const Prism = () => {
             <a
             className="text-lg font-semibold text-black/70" 
             // href="https://prismofficial.substack.com/"
-            href="/donate"
+            href="/coming-soon"
             >
               Subscribe
             </a>

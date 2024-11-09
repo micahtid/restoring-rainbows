@@ -13,12 +13,12 @@ export const extendedNavItems = [
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "javascript:void(0)", subItems: [
-        {label: "Prism", link: "/donate"},
+        {label: "Prism", link: "/coming-soon"},
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
     {label: "Take Action", link: "/take-action", subItems: []},
-    {label: "Donate", link: "/donate", subItems: []},
+    {label: "Donate", link: "https://www.zeffy.com/fundraising/donate-to-make-a-difference-542", subItems: []},
 ]
 
 export const contacts = [
