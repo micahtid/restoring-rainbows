@@ -23,7 +23,7 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({ scrollPosition,
       backgroundImage: 'linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)',
     }}
     className={`
-      bg-[#f5e7d4] w-[105vw] h-[172.5px] overflow-hidden
+      bg-[#f5e7d4] w-[135vw] h-[172.5px] overflow-hidden
       absolute left-1/2 transform -translate-x-1/2
       ${scrollPosition === 0 ? 'opacity-0' : 'opacity-100'}
       -translate-y-[95px] -top-[15px]
@@ -147,7 +147,7 @@ const NavBar: React.FC = () => {
         {/* Donate Button */}
         <div className="flex justify-center items-center mt-[1px] max-[1025px]:hidden">
           <OutlineButton className="w-[100px] py-[8px] flex justify-center items-center border-[2px] border-primary hover:border-transparent transition-all duration-700">
-            <a className="text-lg font-semibold text-black/70" href="/donate">
+            <a className="text-lg font-semibold text-black/70" href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">
               Donate
             </a>
           </OutlineButton>

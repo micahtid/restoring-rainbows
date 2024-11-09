@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Donate = () => {
+const ComingSoon = () => {
   return (
     <div className='px-x py-8
     max-w-max w-full mx-auto h-[80vh]
@@ -10,4 +10,4 @@ const Donate = () => {
   )
 }
 
-export default Donate
+export default ComingSoon
