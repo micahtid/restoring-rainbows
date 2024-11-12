@@ -17,8 +17,7 @@ export const extendedNavItems = [
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
-    {label: "Take Action", link: "/take-action", subItems: []},
-    {label: "Donate", link: "https://www.zeffy.com/fundraising/donate-to-make-a-difference-542", subItems: []},
+    {label: "Take Action", link: "/take-action", subItems: []}
 ]
 
 export const contacts = [

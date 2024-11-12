@@ -5,11 +5,6 @@
 @tailwind utilities;
 
 @layer components {
-  .dynamic-title {
-    @apply text-8xl max-[1920px]:text-7xl max-lg:text-5xl max-md:text-4xl
-    font-black font-title uppercase
-  }
-
   .dynamic-heading {
     @apply text-5xl max-xl:text-4xl max-lg:text-3xl
     font-black font-title uppercase

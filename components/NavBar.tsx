@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { extendedNavItems } from "@/data";
 
-import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosClose } from "react-icons/io";
-import { IoChevronBackOutline, IoChevronDown } from "react-icons/io5";
+import { FaChevronRight } from "react-icons/fa6";
 
 import OutlineButton from "./OutlineButton";
 import useNavModal from "@/hooks/useNavModal";
@@ -50,40 +49,64 @@ const NavModal: React.FC = () => {
   return (
     <div
       className={`
-        w-[250px] h-[100vh] fixed top-0 right-0 bg-gray-100/50 
-        backdrop-blur-[5px] shadow-lg flex flex-col justify-start items-end gap-y-4
-        z-[12000] p-8 transform transition-all duration-300 
-        ${isOpen ? "translate-x-0" : "translate-x-[300px]"}
+        w-[100vw] h-[100vh] fixed top-0 right-0 bg-white
+        backdrop-blur-[5px] shadow-lg z-[12000]
+        flex flex-col justify-start items-end gap-y-4
+        px-x py-4
+        ${!isOpen && "hidden"}
       `}
     >
-      <button className="mb-8" onClick={onClose}>
-        <IoIosClose size={35} />
-      </button>
+
+      <div className="flex justify-between items-start w-full">
+        <a href="/" className="-mt-[18px]">
+            <img src="/main_logo_blue.png" className="h-[75px] w-auto" />
+          </a>
+        <button className="mb-8" onClick={onClose}>
+          <IoIosClose size={50} />
+        </button>
+      </div>
 
       {extendedNavItems.map((item, index) => (
-        <div key={index} className="flex flex-col justify-center items-end">
-          <div className="flex flex-row justify-center items-center gap-x-2">
-            <a href={item.link} className="text-lg font-semibold text-black/70 text-nowrap">
+        <button 
+        key={index} 
+        className="w-full
+        flex flex-col justify-center items-start
+        border-b-2 pb-4"
+        onClick={() => {
+          if (item.subItems.length) {
+            toggleSubItems(index)
+          }
+        }}>
+          <div className="w-full
+          flex flex-row justify-between items-center gap-x-2">
+            <a href={item.link} className="text-lg uppercase font-bold text-black/70 text-nowrap">
               {item.label}
             </a>
             {item.subItems.length > 0 && (
-              <button onClick={() => toggleSubItems(index)}>
-                {visibleSubItems[index] ? <IoChevronDown /> : <IoChevronBackOutline />}
-              </button>
+              <FaChevronRight className={`${visibleSubItems[index] && "rotate-90"} transition-all duration-300 text-gray-500`} />
             )}
           </div>
 
           {visibleSubItems[index] && (
-            <div className="flex flex-col gap-y-2 justify-center items-end mt-2 mb-4">
+            <div className="flex flex-col gap-y-2 items-start mt-2 mb-4">
               {item.subItems.map((subItem, subIndex) => (
-                <a key={subIndex} href={subItem.link} className="text-black/70">
+                <a key={subIndex} href={subItem.link} className="text-lg text-black/70">
                   {subItem.label}
                 </a>
               ))}
             </div>
           )}
-        </div>
+        </button>
       ))}
+
+      <OutlineButton className="w-[150px] py-2 mt-4
+      bg-primary text-white hover:bg-transparent hover:text-body
+      transition-all duration-500
+      flex justify-center items-center
+      self-start shadow-sm">
+        <a className="dynamic-text font-medium" 
+        href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">Donate</a>
+      </OutlineButton>
     </div>
   );
 };
@@ -118,10 +141,10 @@ const NavBar: React.FC = () => {
 
           <div className="flex justify-center items-center gap-x-8">
             {extendedNavItems.map((item, index) => (
-              <div key={index} className={`
+              <div key={index} className="
                 flex flex-col justify-start items-end gap-y-2 mt-3 relative 
-                max-[1025px]:hidden ${item.label === "Donate" && 'hidden'}
-              `}>
+                max-[1025px]:hidden
+              ">
                 <a href={item.link} className="font-semibold text-black/70 text-lg">
                   {item.label}
                 </a>
@@ -162,8 +185,10 @@ const NavBar: React.FC = () => {
             absolute left-0 -top-[15px]" />
           </a>
 
-          <button className="z-[11000] p-3" onClick={onOpen}>
-            <RxHamburgerMenu size={25} />
+          <button className="z-[11000] p-3
+          dynamic-text text-header font-bold uppercase" 
+          onClick={onOpen}>
+            Menu
           </button>
         </div>
       </div>
