@@ -3,6 +3,8 @@ Repeatition
 - global.css, two animations (very similar) for heroFadeInSlideUp and fadeInSlideUp
 - SocialMedia.tsx and events/item/page.tsx have identical Swiper code!
 
+- Same Outline button styles across components (e.g. TakeAction and NavBar!)
+
 Aribitrary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient
 - Hero has many arbitrary z-indexes!
