@@ -70,7 +70,7 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
                 className="w-[300px] aspect-square object-cover
                 max-lg:w-full"
               />
-              <div className="max-w-[300px]">
+              <div className="max-w-[300px] max-lg:max-w-none max-lg:w-full">
                 <h4 className="mt-2 text-xl text-header uppercase font-title font-bold
                 w-full max-lg:text-nowrap max-lg:overflow-x-hidden max-lg:overflow-ellipsis">{event.title}</h4>
                 <p className='text-lg text-body'>{event.date}</p>

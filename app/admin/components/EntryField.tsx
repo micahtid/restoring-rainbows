@@ -1,5 +1,4 @@
-const adminUsername = "admin123";
-const adminPassword = "12345";
+import React from 'react';
 
 interface EntryFieldProps {
     username: string;
@@ -17,8 +16,7 @@ const EntryField: React.FC<EntryFieldProps> = ({ username, setUsername, password
     p-6"
     onSubmit={(e) => {
         e.preventDefault();
-        console.log(process.env.ADMIN_PASSCODE)
-        if (username === adminUsername && password === adminPassword) {
+        if (username === process.env.NEXT_PUBLIC_ADMIN_USERNAME && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
             setAdminStatus(true);
         }
     }}>
@@ -32,4 +30,4 @@ const EntryField: React.FC<EntryFieldProps> = ({ username, setUsername, password
   )
 }
 
-export default EntryField
+export default EntryField;
