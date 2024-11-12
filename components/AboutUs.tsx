@@ -9,7 +9,10 @@ const AboutUs = () => {
     flex gap-x-32 items-center
     max-lg:flex-col max-lg:gap-y-12 max-lg:items-start
     '>
-        <h3 className='dynamic-subheading max-xl:text-[45px] max-lg:text-[32.5px] text-header'>
+        <h3 className='dynamic-subheading 
+        max-xl:text-[45px] max-lg:text-[32.5px]
+        max-xl:leading-[50pxpx] max-lg:leading-[40px]
+        text-header'>
             Restoring Rainbows is an international, youth-led nonprofit dedicated to making art accessible while protecting the planet.
         </h3>
         <img 
