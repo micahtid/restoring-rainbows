@@ -18,8 +18,7 @@ const ExecutiveMemberModal = () => {
             <div className="flex flex-col justify-start items-start gap-y-6">
                 <img src={currentMember?.picture} className="w-full max-h-[300px] object-cover drop-shadow" />
                 <h3 className="dynamic-text font-semibold">{currentMember?.firstName} {currentMember?.lastName}</h3>
-                <p className="dynamic-text 
-                max-h-[30vh] overflow-scroll no-scrollbar">{currentMember?.bio}</p>
+                <p className="dynamic-text">{currentMember?.bio}</p>
             </div>
         </Modal>
     );

@@ -22,9 +22,8 @@ export const extendedNavItems = [
 ]
 
 export const contacts = [
-    "Phone: Coming Soon",
     "Email: restoringrainbows.offical@gmail.com",
-    "Address: Coming Soon"
+    "Mailing Address: Email for more information"
 ]
 
 import { FaInstagram, FaTiktok, FaYoutube  } from "react-icons/fa";
