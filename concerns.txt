@@ -4,6 +4,7 @@ Repeatition
 - SocialMedia.tsx and events/item/page.tsx have identical Swiper code!
 
 - Same Outline button styles across components (e.g. TakeAction and NavBar!)
+- Repeat of renderParagraphs() across MissionStatement and TakeAction components!
 
 Aribitrary
 - Blogs and SocialMedia use bg-white to hide the conic-gradient

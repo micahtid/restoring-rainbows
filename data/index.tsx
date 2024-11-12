@@ -67,15 +67,35 @@ export const takeActionPageSections = [
     {
         id: "start-a-branch",
         title: "Start a Branch",
-        description: "Interested in starting a branch of Restoring Rainbows? You'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. Just fill out the form below!",
-        buttonLabel: "Register",
-        buttonLink: "https://docs.google.com/forms/d/e/1FAIpQLSc_DgtEZTHJwGfz41yaol17Y0xA6wItYk_VTh5RXp-xL8PSoQ/viewform?usp=sf_link "
+        description: "Interested in starting a branch of Restoring Rainbows? You'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. Click below for more information!",
+        buttonLabel: "More Information",
+        buttonLink: "/take-action/start-a-branch"
     },
     {
         id: "volunteer",
         title: "Volunteer",
-        description: "Sign up now to become a volunteer with Restoring Rainbows! Contribute to our global impact by donating your time and earning volunteer hours in the process.",
-        buttonLabel: "Volunteer",
-        buttonLink: "/donate"
+        description: "Sign up now to become a volunteer with Restoring Rainbows! Contribute to our global impact by creating articles that spread awareness about our mission, as well as digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work. Click below for more information!",
+        buttonLabel: "More Information",
+        buttonLink: "/coming-soon"
+    },
+    {
+        id: "partner",
+        title: "Become a Partner",
+        description: "Interested partnering with Restoring Rainbows? We have done partnerships in-person, with branches, through social media, and more! Click below for more information!",
+        buttonLabel: "More Information",
+        buttonLink: "/take-action/become-partner"
     }
 ];
+
+export const startABranchInstructions = `
+Thank you so much for your interest in starting a branch of Restoring Rainbows, you'll be joining a network of over 100 branches spanning across more than 40 countries worldwide. 
+Our mission is to empower communities through art, environmental sustainability, and education by collecting, restoring, and donating school supplies. As part of this international initiative, you’ll help spread creativity, reduce waste, and make a lasting impact on the world. 
+As a branch you will be responsible for collecting lightly used and new school supplies, restoring school supplies, and donating school supplies monthly. You will also be obligated to post about events via Instagram and complete a monthly branch report.
+To become a branch please fill out the form below, please make sure you have a school, university, or community center your branch will be affiliated with. After you fill out the form, please be patient, we will get back to you in a few weeks!
+`
+export const becomeAPartnerInstructions = `
+Thank you so much for your interest in becoming a partner for Restoring Rainbows.
+We would love to hear about your ideas for collaborations and how we can join efforts to make an impact! 
+If you are a cooperation interested, please contact our Director of Corporate Partnerships at mischaperzanowski.rrexec@gmail.com.
+If you are a youth-organization interested, please contact our Director of Youth-Organization Partnerships via the Google form below.
+`
