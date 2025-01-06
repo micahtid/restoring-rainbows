@@ -76,10 +76,11 @@ const SocialMedia = () => {
             }
           </div>
         </div>
-        <div className="w-[540px] h-[655px]
+        
+        {/* <div className="w-[540px] h-[655px]
         flex flex-col gap-y-2
         max-lg:h-auto max-lg:max-w-[600px] max-lg:w-full">
-          {/* Main Swiper */}
+
           <Swiper
             loop={true}
             spaceBetween={10}
@@ -95,7 +96,7 @@ const SocialMedia = () => {
             ))}
           </Swiper>
 
-          {/* Thumbnail Swiper */}
+    
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}                            // Update value of main swiper on click (!)
             style={{
@@ -121,7 +122,8 @@ const SocialMedia = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </div> */}
+
       </section>
     </section>
   )

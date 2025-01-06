@@ -48,7 +48,7 @@ const Home = () => {
             background: `
                 conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
           }}
-          className="absolute top-0 w-full h-[3000px] -z-[100]"
+          className="absolute top-0 w-full h-[3000px] max-md:h-[3200px] -z-[100]"
         />
         <div className="pb-24" />
         <Hero />

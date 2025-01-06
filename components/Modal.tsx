@@ -25,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({
             <Dialog.Title className="text-xl text-left font-bold mb-4">
                 {title}
             </Dialog.Title>
-            <div className="overflow-y-auto max-h-[calc(80vh-100px)] max-md:max-h-[calc(100%-50px)] pb-4 no-scrollbar">
+            <div className="overflow-y-hidden max-h-[calc(80vh-100px)] max-md:max-h-[calc(100%-50px)] pb-4 no-scrollbar">
                 {children}
             </div>
             <Dialog.Close asChild>
