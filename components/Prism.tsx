@@ -33,7 +33,7 @@ const Prism = () => {
           border-[2px] border-primary hover:border-transparent
           transition-all duration-700">
             <a
-            className="text-lg font-semibold text-black/70" 
+            className="text-lg font-semibold text-primary" 
             // href="https://prismofficial.substack.com/"
             href="/coming-soon"
             >

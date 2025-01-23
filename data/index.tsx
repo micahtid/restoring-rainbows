@@ -74,9 +74,9 @@ export const takeActionPageSections = [
     {
         id: "volunteer",
         title: "Volunteer",
-        description: "Sign up now to become a volunteer with Restoring Rainbows! Contribute to our global impact by creating articles that spread awareness about our mission, as well as digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work. Click below for more information!",
+        description: "The Restoring Rainbows volunteer program is for interested individuals to create digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work.",
         buttonLabel: "More Information",
-        buttonLink: "/coming-soon"
+        buttonLink: "/take-action/volunteer"
     },
     {
         id: "partner",
