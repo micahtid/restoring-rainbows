@@ -80,12 +80,13 @@ const Volunteer = () => {
             modules={[Navigation]}
             navigation
             slidesPerView="auto"
-            spaceBetween={20}
+            spaceBetween={5}
             className="w-full"
           >
             {worksheetExamples.map((example, index) => (
               <SwiperSlide key={index}>
-                <div className="w-[300px] h-[500px] bg-white"></div>
+                <div className="w-[300px] h-[500px] bg-white
+                max-[430px]:w-full"></div>
               </SwiperSlide>
             ))}
           </Swiper>
