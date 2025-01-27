@@ -79,13 +79,13 @@ const Volunteer = () => {
           <Swiper
             modules={[Navigation]}
             navigation
-            slidesPerView={3}
+            slidesPerView="auto"
             spaceBetween={20}
             className="w-full"
           >
             {worksheetExamples.map((example, index) => (
               <SwiperSlide key={index}>
-                <div className="w-full h-[500px] bg-white"></div>
+                <div className="w-[300px] h-[500px] bg-white"></div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -95,17 +95,19 @@ const Volunteer = () => {
           <div
             key={index}
             className={`flex flex-col mb-32 gap-y-8 ${
-              index % 2 === 0 && "items-end text-right"
+              index % 2 === 0 && "items-end text-right max-md:text-left"
             }`}
           >
             <OutlineButton 
-              className="flex justify-center w-[550px] py-4 
+              className="
+              flex justify-center w-[550px] py-4
+              max-md:w-full
               bg-primary text-white 
               transition-all duration-500 
               shadow-sm text-nowrap 
               hover:bg-transparent hover:text-body"
             >
-              <a className="dynamic-subheading" href="">{guide.title}</a>
+              <a className="dynamic-subheading max-md:text-lg" href="">{guide.title}</a>
             </OutlineButton>
             <p className="dynamic-text text-body max-w-[850px]">{guide.description}</p>
           </div>
