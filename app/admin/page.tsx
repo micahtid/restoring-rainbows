@@ -31,13 +31,16 @@ const Admin = () => {
             {adminStatus ? (
                 <div className="w-full h-full
                 flex flex-col justify-center items-center">
-                    <div className="flex justify-center items-center gap-x-6 w-full">
+                    <div className="flex justify-center items-center gap-x-8 w-full mb-12">
                         {
                             states.map((state, index) => (
                                 <button 
                                 key={index}
                                 onClick={() => setActiveState(index)}
-                                className={`${activeState === index ? "text-black underline" : "text-gray-300"}`}>
+                                className={`${activeState === index ? 
+                                  "text-primary font-medium" : 
+                                  "text-gray-400 hover:text-gray-600"} 
+                                  transition-colors duration-300`}>
                                     {states[index].title}
                                 </button>
                             ))
