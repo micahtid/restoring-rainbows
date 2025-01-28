@@ -60,6 +60,7 @@ const SocialMedia = () => {
       px-x pt-44 pb-28
       flex gap-x-12
       max-lg:flex-col max-lg:gap-y-16'>
+        
         <div className="flex flex-col gap-y-12 max-w-[600px]">
           <h3 className='dynamic-subheading text-header'>Check out our latest posts</h3>
           <p className='dynamic-text text-body'>{landingPageSocialMediaDescription}</p>
@@ -77,7 +78,7 @@ const SocialMedia = () => {
           </div>
         </div>
         
-        {/* <div className="w-[540px] h-[655px]
+        <div className="w-[540px] h-[655px]
         flex flex-col gap-y-2
         max-lg:h-auto max-lg:max-w-[600px] max-lg:w-full">
 
@@ -96,7 +97,6 @@ const SocialMedia = () => {
             ))}
           </Swiper>
 
-    
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}                            // Update value of main swiper on click (!)
             style={{
@@ -122,7 +122,7 @@ const SocialMedia = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div> */}
+        </div>
 
       </section>
     </section>
