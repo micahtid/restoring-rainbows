@@ -27,7 +27,7 @@ const WhatAreBranches = () => {
             <h3 className='dynamic-heading text-header'>Branches</h3>
             <div className="w-full h-[50px] relative">
                 <p className='dynamic-text
-                bg-gray-100 p-4
+                bg-white/90 p-4
                 absolute transform translate-y-[10px]'>Branches are smaller versions of the main Restoring Rainbows based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country.</p>
             </div>
         </div>
