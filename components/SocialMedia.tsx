@@ -13,6 +13,8 @@ import 'swiper/css/thumbs';
 
 import { FreeMode, Thumbs } from 'swiper/modules';
 
+// TO DO : Refresh API key!
+
 type Post = {
   id: string;
   caption: string;
