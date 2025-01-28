@@ -8,11 +8,18 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const Volunteer = () => {
-  const worksheetExamples = ["", "", "", "", "", ""];
+  const worksheetExamples = [
+    "/worksheet_1.png",
+    "/worksheet_2.png",
+    "/worksheet_3.png",
+    "/worksheet_4.png",
+    "/worksheet_5.png",
+    "/worksheet_6.png",
+  ];
 
   const volunteerGuidelines = [
-    { title: "Worksheet Guidelines", description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful digital-worksheet prompts." },
-    { title: "Worksheet Submission", description: "Use this form to submit your digital resources, and attach a volunteer form for us to sign in order for you to receive your hours." },
+    { title: "Worksheet Guidelines", description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful digital-worksheet prompts.", link: "https://docs.google.com/document/d/1qL7ni4tjd7jFOmGdePlFBc--TH0HmaXEMgH5WzxbBXw/edit" },
+    { title: "Worksheet Submission", description: "Use this form to submit your digital resources, and attach a volunteer form for us to sign in order for you to receive your hours.", link: "https://docs.google.com/forms/d/e/1FAIpQLSexbZt0JZRe1MHepBgOT8X6Xm5BtXsqIqQS3kuXBzPF4q3dwg/viewform?usp=sharing" },
   ];
 
   return (
@@ -68,7 +75,7 @@ const Volunteer = () => {
         </p>
 
         <h3 className="dynamic-subheading text-header">Example Worksheets</h3>
-        <div className="mb-32 
+        <div className="mb-32
           [&_.swiper-button-next]:text-[#4A4A4A] [&_.swiper-button-prev]:text-[#4A4A4A]
           [&_.swiper-button-next]:w-8 [&_.swiper-button-prev]:w-8
           [&_.swiper-button-next]:h-8 [&_.swiper-button-prev]:h-8
@@ -80,13 +87,18 @@ const Volunteer = () => {
             modules={[Navigation]}
             navigation
             slidesPerView="auto"
-            spaceBetween={5}
+            spaceBetween={75}
+            // breakpoints={{
+            //   640: { slidesPerView: 2 },
+            //   768: { slidesPerView: 3 },
+            //   1024: { slidesPerView: 4 }
+            // }}
             className="w-full"
           >
             {worksheetExamples.map((example, index) => (
-              <SwiperSlide key={index}>
-                <div className="w-[300px] h-[500px] bg-white
-                max-[430px]:w-full"></div>
+              <SwiperSlide key={index} className="!w-auto max-[430px]:w-full">
+                <img src={example} className="w-[300px] h-auto
+                max-[430px]:w-[200px]" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -108,7 +120,7 @@ const Volunteer = () => {
               shadow-sm text-nowrap 
               hover:bg-transparent hover:text-body"
             >
-              <a className="dynamic-subheading max-md:text-lg" href="">{guide.title}</a>
+              <a className="dynamic-subheading max-md:text-lg" href={guide.link}>{guide.title}</a>
             </OutlineButton>
             <p className="dynamic-text text-body max-w-[850px]">{guide.description}</p>
           </div>
