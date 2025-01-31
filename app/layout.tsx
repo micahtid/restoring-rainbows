@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/react"
+
 import { DataContextProvider } from "@/providers/useData";
 import ModalProvider from "@/providers/ModalProvider";
 import ToastProvider from "@/providers/ToastProvider";
@@ -33,6 +35,7 @@ export default function RootLayout({
             <ModalProvider />
           </DataContextProvider>
         </div>
+        <Analytics />
       </body>
     </html>
   );
