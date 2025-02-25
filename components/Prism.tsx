@@ -17,7 +17,9 @@ const Prism = () => {
           <h3 className='dynamic-subheading text-header'>
             Subscribe to Our Newsletter Service, Prism
           </h3>
-          <p className='dynamic-text text-body'>Prism is Restoring Rainbow&apos;s newsletter and blog service featuring youth perspectives on topics ranging from climate to education to art.</p>
+          <p className='dynamic-text text-body'>
+            Prism is Restoring Rainbow&apos;s newsletter and blog service featuring youth perspectives on topics ranging from climate to education to art.
+          </p>
         </div>
         <div className="flex flex-col items-center gap-y-2
         max-w-[300px] w-full">
@@ -33,7 +35,7 @@ const Prism = () => {
           border-[2px] border-primary hover:border-transparent
           transition-all duration-700">
             <a
-            className="text-lg font-semibold text-primary" 
+            className="text-lg font-medium text-primary" 
             // href="https://prismofficial.substack.com/"
             href="/coming-soon"
             >

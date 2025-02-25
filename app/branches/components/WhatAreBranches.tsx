@@ -2,8 +2,8 @@ import Highlight from "@/components/Highlight";
 
 const WhatAreBranches = () => {
   return (
-    <div className="w-[100vw] pt-32 mb-60
-    max-md:mb-72 max-sm:mb-80
+    <div className="w-[100vw] pt-32 mb-48
+    max-sm:mb-60 max-[450px]:mb-96 max-[350px]:mb-[500px]
     flex justify-center items-center relative"
     style={{
       background: `
@@ -28,7 +28,9 @@ const WhatAreBranches = () => {
             <div className="w-full h-[50px] relative">
                 <p className='dynamic-text
                 bg-white/90 p-4
-                absolute transform translate-y-[10px]'>Branches are smaller versions of the main Restoring Rainbows based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country.</p>
+                absolute transform translate-y-[10px]'>
+                Branches are smaller versions of the main Restoring Rainbows nonprofit based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country, explore our program and apply via the form under the “More Information” tab.
+                </p>
             </div>
         </div>
     </div>
