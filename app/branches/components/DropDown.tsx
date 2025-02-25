@@ -35,21 +35,22 @@ const DropDown: React.FC<DropDownProps> = ({ isOpen, toggleDropdown, cityData })
                 className="absolute z-10 w-[275px] 
                 bg-primary
                 max-h-[300px] overflow-y-auto no-scrollbar 
-                shadow-sm
-                flex flex-col"
+                rounded-sm
+                flex flex-col mt-1"
             >
             {cityData.branches.map((branch: any, branchIndex: number) => (
-                <>
+                <div key={branchIndex} className="flex flex-col">
                     <button
-                        key={branchIndex}
                         onClick={() => router.push(`/branches/branch?country=${branch.country}&city=${branch.city}&community=${branch.community}`)}
-                        className="cursor-pointer text-white max-[500px]:py-3 text-left
-                        px-4 py-2"
+                        className="cursor-pointer text-white hover:bg-primary-light text-left
+                        px-3 py-[10px] transition-colors"
                     >
                         {branch.community}
                     </button>
-                    <div className="w-full h-[1px] bg-white" />
-                </>
+                    {branchIndex < cityData.branches.length - 1 && (
+                        <div className="w-full h-[1px] bg-white/20" />
+                    )}
+                </div>
             ))}
             </ul>
         )
