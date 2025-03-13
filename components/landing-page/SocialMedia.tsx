@@ -47,6 +47,7 @@ const SocialMedia = () => {
           .slice(0, 5)
         
         setInstagramPosts(filteredData)
+        setActiveIndex(0) // Ensure first slide is active after data loads
         console.log("Filtered Instagram Posts:", filteredData)
       } catch (error) {
         console.error("Error fetching Instagram data:", error)
@@ -88,6 +89,7 @@ const SocialMedia = () => {
             loop={true}
             spaceBetween={10}
             thumbs={{ swiper: thumbsSwiper }}                                         // Link main swiper with thumbnail swiper (!)
+            initialSlide={0}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}            // Update active index
             modules={[FreeMode, Thumbs]}
             className="w-full aspect-square"
@@ -107,6 +109,7 @@ const SocialMedia = () => {
             loop={true}
             spaceBetween={5}
             slidesPerView={5}
+            initialSlide={0}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Thumbs]}
@@ -117,7 +120,7 @@ const SocialMedia = () => {
               <SwiperSlide key={index} className="w-full h-full">
                 <img
                   src={post.media_url}
-                  className={`w-full h-full object-cover 
+                  className={`w-full h-full object-cover cursor-pointer
                     transition-all duration-300 
                     ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} 
                 />
