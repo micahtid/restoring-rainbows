@@ -24,19 +24,20 @@ const Volunteer = () => {
 
   return (
     <div
-      className="relative flex justify-center items-center px-x pt-40 pb-40"
+      className="relative flex justify-center items-center min-h-screen px-6 md:px-12 py-24"
       style={{
-        backgroundColor: "#e3f0ff",
-        backgroundImage: "conic-gradient(from 0deg, #e3f0ff, #fafcff, #e3f0ff)",
+        backgroundColor: "#f8faff",
+        backgroundImage: "linear-gradient(135deg, #f8faff 0%, #e3f0ff 100%)",
       }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1036px"
-        height="1008px"
+        width="100%"
+        height="100%"
         viewBox="0 0 1036 1008"
         version="1.1"
-        className="absolute z-10 top-[175px] opacity-20"
+        className="absolute inset-0 z-10 opacity-10"
+        preserveAspectRatio="xMidYMid slice"
       >
         <title>Stroke 1</title>
         <g
@@ -65,66 +66,67 @@ const Volunteer = () => {
         </g>
       </svg>
 
-      <div className="z-20 flex flex-col gap-y-4 max-w-max mx-auto w-full">
-        <div className="inline-block">
-          <Highlight text="What Is The" />
-        </div>
-        <h3 className="dynamic-heading text-header">Volunteer Program</h3>
-        <p className="dynamic-text w-full bg-white p-4 mb-32">
-          The Restoring Rainbows volunteer program is for interested individuals to create digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work.
-        </p>
-
-        <h3 className="dynamic-subheading text-header">Example Worksheets</h3>
-        <div className="mb-32
-          [&_.swiper-button-next]:text-[#4A4A4A] [&_.swiper-button-prev]:text-[#4A4A4A]
-          [&_.swiper-button-next]:w-8 [&_.swiper-button-prev]:w-8
-          [&_.swiper-button-next]:h-8 [&_.swiper-button-prev]:h-8
-          [&_.swiper-button-next]:bg-black/10 [&_.swiper-button-prev]:bg-black/10
-          [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full
-          [&_.swiper-button-next]:after:text-sm [&_.swiper-button-prev]:after:text-sm
-          [&_.swiper-button-next]:after:content-['next'] [&_.swiper-button-prev]:after:content-['prev']">
-          <Swiper
-            modules={[Navigation]}
-            navigation
-            slidesPerView="auto"
-            spaceBetween={75}
-            // breakpoints={{
-            //   640: { slidesPerView: 2 },
-            //   768: { slidesPerView: 3 },
-            //   1024: { slidesPerView: 4 }
-            // }}
-            className="w-full"
-          >
-            {worksheetExamples.map((example, index) => (
-              <SwiperSlide key={index} className="!w-auto max-[430px]:w-full">
-                <img src={example} className="w-[300px] h-auto
-                max-[430px]:w-[200px]" />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        {volunteerGuidelines.map((guide, index) => (
-          <div
-            key={index}
-            className={`flex flex-col mb-32 gap-y-8 ${
-              index % 2 === 0 && "items-end text-right max-md:text-left"
-            }`}
-          >
-            <OutlineButton 
-              className="
-              flex justify-center w-[550px] py-4
-              max-md:w-full
-              bg-primary text-white 
-              transition-all duration-500 
-              shadow-sm text-nowrap 
-              hover:bg-transparent hover:text-body"
-            >
-              <a className="dynamic-subheading max-md:text-lg" href={guide.link}>{guide.title}</a>
-            </OutlineButton>
-            <p className="dynamic-text text-body max-w-[850px]">{guide.description}</p>
+      <div className="z-20 flex flex-col gap-8 w-full max-w-max mx-auto">
+        <div className="space-y-4">
+          <div className="inline-block">
+            <Highlight text="What Is The" />
           </div>
-        ))}
+          <h3 className="dynamic-heading text-header">Volunteer Program</h3>
+          <p className="dynamic-text w-full bg-white p-4">
+            The Restoring Rainbows volunteer program is for interested individuals to create digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work.
+          </p>
+        </div>
+
+        <div className="space-y-6 my-12">
+          <h3 className="dynamic-subheading text-header">Example Worksheets</h3>
+          <div className="
+            [&_.swiper-button-next]:text-[#4A4A4A] [&_.swiper-button-prev]:text-[#4A4A4A]
+            [&_.swiper-button-next]:w-8 [&_.swiper-button-prev]:w-8
+            [&_.swiper-button-next]:h-8 [&_.swiper-button-prev]:h-8
+            [&_.swiper-button-next]:bg-black/10 [&_.swiper-button-prev]:bg-black/10
+            [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full
+            [&_.swiper-button-next]:after:text-sm [&_.swiper-button-prev]:after:text-sm
+            [&_.swiper-button-next]:after:content-['next'] [&_.swiper-button-prev]:after:content-['prev']">
+            <Swiper
+              modules={[Navigation]}
+              navigation
+              slidesPerView="auto"
+              spaceBetween={75}
+              className="w-full"
+            >
+              {worksheetExamples.map((example, index) => (
+                <SwiperSlide key={index} className="!w-auto max-[430px]:w-full">
+                  <img src={example} className="w-[300px] h-auto
+                  max-[430px]:w-[200px]" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+
+        <div className="grid gap-y-28 mt-16">
+          {volunteerGuidelines.map((guide, index) => (
+            <div
+              key={index}
+              className={`flex flex-col gap-y-6 ${
+                index % 2 === 0 && "items-end text-right max-md:text-left"
+              }`}
+            >
+              <OutlineButton 
+                className="
+                flex justify-center w-[550px] py-4
+                max-md:w-full
+                bg-primary text-white 
+                transition-all duration-500 
+                shadow-sm text-nowrap 
+                hover:bg-transparent hover:text-body"
+              >
+                <a className="dynamic-subheading max-md:text-lg" href={guide.link}>{guide.title}</a>
+              </OutlineButton>
+              <p className="dynamic-text text-body max-w-[850px]">{guide.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

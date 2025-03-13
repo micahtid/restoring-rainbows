@@ -1,5 +1,5 @@
 import { landingPageTakeAction } from "@/data"
-import ArrowButton from "./ArrowButton"
+import ArrowButton from "../ArrowButton"
 
 // Arbitrary breaking point!
 

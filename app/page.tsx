@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 
 import Loader from "@/components/Loader";
-import Hero from "@/components/Hero";
-import AboutUs from "@/components/AboutUs";
-import Statistics from "@/components/Statistics";
-import WhatWeDo from "@/components/WhatWeDo";
-import Prism from "@/components/Prism";
-import SocialMedia from "@/components/SocialMedia";
-import RecentEvents from "@/components/RecentEvents";
-import TakeAction from "@/components/TakeAction";
-import Partners from "@/components/Partners";
+import Hero from "@/components/landing-page/Hero";
+import AboutUs from "@/components/landing-page/AboutUs";
+import Statistics from "@/components/landing-page/Statistics";
+import WhatWeDo from "@/components/landing-page/WhatWeDo";
+import Prism from "@/components/landing-page/Prism";
+import SocialMedia from "@/components/landing-page/SocialMedia";
+import RecentEvents from "@/components/landing-page/RecentEvents";
+import TakeAction from "@/components/landing-page/TakeAction";
+import Partners from "@/components/landing-page/Partners";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
