@@ -1,27 +1,29 @@
 "use client";
 
-import { useState } from "react"; // Import useState to manage local state
 import Highlight from "@/components/Highlight";
 import Loader from "@/components/Loader";
 import OutlineButton from "@/components/OutlineButton";
+
+import TakeActionItem from "../../components/TakeActionItem";
+import { takeActionPageSections } from "@/data";
 
 import { useData } from "@/providers/useData";
 
 const Prism = () => {
   const { stories } = useData();
 
-  const prismGuidelines = [
-    { 
-      title: "Prism Guidelines", 
-      description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful submission prompts.",
-      link: "https://docs.google.com/document/d/1Xx0nTrf3jPPodznCGIRYLSMZhrIPjUW04637mogPf_8/edit?usp=sharing"
-    },
-    { 
-      title: "Prism Submission", 
-      description: "Use this form to submit your digital work, and attach a volunteer form for us to sign in order for you to receive your hours.",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLSc6zYdvTK5qDpPdRViSAFQ7-HLS5-5qaPhiCCEGCa57W9J6Aw/viewform?usp=sf_link"
-    },
-  ];
+  // const prismGuidelines = [
+  //   { 
+  //     title: "Prism Guidelines", 
+  //     description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful submission prompts.",
+  //     link: "https://docs.google.com/document/d/1Xx0nTrf3jPPodznCGIRYLSMZhrIPjUW04637mogPf_8/edit?usp=sharing"
+  //   },
+  //   { 
+  //     title: "Prism Submission", 
+  //     description: "Use this form to submit your digital work, and attach a volunteer form for us to sign in order for you to receive your hours.",
+  //     link: "https://docs.google.com/forms/d/e/1FAIpQLSc6zYdvTK5qDpPdRViSAFQ7-HLS5-5qaPhiCCEGCa57W9J6Aw/viewform?usp=sf_link"
+  //   },
+  // ];
 
   if (!stories) {
     return <Loader />;
@@ -80,27 +82,13 @@ const Prism = () => {
         </a>
       </OutlineButton>
 
-      {prismGuidelines.map((guide, index) => (
-        <div
-          key={index}
-          className={`flex flex-col mb-32 gap-y-8 w-full ${
-            index % 2 === 0 && "items-end text-right max-md:text-left"
-          }`}
-        >
-          <OutlineButton 
-            className="
-            flex justify-center w-[550px] py-4
-            max-md:w-full
-            bg-primary text-white 
-            transition-all duration-500 
-            shadow-sm text-nowrap 
-            hover:bg-transparent hover:text-body"
-          >
-            <a className="dynamic-subheading max-md:text-lg" href={guide.link}>{guide.title}</a>
-          </OutlineButton>
-          <p className="dynamic-text text-body max-w-[850px]">{guide.description}</p>
-        </div>
-      ))}
+        <TakeActionItem
+        index={2}
+        title={takeActionPageSections[3].title}
+        description={takeActionPageSections[3].description}
+        buttonLabel={takeActionPageSections[3].buttonLabel}
+        buttonLink={takeActionPageSections[3].buttonLink}
+        />
     </section>
   );
 }

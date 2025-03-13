@@ -6,7 +6,7 @@ import { takeActionPageSections } from "@/data";
 import PartnersList from "./components/PartnersList";
 import Loader from "@/components/Loader";
 
-import TakeActionItem from "../take-action/components/TakeActionItem";
+import TakeActionItem from "../../components/TakeActionItem";
 
 const Partners = () => {
   const {

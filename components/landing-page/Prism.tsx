@@ -1,4 +1,4 @@
-import OutlineButton from './OutlineButton';
+import OutlineButton from '../OutlineButton';
 
 // Swiper
 import 'swiper/css';

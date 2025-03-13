@@ -13,7 +13,7 @@ export const extendedNavItems = [
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "javascript:void(0)", subItems: [
-        {label: "Prism", link: "/coming-soon"},
+        {label: "Prism", link: "/prism"},
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
@@ -84,6 +84,13 @@ export const takeActionPageSections = [
         description: "Interested partnering with Restoring Rainbows? We have done partnerships in-person, with branches, through social media, and more! Click below for more information!",
         buttonLabel: "More Information",
         buttonLink: "/take-action/become-partner"
+    },
+    {
+        id: "prism",
+        title: "Prism",
+        description: "Prism is a global youth news website that encompasses a wide array of perspectives and ideas on the environment, education, and art. Click the button below to view our newsletter, and get other helpful information about submitting your own work!",
+        buttonLabel: "More Information",
+        buttonLink: "/take-action/prism"
     }
 ];
 

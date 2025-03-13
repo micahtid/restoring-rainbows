@@ -1,5 +1,5 @@
 import MissionStatement from "./components/MissionStatement";
-import WhatWeDo from "@/components/WhatWeDo";
+import WhatWeDo from "@/components/landing-page/WhatWeDo";
 import WhyWeMatter from "./components/WhyWeMatter";
 
 const About = () => {
