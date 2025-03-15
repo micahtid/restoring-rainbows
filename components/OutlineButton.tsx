@@ -7,7 +7,7 @@ interface OutlineButtonProps {
 
 const OutlineButton: React.FC<OutlineButtonProps> = ({ children, className }) => {
   return (
-    <div className={twMerge('group relative w-full', className)}>
+    <div className={twMerge('drop-shadow-sm group relative w-full', className)}>
       <span>{children}</span>
 
       {/* TOP */}

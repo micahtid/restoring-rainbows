@@ -21,37 +21,43 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
         }
     }, [branches]);
 
-    const handleCityClick = (cityName: string) => {                             // Toggle dropdown on city click
-        console.log("Through here!")
+    const handleCityClick = (cityName: string) => {
         if (selectedCity === cityName) {
-            setSelectedCity(null);                                              // Close dropdown if already open
+            setSelectedCity(null);
         } else {
-            setSelectedCity(cityName);                                          // Open dropdown if clicked
+            setSelectedCity(cityName);
         }
     };
 
-    const renderCitySection = (stateData: any) => (                                     // Helper function for USA cities (!)
+    const renderCitySection = (stateData: any) => (
         <div key={stateData.state} className="flex flex-col gap-y-4 w-[300px]">
-            <h4 className="text-xl font-bold">{stateData.state}</h4>
-            {stateData.cities.map((cityData: any, cityIndex: number) => (
-                <div key={cityIndex} className="relative">
-                    <button
-                        onClick={() => handleCityClick(cityData.city)}
-                        className="text-xl text-body text-left z-10 text-wrap"
-                    >
-                        {cityData.city}
-                    </button>
-                    <DropDown 
-                    isOpen={selectedCity === cityData.city} 
-                    toggleDropdown={() => handleCityClick(cityData.city)}
-                    cityData={cityData}
-                    />
-                </div>
-            ))}
+            <h4 className="dynamic-text font-bold uppercase font-title text-header">
+                {stateData.state}
+            </h4>
+            <div className="flex flex-col gap-y-4">
+                {stateData.cities.map((cityData: any, cityIndex: number) => (
+                    <div key={cityIndex} className="relative">
+                        <button
+                            onClick={() => handleCityClick(cityData.city)}
+                            className="
+                                dynamic-text text-body text-left
+                                hover:text-primary transition-colors duration-100
+                                z-0"
+                        >
+                            {cityData.city}
+                        </button>
+                        <DropDown 
+                            isOpen={selectedCity === cityData.city} 
+                            toggleDropdown={() => handleCityClick(cityData.city)}
+                            cityData={cityData}
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 
-    const renderUSSection = () => {                                                                 // Render USA states (!)
+    const renderUSSection = () => {
         const usaData = organizedBranches?.find((country) => country.country === "USA");
 
         if (usaData?.states) {
@@ -60,41 +66,51 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
             const secondHalf = usaData.states.slice(midpoint);
 
             return (
-                <div key="USA" className="flex flex-col gap-y-4">
-                    <div className="flex flex-col gap-y-1">
-                        <h3 className="text-3xl font-bold font-title text-header uppercase">USA</h3>
-                        <div className="w-full h-[2px] rounded-full bg-primary" />
+                <div key="USA" className="flex flex-col gap-y-6">
+                    <div className="flex flex-col gap-y-2">
+                        <h3 className="dynamic-subheading text-3xl max-lg:text-2xl font-title text-header font-bold uppercase">
+                            USA
+                        </h3>
+                        <div className="w-full h-[1px] rounded-full bg-primary/50" />
                     </div>
-                    <div className="flex flex-row gap-x-4 max-[590px]:flex-col max-[590px]:gap-y-8">
-                        {/* Column of states (first half) */}
-                        <div className="flex flex-col gap-y-8">{firstHalf.map(renderCitySection)}</div>
-                        {/* Column of states (second half) */}
-                        <div className="flex flex-col gap-y-8">{secondHalf.map(renderCitySection)}</div>
+                    <div className="flex flex-row gap-x-20 max-[590px]:flex-col max-[590px]:gap-y-8">
+                        <div className="flex flex-col gap-y-8">
+                            {firstHalf.map(renderCitySection)}
+                        </div>
+                        <div className="flex flex-col gap-y-8">
+                            {secondHalf.map(renderCitySection)}
+                        </div>
                     </div>
                 </div>
             );
         }
     };
 
-    const renderCountrySection = (countryData: CountryData) => (                                    // Render countries and cities for non-USA countries
-        <div key={countryData.country} className="flex flex-col gap-y-4">
-            <div className="flex flex-col gap-y-1">
-                <h3 className="text-3xl font-bold font-title text-header uppercase">{countryData.country}</h3>
-                <div className="w-full h-[2px] rounded-full bg-primary" />
+    const renderCountrySection = (countryData: CountryData) => (
+        <div key={countryData.country} className="flex flex-col gap-y-6">
+            <div className="flex flex-col gap-y-2">
+                <h3 className="dynamic-subheading text-3xl max-lg:text-2xl font-title text-header font-bold uppercase">
+                    {countryData.country}
+                </h3>
+                <div className="w-full h-[1px] rounded-full bg-primary/50" />
             </div>
-            <div className="grid grid-cols-2 gap-8 w-[600px] max-[590px]:flex max-[590px]:flex-col max-[590px]:gap-y-4">
+            <div className="grid grid-cols-2 gap-y-4 gap-x-20 w-[600px] max-[590px]:flex max-[590px]:flex-col max-[590px]:gap-y-4">
                 {countryData.cities?.map((cityData, index) => (
                     <div key={index} className="relative">
                         <button
                             onClick={() => handleCityClick(cityData.city)}
-                            className={twMerge("text-xl text-body text-left z-10 text-wrap max-w-[200px]")}
+                            className={twMerge(`
+                                dynamic-text text-body text-left
+                                hover:text-primary transition-colors duration-100
+                                z-0 max-w-[200px]`
+                            )}
                         >
                             {cityData.city}
                         </button>
                         <DropDown 
-                        isOpen={selectedCity === cityData.city} 
-                        toggleDropdown={() => handleCityClick(cityData.city)}
-                        cityData={cityData}
+                            isOpen={selectedCity === cityData.city} 
+                            toggleDropdown={() => handleCityClick(cityData.city)}
+                            cityData={cityData}
                         />
                     </div>
                 ))}
@@ -103,11 +119,14 @@ const BranchList: React.FC<BranchListProps> = ({ branches }) => {
     );
 
     return (
-        <div className="max-w-max w-full mx-auto px-4 py-8 fade-in-animation">
-            <h3 className="dynamic-subheading font-title text-header font-bold mb-16">Our Branches</h3>
-            <div className="max-w-[1000px] w-full flex flex-col gap-y-14">
+        <div className="relative max-w-max w-full mx-auto px-6 md:px-12 py-16">
+            <h3 className="dynamic-heading text-header font-bold mb-10">
+                Our Branches
+            </h3>
+            <div className="max-w-[1000px] w-full flex flex-col gap-y-16">
                 {organizedBranches && renderUSSection()}
-                {organizedBranches?.filter((country) => country.country !== "USA").map(renderCountrySection)}
+                {organizedBranches?.filter((country) => country.country !== "USA")
+                    .map(renderCountrySection)}
             </div>
         </div>
     );

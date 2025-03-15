@@ -9,7 +9,7 @@ import ModalProvider from "@/providers/ModalProvider";
 import ToastProvider from "@/providers/ToastProvider";
 
 import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/landing-page/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

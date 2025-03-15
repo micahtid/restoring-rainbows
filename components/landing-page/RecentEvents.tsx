@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { DocumentData } from "firebase/firestore";
 
-import OutlineButton from "./OutlineButton";
+import OutlineButton from "../OutlineButton";
 
 // Swiper
 import 'swiper/css';

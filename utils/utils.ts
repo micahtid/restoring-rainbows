@@ -27,18 +27,25 @@ export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
       const { country, state, city } = doc;
   
       // Find if the country exists in the result array
-      let countryData = result.find(c => c.country === country);
+      let countryData = result.find(c => c.country === (country === "United States" ? "USA" : country));
       if (!countryData) {
-        countryData = { country, states: [], cities: [] };
+        countryData = { 
+          country: country === "United States" ? "USA" : country, 
+          states: country === "United States" ? [] : undefined,
+          cities: country === "United States" ? undefined : []
+        };
         result.push(countryData);
       }
   
-      // If country is the USA, organize by states and cities
-      if (country === "USA") {
-        let stateData = countryData.states?.find(s => s.state === state);
+      // If country is the USA or United States, organize by states and cities
+      if (country === "United States" || country === "USA") {
+        if (!countryData.states) countryData.states = [];
+        
+        const stateKey = state?.trim() || "Other";
+        let stateData = countryData.states.find(s => s.state === stateKey);
         if (!stateData) {
-          stateData = { state, cities: [] };
-          countryData.states?.push(stateData);
+          stateData = { state: stateKey, cities: [] };
+          countryData.states.push(stateData);
         }
   
         let cityData = stateData.cities.find(c => c.city === city);
@@ -50,20 +57,26 @@ export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
         cityData.branches.push(doc);
       } else {
         // For other countries, only organize by city
-        let cityData = countryData.cities?.find(c => c.city === city);
+        if (!countryData.cities) countryData.cities = [];
+        
+        let cityData = countryData.cities.find(c => c.city === city);
         if (!cityData) {
           cityData = { city, branches: [] };
-          countryData.cities?.push(cityData);
+          countryData.cities.push(cityData);
         }
   
         cityData.branches.push(doc);
       }
     });
   
-    // Sort the states and cities alphabetically
+    // Sort the states and cities alphabetically; ensure "Other" is last
     result.forEach(countryData => {
       if (countryData.states) {
-        countryData.states.sort((a, b) => a.state.localeCompare(b.state));
+        countryData.states.sort((a, b) => {
+          if (a.state === "Other") return 1;
+          if (b.state === "Other") return -1;
+          return a.state.localeCompare(b.state);
+        });
         countryData.states.forEach(stateData => {
           stateData.cities.sort((a, b) => a.city.localeCompare(b.city));
         });
@@ -73,8 +86,7 @@ export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
     });
   
     return result;
-  };
-  
+};
 
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -118,4 +130,3 @@ export const organizeByPosition = (data: DocumentData[]): GroupedData[] => {
 
   return sortedGroupedData;
 };
-

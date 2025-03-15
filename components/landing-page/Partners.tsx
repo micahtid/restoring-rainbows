@@ -1,7 +1,7 @@
 "use client";
 
 import { useData } from "@/providers/useData";
-import ArrowButton from "./ArrowButton";
+import ArrowButton from "../ArrowButton";
 import { landingPagePartnerDescription } from "@/data";
 
 const Partners = () => {

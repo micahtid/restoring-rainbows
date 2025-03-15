@@ -15,11 +15,11 @@ const WhyWeMatter = () => {
         {aboutPageWhyWeMatter.map((item, index) => (
           <div
           key={index}
-          className="flex flex-col justify-start items-start gap-y-2 z-20">
-            <h3 className="dynamic-subheading font-normal text-primary font-accent uppercase bg-offwhite p-2
+          className="flex flex-col justify-start items-start gap-y-1 z-20">
+            <h3 className="dynamic-subheading font-normal text-primary font-accent uppercase bg-gray-100/50 p-2
             text-nowrap">{item.number}</h3>
-            <p className="dynamic-text uppercase font-bold text-header">{item.caption}</p>
-            <p className="mt-2 dynamic-text text-body
+            <p className="dynamic-text uppercase font-bold text-header mt-4">{item.caption}</p>
+            <p className="dynamic-text text-body
             max-lg:max-w-[600px]">{item.description}</p>
           </div>
         ))}

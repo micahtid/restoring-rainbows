@@ -13,7 +13,7 @@ export const extendedNavItems = [
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "javascript:void(0)", subItems: [
-        {label: "Prism", link: "/coming-soon"},
+        {label: "Prism", link: "/prism"},
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
@@ -41,7 +41,7 @@ import { PiRecycleDuotone, PiChalkboardTeacherDuotone, PiHandHeartDuotone } from
 export const whatWeDo = [
     {icon: <PiRecycleDuotone />, title: "Collect and Refurbish School Supplies", description: "Whether they're worn out, barely working, or gently used, we collect your school supplies and restore them, keeping them out of landfills."},
     {icon: <PiHandHeartDuotone />, title: "Donate School Supplies", description: "We donate school supplies to unlock the creative potential of children, offering them the tools to turn their dreams into colorful realities, no matter their circumstances."},
-    {icon: <PiChalkboardTeacherDuotone />, title: "Educate About Climate Change/Art Education", description: "We educate communities about the intersection of climate change and art, raising awareness and inspiring meaningful action."},
+    {icon: <PiChalkboardTeacherDuotone />, title: "Educate About Climate Change/Art", description: "We educate communities about the intersection of climate change and art, raising awareness and inspiring meaningful action."},
 ]
 
 // About Us Page
@@ -84,6 +84,13 @@ export const takeActionPageSections = [
         description: "Interested partnering with Restoring Rainbows? We have done partnerships in-person, with branches, through social media, and more! Click below for more information!",
         buttonLabel: "More Information",
         buttonLink: "/take-action/become-partner"
+    },
+    {
+        id: "prism",
+        title: "Prism",
+        description: "Prism is a global youth news website that encompasses a wide array of perspectives and ideas on the environment, education, and art. Click the button below to view our newsletter, and get other helpful information about submitting your own work!",
+        buttonLabel: "More Information",
+        buttonLink: "/take-action/prism"
     }
 ];
 
