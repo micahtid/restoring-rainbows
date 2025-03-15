@@ -8,7 +8,7 @@ import BranchList from "./components/BranchList";
 import BranchMap from "./components/BranchMap";
 import Loader from "@/components/Loader";
 
-import TakeActionItem from "../take-action/components/TakeActionItem";
+import TakeActionItem from "../../components/TakeActionItem";
 
 const Branches = () => {
   const {

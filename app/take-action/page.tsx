@@ -1,24 +1,28 @@
 import { takeActionPageSections } from "@/data";
-
-import OutlineButton from "@/components/OutlineButton";
-import TakeActionItem from "./components/TakeActionItem";
+import TakeActionItem from "../../components/TakeActionItem";
 
 const StartABranch = () => {
   return (
-    <div className='relative w-full h-full pt-20 pb-20 min-h-[1200px]'>
+    <div className='relative w-full min-h-screen py-40'>
       <div 
         className='fixed inset-0 z-[-1]' 
         style={{
-          backgroundColor: '#d5e3f1',
-          backgroundImage: 'linear-gradient(to bottom right, #e3f0ff, #e6f4f0)',
-          opacity: 0.3, 
+          backgroundColor: '#ffffff',
+          backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f8faff 50%, #e3f0ff 100%)',
         }}
       />
-      <svg xmlns="http://www.w3.org/2000/svg" width="1036px" height="1020px" viewBox="0 0 1036 1020" version="1.1"
-      className="absolute left-1/2 transform -translate-x-1/2 top-[100px]">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="100%" 
+        height="100%" 
+        viewBox="0 0 1036 1020" 
+        version="1.1"
+        className="absolute inset-0 z-0 opacity-10"
+        preserveAspectRatio="xMidYMid slice"
+      >
         <title>Stroke 1</title>
-        <g id="Desktop" stroke="#e3f0ff" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
-          <g id="Team" transform="translate(-202.000000, -120.000000)" stroke="#e3f0ff" strokeWidth="60">
+        <g id="Desktop" stroke="#73a0e1" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
+          <g id="Team" transform="translate(-202.000000, -120.000000)" stroke="#73a0e1" strokeWidth="60">
             <g id="Hero" transform="translate(-0.000000, 0.000000)">
               <g id="Group-4" transform="translate(0.000000, 0.000000)">
                 <path d="M232,150 L404.470455,153.818536 C524.152349,157.170472 622.574154,208.599144 583.834721,271.026662 L559.419838,310.370095 C532.965744,352.999409 561.957027,376.908478 630.041057,401.898318 L776.892021,462.34981 C873.335819,497.751029 884.956258,596.504535 800.692081,640.325648 L541.859817,774.927299 C419.187267,838.722294 508.628756,936.57914 677.048611,930.742415 C763.941783,927.733403 842.341491,959.320302 863.395712,1005.82718 L873.244013,1027.58033 C892.016988,1069.04595 956.876674,1099.2471 1034.2693,1102.56109 L1208,1110" id="Stroke-1">
@@ -30,18 +34,18 @@ const StartABranch = () => {
       </svg>
 
       <div className='max-w-max w-full mx-auto 
-      px-4 py-20 relative 
-      flex flex-col justify-start items-start gap-y-44
+      px-6 md:px-12 relative z-10
+      flex flex-col justify-start items-start gap-12
       fade-in-animation'>
         {takeActionPageSections.map((section, index) => (
           <TakeActionItem
-          key={index}
-          index={index}
-          title={section.title}
-          description={section.description}
-          buttonLabel={section.buttonLabel}
-          buttonLink={section.buttonLink}
-           />
+            key={index}
+            index={index}
+            title={section.title}
+            description={section.description}
+            buttonLabel={section.buttonLabel}
+            buttonLink={section.buttonLink}
+          />
         ))}
       </div>
     </div>

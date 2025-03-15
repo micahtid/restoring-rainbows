@@ -107,11 +107,12 @@ const Hero = () => {
           text-left text-header relative
           font-extrabold dynamic-header uppercase
 
-          lg:absolute lg:left-[50%] 
+          lg:absolute lg:left-[49%] 
           lg:transform lg:-translate-x-[35%]
           lg:top-[150px] 
 
-          px-x
+          px-x py-4
+          max-lg:py-3
           z-[500]
 
           w-[42.5vw]

@@ -6,7 +6,7 @@ import { takeActionPageSections } from "@/data";
 import PartnersList from "./components/PartnersList";
 import Loader from "@/components/Loader";
 
-import TakeActionItem from "../take-action/components/TakeActionItem";
+import TakeActionItem from "../../components/TakeActionItem";
 
 const Partners = () => {
   const {
@@ -24,7 +24,7 @@ const Partners = () => {
         <PartnersList partners={partners} />
 
         <div className="max-w-max w-full mx-auto
-        px-x py-8 my-20">
+        px-x py-8 my-12 max-lg:mt-6">
           <TakeActionItem
           index={2}
           title={takeActionPageSections[2].title}

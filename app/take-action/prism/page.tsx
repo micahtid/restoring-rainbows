@@ -1,26 +1,20 @@
-"use client";
-
 import Highlight from "@/components/Highlight";
 import OutlineButton from "@/components/OutlineButton";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 const Volunteer = () => {
-  const worksheetExamples = [
-    "/worksheet_1.png",
-    "/worksheet_2.png",
-    "/worksheet_3.png",
-    "/worksheet_4.png",
-    "/worksheet_5.png",
-    "/worksheet_6.png",
+  const prismGuidelines = [
+    { 
+      title: "Prism Guidelines", 
+      description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful submission prompts.",
+      link: "https://docs.google.com/document/d/1Xx0nTrf3jPPodznCGIRYLSMZhrIPjUW04637mogPf_8/edit?usp=sharing"
+    },
+    { 
+      title: "Prism Submission", 
+      description: "Use this form to submit your digital work, and attach a volunteer form for us to sign in order for you to receive your hours.",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSc6zYdvTK5qDpPdRViSAFQ7-HLS5-5qaPhiCCEGCa57W9J6Aw/viewform?usp=sf_link"
+    },
   ];
 
-  const volunteerGuidelines = [
-    { title: "Worksheet Guidelines", description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful digital-worksheet prompts.", link: "https://docs.google.com/document/d/1qL7ni4tjd7jFOmGdePlFBc--TH0HmaXEMgH5WzxbBXw/edit" },
-    { title: "Worksheet Submission", description: "Use this form to submit your digital resources, and attach a volunteer form for us to sign in order for you to receive your hours.", link: "https://docs.google.com/forms/d/e/1FAIpQLSexbZt0JZRe1MHepBgOT8X6Xm5BtXsqIqQS3kuXBzPF4q3dwg/viewform?usp=sharing" },
-  ];
 
   return (
     <div
@@ -69,43 +63,16 @@ const Volunteer = () => {
       <div className="z-20 flex flex-col gap-8 w-full max-w-max mx-auto">
         <div className="space-y-4">
           <div className="inline-block">
-            <Highlight text="What Is The" />
+            <Highlight text="Interested?" />
           </div>
-          <h3 className="dynamic-heading text-header">Volunteer Program</h3>
+          <h3 className="dynamic-heading text-header">Write for Prism</h3>
           <p className="dynamic-text w-full bg-white p-4">
-            The Restoring Rainbows volunteer program is for interested individuals to create digital worksheets that can be donated to people in need. Contributors also gain volunteer hours for their work.
+            Prism is a global youth news website that encompasses a wide array of perspectives and ideas on the environment, education, and art. Click the button below to view our newsletter, and get other helpful information about submitting your own work!
           </p>
         </div>
 
-        <div className="space-y-6 my-12">
-          <h3 className="dynamic-subheading text-header">Example Worksheets</h3>
-          <div className="
-            [&_.swiper-button-next]:text-[#4A4A4A] [&_.swiper-button-prev]:text-[#4A4A4A]
-            [&_.swiper-button-next]:w-8 [&_.swiper-button-prev]:w-8
-            [&_.swiper-button-next]:h-8 [&_.swiper-button-prev]:h-8
-            [&_.swiper-button-next]:bg-black/10 [&_.swiper-button-prev]:bg-black/10
-            [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full
-            [&_.swiper-button-next]:after:text-sm [&_.swiper-button-prev]:after:text-sm
-            [&_.swiper-button-next]:after:content-['next'] [&_.swiper-button-prev]:after:content-['prev']">
-            <Swiper
-              modules={[Navigation]}
-              navigation
-              slidesPerView="auto"
-              spaceBetween={75}
-              className="w-full"
-            >
-              {worksheetExamples.map((example, index) => (
-                <SwiperSlide key={index} className="!w-auto max-[430px]:w-full">
-                  <img src={example} className="w-[300px] h-auto
-                  max-[430px]:w-[200px]" />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-
         <div className="grid gap-y-28 mt-16">
-          {volunteerGuidelines.map((guide, index) => (
+          {prismGuidelines.map((guide, index) => (
             <div
               key={index}
               className={`flex flex-col gap-y-6 ${

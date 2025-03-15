@@ -183,8 +183,8 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* Donate Button */}
-        <div className="flex justify-center items-center mt-[1px] max-[1025px]:hidden">
-          <OutlineButton className="w-[100px] py-[8px] flex justify-center items-center border-[2px] border-black/40 hover:border-transparent transition-all duration-700">
+        <div className="flex justify-center items-center mt-[3px] max-[1025px]:hidden">
+          <OutlineButton className="w-[100px] py-[5px] flex justify-center items-center border-[2px] border-black/10 hover:border-transparent transition-all duration-700">
             <a className="text-lg font-semibold text-black/70" href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">
               Donate
             </a>
