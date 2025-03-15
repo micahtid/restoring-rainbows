@@ -110,7 +110,7 @@ const Prism = () => {
         <div className="-mt-24">
           <ArrowButton 
               text="Write For Us"
-              link="/take-action/"
+              link="/take-action/prism"
             />
         </div>
       </div>
