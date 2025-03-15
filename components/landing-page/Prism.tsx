@@ -18,7 +18,7 @@ const Prism = () => {
             Subscribe to Our Newsletter Service, Prism
           </h3>
           <p className='dynamic-text text-body'>
-            Prism is Restoring Rainbow&apos;s newsletter and blog service featuring youth perspectives on topics ranging from climate to education to art.
+          Prism is a global youth news website that encompasses a wide array of perspectives and ideas on the environment, education, and art.
           </p>
         </div>
         <div className="flex flex-col items-center gap-y-2
@@ -37,9 +37,9 @@ const Prism = () => {
             <a
             className="dynamic-text font-accent uppercase text-primary" 
             // href="https://prismofficial.substack.com/"
-            href="/coming-soon"
+            href="/prism"
             >
-              Subscribe
+              View More
             </a>
           </OutlineButton>
         </div>
