@@ -36,7 +36,7 @@ const WhatAreBranches = () => {
           <p className="
             dynamic-text text-body mb-12"
           >
-            Branches are smaller versions of the main Restoring Rainbows nonprofit based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country, explore our program and apply via the form under the "More Information" tab.
+            Branches are smaller versions of the main Restoring Rainbows nonprofit based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country, explore our program and apply via the form under the &quot;More Information&quot; tab.
           </p>
         </div>
       </div>
