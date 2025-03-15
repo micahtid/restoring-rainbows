@@ -7,8 +7,8 @@ const StartABranch = () => {
       <div 
         className='fixed inset-0 z-[-1]' 
         style={{
-          backgroundColor: '#f8faff',
-          backgroundImage: 'linear-gradient(135deg, #f8faff 0%, #e3f0ff 100%)',
+          backgroundColor: '#ffffff',
+          backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #f8faff 50%, #e3f0ff 100%)',
         }}
       />
       <svg 

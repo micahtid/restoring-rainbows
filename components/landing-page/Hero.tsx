@@ -112,6 +112,7 @@ const Hero = () => {
           lg:top-[150px] 
 
           px-x py-4
+          max-lg:py-3
           z-[500]
 
           w-[42.5vw]

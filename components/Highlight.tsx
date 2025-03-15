@@ -7,8 +7,8 @@ interface HighlightProps {
 
 const Highlight: React.FC<HighlightProps> = ({ text, className }) => {
   return (
-    <div className={twMerge("bg-primary py-2 px-4 inline-block border-b-4 border-black/20 rounded-sm", className)}>
-        <p className="uppercase text-white font-title font-bold text-md">{text}</p>
+    <div className={twMerge("bg-primary py-2 px-4 inline-block", className)}>
+        <p className="uppercase text-white font-accent text-sm">{text}</p>
     </div>
   );
 }

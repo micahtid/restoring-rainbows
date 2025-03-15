@@ -16,18 +16,19 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
 
   return (
     <div className="w-[100vw] flex justify-center items-center
-    px-x pt-28 py-52"
+    px-x pt-28 pb-20"
     style={{
       background: 'radial-gradient(circle at top center, rgba(243, 226, 202, 0.3), rgba(250, 250, 250, 0.3))'
     }}
     >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="1126px"
+          height="200%"
           viewBox="0 0 1236 1126"
           version="1.1"
-          className="absolute top-[125px] left-1/2 transform -translate-x-1/2 opacity-[15%] z-0 w-full 
-          max-lg:-top-[25px] max-md:-top-[100px] max-sm:hidden"
+          className="absolute -top-[50%] left-1/2 transform -translate-x-1/2 opacity-[15%] z-0 w-[200%] 
+          max-lg:-top-[75%] max-md:-top-[100%] max-sm:hidden"
+          preserveAspectRatio="xMidYMid slice"
         >
         <g id="Desktop" stroke="#73a0e1" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round">
           <g id="Start-a-Club" transform="translate(-102.000000, -144.000000)" stroke="#73a0e1" strokeWidth="60">
@@ -63,7 +64,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
             flex flex-col gap-y-2">
               <img src={partner.logo} className="w-full h-full aspect-square object-cover" />
               <div className="flex items-center gap-x-2 
-              dynamic-text font-semibold max-[559px]:text-base">
+              dynamic-text font-medium max-[559px]:text-base">
                 <h3 className="max-w-[200px] overflow-hidden text-nowrap overflow-ellipsis">{partner.name}</h3>
                 <IoOpenOutline size={18} className="max-[559px]:hidden"/>
               </div>

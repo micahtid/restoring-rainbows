@@ -18,8 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         title: ['Plus Jakarta Sans', 'sans-serif'], 
-        accent: ['Roboto Mono', 'monospace'],
-        code: ['Source Code Pro', 'monospace']
+        accent: ['Roboto Mono', 'monospace']
       },
       maxWidth: {
         'max': '1200px',
