@@ -61,7 +61,8 @@ const Prism = () => {
             Prism Newsletter
           </h3>
           <p className="dynamic-text text-body w-full">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis, veniam eius sit recusandae, nemo iusto, expedita impedit non aspernatur veritatis unde ipsam officia? Vero ad accusantium repellendus consectetur molestias.
+          Prism is a global youth news website that encompasses a wide array of perspectives and ideas on the environment, education, and art.
+          Click the buttons below to view our newsletter, and get other helpful information about submitting your own work!
           </p>
         </div>
 
@@ -106,14 +107,12 @@ const Prism = () => {
             link="https://prismofficial.substack.com/"
           />
         </div>
-
-        <TakeActionItem
-          index={2}
-          title={takeActionPageSections[3].title}
-          description={takeActionPageSections[3].description}
-          buttonLabel={takeActionPageSections[3].buttonLabel}
-          buttonLink={takeActionPageSections[3].buttonLink}
-        />
+        <div className="-mt-24">
+          <ArrowButton 
+              text="Write For Us"
+              link="/take-action/prism"
+            />
+        </div>
       </div>
     </section>
   );
