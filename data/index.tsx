@@ -41,7 +41,7 @@ import { PiRecycleDuotone, PiChalkboardTeacherDuotone, PiHandHeartDuotone } from
 export const whatWeDo = [
     {icon: <PiRecycleDuotone />, title: "Collect and Refurbish School Supplies", description: "Whether they're worn out, barely working, or gently used, we collect your school supplies and restore them, keeping them out of landfills."},
     {icon: <PiHandHeartDuotone />, title: "Donate School Supplies", description: "We donate school supplies to unlock the creative potential of children, offering them the tools to turn their dreams into colorful realities, no matter their circumstances."},
-    {icon: <PiChalkboardTeacherDuotone />, title: "Educate About Climate Change/Art Education", description: "We educate communities about the intersection of climate change and art, raising awareness and inspiring meaningful action."},
+    {icon: <PiChalkboardTeacherDuotone />, title: "Educate About Climate Change/Art", description: "We educate communities about the intersection of climate change and art, raising awareness and inspiring meaningful action."},
 ]
 
 // About Us Page

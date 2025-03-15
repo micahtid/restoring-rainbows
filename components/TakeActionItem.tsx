@@ -19,11 +19,11 @@ const TakeActionItem: React.FC<TakeActionItemProps> = ({ index, title, descripti
             {description}
           </p>
 
-          <OutlineButton className="w-[200px] py-2 
+          <OutlineButton className="w-[240px] py-2 
           bg-primary text-white hover:bg-transparent hover:text-body
           transition-all duration-500
           shadow-sm flex justify-center items-center">
-            <a className="dynamic-text font-medium" href={buttonLink}>{buttonLabel}</a>
+            <a className="dynamic-text font-accent" href={buttonLink}>{buttonLabel}</a>
           </OutlineButton>
     </div>
   )

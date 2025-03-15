@@ -17,7 +17,7 @@ const WhatWeDo = () => {
                 className={`
                 flex flex-col justify-between items-start h-[400px] 
                 max-lg:h-full
-                ${index !== whatWeDo.length - 1 && 'lg:border-r-2'} 
+                ${index !== whatWeDo.length - 1 && 'lg:border-r-[1px]'} 
                 lg:border-primary lg:pr-12 lg:mr-12`}>
                     <div className="flex flex-col justify-start items-start gap-y-4">
                         <div className="text-8xl text-primary/80 ">

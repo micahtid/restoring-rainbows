@@ -60,7 +60,7 @@ const GenericApplication: React.FC<GenericApplicationProps> = ({ instructions, t
                         shadow-sm flex justify-center items-center"
                 >
                     <a 
-                        className="dynamic-text font-medium" 
+                        className="dynamic-text font-accent" 
                         href={buttonLink}
                     >
                         {buttonLabel}

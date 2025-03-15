@@ -2,28 +2,13 @@
 
 import Highlight from "@/components/Highlight";
 import Loader from "@/components/Loader";
-import OutlineButton from "@/components/OutlineButton";
-
+import ArrowButton from "@/components/ArrowButton";
 import TakeActionItem from "../../components/TakeActionItem";
 import { takeActionPageSections } from "@/data";
-
 import { useData } from "@/providers/useData";
 
 const Prism = () => {
   const { stories } = useData();
-
-  // const prismGuidelines = [
-  //   { 
-  //     title: "Prism Guidelines", 
-  //     description: "Restoring Rainbows requires all digital submissions to abide by a strict set of guidelines. Please review them here, as well as view some helpful submission prompts.",
-  //     link: "https://docs.google.com/document/d/1Xx0nTrf3jPPodznCGIRYLSMZhrIPjUW04637mogPf_8/edit?usp=sharing"
-  //   },
-  //   { 
-  //     title: "Prism Submission", 
-  //     description: "Use this form to submit your digital work, and attach a volunteer form for us to sign in order for you to receive your hours.",
-  //     link: "https://docs.google.com/forms/d/e/1FAIpQLSc6zYdvTK5qDpPdRViSAFQ7-HLS5-5qaPhiCCEGCa57W9J6Aw/viewform?usp=sf_link"
-  //   },
-  // ];
 
   if (!stories) {
     return <Loader />;
@@ -32,63 +17,104 @@ const Prism = () => {
   const displayedStories = stories.slice(0, 5);
 
   return (
-    <section className="max-w-max mx-auto px-x py-8 mt-28 mb-12
-    flex flex-col justify-start items-start gap-y-4
-    min-h-[75vh] 
-    fade-in-animation">
-      <Highlight text="Read Our Blogs" />
-
-      <h3 className="dynamic-heading text-header">
-        Prism Newsletter
-      </h3>
-
-      <p className="dynamic-text text-body bg-white/80 backdrop-blur-sm p-4 rounded-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis, veniam eius sit recusandae, nemo iusto, expedita impedit non aspernatur veritatis unde ipsam officia? Vero ad accusantium repellendus consectetur molestias.
-      </p>
-
-      <p className="dynamic-subheading mt-20 mb-2">Recent Publications</p>
-
-      <div className="flex flex-col gap-y-4 w-full mb-12 bg-white/80 backdrop-blur-sm p-6 rounded-lg">
-        {displayedStories.map((story, index) => (
-          <div key={index} className="group">
-            <a 
-              className="dynamic-text text-body 
-              group-hover:text-primary transition-colors duration-300
-              flex items-center gap-x-3"
-              href={story.link}>
-              <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors duration-300" />
-              {story.title}
-            </a>
-            {index !== displayedStories.length - 1 && (
-              <div className="w-full h-[2px] bg-body/20 mt-4" />
-            )}
-          </div>
-        ))}
-      </div>
-
-      <OutlineButton 
-        className="w-[150px] py-2 
-        bg-primary text-white
-        transition-all duration-300
-        shadow-sm
-        hover:bg-transparent hover:text-body
-        flex justify-center items-center
-        mb-32"
+    <section className="
+      relative min-h-screen w-full
+      flex justify-center items-start
+      bg-white"
+    >
+      {/* Background SVGs */}
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="100%" 
+        height="100%" 
+        viewBox="0 0 1036 1020" 
+        className="absolute inset-0 z-0 opacity-10"
+        preserveAspectRatio="xMidYMid slice"
       >
-        <a 
-        href="https://prismofficial.substack.com/ " 
-        className="dynamic-text font-medium">
-          Subscribe
-        </a>
-      </OutlineButton>
+        <g stroke="#73a0e1" strokeWidth="60" fill="none" fillRule="evenodd" strokeLinecap="round">
+          <path d="M232,150 C450,180 550,250 600,400 C650,550 750,600 900,620 C1050,640 1150,750 1208,1110" />
+        </g>
+      </svg>
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="100%" 
+        height="100%" 
+        viewBox="0 0 1036 1020" 
+        className="absolute inset-0 z-0 opacity-10 rotate-180"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <g stroke="#73a0e1" strokeWidth="60" fill="none" fillRule="evenodd" strokeLinecap="round">
+          <path d="M232,150 C350,200 450,300 500,450 C550,600 650,700 800,750 C950,800 1050,850 1208,1110" />
+        </g>
+      </svg>
+
+      <div className="
+        relative z-10
+        max-w-max w-full mx-auto px-x py-32
+        flex flex-col justify-start items-start"
+      >
+        <div className="flex flex-col gap-y-6 mb-16">
+          <div className="w-[200px]">
+            <Highlight text="Read Our Blogs" />
+          </div>
+          <h3 className="dynamic-heading text-header">
+            Prism Newsletter
+          </h3>
+          <p className="dynamic-text text-body w-full">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis, veniam eius sit recusandae, nemo iusto, expedita impedit non aspernatur veritatis unde ipsam officia? Vero ad accusantium repellendus consectetur molestias.
+          </p>
+        </div>
+
+        <div className="w-full flex flex-col gap-y-6 mb-16">
+          <h4 className="dynamic-subheading text-header">
+            Recent Publications
+          </h4>
+          
+          <div className="w-full grid grid-cols-1 gap-4">
+            {displayedStories.map((story, index) => (
+              <a 
+                key={index} 
+                href={story.link}
+                className="
+                  group relative
+                  bg-white shadow-sm 
+                  transition-all duration-300
+                  border-l-4 border-primary/50 hover:border-primary
+                  px-6 py-4
+                  flex items-center"
+              >
+                <p className="
+                  dynamic-text text-body group-hover:text-primary
+                  transition-colors duration-300"
+                >
+                  {story.title}
+                </p>
+                <div className="
+                  absolute top-1/2 -translate-y-1/2 right-6
+                  w-3 h-3 rotate-45 border-t-2 border-r-2
+                  border-primary/50 group-hover:border-primary
+                  transition-colors duration-300"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-28">
+          <ArrowButton 
+            text="Subscribe"
+            link="https://prismofficial.substack.com/"
+          />
+        </div>
 
         <TakeActionItem
-        index={2}
-        title={takeActionPageSections[3].title}
-        description={takeActionPageSections[3].description}
-        buttonLabel={takeActionPageSections[3].buttonLabel}
-        buttonLink={takeActionPageSections[3].buttonLink}
+          index={2}
+          title={takeActionPageSections[3].title}
+          description={takeActionPageSections[3].description}
+          buttonLabel={takeActionPageSections[3].buttonLabel}
+          buttonLink={takeActionPageSections[3].buttonLink}
         />
+      </div>
     </section>
   );
 }
