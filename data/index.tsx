@@ -9,7 +9,10 @@ export const landingPageTakeAction = [
 
 // Components 
 export const extendedNavItems = [
-    {label: "About", link: "/about", subItems: []},
+    {label: "About", link: "javascript:void(0)", subItems: [
+        {label: "Our Org", link: "/about"},
+        {label: "2024 Impact Report", link: "https://drive.google.com/file/d/1n08ybdLQUuLHsxiLQIUCk74TGyH8N7nI/view"}
+    ]},
     {label: "Team", link: "/team", subItems: []},
     {label: "Partners", link: "/partners", subItems: []},
     {label: "Stories", link: "javascript:void(0)", subItems: [
