@@ -37,9 +37,9 @@ const Admin = () => {
             {adminStatus ? (
                 <div className="w-full h-full flex border border-gray-100">
                     {/* Sidebar Navigation */}
-                    <div className="w-[250px] h-full border-r border-gray-100 bg-gray-50 px-4 py-8">
+                    <div className="w-[250px] h-full border-r border-gray-100 bg-gray-50 px-4 py-8 overflow-y-auto no-scrollbar">
                         <h2 className="text-xl font-bold text-header mb-8 px-4">Admin Dashboard</h2>
-                        <div className="flex flex-col gap-y-2 w-full">
+                        <div className="flex flex-col gap-y-2 w-full mb-8">
                             {
                                 states.map((state, index) => (
                                     <button 

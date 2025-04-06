@@ -98,7 +98,8 @@ const OpportunityContent: React.FC<OpportunityContentProps> = ({ opportunities }
         <div className="w-full h-[1px] bg-header/40" /> 
 
 
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4
+        max-lg:flex-col max-lg:items-start">
           <div className="flex items-center gap-x-2 text-gray-400 font-semibold">
             <FaClock />
             <p>Deadline: <span className="text-gray-800">{opportunity.deadline}</span></p>
