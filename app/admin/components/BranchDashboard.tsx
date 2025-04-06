@@ -20,10 +20,9 @@ const BranchDashboard = () => {
   } = useData();
 
   return (
-    <div className="flex flex-col justify-start items-center gap-y-6
-    py-12 w-full max-w-max">
-      <h3 className="text-5xl font-bold">Branches</h3>
-      <div className="flex flex-col justify-start items-center gap-y-2 w-full">
+    <div className="flex flex-col justify-start items-start gap-y-8 w-full">
+      <h3 className="text-4xl font-bold text-header">Branches</h3>
+      <div className="flex flex-col justify-start items-start gap-y-2 w-full">
         {branches?.map((branch, index) => (
           <DataLine
           key={index}
@@ -40,7 +39,7 @@ const BranchDashboard = () => {
         ))}
       </div>
       <button 
-      className="bg-primary px-4 py-2 rounded-full text-white"
+      className="bg-primary px-5 py-2 rounded-full text-white"
       onClick={() => {
         setNewBranch(true);
         setCurrentBranch(null);
