@@ -904,3 +904,137 @@ export const deleteStory = async (previousData: DocumentData) => {
         toast.error('Failed to Delete Story');
     }
 };
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+export const getOpportunities = (setOpportunities: (opportunities: DocumentData[]) => void) => {
+    const app = initializeFirebase();
+    const firestore = getFirestore(app);
+
+    const opportunitiesCollection = collection(firestore, 'opportunities');
+
+    const unsubscribe = onSnapshot(opportunitiesCollection, (querySnapshot) => {
+        const opportunities: DocumentData[] = [];
+        querySnapshot.forEach((doc) => {
+            opportunities.push({
+                ...doc.data(),
+                id: doc.id
+            });
+        });
+        setOpportunities(opportunities);
+    });
+
+    return unsubscribe;
+}
+
+export const addOpportunity = async (
+    title: string,
+    deadline: string,
+    locationType: string,
+    description: string,
+    summary: string,
+    benefits: string,
+    applicationLink: string,
+    guidelinesLink: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+
+        const opportunitiesCollection = collection(firestore, 'opportunities');
+        await addDoc(opportunitiesCollection, {
+            title,
+            deadline,
+            locationType,
+            description,
+            summary,
+            benefits,
+            applicationLink,
+            guidelinesLink,
+            createdAt: Timestamp.now()
+        });
+
+        toast.success('Added Opportunity');
+    } catch (error) {
+        toast.error('Failed to Add Opportunity');
+    }
+}
+
+export const editOpportunity = async (
+    previousData: DocumentData,
+    title: string,
+    deadline: string,
+    locationType: string,
+    description: string,
+    summary: string,
+    benefits: string,
+    applicationLink: string,
+    guidelinesLink: string
+) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+
+        const opportunitiesCollection = collection(firestore, 'opportunities');
+
+        const opportunityQuery = query(
+            opportunitiesCollection,
+            where('title', '==', previousData.title),
+            where('deadline', '==', previousData.deadline)
+        );
+
+        const querySnapshot = await getDocs(opportunityQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching opportunity found');
+            return;
+        }
+
+        const opportunityDocRef = querySnapshot.docs[0].ref;
+        await updateDoc(opportunityDocRef, {
+            title,
+            deadline,
+            locationType,
+            description,
+            summary,
+            benefits,
+            applicationLink,
+            guidelinesLink,
+            updatedAt: Timestamp.now()
+        });
+
+        toast.success('Edited Opportunity');
+    } catch (error) {
+        toast.error('Failed to Edit Opportunity');
+    }
+}
+
+export const deleteOpportunity = async (previousData: DocumentData) => {
+    try {
+        const app = initializeFirebase();
+        const firestore = getFirestore(app);
+        const opportunitiesCollection = collection(firestore, 'opportunities');
+
+        const opportunityQuery = query(
+            opportunitiesCollection,
+            where('title', '==', previousData.title),
+            where('deadline', '==', previousData.deadline)
+        );
+
+        const querySnapshot = await getDocs(opportunityQuery);
+
+        if (querySnapshot.empty) {
+            console.error('No matching opportunity found');
+            return;
+        }
+
+        const opportunityDocRef = querySnapshot.docs[0].ref;
+        await deleteDoc(opportunityDocRef);
+
+        toast.success('Deleted Opportunity');
+    } catch (error) {
+        toast.error('Failed to Delete Opportunity');
+    }
+}
