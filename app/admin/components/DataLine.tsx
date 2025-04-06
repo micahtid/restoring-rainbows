@@ -11,25 +11,24 @@ interface DataLineProps {
 
 const DataLine: React.FC<DataLineProps> = ({ onClick, onClickDelete, display, disableDelete, disableEdit }) => {
   return (
-    <div className="flex justify-between items-center gap-x-56 w-full
-          border-b border-gray-100 py-4 group">
-        <div className="flex justify-start items-center gap-x-12">
-          <button 
-          onClick={onClick}
-          disabled={disableEdit}
-          className={`${disableEdit && "hidden"} text-gray-400 hover:text-primary transition-colors duration-300`}>
-            <MdEdit />
-          </button>
-          <p className="text-gray-600">
-              {display}
-          </p>
+    <div className="flex justify-between items-center w-full border-b border-gray-100 py-4 px-2 group hover:bg-gray-50 transition-all duration-300">
+        <div className="flex-1 text-gray-600 truncate">
+            {display}
         </div>
-        <button 
-        onClick={onClickDelete}
-        disabled={disableDelete}
-        className={`${disableDelete && "hidden"} text-gray-400 hover:text-red-500 transition-colors duration-300`}>
-            <MdDelete />
-        </button>
+        <div className="flex items-center gap-x-4">
+          <button 
+            onClick={onClick}
+            disabled={disableEdit}
+            className={`${disableEdit && "hidden"} p-2 text-gray-400 hover:text-primary hover:bg-primary/5 rounded-full transition-all duration-300`}>
+              <MdEdit size={18} />
+          </button>
+          <button 
+            onClick={onClickDelete}
+            disabled={disableDelete}
+            className={`${disableDelete && "hidden"} p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all duration-300`}>
+              <MdDelete size={18} />
+          </button>
+        </div>
     </div>
   )
 }

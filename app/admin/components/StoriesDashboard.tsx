@@ -19,10 +19,9 @@ const StoriesDashboard = () => {
 
   return (
     <div
-      className="flex flex-col justify-start items-center gap-y-6
-    py-12 w-full max-w-max"
+      className="flex flex-col justify-start items-start gap-y-8 w-full"
     >
-      <h3 className="text-5xl font-bold">Prism</h3>
+      <h3 className="text-4xl font-bold text-header">Prism</h3>
       <div className="flex flex-col justify-start items-center gap-y-2 w-full">
           {stories?.map((story, index) => (
               <DataLine
@@ -40,7 +39,7 @@ const StoriesDashboard = () => {
             ))}
       </div>
         <button 
-        className="bg-primary px-4 py-2 rounded-full text-white"
+        className="bg-primary px-5 py-2 rounded-full text-white"
         onClick={() => {
             setNewStory(true);
             setCurrentStory(null);

@@ -9,6 +9,7 @@ import VolunteerModal from "@/components/modals/VolunteerModal";
 import PartnerModal from "@/components/modals/PartnerModal";
 import EventsModal from "@/components/modals/EventsModal";
 import StoryModal from "@/components/modals/StoryModal";
+import OpportunityModal from "@/components/modals/OpportunityModal";
 
 import ExecutiveMemberModal from "@/components/modals/ExecutiveMemberModal";
 
@@ -32,6 +33,7 @@ const ModalProvider = () => {
         <PartnerModal />
         <EventsModal />
         <StoryModal />
+        <OpportunityModal />
 
         <ExecutiveMemberModal />
     </>
