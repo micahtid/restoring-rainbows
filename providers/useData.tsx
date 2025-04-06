@@ -10,6 +10,7 @@ import {
   getPartners,
   getEvents,
   getStories,
+  getOpportunities,
 } from "@/utils/database";
 
 type DataContextType = {
@@ -20,6 +21,7 @@ type DataContextType = {
   partners: DocumentData[] | null;
   events: DocumentData[] | null;
   stories: DocumentData[] | null;
+  opportunities: DocumentData[] | null;
 };
 
 export const BranchContext = createContext<DataContextType | undefined>(
@@ -38,6 +40,7 @@ export const DataContextProvider = (props: Props) => {
   const [partners, setPartners] = useState<DocumentData[] | null>(null);
   const [events, setEvents] = useState<DocumentData[] | null>(null);
   const [stories, setStories] = useState<DocumentData[] | null>(null);
+  const [opportunities, setOpportunities] = useState<DocumentData[] | null>(null);
 
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
@@ -115,6 +118,11 @@ export const DataContextProvider = (props: Props) => {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = getOpportunities(setOpportunities);
+    return () => unsubscribe();
+  }, []);
+
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
@@ -127,6 +135,7 @@ export const DataContextProvider = (props: Props) => {
     partners,
     events,
     stories,
+    opportunities,
   };
 
   return <BranchContext.Provider value={value} {...props} />;

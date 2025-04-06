@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MdDashboard, MdPeople, MdBusiness, MdEvent, MdArticle, MdBarChart, MdLocationOn } from "react-icons/md";
+import { MdDashboard, MdPeople, MdBusiness, MdEvent, MdArticle, MdBarChart, MdLocationOn, MdWorkOutline } from "react-icons/md";
 
 import EntryField from "./components/EntryField";
 
@@ -12,6 +12,7 @@ import VolunteersDashboard from "./components/VolunteersDashboard";
 import PartnersDashboard from "./components/PartnersDashboard";
 import EventsDashboard from "./components/EventsDashboard";
 import StoriesDashboard from "./components/StoriesDashboard";
+import OpportunityDashboard from "./components/OpportunityDashboard";
 
 const Admin = () => {
     const [adminStatus, setAdminStatus] = useState(false);
@@ -25,6 +26,7 @@ const Admin = () => {
         {title: "Volunteers", component: <VolunteersDashboard />, icon: <MdPeople />},
         {title: "Partners", component: <PartnersDashboard />, icon: <MdBusiness />},
         {title: "Events", component: <EventsDashboard />, icon: <MdEvent />},
+        {title: "Opportunities", component: <OpportunityDashboard />, icon: <MdWorkOutline />},
         {title: "Prism", component: <StoriesDashboard />, icon: <MdArticle />}
     ];
     const [activeState, setActiveState] = useState(0);
