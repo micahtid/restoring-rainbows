@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { DocumentData } from 'firebase/firestore';
 import { useData } from '@/providers/useData';
@@ -11,8 +11,11 @@ import { PiMapPinFill } from "react-icons/pi";
 
 import Loader from '@/components/Loader';
 
-const Opportunity = () => {
-  const { opportunities } = useData();
+interface OpportunityContentProps {
+  opportunities: DocumentData[] | null;
+}
+
+const OpportunityContent: React.FC<OpportunityContentProps> = ({ opportunities }) => {
   const searchParams = useSearchParams();
   const title = searchParams.get('title');
 
@@ -24,10 +27,6 @@ const Opportunity = () => {
       setOpportunity(matchedOpportunity || null);
     }
   }, [title, opportunities]);
-
-  if (!opportunities) {
-    return <Loader />;
-  }
 
   if (!opportunity) {
     return <Loader />;
@@ -100,19 +99,15 @@ const Opportunity = () => {
 
 
         <div className="flex items-center gap-x-4">
-
           <div className="flex items-center gap-x-2 text-gray-400 font-semibold">
             <FaClock />
             <p>Deadline: <span className="text-gray-800">{opportunity.deadline}</span></p>
           </div>
-          
-
           <div className="flex items-center gap-x-2 text-gray-400 font-semibold">
             <PiMapPinFill />
             <p>{opportunity.locationType}</p>
           </div>
         </div>
-
 
         <a 
           href={opportunity.applicationLink} 
@@ -128,18 +123,15 @@ const Opportunity = () => {
           Apply Now
         </a>
 
-
         <div className="mt-8 flex flex-col gap-y-2">
           <h3 className="dynamic-subheading text-header text-2xl">Benefits</h3>
           <p className="dynamic-text text-gray-500">{opportunity.benefits}</p>
         </div>
 
-
         <div className="mt-8 flex flex-col gap-y-2">
           <h3 className="dynamic-subheading text-header text-2xl">Description</h3>
           <p className="dynamic-text text-gray-500">{opportunity.description}</p>
           
-
           <a 
             href={opportunity.guidelinesLink} 
             target="_blank" 
@@ -158,4 +150,18 @@ const Opportunity = () => {
   );
 };
 
-export default Opportunity
+const Opportunity = () => {
+  const { opportunities } = useData();
+
+  if (!opportunities) {
+    return <Loader />;
+  }
+
+  return (
+    <Suspense fallback={<Loader />}>
+      <OpportunityContent opportunities={opportunities} />
+    </Suspense>
+  );
+};
+
+export default Opportunity;
