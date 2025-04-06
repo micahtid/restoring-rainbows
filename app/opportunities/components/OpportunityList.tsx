@@ -38,19 +38,17 @@ const OpportunityList: React.FC<OpportunityListProps> = ({ opportunities }) => {
             </h3>
 
 
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-3">
               <FaClock className="text-gray-500" size={25} />
               <p className="dynamic-text font-semibold text-gray-700">
                 Deadline: {opportunity.deadline}
               </p>
             </div>
 
-
             <div className="space-y-1 mt-6">
               <p className="dynamic-text font-semibold text-gray-700">Description</p>
               <p className="dynamic-text text-gray-500">{opportunity.summary}</p>
             </div>
-
 
             <div className="w-full h-[1px] bg-header/30 my-4" />
 
