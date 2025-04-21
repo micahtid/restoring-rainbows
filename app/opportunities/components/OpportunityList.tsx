@@ -18,7 +18,10 @@ const OpportunityList: React.FC<OpportunityListProps> = ({ opportunities }) => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col gap-y-8 w-full">
+      <div className="
+      grid grid-cols-2 gap-x-4 gap-y-8
+      max-lg:flex max-lg:flex-col
+      w-full">
         {opportunities?.map((opportunity, index) => (
           <div 
             key={index} 
@@ -28,7 +31,13 @@ const OpportunityList: React.FC<OpportunityListProps> = ({ opportunities }) => {
               bg-white shadow-sm 
               cursor-pointer
             "
-            onClick={() => handleOpportunityClick(opportunity.title)}
+            onClick={() => {
+  if (opportunity.redirectLink) {
+    window.location.href = opportunity.redirectLink;
+  } else {
+    handleOpportunityClick(opportunity.title);
+  }
+}}
           >
             <h3 className="
               dynamic-subheading text-2xl text-header font-black 
@@ -40,28 +49,42 @@ const OpportunityList: React.FC<OpportunityListProps> = ({ opportunities }) => {
 
             <div className="flex items-center gap-x-3">
               <FaClock className="text-gray-500" size={25} />
-              <p className="dynamic-text font-semibold text-gray-700">
+              <p className="dynamic-text font-semibold text-gray-700
+              text-nowrap overflow-hidden overflow-ellipsis">
                 Deadline: {opportunity.deadline}
               </p>
             </div>
 
-            <div className="space-y-1 mt-6">
+            <div className="space-y-1 mt-6 h-full">
               <p className="dynamic-text font-semibold text-gray-700">Description</p>
               <p className="dynamic-text text-gray-500">{opportunity.summary}</p>
             </div>
 
             <div className="w-full h-[1px] bg-header/30 my-4" />
 
-            <button 
-              onClick={() => handleOpportunityClick(opportunity.title)}
-              className="
-                text-left 
-                dynamic-text font-semibold text-primary 
-                hover:underline
-              "
-            >
-              Learn More →
-            </button>
+            {opportunity.redirectLink ? (
+              <a
+                href={opportunity.redirectLink}
+                className="text-left dynamic-text font-semibold text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn More →
+              </a>
+            ) : (
+              <button 
+                onClick={() => {
+  if (opportunity.redirectLink) {
+    window.location.href = opportunity.redirectLink;
+  } else {
+    handleOpportunityClick(opportunity.title);
+  }
+}}
+                className="text-left dynamic-text font-semibold text-primary hover:underline"
+              >
+                Learn More →
+              </button>
+            )}
           </div>
         ))}
       </div>

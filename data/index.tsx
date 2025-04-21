@@ -20,7 +20,7 @@ export const extendedNavItems = [
         {label: "Events", link: "/events"}
     ]},
     {label: "Branches", link: "/branches", subItems: []},
-    {label: "Take Action", link: "/take-action", subItems: []}
+    {label: "Opportunities", link: "javascript:void(0)", subItems: []}
 ]
 
 export const contacts = [
