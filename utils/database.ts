@@ -937,7 +937,8 @@ export const addOpportunity = async (
     summary: string,
     benefits: string,
     applicationLink: string,
-    guidelinesLink: string
+    guidelinesLink: string,
+    redirectLink?: string
 ) => {
     try {
         const app = initializeFirebase();
@@ -953,6 +954,7 @@ export const addOpportunity = async (
             benefits,
             applicationLink,
             guidelinesLink,
+            ...(redirectLink ? { redirectLink } : {}),
             createdAt: Timestamp.now()
         });
 
@@ -971,7 +973,8 @@ export const editOpportunity = async (
     summary: string,
     benefits: string,
     applicationLink: string,
-    guidelinesLink: string
+    guidelinesLink: string,
+    redirectLink?: string
 ) => {
     try {
         const app = initializeFirebase();
@@ -1002,6 +1005,7 @@ export const editOpportunity = async (
             benefits,
             applicationLink,
             guidelinesLink,
+            ...(redirectLink ? { redirectLink } : {}),
             updatedAt: Timestamp.now()
         });
 

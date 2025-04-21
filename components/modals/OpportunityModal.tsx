@@ -19,6 +19,7 @@ const OpportunityModal = () => {
     const [benefits, setBenefits] = useState("");
     const [applicationLink, setApplicationLink] = useState("");
     const [guidelinesLink, setGuidelinesLink] = useState("");
+    const [redirectLink, setRedirectLink] = useState("");
 
     useEffect(() => {
         setTitle(currentOpportunity?.title || "");
@@ -29,6 +30,7 @@ const OpportunityModal = () => {
         setBenefits(currentOpportunity?.benefits || "");
         setApplicationLink(currentOpportunity?.applicationLink || "");
         setGuidelinesLink(currentOpportunity?.guidelinesLink || "");
+        setRedirectLink(currentOpportunity?.redirectLink || "");
     }, [updated, currentOpportunity]);
 
     const onChange = (open: boolean) => {
@@ -53,7 +55,8 @@ const OpportunityModal = () => {
                 summary,
                 benefits,
                 applicationLink,
-                guidelinesLink
+                guidelinesLink,
+                redirectLink
             );
             onClose();
         } else if (!newOpportunity && 
@@ -70,7 +73,8 @@ const OpportunityModal = () => {
                 summary,
                 benefits,
                 applicationLink,
-                guidelinesLink
+                guidelinesLink,
+                redirectLink
             );
             onClose();
         }
@@ -132,6 +136,12 @@ const OpportunityModal = () => {
                     placeholder="URL to guidelines (optional)..."
                     value={guidelinesLink}
                     onChange={(e) => setGuidelinesLink(e.target.value)}
+                />
+                <InputField
+                    label="Redirect Link (Optional)"
+                    placeholder="URL to redirect (optional)..."
+                    value={redirectLink}
+                    onChange={(e) => setRedirectLink(e.target.value)}
                 />
                 <button
                     type="submit"
