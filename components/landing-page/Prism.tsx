@@ -23,25 +23,24 @@ const Prism = () => {
         </div>
         <div className="flex flex-col items-center gap-y-2
         max-w-[300px] w-full">
+
           <img src="/prism.png" className='-mt-4 aspect-square object-cover 
           w-[65.5%] max-xl:h-full' />
-          {/* <div className="w-full mb-6 -mt-2">
-            <div className='w-full h-[2px] bg-primary'/>
-            <p className='text-xs text-body italic'>Prism is built on another external platform.</p>
-          </div> */}
+
+
           <OutlineButton className="
-          w-full py-[8px]
+          w-full py-[12px]
           flex justify-center items-center
-          border-[2px] border-primary hover:border-transparent
-          transition-all duration-700">
+          border-[2px] border-primary/60">
             <a
-            className="dynamic-text font-accent uppercase text-primary" 
+            className="font-accent2 font-semibold uppercase text-primary" 
             // href="https://prismofficial.substack.com/"
             href="/prism"
             >
               View More
             </a>
           </OutlineButton>
+
         </div>
       </div>
     </section>
