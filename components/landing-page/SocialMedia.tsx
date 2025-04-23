@@ -28,14 +28,6 @@ const SocialMedia = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
   const [activeIndex, setActiveIndex] = useState<number>(0)
   
-  // Ensure thumbnail slider has an active initial slide!
-  useEffect(() => {
-    if (instagramPosts.length > 0 && thumbsSwiper && typeof thumbsSwiper.slideTo === "function") {
-      thumbsSwiper.slideTo(0);
-      setActiveIndex(0);
-    }
-  }, [instagramPosts, thumbsSwiper])
-
   useEffect(() => {
     const fetchInstagramData = async () => {
       try {
