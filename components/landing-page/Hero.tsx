@@ -7,70 +7,12 @@ import 'aos/dist/aos.css';
 
 import "./hero.css"
 
-const gradientBlurLevels = [
-  'blur-md',
-  'blur-lg',
-  'blur-lg',
-  'blur-xl',
-  'blur-xl',
-  'blur-xl',
-  'blur-2xl',
-  'blur-2xl',
-  'blur-2xl',
-  'blur-3xl',
-  'blur-3xl',
-  'blur-3xl',
-  'blur-4xl'
-];
-
 const heroBlurLevels = [
   'blur-sm',
   'blur-md',
   'blur-lg',
   'blur-xl'
 ];
-
-interface HorizontalGradientProps {
-  yPos: string;
-  height: string;
-  className?: string;
-}
-
-const HorizontalGradient: React.FC<HorizontalGradientProps> = ({ yPos, height, className }) => {
-  const baseGradientClass = 'bg-secondary w-full absolute bottom-0';
-  
-  return (
-    <div className={twMerge("absolute w-full h-full top-0 right-0 z-[100] max-lg:transform max-lg:translate-y-[110px]", className)}>
-      {gradientBlurLevels.map((blurClass, index) => (
-        <div
-          key={index}
-          className={twMerge(baseGradientClass, height, blurClass, yPos)}
-        />
-      ))}
-    </div>
-  );
-};
-
-interface VerticalGradientProps {
-  xPos: string;
-  width: string;
-  className?: string;
-}
-
-const VerticalGradient: React.FC<VerticalGradientProps> = ({ xPos, width, className }) => {
-  const baseGradientClass = 'bg-secondary h-full absolute bottom-0';
-  
-  return (
-    <div className={twMerge("absolute w-full h-full top-0 right-0 z-[100]", className)}>
-      {gradientBlurLevels.map((blurClass, index) => (
-        <div
-          key={index}
-          className={twMerge(baseGradientClass, width, blurClass, xPos)}
-        />
-      ))}
-    </div>
-  );
-};
 
 const Hero = () => {
   useEffect(() => {
@@ -104,16 +46,6 @@ const Hero = () => {
           max-lg:mt-[50px]
         "
       >
-      {heroBlurLevels.map((blur, index) => (
-        <div 
-        key={index}
-        className={twMerge(`
-        absolute top-1/2 left-1/2 transform -translate-x-[47.5%] -translate-y-1/2
-        w-[105.5%] h-[108.5%] -z-10
-        bg-secondary
-        `, blur)}/>
-      ))}
-
         Youth-Powered Global Climate and Art Action
       </h1>
 
@@ -129,10 +61,18 @@ const Hero = () => {
         max-lg:w-[65%]
         "
       >
-        <VerticalGradient 
-        xPos="-right-0" 
-        width="w-[6vw] max-xl:w-[80px]"
-        className="max-lg:hidden" />
+        <div className="
+          absolute 
+          z-[50]
+          lg:-right-[5px] 
+          lg:top-1/2 
+          lg:-translate-y-1/2 
+          lg:bg-gradient-to-l 
+          lg:from-secondary 
+          lg:from-40% 
+          lg:w-[45%] 
+          lg:h-[calc(100%+50px)]
+        " />
         <img
           data-aos="fade-right"
           data-aos-once="true"
@@ -160,10 +100,21 @@ const Hero = () => {
         max-[570px]:top-[40%] max-[465px]:top-[50%]
         "
       >
-        <HorizontalGradient 
-        yPos="top-[100px]" 
-        height="h-[80px] max-lg:h-[30px] max-[522px]:h-[20px]"
-        className="-top-[125px] max-[1500px]:-top-[150px] max-lg:-top-[215px]" />
+        <div className="
+          absolute 
+          z-[50]
+          -top-[5px] 
+          lg:left-1/2 
+          lg:-translate-x-1/2 
+          bg-gradient-to-b 
+          from-secondary 
+          from-50% 
+          w-[calc(100%+40px)] 
+          h-[40%] 
+          max-lg:h-[15%] 
+          max-md:h-[25%]
+          max-lg:-translate-x-[5px]
+        " />
         <img 
           data-aos="fade-up"
           data-aos-once="true"
@@ -184,10 +135,18 @@ const Hero = () => {
         
         max-lg:hidden"
       >
-        <VerticalGradient 
-        xPos="left-0" 
-        width="w-[6vh] max-xl:w-[50px]"
-        className="max-lg:hidden" />
+        <div className="
+          absolute 
+          z-[50]
+          -left-[5px] 
+          top-1/2 
+          -translate-y-1/2 
+          bg-gradient-to-r 
+          from-secondary 
+          from-25% 
+          w-[45%] 
+          h-[calc(100%+50px)]
+        " />
         <img 
           data-aos="fade-left"
           data-aos-once="true"
