@@ -111,8 +111,9 @@ const Hero = () => {
           from-50% 
           w-[calc(100%+40px)] 
           h-[40%] 
-          max-lg:h-[15%] 
-          max-md:h-[25%]
+          max-lg:h-[20%] 
+          max-md:h-[15%]
+          max-sm:h-[10%]
           max-lg:-translate-x-[5px]
         " />
         <img 
