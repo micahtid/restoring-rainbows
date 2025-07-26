@@ -42,8 +42,10 @@ const SocialMedia = () => {
 
         const data = await response.json()
 
+        console.log(data)
+
         const filteredData = data.data
-          .filter((post: Post) => post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM")
+          .filter((post: Post) => post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM" || post.media_type === "VIDEO")
           .slice(0, 5)
 
         setInstagramPosts(filteredData)
@@ -94,7 +96,12 @@ const SocialMedia = () => {
           >
             {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
-                <img src={post.media_url} className="w-full h-full object-cover" />
+                {/* Show image for IMAGE or CAROUSEL, show video thumbnail for VIDEO */}
+                {post.media_type === "VIDEO" ? (
+                  <video src={post.media_url} className="w-full h-full object-cover" controls poster="" />
+                ) : (
+                  <img src={post.media_url} className="w-full h-full object-cover" />
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -107,17 +114,19 @@ const SocialMedia = () => {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Thumbs]}
-            className="h-[100px] w-full mb-14
-              max-lg:h-[55px] max-lg:w-[290px]"
+            className="h-[100px] w-full mb-14 max-lg:h-[55px] max-lg:w-full"
           >
             {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
-                <img
-                  src={post.media_url}
-                  className={`w-full h-full object-cover cursor-pointer
-                    transition-all duration-300 
-                    ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
-                />
+                {/* Show image thumbnail for IMAGE or CAROUSEL, video thumbnail for VIDEO */}
+                {post.media_type === "VIDEO" ? (
+                  <video src={post.media_url} className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} />
+                ) : (
+                  <img
+                    src={post.media_url}
+                    className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
+                  />
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
