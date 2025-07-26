@@ -36,7 +36,7 @@ const Events = () => {
         </g>
       </svg>
 
-      <div className="relative z-10 max-w-max w-full px-6 md:px-12 py-8 flex flex-col justify-start items-start gap-y-8 ">
+      <div className="relative z-10 min-h-[175vh] max-w-max w-full px-6 md:px-12 py-8 flex flex-col justify-start items-start gap-y-8 ">
         <Highlight text="Filter Our Events" className="-mb-6" />
         <SearchBar />
         <EventDisplay events={events} />

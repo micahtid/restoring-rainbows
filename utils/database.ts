@@ -27,12 +27,6 @@ export const initializeFirebase = () => {
     return app;
 }
 
-export const getFireStore = () => {
-    const app = initializeFirebase();
-    const firestore = getFirestore();
-    return firestore;
-}
-
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -507,6 +501,7 @@ export const deleteVolunteer = async (previousData: DocumentData) => {
         toast.error('Failed to Delete Volunteer');
     }
 };
+
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -654,7 +649,7 @@ export const getEvents = (setEvents: (events: DocumentData[]) => void) => {
 export const addEvent = async (
     title: string,
     content: string,
-    date: string,
+    branch: string,
     location: string,
     imageOne: File,
     imageTwo?: File,
@@ -671,28 +666,25 @@ export const addEvent = async (
             (image): image is File => !!image 
         );
 
-        const imageUrls: string[] = [];
-
-        for (const image of images) {
-            const imageRef = ref(storage, `events/${image.name}`);
-            await uploadBytes(imageRef, image);
-            const imageURL = await getDownloadURL(imageRef);
-            imageUrls.push(imageURL);
+        const imageUrls = [];
+        for (let i = 0; i < images.length; i++) {
+            const imageRef = ref(storage, `events/${images[i].name}`);
+            await uploadBytes(imageRef, images[i]);
+            const url = await getDownloadURL(imageRef);
+            imageUrls.push(url);
         }
 
         const eventsCollection = collection(firestore, 'events');
         await addDoc(eventsCollection, {
-            images: imageUrls, 
             title,
             content,
-            date,
+            branch,
             location,
+            images: imageUrls
         });
-
         toast.success('Added Event');
     } catch (error) {
         toast.error('Failed to Add Event');
-        console.error('Error adding event:', error);
     }
 };
 
@@ -700,7 +692,7 @@ export const editEvent = async (
     previousData: DocumentData,
     title: string,
     content: string,
-    date: string,
+    branch: string,
     location: string,
     imageOne?: File,
     imageTwo?: File,
@@ -714,57 +706,42 @@ export const editEvent = async (
         const storage = getStorage(app);
 
         const eventsCollection = collection(firestore, 'events');
-
         const eventQuery = query(
             eventsCollection,
             where('title', '==', previousData.title),
-            where('date', '==', previousData.date)
+            where('branch', '==', previousData.branch)
         );
-
         const querySnapshot = await getDocs(eventQuery);
-
         if (querySnapshot.empty) {
             console.error('No matching event found');
             return;
         }
-
         const eventDocRef = querySnapshot.docs[0].ref;
 
-        // !!true = true, !!false = false
-        const images = [imageOne, imageTwo, imageThree, imageFour, imageFive].filter(
-            (image): image is File => !!image
+        let imageUrls = previousData.images || [];
+        const newImages = [imageOne, imageTwo, imageThree, imageFour, imageFive].filter(
+            (image): image is File => !!image 
         );
-
-        if (images.length > 0) {
-            const imageUrls: string[] = [];
-
-            for (const image of images) {
-                const imageRef = ref(storage, `events/${image.name}`);
-                await uploadBytes(imageRef, image);
-                const imageURL = await getDownloadURL(imageRef);
-                imageUrls.push(imageURL);
+        if (newImages.length > 0) {
+            imageUrls = [];
+            for (let i = 0; i < newImages.length; i++) {
+                const imageRef = ref(storage, `events/${newImages[i].name}`);
+                await uploadBytes(imageRef, newImages[i]);
+                const url = await getDownloadURL(imageRef);
+                imageUrls.push(url);
             }
-
-            await updateDoc(eventDocRef, {
-                images: imageUrls,
-                title,
-                content,
-                date,
-                location,
-            });
-        } else {
-            await updateDoc(eventDocRef, {
-                title,
-                content,
-                date,
-                location,
-            });
         }
 
-        toast.success('Event updated successfully');
+        await updateDoc(eventDocRef, {
+            title,
+            content,
+            branch,
+            location,
+            images: imageUrls
+        });
+        toast.success('Edited Event');
     } catch (error) {
         toast.error('Failed to Edit Event');
-        console.error('Error editing event:', error);
     }
 };
 
@@ -777,7 +754,7 @@ export const deleteEvent = async (previousData: DocumentData) => {
         const eventQuery = query(
             eventsCollection,
             where('title', '==', previousData.title),
-            where('date', '==', previousData.date)
+            where('branch', '==', previousData.branch)
         );
 
         const querySnapshot = await getDocs(eventQuery);
