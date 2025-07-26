@@ -97,7 +97,7 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
       </p>
       <div className="flex flex-col gap-y-1">
         <p className="text-lg text-gray-500">Location: {event.location}</p>
-        <p className="text-lg text-gray-500">Date: {event.date}</p>
+        <p className="text-lg text-gray-500">Branch: {event.branch}</p>
       </div>
     </div>
   );

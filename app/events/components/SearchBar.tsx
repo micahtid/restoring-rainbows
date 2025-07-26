@@ -15,7 +15,7 @@ const SearchBar = () => {
     }, [query, router]);
 
     return (
-        <div className="w-full flex items-center bg-white px-4 py-3 shadow-sm mb-4">
+        <div className="w-full flex items-center bg-white px-4 py-3 drop-shadow-sm mb-4">
             <PiMagnifyingGlassDuotone size={20} className="text-body/30" />
             <input 
                 type="text" 

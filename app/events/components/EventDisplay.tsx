@@ -24,7 +24,7 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
 
       return (
         event.content?.toLowerCase().includes(lowerQuery) ||
-        event.date?.toLowerCase().includes(lowerQuery) ||
+        event.branch?.toLowerCase().includes(lowerQuery) ||
         event.firstName?.toLowerCase().includes(lowerQuery) ||
         event.lastName?.toLowerCase().includes(lowerQuery) ||
         event.location?.toLowerCase().includes(lowerQuery) ||
@@ -58,7 +58,7 @@ const EventDisplay: React.FC<EventDisplayProps> = ({ events }) => {
                 w-full max-lg:text-nowrap max-lg:overflow-x-hidden max-lg:overflow-ellipsis">
                   {event.title}
                 </h4>
-                <p className='text-sm text-body'>{event.date}</p>
+                <p className='text-sm font-title text-body'>{event.branch}</p>
               </div>
             </div>
           ))}
