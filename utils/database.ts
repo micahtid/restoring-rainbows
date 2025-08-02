@@ -14,13 +14,13 @@ import toast from "react-hot-toast";
 
 export const initializeFirebase = () => {
     const firebaseConfig = {
-        apiKey: "AIzaSyBsIBSpYyH_SLHM9_husL_K7z4Ax_sOpOA",
-        authDomain: "restoring-rainbows.firebaseapp.com",
-        projectId: "restoring-rainbows",
-        storageBucket: "restoring-rainbows.appspot.com",
-        messagingSenderId: "443221587019",
-        appId: "1:443221587019:web:4b589cd0bb45fcbdf749ce",
-        measurementId: "G-6783KFBCTJ"
+        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+        authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
     };
 
     const app = initializeApp(firebaseConfig);
