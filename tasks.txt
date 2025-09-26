@@ -1,3 +1,9 @@
 -- remove rainbow outline around recent events
-
+-- hero positioning
 -- fix up footer!
+
+-- branches dialogue
+-- overall aesthetics
+-- reusability
+
+-- remove uneeded assets ... put in folders and adjust

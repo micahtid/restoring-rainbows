@@ -56,6 +56,14 @@ At the same time, Jordan and Grace were struck by the large quantities of plasti
 Through Restoring Rainbows Jordan and Grace have personally seen the kindness of certain individuals and the meaningful influence of others, motivating them to keep promoting art accessibility and sustainability globally.
 `
 
+export const aboutPageProblem = `Today, millions of students around the world don't have access to basic art supplies — yet art education is proven to boost creativity, academic achievement, and emotional well-being. Without materials like markers, paints, and paper, many young people are unable to explore their creativity or develop skills that could shape their futures.
+
+At the same time, billions of school supplies and art materials are thrown away each year, contributing to plastic waste and environmental harm. While some communities lack access to tools for learning and self-expression, others have resources that could be restored and shared — but without systems to collect, recycle, and redistribute them, these supplies often go to waste.
+
+We believe that connecting these gaps is essential: not just to provide materials, but to empower students everywhere to create, learn, and express themselves — while protecting the planet through sustainable practices.`
+
+export const aboutPageSolution = `Restoring Rainbows strengthens creativity, education, and environmental sustainability by collecting, restoring, and redistributing school and art supplies to students worldwide.`
+
 export const aboutPageWhyWeMatter = [
     {number: "700 Million", caption: "Environment", description: "700 million plastic markers are produced annually by the world's leading marker brand, contributing to the 158,943,925 tons of plastic produced each year!"},
     {number: "33% of Parents", caption: "Cost", description: "Many people struggle to afford educational supplies like markers. In fact, in the United States, 1 in 3 parents expect to go into debt due to Back to School Shopping."},

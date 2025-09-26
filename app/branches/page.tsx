@@ -5,7 +5,6 @@ import { takeActionPageSections } from "@/data";
 
 import WhatAreBranches from "./components/WhatAreBranches";
 import BranchList from "./components/BranchList";
-import Map from "@/components/Map";
 import Loader from "@/components/Loader";
 
 import TakeActionItem from "../../components/TakeActionItem";
@@ -24,11 +23,6 @@ const Branches = () => {
   return (
     <section className="">
         <WhatAreBranches />
-        <div className="max-w-max w-full mx-auto px-x py-8 mt-10 mb-14">
-          <div className="w-full h-[400px]">
-            <Map />
-          </div>
-        </div>
         <BranchList branches={branches} />
 
         <div className="max-w-max w-full mx-auto
