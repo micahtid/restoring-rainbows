@@ -1,18 +1,9 @@
 "use client";
 
-import { twMerge } from "tailwind-merge";
 import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 import "./hero.css"
-
-const heroBlurLevels = [
-  'blur-sm',
-  'blur-md',
-  'blur-lg',
-  'blur-xl'
-];
 
 const Hero = () => {
   useEffect(() => {
@@ -31,8 +22,8 @@ const Hero = () => {
         className="
           text-left text-header relative
           font-extrabold dynamic-header uppercase
-          
-          lg:absolute lg:left-[49%] 
+
+          lg:absolute lg:left-[48.5%]
           lg:transform lg:-translate-x-[35%]
           lg:top-[100px] top-[40px]
 
@@ -50,15 +41,15 @@ const Hero = () => {
       </h1>
 
       <div className="
-        relative 
-        w-[42%]
+        relative
+        w-[40%]
         mt-[50px]
         aspect-[14.4/9.7]
         h-full
 
         max-lg:mt-[150px]
         max-[570px]:mt-[100px]
-        max-lg:w-[65%]
+        max-lg:w-[62%]
         "
       >
         <div className="
@@ -84,8 +75,8 @@ const Hero = () => {
       </div>
 
       <div className="
-        relative 
-        w-[36.5%]
+        relative
+        w-[34.5%]
         mt-[350px]
 
         z-[200]
@@ -95,7 +86,7 @@ const Hero = () => {
 
         max-[1500px]:mt-[275px]
         max-lg:mt-[0px]
-        max-lg:w-[45%]
+        max-lg:w-[42%]
         max-lg:absolute max-lg:left-[55%] max-lg:top-[30%]
         max-[570px]:top-[40%] max-[465px]:top-[50%]
         "
@@ -127,13 +118,13 @@ const Hero = () => {
       </div>
 
       <div className="
-        relative 
-        w-[24.5%] 
+        relative
+        w-[27.5%]
         mt-[50px]
 
         aspect-[7/7.6]
         h-full
-        
+
         max-lg:hidden"
       >
         <div className="
