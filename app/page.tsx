@@ -6,6 +6,7 @@ import Loader from "@/components/Loader";
 import Hero from "@/components/landing-page/Hero";
 import AboutUs from "@/components/landing-page/AboutUs";
 import Statistics from "@/components/landing-page/Statistics";
+import Mission from "@/components/landing-page/Mission";
 import WhatWeDo from "@/components/landing-page/WhatWeDo";
 import Prism from "@/components/landing-page/Prism";
 import SocialMedia from "@/components/landing-page/SocialMedia";
@@ -54,6 +55,7 @@ const Home = () => {
         <Hero />
         <AboutUs />
         <Statistics />
+        <Mission />
         <WhatWeDo />
         <Prism />
         <SocialMedia />

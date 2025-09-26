@@ -21,8 +21,8 @@ const Statistics = () => {
                 <div key={index}
                 className='flex flex-col justify-start items-center gap-y-1 
                 h-full'>
-                    <h3 className='dynamic-subheading font-bold text-body text-center'>{statistic.number}</h3>
-                    <p className='text-body text-lg text-center max-w-[100px]'>{statistic.label}</p>
+                    <h3 className='dynamic-subheading text-header text-center'>{statistic.number}</h3>
+                    <p className='dynamic-text text-header text-center whitespace-nowrap'>{statistic.label}</p>
                 </div>
             ))}
         </section>
