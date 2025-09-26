@@ -154,13 +154,14 @@ const NavBar: React.FC = () => {
             absolute left-0 -top-[15px]" />
           </a>
 
-          <div className="flex justify-center items-center gap-x-8">
+          {/* Abitrary Values! */}
+          <div className="flex justify-center items-center gap-x-8 w-[90%] max-lg:w-[70%]">
             {extendedNavItems.map((item, index) => (
               <div key={index} className="
                 flex flex-col justify-start items-end gap-y-2 mt-3 relative 
                 max-[1025px]:hidden
               ">
-                <a href={item.link} className="font-semibold text-black/70 text-lg">
+                <a href={item.link} className="font-bold uppercase text-black/70">
                   {item.label}
                 </a>
                 <div className="absolute left-0 top-[30px] flex flex-col items-start">
@@ -170,7 +171,7 @@ const NavBar: React.FC = () => {
                       href={subItem.link}
                       className="
                         opacity-0 text-left text-nowrap group-hover:opacity-100 
-                        transition-opacity duration-500 text-lg font-semibold text-black/70
+                        transition-opacity duration-500 uppercase font-bold text-black/70
                       "
                     >
                       {subItem.label}
@@ -185,7 +186,7 @@ const NavBar: React.FC = () => {
         {/* Donate Button */}
         <div className="flex justify-center items-center mt-[3px] max-[1025px]:hidden">
           <OutlineButton className="w-[100px] py-[5px] flex justify-center items-center border-[2px] border-black/10 hover:border-transparent transition-all duration-700">
-            <a className="text-lg font-semibold text-black/70" href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">
+            <a className="uppercase font-bold text-black/70" href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">
               Donate
             </a>
           </OutlineButton>

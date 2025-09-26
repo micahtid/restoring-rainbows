@@ -1,4 +1,3 @@
--- remove rainbow outline around recent events
 -- hero positioning
 -- fix up footer!
 
