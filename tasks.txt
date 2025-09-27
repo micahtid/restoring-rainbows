@@ -1,8 +1,1 @@
--- hero positioning
--- fix up footer!
-
--- branches dialogue
--- overall aesthetics
--- reusability
-
--- remove uneeded assets ... put in folders and adjust
+-- <img> -> <Image>
