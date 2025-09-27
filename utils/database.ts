@@ -1,7 +1,17 @@
 import { initializeApp } from "firebase/app";
 import {
-    getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, query, where, DocumentData,
-    onSnapshot, Timestamp, orderBy
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  query,
+  where,
+  DocumentData,
+  onSnapshot,
+  Timestamp,
+  orderBy,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import toast from "react-hot-toast";
@@ -12,29 +22,52 @@ import toast from "react-hot-toast";
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
-export const initializeFirebase = () => {
-    const firebaseConfig = {
-        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-        authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-        storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
-    };
+// Singleton pattern for Firebase app and instances
+let firebaseAppInstance: any = null;
+let firestoreInstance: any = null;
+let storageInstance: any = null;
 
-    const app = initializeApp(firebaseConfig);
-    return app;
-}
+export const initializeFirebase = () => {
+  if (firebaseAppInstance) {
+    return firebaseAppInstance;
+  }
+
+  const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  };
+
+  firebaseAppInstance = initializeApp(firebaseConfig);
+  return firebaseAppInstance;
+};
+
+export const getFirestoreInstance = () => {
+  if (!firestoreInstance) {
+    const app = initializeFirebase();
+    firestoreInstance = getFirestore(app);
+  }
+  return firestoreInstance;
+};
+
+export const getStorageInstance = () => {
+  if (!storageInstance) {
+    const app = initializeFirebase();
+    storageInstance = getStorage(app);
+  }
+  return storageInstance;
+};
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
 export const getBranches = (setBranches: (branches: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const branchesCollection = collection(firestore, 'branches');
 
     const unsubscribe = onSnapshot(branchesCollection, (querySnapshot) => {
@@ -71,9 +104,8 @@ export const addBranch = async (
     state?: string
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
 
         const photoRefOne = ref(storage, `branches/${photoOne.name}`);
         await uploadBytes(photoRefOne, photoOne);
@@ -144,9 +176,8 @@ export const editBranch = async (
     state?: string
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
         const branchesCollection = collection(firestore, 'branches');
 
         const branchQuery = query(
@@ -254,9 +285,7 @@ export const deleteBranch = async (previousBranch: DocumentData) => {
 /////////////////////////////////////////////////////////////
 
 export const getExecutiveBoard = (setExecutiveBoard: (executiveBoard: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const executiveBoardCollection = collection(firestore, 'executiveboard');
 
     const unsubscribe = onSnapshot(executiveBoardCollection, (querySnapshot) => {
@@ -279,9 +308,8 @@ export const addExecutiveBoardMember = async (
     bio: string
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
 
         const pictureRef = ref(storage, `executiveboard/${picture.name}`);
         await uploadBytes(pictureRef, picture);
@@ -381,9 +409,7 @@ export const deleteExecutiveBoardMember = async (previousData: DocumentData) => 
 /////////////////////////////////////////////////////////////
 
 export const getStatistics = (setStatistics: (statistics: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const statisticsCollection = collection(firestore, 'statistics');
 
     const unsubscribe = onSnapshot(statisticsCollection, (querySnapshot) => {
@@ -437,9 +463,7 @@ export const editStatistic = async (
 /////////////////////////////////////////////////////////////
 
 export const getVolunteers = (setVolunteers: (volunteers: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const volunteersCollection = collection(firestore, 'volunteers');
 
     const unsubscribe = onSnapshot(volunteersCollection, (querySnapshot) => {
@@ -507,9 +531,7 @@ export const deleteVolunteer = async (previousData: DocumentData) => {
 /////////////////////////////////////////////////////////////
 
 export const getPartners = (setPartners: (partners: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const partnersCollection = collection(firestore, 'partners');
 
     const unsubscribe = onSnapshot(partnersCollection, (querySnapshot) => {
@@ -532,9 +554,8 @@ export const addPartner = async (
     highlyValued: boolean
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
 
         const logoRef = ref(storage, `partners/${logo.name}`);
         await uploadBytes(logoRef, logo);
@@ -630,9 +651,7 @@ export const deletePartner = async (previousData: DocumentData) => {
 /////////////////////////////////////////////////////////////
 
 export const getEvents = (setEvents: (events: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const eventsCollection = collection(firestore, 'events');
 
     const unsubscribe = onSnapshot(eventsCollection, (querySnapshot) => {
@@ -658,9 +677,8 @@ export const addEvent = async (
     imageFive?: File
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
 
         const images = [imageOne, imageTwo, imageThree, imageFour, imageFive].filter(
             (image): image is File => !!image 
@@ -701,9 +719,8 @@ export const editEvent = async (
     imageFive?: File
 ) => {
     try {
-        const app = initializeFirebase();
-        const firestore = getFirestore(app);
-        const storage = getStorage(app);
+        const firestore = getFirestoreInstance();
+        const storage = getStorageInstance();
 
         const eventsCollection = collection(firestore, 'events');
         const eventQuery = query(
@@ -778,9 +795,7 @@ export const deleteEvent = async (previousData: DocumentData) => {
 /////////////////////////////////////////////////////////////
 
 export const getStories = (setStories: (stories: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const storiesCollection = collection(firestore, 'stories');
 
     // Fetch stories in descending order based on `createdAt` timestamp
@@ -887,9 +902,7 @@ export const deleteStory = async (previousData: DocumentData) => {
 /////////////////////////////////////////////////////////////
 
 export const getOpportunities = (setOpportunities: (opportunities: DocumentData[]) => void) => {
-    const app = initializeFirebase();
-    const firestore = getFirestore(app);
-
+    const firestore = getFirestoreInstance();
     const opportunitiesCollection = collection(firestore, 'opportunities');
 
     const unsubscribe = onSnapshot(opportunitiesCollection, (querySnapshot) => {

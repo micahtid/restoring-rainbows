@@ -3,7 +3,7 @@
 import Modal from "../Modal";
 import InputField from "../InputField";
 
-import usePartnerModal from "@/hooks/userPartnerModal";
+import usePartnerModal from "@/hooks/usePartnerModal";
 import { addPartner, editPartner } from "@/utils/database";
 import { useState, useEffect } from "react";
 

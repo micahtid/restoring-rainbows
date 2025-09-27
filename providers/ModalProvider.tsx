@@ -26,16 +26,15 @@ const ModalProvider = () => {
 
   return (
     <>
-        <BranchModal />
-        <ExecutiveBoardModal />
-        <StatisticsModal />
-        <VolunteerModal />
-        <PartnerModal />
-        <EventsModal />
-        <StoryModal />
-        <OpportunityModal />
-
-        <ExecutiveMemberModal />
+      <BranchModal />
+      <ExecutiveBoardModal />
+      <StatisticsModal />
+      <VolunteerModal />
+      <PartnerModal />
+      <EventsModal />
+      <StoryModal />
+      <OpportunityModal />
+      <ExecutiveMemberModal />
     </>
   );
 };

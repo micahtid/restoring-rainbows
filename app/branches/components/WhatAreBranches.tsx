@@ -1,9 +1,10 @@
 import Highlight from "@/components/Highlight";
+import Map from "@/components/Map";
 
 const WhatAreBranches = () => {
   return (
     <div className="
-      w-[100vw] pt-32 mb-16
+      w-[100vw] pt-32 mb-6
       flex justify-center items-center relative"
       style={{
         background: 'linear-gradient(to top, #e3f0ff, #f9fbff)'
@@ -38,6 +39,9 @@ const WhatAreBranches = () => {
           >
             Branches are smaller versions of the main Restoring Rainbows nonprofit based in all different areas of the world! They contribute so much to the mission, and are great volunteer and leadership opportunities for fans of our work! If you are interested in starting a branch in your city or country, explore our program and apply via the form under the &quot;More Information&quot; tab.
           </p>
+          <div className="w-full h-[400px] mb-8">
+            <Map />
+          </div>
         </div>
       </div>
     </div>

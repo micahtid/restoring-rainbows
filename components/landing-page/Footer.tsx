@@ -67,7 +67,7 @@ export const Footer = () => {
           max-lg:flex-col max-lg:items-start max-lg:gap-y-4"
         >
           <p className="text-sm text-white/70">
-            @Copyright 2024 Restoring Rainbows. All rights reserved.
+            @Copyright 2025 Restoring Rainbows. All rights reserved.
           </p>
           <p className="text-sm text-white/70">
             This website was built by{" "}

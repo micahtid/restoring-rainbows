@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 interface EntryFieldProps {
-    username: string;
-    setUsername: Function;
-    password: string;
-    setPassword: Function;
-    setAdminStatus: Function;
+  username: string;
+  setUsername: Function;
+  password: string;
+  setPassword: Function;
+  setAdminStatus: Function;
 }
 
 const EntryField: React.FC<EntryFieldProps> = ({ username, setUsername, password, setPassword, setAdminStatus }) => {
