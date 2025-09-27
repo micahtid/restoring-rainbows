@@ -15,7 +15,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
   const router = useRouter();
 
   return (
-    <div className="w-[100vw] flex justify-center items-center
+    <div className="w-full flex justify-center items-center relative overflow-hidden
     px-x pt-28 pb-20"
     style={{
       background: 'radial-gradient(circle at top center, rgba(243, 226, 202, 0.3), rgba(250, 250, 250, 0.3))'
@@ -26,7 +26,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
           height="200%"
           viewBox="0 0 1236 1126"
           version="1.1"
-          className="absolute -top-[50%] left-1/2 transform -translate-x-1/2 opacity-[15%] z-0 w-[200%] 
+          className="absolute -top-[50%] left-1/2 transform -translate-x-1/2 opacity-[15%] z-0 w-[200%]
           max-lg:-top-[75%] max-md:-top-[100%] max-sm:hidden"
           preserveAspectRatio="xMidYMid slice"
         >
@@ -38,7 +38,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
         </g>
       </svg>
       <div className="max-w-max w-full z-20
-      flex flex-col justify-start items-start gap-y-12
+      flex flex-col justify-start items-start gap-y-16 max-lg:gap-y-4
       fade-in-animation">
         <div className="flex flex-col gap-y-2">
           <div className="">
@@ -48,25 +48,27 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
             Partners
           </h3>
         </div>
-        <div className="w-full flex justify-end">
+        <div className="w-full flex justify-end max-lg:justify-start">
           <p className="dynamic-text text-body w-[800px]">
             {partnerPageDescription}
           </p>
         </div>
-        <div className="flex flex-row justify-start items-center flex-wrap gap-4">
+        <div className="h-8 max-[559px]:h-4"></div>
+        {/* ISSUE: Arbitrary Values For Responsiveness */}
+        <div className="flex flex-row justify-start items-center flex-wrap gap-8 gap-y-8">
           {partners?.map((partner, index) => (
             <button 
             onClick={() => {
               router.push(`/partners/partner?name=${partner.name}`)
             }}
             key={index}
-            className="w-[250px] max-[559px]:w-[45%]
+            className="w-[250px] max-[572px]:w-full
             flex flex-col gap-y-2">
               <img src={partner.logo} className="w-full h-full aspect-square object-cover" />
-              <div className="flex items-center gap-x-2 
-              dynamic-text font-medium max-[559px]:text-base">
-                <h3 className="max-w-[200px] overflow-hidden text-nowrap overflow-ellipsis">{partner.name}</h3>
-                <IoOpenOutline size={18} className="max-[559px]:hidden"/>
+              <div className="flex items-center justify-center gap-x-2
+              dynamic-text font-medium max-[572px]:justify-start">
+                <p className="max-w-[200px] overflow-hidden text-nowrap overflow-ellipsis text-center max-[572px]:text-left">{partner.name}</p>
+                <IoOpenOutline size={18} className="max-[572px]:hidden"/>
               </div>
             </button>
           ))}

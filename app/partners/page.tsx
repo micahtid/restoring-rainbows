@@ -17,7 +17,7 @@ const Partners = () => {
     return (
       <Loader />
     )
-  }
+  } 
 
   return (
     <section className="">
