@@ -18,14 +18,12 @@ interface GradientBackgroundProps {
 const GradientBackground: React.FC<GradientBackgroundProps> = ({ scrollPosition, onHover }) => (
   <div
     style={{
-      backgroundColor: '#d5e3f1',
-      backgroundImage: 'linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)',
+      backgroundColor: "#d5e3f1",
+      backgroundImage: "linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)",
     }}
     className={`
-      bg-[#f5e7d4] w-[135vw] h-[172.5px] overflow-hidden
-      absolute left-1/2 transform -translate-x-1/2
-      ${scrollPosition === 0 ? 'opacity-0' : 'opacity-100'}
-      -translate-y-[95px] -top-[15px]
+      absolute left-1/2 -top-[15px] overflow-hidden w-[135vw] h-[172.5px] bg-[#f5e7d4] transform -translate-x-1/2 -translate-y-[95px]
+      ${scrollPosition === 0 ? "opacity-0" : "opacity-100"}
       ${onHover && `
         group-hover:translate-y-0 group-hover:opacity-100
         transition-all duration-300
@@ -49,16 +47,13 @@ const NavModal: React.FC = () => {
   return (
     <div
       className={`
-        w-[100vw] h-[100vh] fixed top-0 right-0 bg-white
-        backdrop-blur-[5px] shadow-lg z-[13000]
-        flex flex-col justify-start items-end gap-y-4
-        px-x py-4 scroll cursor-all-scroll
+        fixed top-0 right-0 flex flex-col w-[100vw] h-[100vh] justify-start items-end gap-y-4 px-x py-4 bg-white shadow-lg backdrop-blur-[5px] z-[13000] scroll cursor-all-scroll
         ${!isOpen && "hidden"}
       `}
     >
 
       <svg xmlns="http://www.w3.org/2000/svg" width="1036px" height="1020px" viewBox="0 0 1036 1020" version="1.1"
-      className="absolute left-1/2 transform -translate-x-1/2 -z-10 opacity-50">
+      className="absolute left-1/2 -z-10 opacity-50 transform -translate-x-1/2">
         <title>Stroke 1</title>
         <g id="Desktop" stroke="#e3f0ff" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <g id="Team" transform="translate(-202.000000, -120.000000)" stroke="#e3f0ff" strokeWidth="60">
@@ -74,7 +69,7 @@ const NavModal: React.FC = () => {
 
       <div className="flex justify-between items-start w-full">
         <a href="/" className="-mt-[18px]">
-            <img src="/main_logo_blue.png" className="h-[75px] w-auto" />
+            <img src="/main_logo_blue.png" className="w-auto h-[75px]" />
           </a>
         <button className="mb-8" onClick={onClose}>
           <IoIosClose size={50} />
@@ -82,28 +77,25 @@ const NavModal: React.FC = () => {
       </div>
 
       {extendedNavItems.map((item, index) => (
-        <button 
-        key={index} 
-        className="w-full
-        flex flex-col justify-center items-start
-        border-b-2 pb-4"
+        <button
+        key={index}
+        className="flex w-full flex-col justify-center items-start pb-4 border-b-2"
         onClick={() => {
           if (item.subItems.length) {
             toggleSubItems(index)
           }
         }}>
-          <div className="w-full
-          flex flex-row justify-between items-center gap-x-2">
-            <a href={item.link} className="text-lg uppercase font-bold text-black/70 text-nowrap">
+          <div className="flex w-full flex-row justify-between items-center gap-x-2">
+            <a href={item.link} className="text-lg font-bold uppercase text-black/70 text-nowrap">
               {item.label}
             </a>
             {item.subItems.length > 0 && (
-              <FaChevronRight className={`${visibleSubItems[index] && "rotate-90"} transition-all duration-300 text-gray-500`} />
+              <FaChevronRight className={`text-gray-500 transition-all duration-300 ${visibleSubItems[index] && "rotate-90"}`} />
             )}
           </div>
 
           {visibleSubItems[index] && (
-            <div className="flex flex-col gap-y-2 items-start mt-2 mb-4">
+            <div className="flex flex-col items-start gap-y-2 mt-2 mb-4">
               {item.subItems.map((subItem, subIndex) => (
                 <a key={subIndex} href={subItem.link} className="text-lg text-black/70">
                   {subItem.label}
@@ -114,12 +106,8 @@ const NavModal: React.FC = () => {
         </button>
       ))}
 
-      <OutlineButton className="w-[150px] py-2 mt-4
-      bg-primary text-white hover:bg-transparent hover:text-body
-      transition-all duration-500
-      flex justify-center items-center
-      self-start shadow-sm">
-        <a className="dynamic-text font-medium" 
+      <OutlineButton className="flex w-[150px] justify-center items-center self-start py-2 mt-4 bg-primary text-white shadow-sm transition-all duration-500 hover:bg-transparent hover:text-body">
+        <a className="dynamic-text font-medium"
         href="https://www.zeffy.com/fundraising/donate-to-make-a-difference-542">Donate</a>
       </OutlineButton>
     </div>
@@ -134,17 +122,16 @@ const NavBar: React.FC = () => {
   // Update scroll position
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav className={`
-      fixed top-0 w-[100vw] px-x py-4 h-[75px] z-[10000] 
-      flex justify-center items-center transition-all duration-300 bg-transparent
+      fixed top-0 flex w-[100vw] h-[75px] justify-center items-center px-x py-4 bg-transparent z-[10000] transition-all duration-300
     `}>
       <div className="flex justify-between items-start gap-x-16 max-w-max w-full">
-        
+
         {/* Full Navigation (Desktop) */}
         <div className="flex justify-end items-start w-full max-[1025px]:hidden relative group">
           <GradientBackground scrollPosition={scrollPosition} onHover={true} />
@@ -158,7 +145,7 @@ const NavBar: React.FC = () => {
           <div className="flex justify-center items-center gap-x-8 w-[90%] max-lg:w-[70%]">
             {extendedNavItems.map((item, index) => (
               <div key={index} className="
-                flex flex-col justify-start items-end gap-y-2 mt-3 relative 
+                flex flex-col justify-start items-end gap-y-2 mt-3 relative
                 max-[1025px]:hidden
               ">
                 <a href={item.link} className="font-bold uppercase text-black/70">
@@ -170,7 +157,7 @@ const NavBar: React.FC = () => {
                       key={subIndex}
                       href={subItem.link}
                       className="
-                        opacity-0 text-left text-nowrap group-hover:opacity-100 
+                        opacity-0 text-left text-nowrap group-hover:opacity-100
                         transition-opacity duration-500 uppercase font-bold text-black/70
                       "
                     >
@@ -195,14 +182,14 @@ const NavBar: React.FC = () => {
         {/* Mobile Navigation Toggle */}
         <div className="hidden max-[1025px]:flex max-[1025px]:justify-between max-[1025px]:items-center w-full relative">
           <GradientBackground scrollPosition={scrollPosition} onHover={false} />
-          
+
           <a href="/" className="z-[11000]">
             <img src="/main_logo_black.png" className="h-[75px] w-auto z-[1100]
             absolute left-0 -top-[15px]" />
           </a>
 
           <button className="z-[11000] p-3
-          dynamic-text text-header font-bold uppercase" 
+          dynamic-text text-header font-bold uppercase"
           onClick={onOpen}>
             Menu
           </button>

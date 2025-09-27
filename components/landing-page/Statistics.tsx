@@ -1,8 +1,9 @@
 "use client";
 
+import { memo } from "react";
 import { useData } from "@/providers/useData";
 
-const Statistics = () => {
+const Statistics = memo(() => {
     const {
         statistics
     } = useData();
@@ -25,6 +26,8 @@ const Statistics = () => {
             ))}
         </section>
     );
-};
+});
+
+Statistics.displayName = 'Statistics';
 
 export default Statistics;

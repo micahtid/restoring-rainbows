@@ -1,8 +1,8 @@
-import OutlineButton from '../OutlineButton';
+import OutlineButton from "../OutlineButton";
 
 // Swiper
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 import 'swiper/css/navigation';
 
 const Prism = () => {

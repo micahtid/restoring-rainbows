@@ -1,11 +1,11 @@
 "use client";
 
-import { DocumentData } from 'firebase/firestore';
-import { useEffect, useState, useCallback, useMemo } from 'react';
-import dynamic from 'next/dynamic';
-import { useData } from '@/providers/useData';
+import { DocumentData } from "firebase/firestore";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import dynamic from "next/dynamic";
+import { useData } from "@/providers/useData";
 
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 const DynamicMapContainer = dynamic(
   () => import('react-leaflet').then((mod) => mod.MapContainer),

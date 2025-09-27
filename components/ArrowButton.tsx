@@ -1,5 +1,5 @@
-import React from 'react';
-import './arrow-button.css'; // Import the CSS file
+import React from "react";
+import "./arrow-button.css"; // Import the CSS file
 
 interface ArrowButtonProps {
   text: string;
@@ -12,7 +12,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = ({ text, link }) => {
     className='flex justify-center items-center gap-x-1
     arrow-link'
     href={link}>
-      <p className='uppercase font-title dynamic-text text-primary font-bold'>{text}</p>
+      <p className='dynamic-text font-title font-bold uppercase text-primary'>{text}</p>
       <svg 
       id="right"
       className='arrow-svg scale-75'>
