@@ -17,12 +17,11 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
   } = useExecutiveMemberModal();
 
   return (
-    <div className="w-full flex justify-center items-center"
+    <div className="w-full flex justify-center items-center px-x pt-28 pb-8"
     style={{
       background: 'radial-gradient(circle at top center, rgba(243, 226, 202, 0.3), rgba(250, 250, 250, 0.3))'
     }}>
       <div className="max-w-max w-full
-      px-x pb-8 pt-28
       flex flex-col justify-start items-start gap-y-12
       fade-in-animation"
       >

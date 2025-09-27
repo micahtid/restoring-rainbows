@@ -10,7 +10,7 @@ interface VolunteersProps {
 
 const Volunteers: React.FC<VolunteersProps> = ({ volunteers }) => {
   return (
-    <div className='max-w-max w-full mx-auto px-x py-20
+    <div className='max-w-max w-full mx-auto px-x pt-20 pb-20
     fade-in-animation'>
         <h3 className='dynamic-subheading text-header'>Volunteers</h3>
         <Marquee speed={25} gradient={false} className="w-full h-full py-8">
