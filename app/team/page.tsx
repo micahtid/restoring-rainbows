@@ -20,8 +20,8 @@ const Team = () => {
 
   return (
     <section className="">
-      <ExecutiveBoard executiveBoard={executiveBoard} />
       <Volunteers volunteers={volunteers} />
+      <ExecutiveBoard executiveBoard={executiveBoard} />
     </section>
   )
 }

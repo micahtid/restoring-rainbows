@@ -1,5 +1,5 @@
 import React from "react";
-import "./arrow-button.css"; // Import the CSS file
+import "./arrow-button.css";
 
 interface ArrowButtonProps {
   text: string;
