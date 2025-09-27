@@ -17,7 +17,7 @@ const Hero = () => {
     >
       <h1
         className="
-          relative w-[42.5vw] px-x py-4 text-left text-header font-extrabold dynamic-header uppercase z-[500]
+          relative w-[42.5vw] px-x py-4 text-left text-header dynamic-header uppercase z-[500]
           top-[40px]
           max-lg:w-full max-lg:max-w-[800px] max-lg:py-3 max-lg:mt-[50px]
           lg:absolute lg:left-[48.5%] lg:top-[100px] lg:transform lg:-translate-x-[35%]

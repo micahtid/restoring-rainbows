@@ -17,9 +17,9 @@ const config: Config = {
         body: "#4A4A4A"
       },
       fontFamily: {
-        title: ['Plus Jakarta Sans'], 
-        accent: ['Roboto Mono'],
-        accent2: ['Open Sans'],
+        title: ['Plus Jakarta Sans', 'sans-serif'], 
+        accent: ['Roboto Mono', 'monospace'],
+        accent2: ['Open Sans', 'sans-serif'],
       },
       
       maxWidth: {
