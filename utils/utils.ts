@@ -5,37 +5,39 @@ import { DocumentData } from "firebase/firestore";
 //////////////////////////////////////////////////////////////////////////////////
 
 export interface CityData {
-    city: string;
-    branches: DocumentData[];
+  city: string;
+  branches: DocumentData[];
 }
 
 export interface StateData {
-    state: string;
-    cities: CityData[];
+  state: string;
+  cities: CityData[];
 }
 
 export interface CountryData {
-    country: string;
-    states?: StateData[];
-    cities?: CityData[];                                                 
+  country: string;
+  states?: StateData[];
+  cities?: CityData[];
 }
 
 export const organizeBranchesByCountry = (documentData: DocumentData[]) => {
-    const result: CountryData[] = [];
+  const result: CountryData[] = [];
   
-    documentData.forEach(doc => {
-      const { country, state, city } = doc;
+  documentData.forEach((doc) => {
+    const { country, state, city } = doc;
   
-      // Find if the country exists in the result array
-      let countryData = result.find(c => c.country === (country === "United States" ? "USA" : country));
-      if (!countryData) {
-        countryData = { 
-          country: country === "United States" ? "USA" : country, 
-          states: country === "United States" ? [] : undefined,
-          cities: country === "United States" ? undefined : []
-        };
-        result.push(countryData);
-      }
+    // Find if the country exists in the result array
+    let countryData = result.find(
+      (c) => c.country === (country === "United States" ? "USA" : country),
+    );
+    if (!countryData) {
+      countryData = {
+        country: country === "United States" ? "USA" : country,
+        states: country === "United States" ? [] : undefined,
+        cities: country === "United States" ? undefined : [],
+      };
+      result.push(countryData);
+    }
   
       // If country is the USA or United States, organize by states and cities
       if (country === "United States" || country === "USA") {

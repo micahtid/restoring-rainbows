@@ -8,8 +8,8 @@ import Loader from "@/components/Loader";
 import { useData } from "@/providers/useData";
 
 const Events = () => {
-  const { 
-    events
+  const {
+    events,
   } = useData();
 
   if (!events) {
@@ -19,16 +19,16 @@ const Events = () => {
   }
 
   return (
-    <div 
+    <div
       className="w-[100vw] pt-32 pb-24 flex justify-center items-center relative min-h-screen"
     >
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="100%" 
-        height="100%" 
-        viewBox="0 0 1036 1008" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%"
+        height="100vh"
+        viewBox="0 0 1036 1008"
         version="1.1"
-        className="absolute inset-0 z-0 opacity-10"
+        className="absolute top-0 left-0 z-0 opacity-10"
         preserveAspectRatio="xMidYMid slice"
       >
         <g stroke="#73a0e1" strokeWidth="60" fill="none" fillRule="evenodd" strokeLinecap="round">
@@ -36,7 +36,7 @@ const Events = () => {
         </g>
       </svg>
 
-      <div className="relative z-10 min-h-[175vh] max-w-max w-full px-6 md:px-12 py-8 flex flex-col justify-start items-start gap-y-8 ">
+      <div className="relative z-10 min-h-[175vh] max-w-max w-full px-6 md:px-12 py-8 flex flex-col justify-start items-start gap-y-8">
         <Highlight text="Filter Our Events" className="-mb-6" />
         <SearchBar />
         <EventDisplay events={events} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
 import { DocumentData } from "firebase/firestore";
 import {
   getBranches,
@@ -46,7 +46,7 @@ export const DataContextProvider = (props: Props) => {
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
 
-  const sortBranches = (branches: DocumentData[] | null) => {
+  const sortBranches = useCallback((branches: DocumentData[] | null) => {
     if (!branches) return null;
     return branches.sort((a, b) => {
       if (a.country === b.country) {
@@ -54,9 +54,9 @@ export const DataContextProvider = (props: Props) => {
       }
       return a.country.localeCompare(b.country);
     });
-  };
+  }, []);
 
-  const sortPeopleByName = (people: DocumentData[] | null) => {
+  const sortPeopleByName = useCallback((people: DocumentData[] | null) => {
     if (!people) return null;
     return people.sort((a, b) => {
       if (a.firstName === b.firstName) {
@@ -64,12 +64,12 @@ export const DataContextProvider = (props: Props) => {
       }
       return a.firstName.localeCompare(b.firstName);
     });
-  };
+  }, []);
 
-  const sortPartners = (partners: DocumentData[] | null) => {
+  const sortPartners = useCallback((partners: DocumentData[] | null) => {
     if (!partners) return null;
     return partners.sort((a, b) => a.name.localeCompare(b.name));
-  };
+  }, []);
 
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ export const DataContextProvider = (props: Props) => {
   ////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////
 
-  const value = {
+  const value = useMemo(() => ({
     branches,
     executiveBoard,
     statistics,
@@ -136,7 +136,16 @@ export const DataContextProvider = (props: Props) => {
     events,
     stories,
     opportunities,
-  };
+  }), [
+    branches,
+    executiveBoard,
+    statistics,
+    volunteers,
+    partners,
+    events,
+    stories,
+    opportunities,
+  ]);
 
   return <BranchContext.Provider value={value} {...props} />;
 };

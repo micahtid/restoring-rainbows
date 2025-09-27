@@ -1,5 +1,5 @@
 import { useData } from "@/providers/useData";
-import usePartnerModal from "@/hooks/userPartnerModal";
+import usePartnerModal from "@/hooks/usePartnerModal";
 import { deletePartner } from "@/utils/database";
 
 import DataLine from "./DataLine";

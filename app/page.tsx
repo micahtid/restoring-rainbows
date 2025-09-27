@@ -1,17 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import dynamic from "next/dynamic";
 
 import Loader from "@/components/Loader";
 import Hero from "@/components/landing-page/Hero";
-import AboutUs from "@/components/landing-page/AboutUs";
-import Statistics from "@/components/landing-page/Statistics";
-import WhatWeDo from "@/components/landing-page/WhatWeDo";
-import Prism from "@/components/landing-page/Prism";
-import SocialMedia from "@/components/landing-page/SocialMedia";
-import RecentEvents from "@/components/landing-page/RecentEvents";
-import TakeAction from "@/components/landing-page/TakeAction";
-import Partners from "@/components/landing-page/Partners";
+
+// Lazy load heavy components
+const AboutUs = dynamic(() => import("@/components/landing-page/AboutUs"), {
+  loading: () => <div className="h-20 animate-pulse bg-gray-100 rounded" />
+});
+const Statistics = dynamic(() => import("@/components/landing-page/Statistics"), {
+  loading: () => <div className="h-32 animate-pulse bg-gray-100 rounded" />
+});
+const Mission = dynamic(() => import("@/components/landing-page/Mission"), {
+  loading: () => <div className="h-40 animate-pulse bg-gray-100 rounded" />
+});
+const Prism = dynamic(() => import("@/components/landing-page/Prism"), {
+  loading: () => <div className="h-60 animate-pulse bg-gray-100 rounded" />
+});
+const SocialMedia = dynamic(() => import("@/components/landing-page/SocialMedia"), {
+  loading: () => <div className="h-32 animate-pulse bg-gray-100 rounded" />
+});
+const RecentEvents = dynamic(() => import("@/components/landing-page/RecentEvents"), {
+  loading: () => <div className="h-64 animate-pulse bg-gray-100 rounded" />
+});
+const TakeAction = dynamic(() => import("@/components/landing-page/TakeAction"), {
+  loading: () => <div className="h-48 animate-pulse bg-gray-100 rounded" />
+});
+const Partners = dynamic(() => import("@/components/landing-page/Partners"), {
+  loading: () => <div className="h-40 animate-pulse bg-gray-100 rounded" />
+});
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +50,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed bg-white z-[10000]
-      inset-0 w-[100vw] h-[100vh]
-      flex justify-center items-center">
+      <div className="fixed inset-0 flex w-[100vw] h-[100vh] justify-center items-center bg-white z-[10000]">
         <Loader />
       </div>
     );
@@ -41,29 +58,42 @@ const Home = () => {
 
   return (
     <main>
-      <div className="relative
-      max-[325px]:hidden">
-        <div 
+      <div className="relative max-[325px]:hidden">
+        <div
           style={{
             background: `
-                conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`
+                conic-gradient(from 0deg, #e3f0ff, #d3f8e6, #e3f0ff)`,
           }}
-          className="absolute top-0 w-full h-[3000px] max-md:h-[3200px] -z-[100]"
+          className="absolute top-0 w-full h-[3000px] -z-[100] max-md:h-[3200px]"
         />
         <div className="pb-24" />
         <Hero />
-        <AboutUs />
-        <Statistics />
-        <WhatWeDo />
-        <Prism />
-        <SocialMedia />
-        <RecentEvents />
-        <TakeAction />
-        <Partners />
+        <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100 rounded" />}>
+          <AboutUs />
+        </Suspense>
+        <Suspense fallback={<div className="h-32 animate-pulse bg-gray-100 rounded" />}>
+          <Statistics />
+        </Suspense>
+        <Suspense fallback={<div className="h-40 animate-pulse bg-gray-100 rounded" />}>
+          <Mission />
+        </Suspense>
+        <Suspense fallback={<div className="h-60 animate-pulse bg-gray-100 rounded" />}>
+          <Prism />
+        </Suspense>
+        <Suspense fallback={<div className="h-32 animate-pulse bg-gray-100 rounded" />}>
+          <SocialMedia />
+        </Suspense>
+        <Suspense fallback={<div className="h-64 animate-pulse bg-gray-100 rounded" />}>
+          <RecentEvents />
+        </Suspense>
+        <Suspense fallback={<div className="h-48 animate-pulse bg-gray-100 rounded" />}>
+          <TakeAction />
+        </Suspense>
+        <Suspense fallback={<div className="h-40 animate-pulse bg-gray-100 rounded" />}>
+          <Partners />
+        </Suspense>
       </div>
-      <div className="hidden max-[325px]:inline-block
-      z-[10000]
-      absolute inset-0 bg-white h-[100vh] w-[100vw]">
+      <div className="absolute inset-0 hidden w-[100vw] h-[100vh] bg-white z-[10000] max-[325px]:inline-block">
         <p className="p-x">Oops! It looks like this website is not supported on smaller devices.</p>
       </div>
     </main>
