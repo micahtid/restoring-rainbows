@@ -1,10 +1,10 @@
 "use client";
 
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState, Suspense } from 'react';
-import { useData } from '@/providers/useData';
-import { DocumentData } from 'firebase/firestore';
-import Loader from '@/components/Loader';
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+import { useData } from "@/providers/useData";
+import { DocumentData } from "firebase/firestore";
+import Loader from "@/components/Loader";
 
 import { FaInstagram } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";

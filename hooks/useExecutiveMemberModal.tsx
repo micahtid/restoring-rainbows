@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { DocumentData } from 'firebase/firestore';
+import { create } from "zustand";
+import { DocumentData } from "firebase/firestore";
 
 interface ExecutiveMemberModal {
   isOpen: boolean;

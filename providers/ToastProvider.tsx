@@ -12,7 +12,7 @@ const ToastProvider = () => {
         },
       }}
       containerStyle={{
-        zIndex: 9999999999999, 
+        zIndex: 9999999999999,
       }}
     />
   );

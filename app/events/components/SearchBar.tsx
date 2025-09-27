@@ -1,34 +1,33 @@
-'use client';
+"use client";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { PiMagnifyingGlassDuotone, PiEraserDuotone } from "react-icons/pi";
 
 const SearchBar = () => {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState("");
     const router = useRouter();
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
-        query ? searchParams.set('query', query) : searchParams.delete('query');
+        query ? searchParams.set("query", query) : searchParams.delete("query");
         router.push(`${window.location.pathname}?${searchParams.toString()}`);
     }, [query, router]);
 
     return (
-        <div className="w-full flex items-center bg-white px-4 py-3 drop-shadow-sm mb-4">
+        <div className="flex w-full items-center bg-white px-4 py-3 mb-4 drop-shadow-sm">
             <PiMagnifyingGlassDuotone size={20} className="text-body/30" />
-            <input 
-                type="text" 
+            <input
+                type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search events..."
-                className="outline-none w-full px-4 py-1 text-body font-medium placeholder:text-body/30" 
+                className="w-full px-4 py-1 text-body font-medium outline-none placeholder:text-body/30"
             />
             {query && (
-                <button 
-                    onClick={() => setQuery('')}
-                    className="aspect-square h-full rounded-md p-1 bg-primary text-white 
-                    flex items-center justify-center"
+                <button
+                    onClick={() => setQuery("")}
+                    className="flex h-full aspect-square items-center justify-center p-1 bg-primary text-white rounded-md"
                 >
                     <PiEraserDuotone size={24} />
                 </button>
