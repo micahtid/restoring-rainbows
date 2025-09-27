@@ -30,7 +30,7 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
           className="dynamic-subheading text-header">
             Our Executive Board
           </h3>
-          <div className="flex flex-col justify-start items-start gap-y-28 w-full">
+          <div className="flex flex-col justify-start items-start gap-y-36 w-full">
             {
               executiveBoard && organizeByPosition(executiveBoard).map((position, index) => (
                 <div
@@ -40,10 +40,10 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                     <h3 className="text-2xl font-bold uppercase text-header">
                       {position.categorization}
                     </h3>
-                    <div className="max-w-[800px] w-full h-[2px] bg-header" />
+                    <div className="w-full mt-2 h-[1.5px] bg-header" />
                   </div>
-                  <div 
-                  className="flex justify-start items-start flex-wrap gap-5">
+                  <div
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 w-full justify-items-center">
                     {position.people.map((item, index) => (
                       <button
                       onClick={
@@ -53,9 +53,9 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                         }
                       } 
                       key={index}
-                      className="mb-6 flex flex-col justify-start items-center gap-y-6
-                      w-[250px] max-[561px]:w-[45%]
-                      max-[561px]:items-start">
+                      className="flex flex-col justify-start items-center gap-y-6
+                      w-[250px]
+                      ">
                         <div
                         className="w-full aspect-square">
                           <img src={item.picture} className="w-full h-full object-cover rounded-full drop-shadow-md"/>
@@ -63,21 +63,20 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                         <div className="
                         w-full
                         flex flex-col justify-center items-center
-                        max-[561px]:justify-start 
                         hover:cursor-pointer
-                        max-[561px]:items-start">
+                        ">
                           <h3 className="
-                          w-full 
+                          w-full
                           dynamic-text font-semibold
-                          flex gap-x-2 items-center justify-center max-[561px]:justify-start max-[561px]:inline-block
+                          flex gap-x-2 items-center justify-center
                           text-nowrap overflow-ellipsis overflow-x-hidden text-center
-                          max-[561px]:text-base">
-                            {item.firstName} {item.lastName} <IoOpenOutline size={18} className="max-[561px]:hidden"/>
+                          ">
+                            {item.firstName} {item.lastName} <IoOpenOutline size={18} />
                           </h3>
                           <p className="
                           w-full
-                          dynamic-text text-gray-600
-                          max-[561px]:text-sm">
+                          dynamic-label text-gray-600 text-center
+                          ">
                             {item.role}
                           </p>
                         </div>

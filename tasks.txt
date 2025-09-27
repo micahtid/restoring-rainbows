@@ -1,1 +1,8 @@
 -- <img> -> <Image>
+-- hero.css
+
+9/27/25
+-- Mission font sizing...
+-- Prism x-spacig!
+-- SocialMedia thumbnails...
+-- Reorder exec. board (+ extend line!)

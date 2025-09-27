@@ -118,15 +118,27 @@ export const organizeByPosition = (data: DocumentData[]): GroupedData[] => {
       return result;
   }, []);
 
-  // Sort the grouped data alphabetically by categorization
+  // ISSUE: Custom order of categorization; arbitrary!
+  const categoryOrder = ["SENIOR LEADERSHIP", "EXECUTIVE TEAM", "PAST BOARD MEMBERS"];
+
   const sortedGroupedData = groupedData.sort((a, b) => {
+      const indexA = categoryOrder.findIndex(cat => cat.toLowerCase() === a.categorization.toLowerCase());
+      const indexB = categoryOrder.findIndex(cat => cat.toLowerCase() === b.categorization.toLowerCase());
+
+      if (indexA !== -1 && indexB !== -1) {
+          return indexA - indexB;
+      }
+      if (indexA !== -1) return -1;
+      if (indexB !== -1) return 1;
       return a.categorization.localeCompare(b.categorization);
   });
 
-  // Sort roles within each group
+  // Sort people within each group from Z-A alphabetically by role!
   sortedGroupedData.forEach(group => {
       group.people.sort((a, b) => {
-          return a.role.localeCompare(b.role);
+          const roleA = a.role || '';
+          const roleB = b.role || '';
+          return roleB.localeCompare(roleA); // Z-A order...
       });
   });
 
