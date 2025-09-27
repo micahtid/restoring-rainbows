@@ -15,7 +15,8 @@ const AboutUs = () => {
         text-header'>
             Restoring Rainbows is an international, youth-led nonprofit dedicated to making art accessible while protecting the planet.
         </h3>
-        <img 
+        {/* ISSUE: Change to <Image /> */}
+        <img
         src="/about_us.jpeg"
         className='max-w-[300px] h-auto' />
     </section>

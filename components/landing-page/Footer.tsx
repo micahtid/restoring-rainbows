@@ -14,9 +14,10 @@ export const Footer = () => {
           max-lg:flex-col max-lg:gap-y-16"
         >
           <div className="flex flex-col justify-center items-start gap-y-8 w-full">
-            <img 
-              src="/logo_white.png" 
-              className="w-[50px] opacity-90 hover:opacity-100 transition-opacity duration-300" 
+            {/* ISSUE: Change to <Image /> */}
+            <img
+              src="/logo_white.png"
+              className="w-[50px] opacity-90 hover:opacity-100 transition-opacity duration-300"
             />
             <p className="text-white/90 text-sm leading-relaxed">
               Restoring Rainbows is a registered 501(c)3 nonprofit in the United States, the state of Connecticut

@@ -69,6 +69,7 @@ const NavModal: React.FC = () => {
 
       <div className="flex justify-between items-start w-full">
         <a href="/" className="-mt-[18px]">
+            {/* ISSUE: Change to <Image /> */}
             <img src="/main_logo_blue.png" className="w-auto h-[75px]" />
           </a>
         <button className="mb-8" onClick={onClose}>
@@ -137,6 +138,7 @@ const NavBar: React.FC = () => {
           <GradientBackground scrollPosition={scrollPosition} onHover={true} />
 
           <a href="/" className="z-[11000]">
+            {/* ISSUE: Change to <Image /> */}
             <img src="/main_logo_black.png" className="h-[75px] w-auto z-[1100]
             absolute left-0 -top-[15px]" />
           </a>
@@ -184,6 +186,7 @@ const NavBar: React.FC = () => {
           <GradientBackground scrollPosition={scrollPosition} onHover={false} />
 
           <a href="/" className="z-[11000]">
+            {/* ISSUE: Change to <Image /> */}
             <img src="/main_logo_black.png" className="h-[75px] w-auto z-[1100]
             absolute left-0 -top-[15px]" />
           </a>

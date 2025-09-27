@@ -24,7 +24,7 @@
     @apply border-[1px] border-gray-300 p-1 outline-none font-title w-full
   }
 
-  /* HIDE SCROLL BARS */
+  /* Hide Scroll Bars */
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -36,7 +36,7 @@
   }
 }
 
-/* FADE IN AND SLIDE UP ANIMATION */
+/* Fade In & Slide Up Animations */
 @keyframes heroFadeInSlideUp {
   from {
     opacity: 0;
@@ -48,6 +48,7 @@
   }
 }
 
+/* ISSUE: Repetitive animation code! */
 @keyframes fadeInSlideUp {
   from {
     opacity: 0;

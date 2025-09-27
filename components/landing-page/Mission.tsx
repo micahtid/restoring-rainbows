@@ -14,10 +14,10 @@ const Mission = () => {
         <h2 className='dynamic-subheading text-header mb-6 max-xl:text-3xl max-lg:text-2xl max-md:text-xl'>
           Our Mission
         </h2>
-        <p className='dynamic-text text-body max-xl:text-lg max-lg:text-base max-md:text-sm leading-relaxed'>
+        <p className='dynamic-text text-body'>
           We reimagine what&apos;s possible for art and the environment. By restoring, recycling, and redistributing school supplies, Restoring Rainbows brings creativity to classrooms and communities while keeping waste out of landfills.
         </p>
-        <p className='dynamic-text text-body max-xl:text-lg max-lg:text-base max-md:text-sm leading-relaxed mt-4'>
+        <p className='dynamic-text text-body mt-4'>
           Imagine a world where every child, no matter where they live, has the tools to create and where every marker, crayon, or pencil gets a second life instead of being thrown away!
         </p>
       </div>

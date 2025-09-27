@@ -69,8 +69,8 @@ const SocialMedia = () => {
     <section className="w-full bg-secondary flex justify-center items-center">
       <section className='max-w-max w-full
         px-x pt-44 pb-28
-        flex gap-x-12
-        max-lg:flex-col max-lg:gap-y-16'>
+        flex gap-x-16 max-xl:gap-x-12 max-lg:gap-x-8
+        max-lg:flex-col max-lg:gap-y-12 max-md:gap-y-8'>
         
         <div className="flex flex-col gap-y-12 max-w-[600px]">
           <h3 className='dynamic-subheading text-header'>Check out our latest posts</h3>
@@ -88,7 +88,7 @@ const SocialMedia = () => {
         </div>
 
         <div className="w-[540px] h-[655px]
-          flex flex-col gap-y-2
+          flex flex-col gap-y-2 items-start
           max-lg:h-auto max-lg:max-w-[600px] max-lg:w-full">
           
           <Swiper
@@ -106,7 +106,10 @@ const SocialMedia = () => {
                 {post.media_type === "VIDEO" ? (
                   <video src={post.media_url} className="w-full h-full object-cover" controls poster="" />
                 ) : (
+                  <>
+                  {/* ISSUE: Change to <Image /> */}
                   <img src={post.media_url} className="w-full h-full object-cover" />
+                  </>
                 )}
               </SwiperSlide>
             ))}
@@ -114,25 +117,31 @@ const SocialMedia = () => {
 
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}
-            spaceBetween={2}
+            style={{
+              "marginLeft": "0px"
+            }}
+            spaceBetween={5}
             slidesPerView={5}
             initialSlide={0}
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Thumbs]}
-            className="h-[100px] w-full mb-14 max-lg:h-[55px] max-lg:w-full"
+            className={`h-[80px] w-[400px] mb-14 max-lg:h-[60px] max-lg:w-[300px] ${instagramPosts.length === 1 ? 'hidden' : ''}`}
           >
             {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
-                <div className="w-full aspect-square h-full">
+                <div className="w-full h-full aspect-square">
                   {/* Show image thumbnail for IMAGE or CAROUSEL, video thumbnail for VIDEO */}
                   {post.media_type === "VIDEO" ? (
                     <video src={post.media_url} className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} />
                   ) : (
+                    <>
+                    {/* ISSUE: Change to <Image /> */}
                     <img
                       src={post.media_url}
                       className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
                     />
+                    </>
                   )}
                 </div>
               </SwiperSlide>

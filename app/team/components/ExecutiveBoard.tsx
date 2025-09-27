@@ -58,6 +58,7 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
                       ">
                         <div
                         className="w-full aspect-square">
+                          {/* ISSUE: Change to <Image /> */}
                           <img src={item.picture} className="w-full h-full object-cover rounded-full drop-shadow-md"/>
                         </div>
                         <div className="

@@ -55,6 +55,7 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
       >
         {event.images.map((image: any, index: number) => (
           <SwiperSlide key={index} className="w-full h-full">
+            {/* ISSUE: Change to <Image /> */}
             <img src={image} className="w-full h-full object-cover" />
           </SwiperSlide>
         ))}
@@ -67,7 +68,7 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
           "marginLeft" : "0px"
         }}
         loop={true}
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={5}
         freeMode={true}
         watchSlidesProgress={true}
@@ -79,11 +80,12 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
       >
         {event.images.map((image: any, index: number) => (
           <SwiperSlide key={index} className="w-full h-full">
+            {/* ISSUE: Change to <Image /> */}
             <img
               src={image}
-              className={`w-full h-full object-cover 
-                transition-all duration-300 
-                ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} 
+              className={`w-full h-full object-cover
+                transition-all duration-300
+                ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
             />
           </SwiperSlide>
         ))}

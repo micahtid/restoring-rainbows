@@ -64,6 +64,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
             key={index}
             className="w-[250px] max-[572px]:w-full
             flex flex-col gap-y-2">
+              {/* ISSUE: Change to <Image /> */}
               <img src={partner.logo} className="w-full h-full aspect-square object-cover" />
               <div className="flex items-center justify-center gap-x-2
               dynamic-text font-medium max-[572px]:justify-start">

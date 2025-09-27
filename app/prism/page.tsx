@@ -108,9 +108,9 @@ const Prism = () => {
           />
         </div>
         <div className="-mt-24">
-          <ArrowButton 
+          <ArrowButton
               text="Write For Us"
-              link="/take-action/prism"
+              link="https://www.restoringrainbows.org/opportunities/opportunity?title=Prism%20Article%20Writer"
             />
         </div>
       </div>

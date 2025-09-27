@@ -126,7 +126,10 @@ const EventsModal = () => {
                     <p className={`${!newEvent && "text-black/50"}`}>Image One</p>
                     {/* Preview for editing */}
                     {!newEvent && previewUrls[0] && (
+                        <>
+                        {/* ISSUE: Change to <Image /> */}
                         <img src={previewUrls[0]} alt="Preview" className="w-24 h-24 object-cover mb-2 rounded" />
+                        </>
                     )}
                     <input
                         type="file"
@@ -137,7 +140,10 @@ const EventsModal = () => {
                 <div className="w-full">
                     <p className={`${!newEvent && "text-black/50"}`}>Image Two</p>
                     {!newEvent && previewUrls[1] && (
+                        <>
+                        {/* ISSUE: Change to <Image /> */}
                         <img src={previewUrls[1]} alt="Preview" className="w-24 h-24 object-cover mb-2 rounded" />
+                        </>
                     )}
                     <input
                         type="file"
@@ -148,7 +154,10 @@ const EventsModal = () => {
                 <div className="w-full">
                     <p className={`${!newEvent && "text-black/50"}`}>Image Three</p>
                     {!newEvent && previewUrls[2] && (
+                        <>
+                        {/* ISSUE: Change to <Image /> */}
                         <img src={previewUrls[2]} alt="Preview" className="w-24 h-24 object-cover mb-2 rounded" />
+                        </>
                     )}
                     <input
                         type="file"
@@ -159,7 +168,10 @@ const EventsModal = () => {
                 <div className="w-full">
                     <p className={`${!newEvent && "text-black/50"}`}>Image Four</p>
                     {!newEvent && previewUrls[3] && (
+                        <>
+                        {/* ISSUE: Change to <Image /> */}
                         <img src={previewUrls[3]} alt="Preview" className="w-24 h-24 object-cover mb-2 rounded" />
+                        </>
                     )}
                     <input
                         type="file"
@@ -170,7 +182,10 @@ const EventsModal = () => {
                 <div className="w-full">
                     <p className={`${!newEvent && "text-black/50"}`}>Image Five</p>
                     {!newEvent && previewUrls[4] && (
+                        <>
+                        {/* ISSUE: Change to <Image /> */}
                         <img src={previewUrls[4]} alt="Preview" className="w-24 h-24 object-cover mb-2 rounded" />
+                        </>
                     )}
                     <input
                         type="file"

@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./hero.css";
 
+// ISSUE: hero.css is in play!
+
 const Hero = () => {
   useEffect(() => {
     AOS.init();
@@ -17,7 +19,7 @@ const Hero = () => {
     >
       <h1
         className="
-          relative w-[42.5vw] px-x py-4 text-left text-header dynamic-header uppercase z-[500]
+          relative w-[42.5vw] px-x py-4 text-left text-header dynamic-header font-extrabold uppercase z-[500]
           top-[40px]
           max-lg:w-full max-lg:max-w-[800px] max-lg:py-3 max-lg:mt-[50px]
           lg:absolute lg:left-[48.5%] lg:top-[100px] lg:transform lg:-translate-x-[35%]
@@ -36,6 +38,7 @@ const Hero = () => {
           absolute z-[50]
           lg:-right-[5px] lg:top-1/2 lg:w-[45%] lg:h-[calc(100%+50px)] lg:bg-gradient-to-l lg:from-secondary lg:from-40% lg:-translate-y-1/2
         " />
+        {/* ISSUE: Change to <Image /> */}
         <img
           data-aos="fade-right"
           data-aos-once="true"
@@ -69,6 +72,7 @@ const Hero = () => {
           max-sm:h-[10%]
           max-lg:-translate-x-[5px]
         " />
+        {/* ISSUE: Change to <Image /> */}
         <img
           data-aos="fade-up"
           data-aos-once="true"
@@ -95,6 +99,7 @@ const Hero = () => {
           w-[45%]
           h-[calc(100%+50px)]
         " />
+        {/* ISSUE: Change to <Image /> */}
         <img
           data-aos="fade-left"
           data-aos-once="true"

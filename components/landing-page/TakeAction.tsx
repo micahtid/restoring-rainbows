@@ -10,6 +10,7 @@ const TakeAction = () => {
       {landingPageTakeAction.map((action, index) => (
         <div key={index} className="flex gap-8
         max-[750px]:flex-col max-[750px]:gap-y-12">
+          {/* ISSUE: Change to <Image /> */}
           <img src={action.image} className="w-[45%] object-cover h-auto max-[750px]:w-full" alt={action.title} />
           <div className="px-x flex flex-col gap-y-5 justify-center items-start flex-1 max-w-[750px]">
             <h3 className="dynamic-heading text-header">{action.title}</h3>
