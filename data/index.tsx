@@ -94,7 +94,7 @@ export const takeActionPageSections = [
         title: "Become a Partner",
         description: "Interested partnering with Restoring Rainbows? We have done partnerships in-person, with branches, through social media, and more! Click below for more information!",
         buttonLabel: "More Information",
-        buttonLink: "/take-action/become-partner"
+        buttonLink: "/opportunities"
     },
     {
         id: "prism",

@@ -18,9 +18,10 @@ interface FounderInformationProps {
 
 const FounderInformation: React.FC<FounderInformationProps> = ({ photoUrl, firstName, lastName, bio }) => {
   return (
-    <div className="flex gap-x-20 
+    <div className="flex gap-x-20
     max-lg:flex-col max-lg:mb-12">
-      <img src={photoUrl} className='w-[500px] max-[500px]:w-full object-cover 
+      {/* ISSUE: Change to <Image /> */}
+      <img src={photoUrl} className='w-[500px] max-[500px]:w-full object-cover
       drop-shadow aspect-square' />
       <div className="flex flex-col gap-y-6 max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
         <h3 className='text-3xl max-lg:text-2xl 

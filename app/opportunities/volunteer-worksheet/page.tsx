@@ -103,6 +103,7 @@ const VolunteerWorksheet = () => {
             >
               {worksheetExamples.map((example, index) => (
                 <SwiperSlide key={index} className="!w-auto max-[430px]:w-full">
+                  {/* ISSUE: Change to <Image /> */}
                   <img src={example} className="w-[300px] h-auto max-[430px]:w-[200px]" />
                 </SwiperSlide>
               ))}

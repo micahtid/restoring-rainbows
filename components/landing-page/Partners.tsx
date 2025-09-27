@@ -25,9 +25,10 @@ const Partners = () => {
       <div className="flex flex-wrap gap-5 
       max-sm:gap-3">
         {partners?.map((partner, index) => (
-          <div 
+          <div
           key={index}
           className={`${!partner.highlyValued && 'hidden'}`}>
+            {/* ISSUE: Change to <Image /> */}
             <img src={partner.logo} className="w-[150px] h-[150px] object-cover
             max-sm:w-[100px] max-sm:h-[100px]" />
           </div>

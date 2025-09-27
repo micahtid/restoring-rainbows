@@ -59,16 +59,19 @@ const MissionStatement = () => {
             </h3>
           </div>
           <div className="flex gap-x-3 max-lg:gap-x-2 max-md:gap-x-1 items-start max-lg:justify-center">
+            {/* ISSUE: Change to <Image /> */}
             <img
               src="/about_1.png"
               alt="About 1"
               className="h-[280px] max-xl:h-[240px] max-lg:h-[200px] max-md:h-[160px] max-sm:h-[120px] w-auto object-cover"
             />
+            {/* ISSUE: Change to <Image /> */}
             <img
               src="/about_2.png"
               alt="About 2"
               className="h-[240px] max-xl:h-[200px] max-lg:h-[170px] max-md:h-[140px] max-sm:h-[105px] w-auto object-cover"
             />
+            {/* ISSUE: Change to <Image /> */}
             <img
               src="/about_3.png"
               alt="About 3"
