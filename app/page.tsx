@@ -56,7 +56,7 @@ const Home = () => {
         <AboutUs />
         <Statistics />
         <Mission />
-        <WhatWeDo />
+        {/* <WhatWeDo /> */}
         <Prism />
         <SocialMedia />
         <RecentEvents />

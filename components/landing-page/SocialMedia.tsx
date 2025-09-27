@@ -49,7 +49,6 @@ const SocialMedia = () => {
           .slice(0, 5)
 
         setInstagramPosts(filteredData)
-        setActiveIndex(0)
         console.log("Filtered Instagram Posts:", filteredData)
       } catch (error) {
         console.error("Error fetching Instagram data:", error)
@@ -58,6 +57,13 @@ const SocialMedia = () => {
 
     fetchInstagramData()
   }, [])
+
+  // Ensure first thumbnail is activated when posts are loaded
+  useEffect(() => {
+    if (instagramPosts.length > 0) {
+      setActiveIndex(0)
+    }
+  }, [instagramPosts])
 
   return (
     <section className="w-full bg-secondary flex justify-center items-center">
@@ -108,7 +114,7 @@ const SocialMedia = () => {
 
           <Swiper
             onSwiper={(swiper) => setThumbsSwiper(swiper)}
-            spaceBetween={5}
+            spaceBetween={2}
             slidesPerView={5}
             initialSlide={0}
             freeMode={true}
@@ -118,15 +124,17 @@ const SocialMedia = () => {
           >
             {instagramPosts.map((post: Post, index: number) => (
               <SwiperSlide key={index} className="w-full h-full">
-                {/* Show image thumbnail for IMAGE or CAROUSEL, video thumbnail for VIDEO */}
-                {post.media_type === "VIDEO" ? (
-                  <video src={post.media_url} className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} />
-                ) : (
-                  <img
-                    src={post.media_url}
-                    className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
-                  />
-                )}
+                <div className="w-full aspect-square h-full">
+                  {/* Show image thumbnail for IMAGE or CAROUSEL, video thumbnail for VIDEO */}
+                  {post.media_type === "VIDEO" ? (
+                    <video src={post.media_url} className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`} />
+                  ) : (
+                    <img
+                      src={post.media_url}
+                      className={`w-full h-full object-cover cursor-pointer transition-all duration-300 ${activeIndex === index ? 'brightness-100' : 'brightness-[30%]'}`}
+                    />
+                  )}
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
