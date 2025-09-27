@@ -12,7 +12,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = ({ text, link }) => {
     className='flex justify-center items-center gap-x-1
     arrow-link'
     href={link}>
-      <p className='uppercase dynamic-text text-primary font-semibold font-accent2'>{text}</p>
+      <p className='uppercase font-title dynamic-text text-primary font-bold'>{text}</p>
       <svg 
       id="right"
       className='arrow-svg scale-75'>

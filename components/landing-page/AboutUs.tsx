@@ -5,7 +5,7 @@ const AboutUs = () => {
     <section
     className='
     max-w-max w-full mx-auto
-    px-x py-8 mt-20 mb-14
+    px-x py-8 mt-24 mb-16
     flex gap-x-32 items-center
     max-lg:flex-col max-lg:gap-y-12 max-lg:items-start
     '>
