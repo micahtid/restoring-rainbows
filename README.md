@@ -142,44 +142,104 @@ volunteers/
 ## Context & State Management
 
 ### Firebase Data Provider
-`providers/useData.tsx` uses React Context to provide real-time Firebase data:
+React Context provider that manages all Firebase data with real-time updates:
+
+```typescript
+// providers/useData.tsx
+const DataProvider = ({ children }) => {
+  const [branches, setBranches] = useState(null);
+  const [events, setEvents] = useState(null);
+  const [executiveBoard, setExecutiveBoard] = useState(null);
+  // ... other collections
+
+  useEffect(() => {
+    // Set up real-time listeners for all collections
+    const unsubscribeBranches = onSnapshot(collection(db, 'branches'), (snapshot) => {
+      setBranches(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    });
+    // ... other listeners
+  }, []);
+
+  return (
+    <DataContext.Provider value={{ branches, events, executiveBoard, ... }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+// Usage in components:
+const { branches, events } = useData();
+```
+
+**Key Features**:
 - Fetches all collections on app load
-- Sets up real-time listeners for live updates
-- Provides data to all components via `useData()` hook
+- Real-time listeners for live updates
+- Centralized data access via `useData()` hook
 
 ### Modal System
-**Architecture**: Global modal rendering with individual Zustand stores
+Global modal architecture using Zustand for state + React Context for rendering:
 
-**ModalProvider** (`providers/ModalProvider.tsx`):
-- Renders ALL modal components at root level
-- Each modal conditionally shows based on Zustand state
+**ModalProvider Setup**:
+```typescript
+// providers/ModalProvider.tsx - renders all modals at root level
+const ModalProvider = () => (
+  <>
+    <BranchModal />
+    <EventsModal />
+    <ExecutiveBoardModal />
+    <ExecutiveMemberModal />
+    <OpportunityModal />
+    <PartnerModal />
+    <StatisticsModal />
+    <StoryModal />
+    <VolunteerModal />
+  </>
+);
+```
 
-**Individual Modal Hooks** (`hooks/use*Modal.tsx`):
-- Each modal type has its own Zustand store
-- Manages open/close state and current data
+**Individual Modal Hooks** (Zustand stores):
+```typescript
+// hooks/useEventsModal.tsx
+interface EventsModalStore {
+  isOpen: boolean;
+  currentEvent: any;
+  newEvent: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  setCurrentEvent: (event: any) => void;
+}
+
+const useEventsModal = create<EventsModalStore>((set) => ({
+  isOpen: false,
+  currentEvent: null,
+  newEvent: true,
+  onOpen: () => set({ isOpen: true }),
+  onClose: () => set({ isOpen: false, currentEvent: null }),
+  setCurrentEvent: (event) => set({ currentEvent: event, newEvent: false }),
+}));
+```
 
 **Usage Pattern**:
 ```typescript
-// In any component...
+// In any component
 const { onOpen, setCurrentEvent } = useEventsModal();
 
-// Open modal:
 const handleEdit = (event) => {
-  setCurrentEvent(event);
-  onOpen();
+  setCurrentEvent(event); // Set data
+  onOpen();               // Open modal
 };
 ```
 
-**Modal Components** (`components/modals/`):
-- `BranchModal.tsx` - Add/edit organization branches worldwide
-- `EventsModal.tsx` - Create/edit events with multi-image upload
-- `ExecutiveBoardModal.tsx` - Manage board member profiles
-- `ExecutiveMemberModal.tsx` - Display individual board member bios
-- `OpportunityModal.tsx` - Add/edit volunteer opportunities
-- `PartnerModal.tsx` - Manage partner organization details
-- `StatisticsModal.tsx` - Update impact metrics and statistics
-- `StoryModal.tsx` - Create/edit blog posts and articles
-- `VolunteerModal.tsx` - Manage volunteer profiles and information
+**Available Modals**:
+- `BranchModal` - Add/edit organization branches worldwide
+- `EventsModal` - Create/edit events with multi-image upload
+- `ExecutiveBoardModal` - Manage board member profiles
+- `ExecutiveMemberModal` - Display individual board member bios
+- `OpportunityModal` - Add/edit volunteer opportunities
+- `PartnerModal` - Manage partner organization details
+- `StatisticsModal` - Update impact metrics and statistics
+- `StoryModal` - Create/edit blog posts and articles
+- `VolunteerModal` - Manage volunteer profiles and information
 
 ## CRITICAL ISSUES
 Throughout the codebase, you'll find comments labeled `{/* ISSUE: ... */}` that mark areas needing optimization, fixes, or improvements. These highlight performance bottlenecks, code quality concerns, and technical debt that should be addressed.
