@@ -139,11 +139,10 @@ volunteers/
 └── linkedIn?: string
 ```
 
-## Context & State Management
+## Firebase Data Provider
+The application uses a centralized React Context provider to manage all Firebase data with real-time updates.
 
-### Firebase Data Provider
-React Context provider that manages all Firebase data with real-time updates:
-
+### Implementation
 ```typescript
 // providers/useData.tsx
 const DataProvider = ({ children }) => {
@@ -166,22 +165,26 @@ const DataProvider = ({ children }) => {
     </DataContext.Provider>
   );
 };
+```
 
-// Usage in components:
+### Usage in Components
+```typescript
 const { branches, events } = useData();
 ```
 
-**Key Features**:
+### Key Features
 - Fetches all collections on app load
 - Real-time listeners for live updates
 - Centralized data access via `useData()` hook
 
-### Modal System
-Global modal architecture using Zustand for state + React Context for rendering:
+## Modal Management System
+The application uses a hybrid approach combining Zustand for state management and React Context for rendering modals globally.
 
-**ModalProvider Setup**:
+### Modal Provider Setup
+All modals are rendered at the root level through the ModalProvider:
+
 ```typescript
-// providers/ModalProvider.tsx - renders all modals at root level
+// providers/ModalProvider.tsx
 const ModalProvider = () => (
   <>
     <BranchModal />
@@ -197,7 +200,9 @@ const ModalProvider = () => (
 );
 ```
 
-**Individual Modal Hooks** (Zustand stores):
+### Modal State Management (Zustand)
+Each modal has its own Zustand store for state management:
+
 ```typescript
 // hooks/useEventsModal.tsx
 interface EventsModalStore {
@@ -219,7 +224,7 @@ const useEventsModal = create<EventsModalStore>((set) => ({
 }));
 ```
 
-**Usage Pattern**:
+### Usage Pattern
 ```typescript
 // In any component
 const { onOpen, setCurrentEvent } = useEventsModal();
@@ -230,16 +235,16 @@ const handleEdit = (event) => {
 };
 ```
 
-**Available Modals**:
-- `BranchModal` - Add/edit organization branches worldwide
-- `EventsModal` - Create/edit events with multi-image upload
-- `ExecutiveBoardModal` - Manage board member profiles
-- `ExecutiveMemberModal` - Display individual board member bios
-- `OpportunityModal` - Add/edit volunteer opportunities
-- `PartnerModal` - Manage partner organization details
-- `StatisticsModal` - Update impact metrics and statistics
-- `StoryModal` - Create/edit blog posts and articles
-- `VolunteerModal` - Manage volunteer profiles and information
+### Available Modals
+- `BranchModal.tsx` - Create/edit branches
+- `EventsModal.tsx` - Create/edit events
+- `ExecutiveBoardModal.tsx` - Create/edit board members
+- `ExecutiveMemberModal.tsx` - View board member details
+- `OpportunityModal.tsx` - Create/edit opportunities
+- `PartnerModal.tsx` - Create/edit partners
+- `StatisticsModal.tsx` - Create/edit statistics
+- `StoryModal.tsx` - Create/edit stories
+- `VolunteerModal.tsx` - Create/edit volunteers
 
 ## CRITICAL ISSUES
 Throughout the codebase, you'll find comments labeled `{/* ISSUE: ... */}` that mark areas needing optimization, fixes, or improvements. These highlight performance bottlenecks, code quality concerns, and technical debt that should be addressed.
