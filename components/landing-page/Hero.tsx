@@ -50,8 +50,11 @@ const Hero = () => {
       </div>
 
       <div className="
-        relative w-[34.5%] h-full mt-[350px] aspect-[8.6/5.8] z-[200]
-        max-[1500px]:mt-[275px]
+        relative w-[34.5%] h-full mt-[380px] aspect-[8.6/5.8] z-[200]
+        max-[2100px]:mt-[340px]
+        max-[1700px]:mt-[325px]
+        max-[1500px]:mt-[300px]
+        max-[1300px]:mt-[280px]
         max-lg:absolute max-lg:left-[55%] max-lg:top-[30%] max-lg:w-[42%] max-lg:mt-[0px]
         max-[570px]:top-[40%] max-[465px]:top-[50%]
         "
