@@ -22,7 +22,7 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({ scrollPosition,
       backgroundImage: "linear-gradient(to right, #eaf4ff 0%, #e5f4ef 50%, #eaf4ff 100%)",
     }}
     className={`
-      absolute left-1/2 -top-[15px] overflow-hidden w-[135vw] h-[172.5px] bg-[#f5e7d4] transform -translate-x-1/2 -translate-y-[95px]
+      absolute left-1/2 -top-[25px] overflow-hidden w-[135vw] h-[172.5px] bg-[#f5e7d4] transform -translate-x-1/2 -translate-y-[80px]
       ${scrollPosition === 0 ? "opacity-0" : "opacity-100"}
       ${onHover && `
         group-hover:translate-y-0 group-hover:opacity-100

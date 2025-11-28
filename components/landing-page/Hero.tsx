@@ -83,8 +83,8 @@ const Hero = () => {
         <div className="
           absolute z-[50] -left-[5px]
           top-1/2 -translate-y-1/2
-          bg-gradient-to-r from-secondary from-[32.5%]
-          max-[1000px]:from-35%
+          bg-gradient-to-r from-secondary from-[31%]
+          max-[1100px]:from-35%
           w-[45%] h-[calc(100%+50px)]
         " />
         {/* ISSUE: Change to <Image /> */}

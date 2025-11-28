@@ -3,16 +3,15 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useData } from '@/providers/useData';
-import { PiLinkSimpleBreakDuotone, PiInstagramLogoDuotone } from "react-icons/pi";
+import { FaInstagram, FaExternalLinkAlt } from "react-icons/fa";
 import Loader from '@/components/Loader';
 import { DocumentData } from 'firebase/firestore';
 
-const linkButtonStyles = `
-flex items-center gap-x-3 px-4 py-2 
-w-[200px] max-sm:w-full
-bg-white shadow-sm text-body hover:text-primary
-border-l-4 border-primary/20 hover:border-primary
-transition-all duration-500`;
+const linkButtonStyles = `w-[240px] py-2 max-sm:w-full
+bg-primary text-white font-accent shadow-sm
+hover:bg-white hover:text-primary
+transition-all duration-500
+flex justify-center items-center gap-x-2`;
 
 interface PartnerContentProps {
   partners: DocumentData[] | null;
@@ -44,14 +43,12 @@ const PartnerContent: React.FC<PartnerContentProps> = ({ partners }) => {
         <h3 className='text-3xl font-bold font-title uppercase text-header'>{partnerData?.name}</h3>
         <div className="dynamic-text text-body">{partnerData?.description}</div>
         <div className="flex gap-x-6 max-sm:flex-col max-sm:gap-y-4">
-          <a href={partnerData?.instagram} 
-            className={linkButtonStyles}>
-            <PiInstagramLogoDuotone size={20} />
+          <a href={partnerData?.instagram} className={linkButtonStyles}>
+            <FaInstagram size={18} />
             <span>Instagram</span>
           </a>
-          <a href={partnerData?.website} 
-            className={linkButtonStyles}>
-            <PiLinkSimpleBreakDuotone size={20} />
+          <a href={partnerData?.website} className={linkButtonStyles}>
+            <FaExternalLinkAlt size={16} />
             <span>Website</span>
           </a>
         </div>

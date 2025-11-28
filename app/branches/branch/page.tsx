@@ -20,11 +20,12 @@ const FounderInformation: React.FC<FounderInformationProps> = ({ photoUrl, first
   return (
     <div className="flex gap-x-20
     max-lg:flex-col max-lg:mb-12">
-      {/* ISSUE: Change to <Image /> */}
-      <img src={photoUrl} className='w-[500px] max-[500px]:w-full object-cover
-      drop-shadow aspect-square' />
+      <div className="w-[500px] max-lg:w-full flex-shrink-0">
+        {/* ISSUE: Change to <Image /> */}
+        <img src={photoUrl} className='w-full aspect-square object-cover drop-shadow' alt={`${firstName} ${lastName}`} />
+      </div>
       <div className="flex flex-col gap-y-6 max-lg:max-w-[500px] max-lg:w-full max-lg:mt-8">
-        <h3 className='text-3xl max-lg:text-2xl 
+        <h3 className='text-3xl max-lg:text-2xl
         font-bold font-title uppercase text-header'>{firstName} {lastName}</h3>
         <div className="dynamic-text text-body">{bio}</div>
       </div>

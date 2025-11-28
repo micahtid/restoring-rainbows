@@ -33,8 +33,8 @@ const DropDown: React.FC<DropDownProps> = ({ isOpen, toggleDropdown, cityData })
             <ul
                 ref={dropdownRef}
                 className="
-                    absolute z-50 w-[275px] transform -translate-x-[14px] translate-y-[3px]
-                    bg-white/60 backdrop-blur-sm border-[1px] border-black/20 rounded-md
+                    absolute z-50 w-[275px] transform translate-y-[3px]
+                    bg-white/60 backdrop-blur-sm border-[1px] border-black/20
                     max-h-[300px] overflow-y-auto no-scrollbar
                     mt-1"
             >
@@ -46,8 +46,9 @@ const DropDown: React.FC<DropDownProps> = ({ isOpen, toggleDropdown, cityData })
                         <button
                             onClick={() => router.push(`/branches/branch?country=${branch.country}&city=${branch.city}&community=${branch.community}`)}
                             className="
-                                dynamic-text text-body text-left
-                                hover:text-primary transition-all duration-100
+                                text-sm text-body text-left font-accent
+                                hover:bg-primary hover:text-white
+                                transition-all duration-200
                                 px-3 py-2.5"
                         >
                             {branch.community}

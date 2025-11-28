@@ -24,6 +24,16 @@
     @apply border-[1px] border-gray-300 p-1 outline-none font-title w-full
   }
 
+  .button-primary {
+    @apply bg-primary text-white font-accent
+    shadow-sm transition-all duration-300
+    flex justify-center items-center gap-x-2
+  }
+
+  .button-primary:hover {
+    @apply bg-primary/80
+  }
+
   /* Hide Scroll Bars */
 
   .no-scrollbar::-webkit-scrollbar {
