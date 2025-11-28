@@ -2,8 +2,10 @@ import { whatWeDo } from "@/data"
 
 const WhatWeDo = () => {
   return (
-    <section className='max-w-max mx-auto 
+    <section className='w-full bg-white flex justify-center items-center'>
+      <div className='max-w-max w-full mx-auto
     py-24 px-x
+    max-lg:py-16
     flex flex-col gap-y-12'>
         <h3 className="dynamic-subheading text-header">
             What We Do
@@ -33,6 +35,7 @@ const WhatWeDo = () => {
                 </div>
             ))}
         </div>
+      </div>
     </section>
   )
 }

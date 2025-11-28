@@ -11,6 +11,7 @@ const Prism = () => {
   return (
     <section className='w-full bg-white flex justify-center items-center'>
       <div className="max-w-max w-full mx-auto px-x py-28
+      max-lg:py-16
       flex items-start gap-x-16 max-xl:gap-x-12 max-lg:gap-x-8
       max-lg:flex-col max-lg:gap-y-12 max-md:gap-y-8">
         <div className="flex-1 max-lg:w-full">

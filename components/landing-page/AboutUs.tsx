@@ -6,6 +6,7 @@ const AboutUs = () => {
     className='
     max-w-max w-full mx-auto
     px-x py-8 mt-24 mb-16
+    max-lg:mt-16 max-lg:mb-12
     flex gap-x-32 items-center
     max-lg:flex-col max-lg:gap-y-12 max-lg:items-start
     '>

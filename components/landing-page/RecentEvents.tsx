@@ -32,7 +32,8 @@ const RecentEvents = memo(() => {
   }, [router]);
 
   return (
-    <section className='max-w-max w-full mx-auto px-x py-8 mt-20 flex flex-col gap-y-8'>
+    <section className='w-full bg-white flex justify-center items-center'>
+      <div className='max-w-max w-full mx-auto px-x py-8 mt-20 max-lg:mt-16 flex flex-col gap-y-8'>
         <h3 className='dynamic-subheading text-header'>Recent Events</h3>
         <Swiper
           // modules={[Navigation]}
@@ -67,6 +68,7 @@ const RecentEvents = memo(() => {
             ))
           }
         </Swiper>
+      </div>
     </section>
   )
 });

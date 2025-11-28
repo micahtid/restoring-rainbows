@@ -10,10 +10,11 @@ const Partners = () => {
   } = useData();
 
   return (
-    <section className='max-w-max w-full mx-auto
-    px-x py-8 my-28
+    <section className='w-full bg-white flex justify-center items-center'>
+      <div className='max-w-max w-full mx-auto
+    px-x py-8 my-12
     flex gap-x-24
-    max-lg:flex-col max-lg:gap-y-16'>
+    max-lg:flex-col max-lg:gap-y-14 max-lg:my-6'>
       <div className="flex flex-col gap-y-6
       max-w-[450px]">
         <h3 className="dynamic-subheading text-header">Partners</h3>
@@ -22,8 +23,8 @@ const Partners = () => {
           <ArrowButton text="See More" link="/partners" />
         </div>
       </div>
-      <div className="flex flex-wrap gap-5 
-      max-sm:gap-3">
+      <div className="flex flex-wrap gap-x-8 gap-y-2
+      max-sm:gap-x-3">
         {partners?.map((partner, index) => (
           <div
           key={index}
@@ -33,6 +34,7 @@ const Partners = () => {
             max-sm:w-[100px] max-sm:h-[100px]" />
           </div>
         ))}
+      </div>
       </div>
     </section>
   )

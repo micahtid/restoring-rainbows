@@ -67,17 +67,17 @@ const SocialMedia = () => {
 
   return (
     <section className="w-full bg-secondary flex justify-center items-center">
-      <section className='max-w-max w-full
-        px-x pt-44 pb-28
+      <section className={`max-w-max w-full
+        px-x ${instagramPosts.length > 0 ? 'pt-44 pb-28' : 'pt-20 pb-20'}
         flex gap-x-16 max-xl:gap-x-12 max-lg:gap-x-8
-        max-lg:flex-col max-lg:gap-y-12 max-md:gap-y-8'>
+        max-lg:flex-col ${instagramPosts.length > 0 ? 'max-lg:gap-y-12 max-md:gap-y-8' : 'max-lg:gap-y-6 max-md:gap-y-4'}`}>
         
-        <div className="flex flex-col gap-y-12 max-w-[600px]">
+        <div className={`flex flex-col ${instagramPosts.length > 0 ? 'gap-y-12' : 'gap-y-6'} max-w-[600px]`}>
           <h3 className='dynamic-subheading text-header'>Check out our latest posts</h3>
           <p className='dynamic-text text-body'>{landingPageSocialMediaDescription}</p>
           <div className="flex flex-row justify-start items-center gap-x-4">
             {socials.map((social, index) => (
-              <a 
+              <a
                 key={index}
                 href={social.link}
                 className="text-2xl text-header">
@@ -87,6 +87,7 @@ const SocialMedia = () => {
           </div>
         </div>
 
+        {instagramPosts.length > 0 && (
         <div className="w-[540px] h-[655px]
           flex flex-col gap-y-2 items-start
           max-lg:h-auto max-lg:max-w-[600px] max-lg:w-full">
@@ -149,6 +150,7 @@ const SocialMedia = () => {
           </Swiper>
 
         </div>
+        )}
       </section>
     </section>
   )

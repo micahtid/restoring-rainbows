@@ -5,8 +5,9 @@ import ArrowButton from "../ArrowButton"
 
 const TakeAction = () => {
   return (
-    <section className="flex flex-col gap-y-20 my-32 
-    max-lg:gap-y-12">
+    <section className="w-full bg-white flex justify-center items-center">
+      <div className="w-full flex flex-col gap-y-20 my-20
+    max-lg:gap-y-12 max-lg:my-16">
       {landingPageTakeAction.map((action, index) => (
         <div key={index} className="flex gap-8
         max-[750px]:flex-col max-[750px]:gap-y-12">
@@ -19,6 +20,7 @@ const TakeAction = () => {
           </div>
         </div>
       ))}
+      </div>
     </section>
   )
 }

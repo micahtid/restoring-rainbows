@@ -6,6 +6,7 @@ const Mission = () => {
     <section className='
     max-w-max w-full mx-auto
     px-x py-8 mt-20 mb-14
+    max-lg:mt-16 max-lg:mb-12
     flex gap-x-16 max-xl:gap-x-12 max-lg:gap-x-8 items-start
     max-lg:flex-col max-lg:gap-y-12 max-md:gap-y-8
     fade-in-animation'>
