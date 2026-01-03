@@ -53,8 +53,8 @@ const Opportunities = () => {
         max-w-max w-full mx-auto 
         relative z-10
         flex flex-col justify-start items-start 
-        px-x max-lg:px-4
-        pt-24
+        px-6 md:px-12
+        pt-32
         gap-y-28
         fade-in-animation
       ">

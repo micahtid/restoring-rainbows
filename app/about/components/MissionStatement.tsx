@@ -27,7 +27,7 @@ const MissionStatement = () => {
       <div className="
         w-full
         flex justify-center items-center
-        pb-24 pt-36 relative"
+        pb-24 relative"
         style={{
           background: 'linear-gradient(to top, #e3f0ff, #f9fbff)'
         }}>
@@ -46,7 +46,7 @@ const MissionStatement = () => {
         </svg>
         <div 
         className="
-        max-w-max w-full mx-auto px-x 
+        max-w-max w-full mx-auto px-6 md:px-12 pt-32
         flex gap-x-24
         max-xl:gap-x-20 max-lg:gap-x-16 items-center 
         max-lg:flex-col max-lg:gap-y-12 max-md:gap-y-8 
@@ -81,7 +81,7 @@ const MissionStatement = () => {
         </div>
       </div>
 
-      <div className="max-w-max w-full mx-auto px-x py-8 mt-12 flex flex-col justify-start items-start gap-y-12 
+      <div className="max-w-max w-full mx-auto px-6 md:px-12 py-8 mt-12 flex flex-col justify-start items-start gap-y-12 
       fade-in-animation">
         {
           displayData.map((data, index) => (

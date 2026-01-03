@@ -47,7 +47,7 @@ const NavModal: React.FC = () => {
   return (
     <div
       className={`
-        fixed top-0 right-0 flex flex-col w-[100vw] h-[100vh] justify-start items-end gap-y-4 px-x py-4 bg-white shadow-lg backdrop-blur-[5px] z-[13000] scroll cursor-all-scroll
+        fixed top-0 right-0 flex flex-col w-[100vw] h-[100vh] justify-start items-end gap-y-4 px-6 md:px-12 py-4 bg-white shadow-lg backdrop-blur-[5px] z-[13000] scroll cursor-all-scroll
         ${!isOpen && "hidden"}
       `}
     >
@@ -129,7 +129,7 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className={`
-      fixed top-0 flex w-[100vw] h-[75px] justify-center items-center px-x py-4 bg-transparent z-[10000] transition-all duration-300
+      fixed top-0 flex w-[100vw] h-[75px] justify-center items-center px-6 md:px-12 py-4 bg-transparent z-[10000] transition-all duration-300
     `}>
       <div className="flex justify-between items-start gap-x-16 max-w-max w-full">
 

@@ -26,7 +26,7 @@ const WhatAreBranches = () => {
 
       <div className="
         relative z-10
-        max-w-max w-full px-x pt-24 pb-8
+        max-w-max w-full px-6 md:px-12 pt-32 pb-8
         flex flex-col justify-start items-start gap-y-4"
       >
         <Highlight text="What Are" />

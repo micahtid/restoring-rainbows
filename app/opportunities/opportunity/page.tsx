@@ -35,7 +35,7 @@ const OpportunityContent: React.FC<OpportunityContentProps> = ({ opportunities }
   return (
     <div className="
       relative w-full min-h-screen 
-      px-x max-lg:px-4
+      px-6 md:px-12
     ">
 
       <div 
@@ -74,8 +74,8 @@ const OpportunityContent: React.FC<OpportunityContentProps> = ({ opportunities }
         max-w-max w-full mx-auto 
         relative z-10 
         flex flex-col gap-y-6 fade-in-animation 
-        mt-24
-        bg-white px-x py-12 rounded-md
+        mt-32
+        bg-white px-6 md:px-12 py-12 rounded-md
       ">
 
         <a 

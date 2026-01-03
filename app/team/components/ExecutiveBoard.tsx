@@ -17,13 +17,13 @@ const ExecutiveBoard: React.FC<ExecutiveBoardProps> = ({ executiveBoard }) => {
   } = useExecutiveMemberModal();
 
   return (
-    <div className="w-full flex justify-center items-center px-x pb-8"
+    <div className="w-full flex justify-center items-center px-6 md:px-12 pb-8"
     style={{
       background: 'radial-gradient(circle at top center, rgba(243, 226, 202, 0.3), rgba(250, 250, 250, 0.3))'
     }}>
       <div className="max-w-max w-full
       flex flex-col justify-start items-start gap-y-12
-      fade-in-animation pt-24"
+      fade-in-animation pt-32"
       >
           <h3
           className="dynamic-subheading text-header">

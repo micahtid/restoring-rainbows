@@ -26,7 +26,7 @@ const Branches = () => {
         <BranchList branches={branches} />
 
         <div className="max-w-max w-full mx-auto
-        px-x py-8 mb-20">
+        px-6 md:px-12 py-8 mb-20">
           <TakeActionItem
           index={0}
           title={takeActionPageSections[0].title}
