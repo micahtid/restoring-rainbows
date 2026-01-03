@@ -41,7 +41,7 @@ const EventContent: React.FC<EventContentProps> = ({ events }) => {
 
   return (
     <div className="max-w-max mx-auto max-auto 
-    min-h-[400px] px-x mt-24 mb-10 
+    min-h-[400px] px-x pt-24 mb-10 
     flex flex-col gap-y-8 fade-in-animation">
 
       {/* Main Swiper */}

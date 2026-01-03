@@ -143,7 +143,7 @@ const NavBar: React.FC = () => {
             absolute left-0 -top-[15px]" />
           </a>
 
-          {/* Abitrary Values! */}
+          {/* TODO: The width values below are arbitrary and should be reviewed for better responsiveness. */}
           <div className="flex justify-center items-center gap-x-8 w-[90%] max-lg:w-[70%]">
             {extendedNavItems.map((item, index) => (
               <div key={index} className="

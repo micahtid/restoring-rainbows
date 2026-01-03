@@ -74,7 +74,7 @@ const OpportunityContent: React.FC<OpportunityContentProps> = ({ opportunities }
         max-w-max w-full mx-auto 
         relative z-10 
         flex flex-col gap-y-6 fade-in-animation 
-        mt-16 bg-white px-x py-12 rounded-md
+        bg-white px-x py-12 rounded-md
       ">
 
         <a 

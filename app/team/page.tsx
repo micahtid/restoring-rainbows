@@ -19,7 +19,7 @@ const Team = () => {
   }
 
   return (
-    <section className="">
+    <section className="pt-24">
       <ExecutiveBoard executiveBoard={executiveBoard} />
       <Volunteers volunteers={volunteers} />
     </section>

@@ -50,9 +50,8 @@ const Prism = () => {
 
       <div className="
         relative z-10
-        max-w-max w-full mx-auto px-x py-32
-        flex flex-col justify-start items-start"
-      >
+        max-w-max w-full mx-auto px-x pt-24 pb-32
+        flex flex-col justify-start items-start">
         <div className="flex flex-col gap-y-6 mb-16">
           <div className="w-[200px]">
             <Highlight text="Read Our Blogs" />

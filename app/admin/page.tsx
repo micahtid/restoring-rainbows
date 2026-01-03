@@ -32,7 +32,7 @@ const Admin = () => {
     const [activeState, setActiveState] = useState(0);
 
   return (
-    <div className="w-[100vw] mt-24">
+    <div className="w-[100vw] pt-24">
         <div className="h-[80vh] max-w-[1200px] mx-auto py-8 mb-12 max-[1000px]:hidden">
             {adminStatus ? (
                 <div className="w-full h-full flex border border-gray-100">

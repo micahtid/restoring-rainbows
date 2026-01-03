@@ -20,7 +20,7 @@ const Partners = () => {
   } 
 
   return (
-    <section className="">
+    <section className="pt-24">
         <PartnersList partners={partners} />
 
         <div className="max-w-max w-full mx-auto

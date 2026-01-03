@@ -2,7 +2,7 @@ import React from "react"
 
 const ComingSoon = () => {
   return (
-    <div className='px-x py-8
+    <div className='px-x pt-24 pb-8
     max-w-max w-full mx-auto h-[80vh]
     flex justify-center items-center'>
         <h3 className='dynamic-subheading text-header'>Coming Soon!</h3>

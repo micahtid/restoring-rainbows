@@ -21,7 +21,7 @@ const Branches = () => {
   }
 
   return (
-    <section className="">
+    <section className="pt-24">
         <WhatAreBranches />
         <BranchList branches={branches} />
 

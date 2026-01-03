@@ -20,7 +20,7 @@ const Events = () => {
 
   return (
     <div
-      className="w-[100vw] pt-32 pb-24 flex justify-center items-center relative min-h-screen"
+      className="w-[100vw] pt-24 pb-24 flex justify-center items-center relative min-h-screen"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

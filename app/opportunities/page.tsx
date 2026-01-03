@@ -16,7 +16,7 @@ const Opportunities = () => {
   return (
     <div className="
       relative w-full min-h-screen 
-      py-40
+      pt-24 pb-40
     ">
 
       <div 
