@@ -4,7 +4,7 @@ import Map from "@/components/Map";
 const WhatAreBranches = () => {
   return (
     <div className="
-      w-[100vw] pt-32 mb-6
+      w-[100vw] mb-6
       flex justify-center items-center relative"
       style={{
         background: 'linear-gradient(to top, #e3f0ff, #f9fbff)'
@@ -26,7 +26,7 @@ const WhatAreBranches = () => {
 
       <div className="
         relative z-10
-        max-w-max w-full px-x py-8
+        max-w-max w-full px-x pt-24 pb-8
         flex flex-col justify-start items-start gap-y-4"
       >
         <Highlight text="What Are" />

@@ -16,7 +16,7 @@ const Opportunities = () => {
   return (
     <div className="
       relative w-full min-h-screen 
-      pt-24 pb-40
+      pb-40
     ">
 
       <div 
@@ -54,6 +54,7 @@ const Opportunities = () => {
         relative z-10
         flex flex-col justify-start items-start 
         px-x max-lg:px-4
+        pt-24
         gap-y-28
         fade-in-animation
       ">
