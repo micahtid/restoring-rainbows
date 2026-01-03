@@ -16,7 +16,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
 
   return (
     <div className="w-full flex justify-center items-center relative overflow-hidden
-    pb-20"
+    px-6 md:px-12 pb-20"
     style={{
       background: 'radial-gradient(circle at top center, rgba(243, 226, 202, 0.3), rgba(250, 250, 250, 0.3))'
     }}
@@ -44,7 +44,7 @@ const PartnersList: React.FC<PartnersListProps> = ({ partners }) => {
       </svg>
         </div>
       <div className="max-w-max w-full z-20
-      px-6 md:px-12 pt-32
+      pt-32
       flex flex-col justify-start items-start gap-y-16 max-lg:gap-y-4
       fade-in-animation">
         <div className="flex flex-col gap-y-2">

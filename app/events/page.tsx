@@ -20,7 +20,7 @@ const Events = () => {
 
   return (
     <div
-      className="w-[100vw] pb-24 flex justify-center items-center relative min-h-screen"
+      className="w-[100vw] px-6 md:px-12 pb-24 flex justify-center items-center relative min-h-screen"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const Events = () => {
         </g>
       </svg>
 
-      <div className="relative z-10 min-h-[175vh] max-w-max w-full px-6 md:px-12 pt-32 pb-8 flex flex-col justify-start items-start gap-y-8">
+      <div className="relative z-10 min-h-[175vh] max-w-max w-full pt-32 pb-8 flex flex-col justify-start items-start gap-y-8">
         <Highlight text="Filter Our Events" className="-mb-6" />
         <SearchBar />
         <EventDisplay events={events} />
