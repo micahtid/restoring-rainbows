@@ -61,7 +61,7 @@ const BranchContent: React.FC<BranchContentProps> = ({ branches }) => {
   }
 
   return (
-    <div className='px-4 pt-24 pb-20 max-w-max w-full mx-auto 
+    <div className='px-6 md:px-12 pt-32 pb-20 max-w-max w-full mx-auto 
     flex flex-col gap-y-12
     fade-in-animation'>
 

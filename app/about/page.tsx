@@ -3,7 +3,7 @@ import WhyWeMatter from "./components/WhyWeMatter";
 
 const About = () => {
   return (
-    <section className="mb-16 pt-24">
+    <section className="mb-16">
       <MissionStatement />
       {/* <WhyWeMatter /> */}
     </section>

@@ -20,11 +20,11 @@ const Partners = () => {
   } 
 
   return (
-    <section className="pt-24">
+    <section className="">
         <PartnersList partners={partners} />
 
         <div className="max-w-max w-full mx-auto
-        px-x py-8 my-12 max-lg:mt-6">
+        px-6 md:px-12 py-8 my-12 max-lg:mt-6">
           <TakeActionItem
           index={2}
           title={takeActionPageSections[2].title}
